@@ -1,0 +1,333 @@
+<template>
+    <app-header></app-header>
+  
+    <div class="overlay">
+      <h1>Contactez-nous!</h1>
+    </div>
+  
+    <div class="bacgraimage">
+        <img src="../assets/images/baniere.jpeg" alt="Formation 3" class="header-image"/>
+
+      <!-- <img src="@/assets/images/imagecategorie.jpg" alt="Bassine" class="header-image" /> -->
+    </div>
+  
+    <div class="contact-section">
+      <div class="left-column">
+        <p>Contactez-nous pour tout ce qui concerne notre entreprise ou nos services. Nous ferons de notre mieux pour vous répondre dans les plus brefs délais.</p>
+        <div class="bottom-image">
+            <img src="../assets/images/baniere.jpeg" alt="Formation 3" class="header-image"/>
+        </div>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+  
+      <div class="right-column">
+        <form @submit.prevent="sendMessage">
+          <div class="form-group">
+            <label for="fullName">Nom complet</label>
+            <input type="text" id="fullName" v-model="form.fullName" placeholder="Entrez votre nom complet" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" v-model="form.email" placeholder="Entrez votre email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" v-model="form.message" placeholder="Votre message"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit">Envoyer</button>
+          </div>
+        </form>
+  
+        <div class="info-section">
+          <h2>Infos:</h2>
+          <div class="info-item">
+            <i class="fas fa-phone-alt"></i> <span>+221 77 106 5156</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i> <span>bassinen13@gmail.com</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i> <span>Lougre Thioly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <app-footer></app-footer>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        form: {
+          fullName: '',
+          email: '',
+          message: ''
+        }
+      };
+    },
+    methods: {
+      sendMessage() {
+        console.log('Message envoyé:', this.form);
+        alert('Votre message a été envoyé avec succès!');
+        this.form.fullName = '';
+        this.form.email = '';
+        this.form.message = '';
+      }
+    }
+  };
+  </script>
+  
+  <style scoped>
+
+
+
+/* HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHKKKKKKKKKKKKKKKKKKKKKKK */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+.bacgraimage {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.bacgraimage .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    margin-top: 102px;
+}
+h3{
+    margin-top: -18%;
+    font-size: 5rem;
+
+}
+
+.bacgraimage h1 {
+    font-size: 2.5em; /* Taille du titre */
+    z-index: 2;
+    margin-top: 300%;
+}
+
+.header-image {
+    width: 100%;
+    height: 250px; /* Réduction de la taille de l'image en haut */
+    object-fit: cover;
+}
+.contact-section {
+    
+    font-family: Arial, sans-serif;
+    background-color: rgb(187, 212, 193);
+    /* background-image: url('/assets/images/ooiun.jpg'); */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000;
+    padding: 100px;
+
+    display: flex;
+    background-size: cover;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+
+}
+
+.left-column {
+    flex: 1;
+    max-width: 45%;
+    padding: 20px;
+}
+
+.right-column {
+    flex: 1;
+    max-width: 45%;
+    padding: 20px;
+}
+
+h1 {
+  text-align: center;
+    font-size: 3em;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 1.5em; /* Taille des icônes */
+    color: #3F7E44;
+}
+
+.social-icons a:hover {
+    color: #99b959;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: none;
+}
+
+.form-group button {
+    background-color: #3F7E44;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Centrer le bouton */
+    margin: 20px auto 0; /* Centre le bouton avec marge supérieure */
+}
+
+.form-group button:hover {
+    background-color: #99b959;
+}
+
+.info-section {
+    margin-top: 18px; /* Marge pour séparer des autres éléments */
+    display: flex;
+    flex-direction: column; /* Aligne les éléments en colonne */
+    margin-left: 70%; 
+    margin-top: 70px;
+
+
+}
+
+.info-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.info-section .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info-section .info-item i {
+    font-size: 1.5em; /* Taille des icônes d'information */
+    margin-right: 10px;
+}
+.bottom-image {
+    margin-top: 20px;
+}
+
+.bottom-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+/* Responsivité */
+
+/* Tablettes */
+@media (max-width: 900px) {
+  .contact-section {
+      padding: 50px;
+      flex-direction: column; /* Les colonnes deviennent verticales */
+  }
+  .left-column, .right-column {
+      max-width: 100%; /* Prend toute la largeur disponible */
+      padding: 10px;
+  }
+  .info-section {
+      margin-left: 0; /* Centrer l'info-section sur les petits écrans */
+      margin-top: 30px; /* Ajustement du margin-top */
+  }
+  .form-group button {
+      width: 100%; /* Le bouton prend toute la largeur */
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .contact-section {
+      padding: 20px;
+      flex-direction: column; /* Les colonnes deviennent verticales */
+  }
+  .left-column, .right-column {
+      max-width: 100%; /* Prend toute la largeur disponible */
+      padding: 10px;
+  }
+  .form-group button {
+      width: 100%; /* Le bouton prend toute la largeur */
+  }
+  h1 {
+      font-size: 1em; /* Réduction de la taille du titre */
+      margin-top: 30%;
+
+  }
+  
+  p {
+      font-size: 1px; /* Réduction de la taille du texte */
+  }
+  .info-section {
+      margin-left: 0; /* Centrer l'info-section */
+      margin-top: 30px; /* Ajustement du margin-top */
+  }
+  .info-section .info-item i {
+      font-size: 1.2em; /* Diminution des icônes */
+  }
+  .social-icons a {
+      font-size: 1.2em; /* Réduction de la taille des icônes */
+  }
+}
+  </style>
