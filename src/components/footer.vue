@@ -67,7 +67,7 @@ export default {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;  /* conpasssssss */
   margin: auto;
 }
 
@@ -77,7 +77,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding-bottom: 15px;
+  padding-bottom: 18px;
   border-bottom: 2px solid #ff7f00;
 }
 
@@ -104,7 +104,7 @@ export default {
 
 .newsletter-input {
   flex: 1;
-  padding: 10px;
+  padding: 2px;
   border: 2px solid #ff7f00;
   border-radius: 5px;
   font-size: 20px;
@@ -160,7 +160,7 @@ export default {
 }
 
 .footer-links h3 {
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 5px;
 }
 
@@ -189,7 +189,7 @@ export default {
   text-align: center;
   padding-top: 15px;
   border-top: 2px solid #ff7f00;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .copyright a {
