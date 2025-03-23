@@ -1,333 +1,273 @@
 <template>
-    <app-header></app-header>
-  
+  <div>
+    <!-- 🟠 En-tête avec Titre -->
     <div class="overlay">
       <h1>Contactez-nous!</h1>
     </div>
-  
-    <div class="bacgraimage">
-        <img src="../assets/images/baniere.jpeg" alt="Formation 3" class="header-image"/>
 
-      <!-- <img src="@/assets/images/imagecategorie.jpg" alt="Bassine" class="header-image" /> -->
-    </div>
-  
+    <!-- 🟠 Section principale -->
     <div class="contact-section">
+      <!-- 📌 Colonne Gauche : Informations pratiques -->
       <div class="left-column">
-        <p>Contactez-nous pour tout ce qui concerne notre entreprise ou nos services. Nous ferons de notre mieux pour vous répondre dans les plus brefs délais.</p>
-        <div class="bottom-image">
-            <img src="../assets/images/baniere.jpeg" alt="Formation 3" class="header-image"/>
-        </div>
+        <h3>Informations pratiques</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Adresse : 123 Avenue de la Vente, Dakar</p>
+        <p><i class="fas fa-phone"></i> Téléphone : +221 77 123 45 67</p>
+        <p><i class="fas fa-envelope"></i> Email : contact@vendeurpro.com</p>
+        <p><i class="fas fa-clock"></i> Horaires : Lun - Ven, 9h - 18h</p>
+
+        <!-- Réseaux sociaux -->
         <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <h3>Suivez-nous</h3>
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-  
+
+      <!-- 📌 Colonne Droite : Texte et Image -->
       <div class="right-column">
-        <form @submit.prevent="sendMessage">
-          <div class="form-group">
-            <label for="fullName">Nom complet</label>
-            <input type="text" id="fullName" v-model="form.fullName" placeholder="Entrez votre nom complet" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" v-model="form.email" placeholder="Entrez votre email" />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" v-model="form.message" placeholder="Votre message"></textarea>
-          </div>
-          <div class="form-group">
-            <button type="submit">Envoyer</button>
-          </div>
-        </form>
-  
-        <div class="info-section">
-          <h2>Infos:</h2>
-          <div class="info-item">
-            <i class="fas fa-phone-alt"></i> <span>+221 77 106 5156</span>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-envelope"></i> <span>bassinen13@gmail.com</span>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-map-marker-alt"></i> <span>Lougre Thioly</span>
-          </div>
+        <p>Contactez-nous pour toute question sur nos services. Nous répondrons dès que possible.</p>
+        <div class="bottom-image">
+          <img src="../assets/images/baniere.jpeg" alt="Notre équipe en action" />
         </div>
       </div>
     </div>
-  
-    <app-footer></app-footer>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        form: {
-          fullName: '',
-          email: '',
-          message: ''
-        }
-      };
-    },
-    methods: {
-      sendMessage() {
-        console.log('Message envoyé:', this.form);
-        alert('Votre message a été envoyé avec succès!');
-        this.form.fullName = '';
-        this.form.email = '';
-        this.form.message = '';
-      }
-    }
-  };
-  </script>
-  
-  <style scoped>
 
+    <!-- 🟠 Section Formulaire -->
+    <div class="form-section">
+      <form @submit.prevent="sendMessage">
+        <div class="form-group">
+          <label for="fullName">Nom complet</label>
+          <input type="text" id="fullName" v-model="form.fullName" placeholder="Entrez votre nom complet" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" v-model="form.email" placeholder="Entrez votre email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" v-model="form.message" placeholder="Votre message" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
 
+<script setup>
+import { ref } from "vue";
 
-/* HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHKKKKKKKKKKKKKKKKKKKKKKK */
+const form = ref({
+  fullName: "",
+  email: "",
+  message: "",
+});
 
+const sendMessage = () => {
+  console.log("Message envoyé:", form.value);
+  alert("Votre message a été envoyé avec succès !");
+  form.value.fullName = "";
+  form.value.email = "";
+  form.value.message = "";
+};
+</script>
+
+<style scoped>
+/* ✅ RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-
-.bacgraimage {
-    position: relative;
-    text-align: center;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.bacgraimage .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* background: rgba(0, 0, 0, 0.5); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-h2{
-    margin-top: 102px;
-}
-h3{
-    margin-top: -18%;
-    font-size: 5rem;
-
-}
-
-.bacgraimage h1 {
-    font-size: 2.5em; /* Taille du titre */
-    z-index: 2;
-    margin-top: 300%;
-}
-
-.header-image {
-    width: 100%;
-    height: 250px; /* Réduction de la taille de l'image en haut */
-    object-fit: cover;
-}
-.contact-section {
-    
-    font-family: Arial, sans-serif;
-    background-color: rgb(187, 212, 193);
-    /* background-image: url('/assets/images/ooiun.jpg'); */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: #000;
-    padding: 100px;
-
-    display: flex;
-    background-size: cover;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-
-}
-
-.left-column {
-    flex: 1;
-    max-width: 45%;
-    padding: 20px;
-}
-
-.right-column {
-    flex: 1;
-    max-width: 45%;
-    padding: 20px;
-}
-
-h1 {
+/* ✅ EN-TÊTE */
+.overlay {
   text-align: center;
-    font-size: 3em;
-    color: #000;
-    margin-bottom: 20px;
+  padding: 40px 0;
+  background-color: #003366;
+  color: white;
 }
 
-p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    color: #555;
+.overlay h1 {
+  font-size: 2.5em;
 }
 
-.social-icons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-start;
-    gap: 15px;
+/* ✅ SECTION CONTACT */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 5%;
+  background-color: #f9f9f9;
 }
 
-.social-icons a {
-    font-size: 1.5em; /* Taille des icônes */
-    color: #3F7E44;
+/* 📌 COLONNE GAUCHE */
+.left-column {
+  flex: 1;
+  max-width: 45%;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.social-icons a:hover {
-    color: #99b959;
+.left-column h3 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.left-column p {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.left-column i {
+  color: #ff7f00;
+  margin-right: 10px;
+}
+
+/* 📌 COLONNE DROITE */
+.right-column {
+  flex: 1;
+  max-width: 45%;
+  text-align: center;
+}
+
+.right-column p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.bottom-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ✅ FORMULAIRE EN BAS */
+.form-section {
+  text-align: left;
+  padding: 40px 5%;
+  background: white;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .form-group textarea {
-    height: 150px;
-    resize: none;
+  height: 120px;
+  resize: none;
 }
 
 .form-group button {
-    background-color: #3F7E44;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block; /* Centrer le bouton */
-    margin: 20px auto 0; /* Centre le bouton avec marge supérieure */
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .form-group button:hover {
-    background-color: #99b959;
+  background-color: #003366;
 }
 
-.info-section {
-    margin-top: 18px; /* Marge pour séparer des autres éléments */
-    display: flex;
-    flex-direction: column; /* Aligne les éléments en colonne */
-    margin-left: 70%; 
-    margin-top: 70px;
-
-
+/* ✅ RÉSEAUX SOCIAUX */
+.social-icons {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.info-section h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+.social-icon {
+  font-size: 1.8em;
+  color: #003366;
+  margin: 0 15px;
+  transition: color 0.3s, transform 0.3s;
 }
 
-.info-section .info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.social-icon:hover {
+  color: #ff7f00;
+  transform: scale(1.1);
 }
 
-.info-section .info-item i {
-    font-size: 1.5em; /* Taille des icônes d'information */
-    margin-right: 10px;
-}
-.bottom-image {
-    margin-top: 20px;
-}
-
-.bottom-image img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-
-
-/* Responsivité */
-
-/* Tablettes */
+/* ✅ RESPONSIVE DESIGN */
 @media (max-width: 900px) {
   .contact-section {
-      padding: 50px;
-      flex-direction: column; /* Les colonnes deviennent verticales */
+    flex-direction: column;
+    align-items: center;
   }
-  .left-column, .right-column {
-      max-width: 100%; /* Prend toute la largeur disponible */
-      padding: 10px;
+
+  .left-column,
+  .right-column {
+    max-width: 90%;
   }
-  .info-section {
-      margin-left: 0; /* Centrer l'info-section sur les petits écrans */
-      margin-top: 30px; /* Ajustement du margin-top */
-  }
-  .form-group button {
-      width: 100%; /* Le bouton prend toute la largeur */
+
+  form {
+    max-width: 90%;
   }
 }
 
-/* Mobiles */
 @media (max-width: 600px) {
-  .contact-section {
-      padding: 20px;
-      flex-direction: column; /* Les colonnes deviennent verticales */
+  .overlay h1 {
+    font-size: 2em;
   }
-  .left-column, .right-column {
-      max-width: 100%; /* Prend toute la largeur disponible */
-      padding: 10px;
-  }
-  .form-group button {
-      width: 100%; /* Le bouton prend toute la largeur */
-  }
-  h1 {
-      font-size: 1em; /* Réduction de la taille du titre */
-      margin-top: 30%;
 
+  .left-column h3 {
+    font-size: 1.5em;
   }
-  
-  p {
-      font-size: 1px; /* Réduction de la taille du texte */
+
+  .left-column p {
+    font-size: 1em;
   }
-  .info-section {
-      margin-left: 0; /* Centrer l'info-section */
-      margin-top: 30px; /* Ajustement du margin-top */
+
+  .right-column p {
+    font-size: 1em;
   }
-  .info-section .info-item i {
-      font-size: 1.2em; /* Diminution des icônes */
+
+  form {
+    max-width: 100%;
   }
-  .social-icons a {
-      font-size: 1.2em; /* Réduction de la taille des icônes */
+
+  .form-group button {
+    font-size: 1em;
+  }
+
+  .social-icon {
+    font-size: 1.5em;
   }
 }
-  </style>
+</style>

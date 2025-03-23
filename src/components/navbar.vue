@@ -2,9 +2,16 @@
     <nav class="navbar">
     <div class="container">
       <!-- Logo -->
-      <div class="logo">
+      <!-- <div class="logo">
         <img :src="logo" alt="Logo">
-      </div>
+      </div> -->
+
+      <div class="logo">
+  <router-link to="/">
+    <img :src="logo" alt="Logo">
+  </router-link>
+</div>
+
 
       <!-- Menu -->
       <ul class="menu">
@@ -28,13 +35,13 @@ const route = useRoute();
 
 // Liste des menus avec les routes
 const menuItems = [
-  { name: "Accueil", link: "/" },
-  { name: "À propos", link: "/apropos" },
+  // { name: "Accueil", link: "/" },
+  { name: "À Propos", link: "/apropos" },
   { name: "Nos Formations", link: "/formations" },
-  { name: "Coaching", link: "/coaching" },
-  { name: "Webinaire", link: "/webinaire" },
-  { name: "Actualités", link: "/actualites" },
-  { name: "Contact", link: "/contact" },
+  { name: "Offres des Coaching", link: "/coaching" },
+  { name: "Nos Webinaire", link: "/webinaire" },
+  { name: "Nos Ressources", link: "/actualites" },
+  { name: "Nous Contacter", link: "/contact" },
 ];
 
 // Mettre à jour la section active
@@ -98,6 +105,11 @@ watch(route, () => {
     padding: 0.5rem 1rem;
 
   }
+
+
+
+
+  
   /* Lien actif */
 .menu li a.active {
   color: #ff7f00;

@@ -64,7 +64,7 @@
    
    <section id="formations" class="formations-section">
        <div class="formations-container">
-         <h2 class="formations-title">NOS FORMATIONS</h2>
+         <h2 class="formations-title">Découvrez Nos Formation</h2>
          <span class="nav-arrow nav-arrow-left">&#10094;</span> 
    
          <div class="formations-content">
@@ -199,22 +199,7 @@
         </form>
       </div>
 
-      <!-- Informations pratiques -->
-      <div class="contact-info">
-        <h3>Informations pratiques</h3>
-        <p><i class="fas fa-map-marker-alt"></i> Adresse : 123 Avenue de la Vente, Dakar</p>
-        <p><i class="fas fa-phone"></i> Téléphone : +221 77 123 45 67</p>
-        <p><i class="fas fa-envelope"></i> Email : contact@vendeurpro.com</p>
-        <p><i class="fas fa-clock"></i> Horaires : Lun - Ven, 9h - 18h</p>
-
-        <!-- Réseaux sociaux -->
-        <div class="social-icons">
-          <h3>Suivez-nous</h3>
-          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
+     
     </div>
   </section>
 
@@ -534,7 +519,6 @@ const submitForm = () => {
    
    
    
-   /* <!--ici 1ere section  --> */
 
 
 
@@ -712,7 +696,6 @@ const submitForm = () => {
      transition: transform 0.3s ease-in-out;
    }
    
-   /* Ajouter de la fluidité pour le changement de slide */
    
    
    
@@ -1075,81 +1058,7 @@ textarea {
   transform: scale(1.05);
 }
 
-/* --- Informations pratiques avec plus d'espace --- */
-.contact-info {
-  flex: 1;
-  min-width: 320px;
-  max-width: 400px;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;
-}
 
-.contact-info h3 {
-  font-size: 1.6em;
-  margin-bottom: 20px;
-  color: #003366;
-  font-weight: bold;
-}
-
-/* --- Espacement amélioré pour les informations pratiques --- */
-.contact-info p {
-  font-size: 1em;
-  color: #333;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-}
-
-.contact-info i {
-  font-size: 1.3em;
-  color: #ff7f00;
-  margin-right: 12px;
-}
-
-/* --- Espacement entre les sections de texte --- */
-.contact-info p:not(:last-child) {
-  margin-bottom: 15px; /* Ajoute un espace entre chaque ligne */
-}
-
-/* --- Réseaux sociaux avec plus d'espace --- */
-.social-icons {
-  margin-top: 25px;
-  text-align: center;
-}
-
-.social-icons h3 {
-  font-size: 1.4em;
-  margin-bottom: 15px;
-}
-
-.social-icon {
-  font-size: 1.5em;
-  color: #003366;
-  margin: 0 12px;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.social-icon:hover {
-  color: #ff7f00;
-  transform: scale(1.1);
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-form,
-  .contact-info {
-    width: 95%;
-    max-width: 360px;
-  }
-}
 
 
 
