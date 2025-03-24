@@ -1,209 +1,348 @@
 <template>
-  <section id="about">
-    <!-- 🔹 Section Notre Mission -->
-    <div class="section mission">
-      <div class="text-content">
-        <h2>Notre Mission : Former les Vendeurs de Demain</h2>
+  <div>
+    <h1>A propos de nous</h1>
+  </div>
+  
+  <!-- SECTION A PROPOS -->
+  <section class="about-us">
+  </section>
+
+  <!-- SECTION NOTRE MISSION -->
+  <section class="mission">
+    <div class="mission-content">
+      <img src="../assets/images/baniere.jpeg" alt="Notre mission" class="styled-image" />
+      <div class="mission-text">
+        <h2 class="title">Notre Mission : Former les Vendeurs de Demain</h2>
         <p>
-          Chez <strong>VendeurPro</strong>, nous croyons que la vente est un métier passionnant et accessible à tous.
-          Notre mission est de former les commerçants, consultants, étudiants, chômeurs, porteurs de projets et toute personne 
-          désireuse d'acquérir des compétences en vente. Nous vous accompagnons pour maîtriser les techniques modernes de vente et 
-          booster vos résultats professionnels.
+          Chez VendeurPro, nous croyons que la vente est un métier passionnant et accessible à tous. Notre mission est de
+          former les commerçants, consultants, étudiants, chômeurs, porteurs de projets et toute personne désireuse
+          d'acquérir des compétences en vente ou de se lancer dans le métier de vendeur, que ce soit en boutique ou en B2B.
+        </p>
+        <p>
+          Nous vous accompagnons pour maîtriser les techniques de vente modernes, booster vos résultats et réussir dans
+          votre projet professionnel.
         </p>
       </div>
-      <img src="../assets/images/baniere.jpeg" alt="Notre équipe en action" class="mission-image" />
-    </div>
-
-    <!-- 🔹 Section Notre Équipe -->
-    <div class="section equipe">
-      <h2>Rencontrez Notre Équipe d'Experts en Vente</h2>
-      <div class="team-container">
-        <div v-for="(coach, index) in team" :key="index" class="team-card">
-          <!-- <img :src="/images/baniere.jpeg" :alt="coach.nom" class="team-photo" /> -->
-          <img :src="'/images/baniere.jpeg'" :alt="coach.nom" class="team-photo" />
-
-          <h3>{{ coach.nom }}</h3>
-          <p>{{ coach.titre }}</p>
-          <p class="bio">{{ coach.bio }}</p>
-          <a v-if="coach.linkedin" :href="coach.linkedin" target="_blank" class="linkedin-btn">LinkedIn</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🔹 Section Notre Histoire -->
-    <div class="section histoire">
-      <h2>Notre Histoire</h2>
-      <p>
-        <strong>VendeurPro</strong> a été créé en 2024 pour combler le manque de formations en vente au Sénégal.
-        Depuis, nous avons formé plus de <strong>50 professionnels</strong> et accompagné des entreprises pour améliorer leurs performances commerciales.
-      </p>
-      <ul class="chiffres-cles">
-        <li><strong>50+</strong> participants formés</li>
-        <li><strong>90%</strong> de satisfaction</li>
-      </ul>
-    </div>
-
-    <!-- 🔹 Section Témoignages -->
-    <div class="section temoignages">
-      <h2>Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
-      <div class="testimonial-container">
-        <button @click="prevTestimonial" class="nav-btn">❮</button>
-        <div class="testimonial">
-          <img :src="testimonials[currentIndex].img" alt="Témoignage" />
-          <p>"{{ testimonials[currentIndex].text }}"</p>
-          <h4>- {{ testimonials[currentIndex].author }}</h4>
-        </div>
-        <button @click="nextTestimonial" class="nav-btn">❯</button>
-      </div>
-      <button class="cta-button">Rejoignez-les</button>
-    </div>
-
-    <!-- 🔹 Section FAQ -->
-    <div class="section faq">
-      <h2>Questions Fréquentes</h2>
-      <div class="faq-container">
-        <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
-          <h3 @click="toggleFAQ(index)" class="faq-title">{{ item.question }}</h3>
-          <transition name="fade">
-            <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
-          </transition>
-        </div>
-      </div>
-      <button class="cta-button">Contactez-Nous</button>
     </div>
   </section>
+
+<!-- SECTION NOTRE ÉQUIPE -->
+<section class="team">
+  <h2 class="title">Rencontrez Notre Équipe d'Experts en Vente</h2>
+  <div class="team-members">
+    <div class="member">
+      <img src="/images/baniere.jpeg" alt="Jean Dupont" class="styled-card-image" />
+      <h3>Jean Dupont</h3>
+      <p>Expert en vente B2B avec 15 ans d'expérience dans la négociation commerciale.</p>
+      <a href="#">Profil LinkedIn</a>
+    </div>
+    
+    <div class="member">
+      <img src="/images/baniere.jpeg" alt="Sophie Martin" class="styled-card-image" />
+      <h3>Sophie Martin</h3>
+      <p>Coach en vente et en développement personnel, spécialiste en retail.</p>
+      <a href="#">Profil LinkedIn</a>
+    </div>
+    
+    <div class="member">
+      <img src="/images/baniere.jpeg" alt="David Leroy" class="styled-card-image" />
+      <h3>David Leroy</h3>
+      <p>Consultant en stratégie de vente digitale, expert en e-commerce.</p>
+      <a href="#">Profil LinkedIn</a>
+    </div>
+    
+    <div class="member">
+      <img src="/images/baniere.jpeg" alt="Fatou Ndiaye" class="styled-card-image" />
+      <h3>Fatou Ndiaye</h3>
+      <p>Formatrice en techniques de persuasion et fidélisation client.</p>
+      <a href="#">Profil LinkedIn</a>
+    </div>
+  </div>
+  <p class="team-values">Valeurs : Expertise, Pragmatisme, Accompagnement Personnalisé, Accessibilité.</p>
+</section>
+
+<section class="history">
+  <h2 class="title">Notre Histoire</h2>
+  <div class="history-content">
+    <div class="history-text">
+      <p>
+        VendeurPro a été créé en 2024 pour répondre à un besoin crucial : combler le déficit de formations dans les
+        métiers de la vente au Sénégal. Face à l'utilisation majoritaire de méthodes de vente traditionnelles et à la
+        difficulté de trouver des jeunes capables de vendre des solutions, nous avons décidé d'agir.
+      </p>
+      <p>
+        Depuis, nous avons formé des dizaines de professionnels et accompagné un grand nombre d'entreprises dans leur
+        croissance, tout en aidant des étudiants, des chômeurs et des porteurs de projets à se lancer dans le métier de
+        vendeur.
+      </p>
+    </div>
+    <div class="history-image">
+      <img src="/images/baniere.jpeg" alt="Illustration de notre histoire" />
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">
+      <img src="/images/baniere.jpeg" alt="Participants formés" />
+      <p><strong>50+</strong> participants formés</p>
+    </div>
+    <div class="stat-item">
+      <img src="/images/baniere.jpeg" alt="Taux de satisfaction" />
+      <p><strong>90%</strong> de satisfaction</p>
+    </div>
+    <div class="stat-item">
+      <img src="/images/baniere.jpeg" alt="Entreprises accompagnées" />
+      <p>De nombreuses entreprises accompagnées</p>
+    </div>
+  </div>
+</section>
+
+  
+  <!-- SECTION TÉMOIGNAGES -->
+<section class="testimonials">
+  <h2 class="title">Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
+  <div class="testimonial-slider">
+    <div class="testimonial">
+      <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+      <p>"+30% de ventes en 3 mois grâce à VendeurPro !"</p>
+      <span>- Jean Dupont</span>
+    </div>
+    <div class="testimonial">
+      <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+      <p>"Grâce à cette formation, j'ai trouvé un nouvel emploi dans la vente !"</p>
+      <span>- Marie Leclerc</span>
+    </div>
+    <div class="testimonial">
+      <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+      <p>"Fidélisation accrue de mes clients et augmentation de mes revenus !"</p>
+      <span>- Ahmed Sy</span>
+    </div>
+  </div>
+  <button class="cta-button">Rejoignez-les</button>
+</section>
+
+<!-- SECTION FAQ -->
+<section class="faq">
+  <h2 class="title">Questions Fréquentes</h2>
+  <div class="accordion">
+    <div class="question">
+      <h3>Qui peut participer à vos formations ?</h3>
+      <p>Nos formations s'adressent à tous : commerçants, consultants, étudiants, chômeurs, porteurs de projets...</p>
+    </div>
+    <div class="question">
+      <h3>Quel est le format des formations ?</h3>
+      <p>Nous proposons des formations en présentiel et en ligne, adaptées à vos besoins et à votre emploi du temps.</p>
+    </div>
+    <div class="question">
+      <h3>Y a-t-il un suivi après la formation ?</h3>
+      <p>Oui, nous proposons des sessions de coaching individuel pour vous aider à appliquer vos nouvelles compétences.</p>
+    </div>
+    <div class="question">
+      <h3>Comment puis-je m'inscrire ?</h3>
+      <p>Remplissez simplement le formulaire d'inscription sur notre site, et notre équipe vous contactera.</p>
+    </div>
+  </div>
+  <button class="cta-button">Contactez-Nous</button>
+</section>
 </template>
 
-<script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-
-// 🔹 Équipe
-const team = ref([
-  {
-    nom: "Aliou Ba",
-    titre: "Expert en Vente B2B",
-    bio: "10 ans d'expérience dans la vente aux entreprises et le coaching.",
-    photo: "../assets/images/baniere.jpeg",
-    linkedin: "https://linkedin.com/in/aliouba",
-  },
-  {
-    nom: "Fatou Ndiaye",
-    titre: "Coach en Techniques de Vente",
-    bio: "Spécialiste en retail et e-commerce, elle accompagne les entrepreneurs dans leur croissance.",
-    photo: "../assets/images/baniere.jpeg",
-    linkedin: "https://linkedin.com/in/fatoundiaye",
-  },
-]);
-
-// 🔹 Témoignages avec slider
-const testimonials = ref([
-  
-  { img: "/images/baniere.jpeg", text: "Grâce à VendeurPro, j'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
-  { img: "/images/baniere.jpeg", text: "Une formation ultra-pratique qui a boosté mon business.", author: "Aminata Sow" },
-  { img: "/images/baniere.jpeg", text: "Enfin une formation qui enseigne des techniques concrètes et applicables.", author: "Serigne Ndiaye" },
-]);
-
-const currentIndex = ref(0);
-
-const nextTestimonial = () => {
-  currentIndex.value = (currentIndex.value + 1) % testimonials.value.length;
-};
-
-const prevTestimonial = () => {
-  currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
-};
-
-let interval = null;
-onMounted(() => {
-  interval = setInterval(nextTestimonial, 5000);
-});
-onUnmounted(() => {
-  clearInterval(interval);
-});
-
-// 🔹 FAQ interactive
-const faqItems = ref([
-  { question: "Qui peut participer à vos formations ?", answer: "Nos formations s'adressent à tous ceux qui veulent apprendre la vente.", isOpen: false },
-  { question: "Quel est le format des formations ?", answer: "Nous proposons des formations en présentiel et en ligne.", isOpen: false },
-  { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, nous proposons du coaching individuel.", isOpen: false },
-  { question: "Comment puis-je m'inscrire ?", answer: "Remplissez le formulaire d'inscription sur notre site.", isOpen: false },
-]);
-
-const toggleFAQ = (index) => {
-  faqItems.value = faqItems.value.map((item, i) => ({
-    ...item,
-    isOpen: i === index ? !item.isOpen : false,
-  }));
+<script>
+export default {
+  name: "AboutView",
 };
 </script>
 
 <style scoped>
-#about{
-  margin-top: 10%;
-
-}
-
-
-/* Styles généraux */
-.section {
-  padding: 60px 5%;
+ .mission, .team, .history, .testimonials, .faq {
+  margin-top: 5%;
+  background: rgba(0, 51, 102, 0.2);
+  padding: 60px 20px;
   text-align: center;
-  background: #f9f9f9;
-  margin-bottom: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* --- Mission --- */
-.mission {
+.mission-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-}
-.mission img {
-  max-width: 40%;
+  text-align: left;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* --- Équipe --- */
-.team-container {
+.mission-text {
+  width: 55%;
+  padding-right: 20px;
+}
+
+.mission img {
+  width: 40%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  width: 60px;
+  height: 5px;
+  background: linear-gradient(90deg, #ff8c00, #ff2d55, #6c5ce7);
+  display: block;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+
+
+/* NOTRE EQUIPE */
+.team {
+  text-align: center;
+  background: rgba(0, 51, 102, 0.2);
+  padding: 60px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.team-members {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
+  margin-top: 30px;
 }
 
-/* --- Témoignages --- */
-.testimonial-container {
+.member {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 250px;
+  text-align: center;
+}
+
+.styled-card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.team-values {
+  margin-top: 30px;
+  font-weight: bold;
+  color: #003366;
+}
+
+
+
+
+
+/* NOTRE HISTOIRES */
+
+.history {
+  margin-top: 5%;
+  background: rgba(0, 51, 102, 0.2);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.history-content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  text-align: left;
 }
 
-/* --- FAQ --- */
-.faq-item {
+.history-text {
+  width: 55%;
+  padding-right: 20px;
+}
+
+.history-image img {
+  width: 40%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+
+
+
+.testimonials, .faq {
+  margin-top: 5%;
+  background: rgba(0, 51, 102, 0.2);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+.testimonial {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 300px;
+}
+
+.accordion .question {
   background: white;
   padding: 15px;
-  border-radius: 8px;
+  margin-bottom: 10px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-.faq-title {
-  font-size: 1.2em;
-}
-.faq-answer {
-  margin-top: 10px;
-  font-size: 1em;
 }
 
-/* --- CTA --- */
 .cta-button {
-  background: #ff7f00;
-  padding: 12px 20px;
-  font-size: 1.2em;
+  background: linear-gradient(90deg, #ff8c00, #ff2d55);
   color: white;
   border: none;
+  padding: 15px 25px;
+  font-size: 18px;
+  border-radius: 10px;
   cursor: pointer;
-}
-.cta-button:hover {
-  background: #003366;
 }
 </style>
