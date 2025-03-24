@@ -5,8 +5,10 @@
                <p>Des formations pratiques, adaptées au marché local, pour réussir dans la vente de produits et services</p>
                <p>Formations sectorielles, bootcamps intensifs et coaching personnalisé pour booster vos ventes.</p>
          <button>  
-           
-           <a href="produit" class="voirplus">Découvrir nos offres</a>
+          
+          <!-- <router-link to="formations" class="voirplus">Découvrir nos offres</router-link> -->
+
+           <a href="formation" class="voirplus">Découvrir nos offres</a>
    
              <div class="bubble"></div>
              <div class="bubble"></div>
