@@ -5,7 +5,10 @@
         <div class="text-content">
           <h1>📢 Apprenez les Secrets des Pros de la Vente avec Nos Webinaires Gratuits</h1>
           <p>🚀 Découvrez des techniques éprouvées pour booster vos ventes et transformez votre business.</p>
-          <button class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</button>
+          <!-- <button class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</button> -->
+
+          <router-link to="/contact" class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</router-link>
+
         </div>
         <img src="../assets/images/baniere.jpeg" alt="Webinaire en action" class="hero-image" />
       </div>
@@ -20,7 +23,10 @@
             <p>{{ point.text }}</p>
           </div>
         </div>
-        <button class="cta-button">📢 Inscrivez-vous Maintenant</button>
+        <!-- <button class="cta-button">📢 Inscrivez-vous Maintenant</button> -->
+
+        <router-link to="/contact" class="cta-button">📢 Inscrivez-vous Maintenant</router-link>
+
       </div>
   
       <!-- 🎯 PROCHAINS WEBINAIRES -->
@@ -31,7 +37,10 @@
             <h3>{{ webinaire.title }}</h3>
             <p><strong>🕒 Date :</strong> {{ webinaire.date }}</p>
             <p><strong>⏳ Durée :</strong> {{ webinaire.duration }}</p>
-            <button class="cta-button">📝 S'inscrire</button>
+            <!-- <button class="cta-button">📝 S'inscrire</button> -->
+
+            <router-link to="/contact" class="cta-button">📝 S'inscriret</router-link>
+
           </div>
         </div>
       </div>
@@ -48,7 +57,10 @@
           </div>
           <button @click="nextTestimonial" class="nav-btn">❯</button>
         </div>
-        <button class="cta-button">🚀 Rejoignez-les</button>
+        <!-- <button class="cta-button">🚀 Rejoignez-les</button> -->
+
+        <router-link to="/contact" class="cta-button">🚀 Rejoignez-les</router-link>
+
       </div>
   
       <!-- 🎯 FAQ -->
@@ -64,7 +76,10 @@
             </transition>
           </div>
         </div>
-        <button class="cta-button">📩 Inscrivez-vous Maintenant</button>
+        <!-- <button class="cta-button">📩 Inscrivez-vous Maintenant</button> -->
+
+        <router-link to="/contact" class="cta-button">📩 Inscrivez-vous Maintenant</router-link>
+
       </div>
   
       <!-- 🎯 CONTACT -->
@@ -75,7 +90,10 @@
           <input type="email" v-model="form.email" placeholder="Email" required />
           <input type="tel" v-model="form.phone" placeholder="Téléphone" required />
           <textarea v-model="form.message" placeholder="Votre message"></textarea>
-          <button type="submit" class="cta-button">📤 Envoyer un Message</button>
+          <!-- <button type="submit" class="cta-button">📤 Envoyer un Message</button> -->
+
+          <router-link to="/contact" class="cta-button">📤 Envoyer un Message</router-link>
+
         </form>
       </div>
     </section>
@@ -411,6 +429,13 @@ h2{
   border: none;
   cursor: pointer;
   transition: 0.3s;
+
+
+  
+
+text-decoration: none; /* Supprime le soulignement */
+  display: inline-block; /* Évite le léger décalage vertical */
+  text-align: center; /* Centre le texte */
 }
 
 .cta-button:hover {

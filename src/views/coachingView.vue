@@ -5,14 +5,17 @@
       <div class="text-content">
         <h1>🚀 Boostez Vos Compétences avec un Coaching Personnalisé</h1>
         <p>🎯 Atteignez vos objectifs de vente avec un accompagnement sur mesure.</p>
-        <button class="cta-button">📅 Réserver une Séance</button>
+        <!-- <button class="cta-button">📅 Réserver une Séance</button> -->
+
+        <router-link to="/contact" class="cta-button">📅 Réserver une Séance</router-link>
+
       </div>
       <img src="../assets/images/baniere.jpeg" alt="Coaching Vente" class="hero-image" />
     </div>
 
     <!-- 🎯 PROGRAMMES DE COACHING -->
     <div class="section coaching-list">
-      <h2>✨ Choisissez Votre Coaching</h2>
+      <h2 class="titrecoaaching">✨ Choisissez Votre Coaching</h2>
       <div class="coaching-container">
         <div v-for="(coaching, index) in coachingOptions" :key="index" class="coaching-card">
           <h3>{{ coaching.title }}</h3>
@@ -22,7 +25,11 @@
           </ul>
           <p><strong>📅 Durée :</strong> {{ coaching.duration }}</p>
           <p><strong>💰 Tarif :</strong> {{ coaching.price }}</p>
-          <button class="cta-button">📞 Réserver une Séance</button>
+
+          <!-- <button class="cta-button">📞 Réserver une Séance</button> -->
+
+          <router-link to="/contact" class="cta-button">📞 Réserver une Séance</router-link>
+
         </div>
       </div>
     </div>
@@ -40,7 +47,10 @@
           </transition>
         </div>
       </div>
-      <button class="cta-button">📩 Contactez-Nous</button>
+      <!-- <button class="cta-button">📩 Contactez-Nous</button> -->
+
+      <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
+
     </div>
   </section>
 </template>
@@ -111,6 +121,14 @@ const toggleFAQ = (index) => {
   border-radius: 0 0 30px 30px;
 }
 
+.titrecoaaching{
+  text-align: left;
+  font-size: 2rem;
+  line-height: 1.3;
+
+
+}
+
 .hero h1 {
   font-size: 2.5rem;
   line-height: 1.3;
@@ -131,21 +149,41 @@ const toggleFAQ = (index) => {
 .coaching-container {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 12%;  /* Réduction de l'espacement */
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 5%;
+
+  align-items: stretch; /* Aligne les cartes pour qu'elles aient la même hauteur */
+
 }
 
 .coaching-card {
   background: white;
-  padding: 20px;
+  padding: 15px; /* Augmentation du padding pour équilibrer l'espace intérieur */
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 310px;
-  transition: transform 0.3s;
+  max-width: 280px; /* Légère réduction de la largeur */
+  width: 100%; /* Permet d'uniformiser la taille */
+  min-height: 350px; /* Fixe une hauteur minimale pour uniformiser */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Répartit le contenu */
 }
 
+/* Ajuster les éléments intérieurs */
+.coaching-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.coaching-card p {
+  flex-grow: 1; /* Permet au paragraphe de prendre de la place et d'uniformiser les cartes */
+}
+
+.coaching-card button {
+  margin-top: auto; /* Positionne le bouton en bas */
+}
 .coaching-card:hover {
   transform: scale(1.05);
 }
@@ -179,6 +217,10 @@ const toggleFAQ = (index) => {
   font-size: 1.1rem;
   border-radius: 8px;
   transition: 0.3s;
+
+  text-decoration: none; /* Supprime le soulignement */
+  display: inline-block; /* Évite le léger décalage vertical */
+  text-align: center; /* Centre le texte */
 }
 
 .cta-button:hover {
