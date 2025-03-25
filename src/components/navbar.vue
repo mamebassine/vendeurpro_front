@@ -28,7 +28,7 @@
   <script setup>
   import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import logo from '@/assets/images/logo1.JPG';
+import logo from '@/assets/images/logo1.jpg';
 
 // import logo from '../assets/images/logo1.jpg';
 
