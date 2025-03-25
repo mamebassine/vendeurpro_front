@@ -3,19 +3,16 @@
       <!-- 🎯 HERO SECTION -->
       <div class="hero">
         <div class="text-content">
-          <h1>🚀 Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h1>
+          <h1>Nos Formations pour Devenir un Pro de la Vente</h1>
+          <h3>🚀 Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h3>
           <p>🎯 Bootcamps intensifs, formation certifiante et modules à la carte pour booster vos compétences en vente.</p>
-          <button class="cta-button">🎓 Découvrez Nos Formations</button>
         </div>
         <img src="../assets/images/baniere.jpeg" alt="Formation en vente" class="hero-image" />
       </div>
       </section>
 
+    <!-- 🎯 NOS FORMATIONS -->
 
-
-
-  
-      <!-- 🎯 NOS FORMATIONS -->
 <section class="formations">
   <h2>✨ Choisissez la Formation qui Vous Correspond</h2>
   <p>📘 Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
@@ -28,10 +25,16 @@
         <p><strong>Objectifs :</strong> {{ formation.objective }}</p>
         <p><strong>Public cible :</strong> {{ formation.audience }}</p>
         <p><strong>Durée :</strong> {{ formation.duration }}</p>
-        <button class="cta-button">📖 Voir le Programme</button>
-      </div>
+        <!-- <button class="cta-button">📖 Voir le Programme</button> -->
+
+       <!-- 🔗 Bouton de navigation vers la page du programme détaillé -->
+
+        <router-link to="/actualites" class="cta-button">📖 Voir le Programme</router-link>
+
+
+</div>
     </div>
-  </div>
+     </div>
 </section>
 
 <!-- 🎤 TÉMOIGNAGES -->
@@ -46,7 +49,10 @@
     </div>
     <button @click="nextTestimonial" class="nav-btn">❯</button>
   </div>
-  <button class="cta-button">🚀 Rejoignez-les</button>
+  <!-- <button class="cta-button">🚀 Rejoignez-les</button> -->
+  <router-link to="/contact" class="cta-button">🚀 Rejoignez-les</router-link>
+
+
 </section>
 
 <!-- ❓ FAQ -->
@@ -60,7 +66,10 @@
       </transition>
     </div>
   </div>
-  <button class="cta-button">📩 Contactez-Nous</button>
+  <!-- <button class="cta-button">📩 Contactez-Nous</button> -->
+   
+  <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
+
 </section>
 </template>
   
@@ -175,8 +184,7 @@ onUnmounted(() => {
     margin-top: 3%;
 }
 
-
-  /* 🔹 HERO SECTION */
+/* 🔹 HERO SECTION */
   .hero {
     display: flex;
     align-items: center;
@@ -185,19 +193,48 @@ onUnmounted(() => {
     background: linear-gradient(to right, #003366, #ff7f00);
     color: white;
     padding: 60px 5%;
+    
   }
-  
-  .hero h1 span {
-    color: #ffeb3b;
-  }
-  
-  .hero-image {
+.hero-image {
     max-width: 45%;
     border-radius: 20px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   }
+/* ✅ Stylisation des Titres */
+.hero h1 {
+    font-size: 2.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
 
-  /*cartes Formations  */
+.hero h3 {
+    font-size: 2em;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.hero h3 span {
+    color: #ffeb3b;
+    font-weight: bold;
+}
+
+/* ✅ Stylisation du Paragraphe */
+.hero p {
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+
+
+
+/*cartes Formations  */
   
   .formation-list {
   display: flex;
@@ -252,6 +289,11 @@ onUnmounted(() => {
   border-radius: 8px;
   transition: background 0.3s ease-in-out;
   margin-top: auto; /* Force le bouton à rester en bas */
+
+
+  text-decoration: none; /* Supprime le soulignement */
+  display: inline-block; /* Évite le léger décalage vertical */
+  text-align: center; /* Centre le texte */
 }
 
 .cta-button:hover {

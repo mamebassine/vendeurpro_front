@@ -6,11 +6,10 @@
                <p>Formations sectorielles, bootcamps intensifs et coaching personnalisé pour booster vos ventes.</p>
          <button>  
           
-          <!-- <router-link to="formations" class="voirplus">Découvrir nos offres</router-link> -->
-
-           <a href="formation" class="voirplus">Découvrir nos offres</a>
-   
-             <div class="bubble"></div>
+          <router-link to="/formations" class="voirplus"> Découvrir nos offres</router-link>
+          <!-- <a href="/formations" class="voirplus">Découvrir nos offres</a> -->
+            
+          <div class="bubble"></div>
              <div class="bubble"></div>
              <div class="bubble"></div>
              <div class="bubble"></div>
@@ -54,7 +53,10 @@
       </div>
     </div>
 
-    <button class="cta-button">En savoir plus</button>
+    <!-- <button class="cta-button">En savoir plus</button> -->
+    
+    <router-link to="/formations" class="cta-button">En savoir plus</router-link>
+    <!-- <a href="/formations" class="voirplus">Découvrir nos offres</a> -->
   </section>
 
 
@@ -95,7 +97,10 @@
          </div>
    
          <button class="voir-formations-btn">
-           <a href="formations">Voir les formations</a>
+           <a href="/formations">Voir les formations</a>
+
+           <!-- <router-link to="/coaching" class="cta-button">Voir les formations</router-link> -->
+
          </button>
        </div>
      </section>
@@ -119,7 +124,10 @@
       </div>
     </div>
 
-    <button class="cta-button">Contactez-Nous</button>
+    <!-- <button class="cta-button">Contactez-Nous</button> -->
+
+    <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
+
   </section>
    
    
@@ -159,7 +167,10 @@
       ></span>
     </div>
 
-    <button class="cta-button">Rejoignez-les</button>
+    <!-- <button class="cta-button">Rejoignez-les</button> -->
+
+    <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
+
   </section>
    
    
@@ -587,6 +598,11 @@ const submitForm = () => {
   margin-top: 30px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+
+  text-decoration: none; /* Supprime le soulignement */
+  display: inline-block; /* Évite le léger décalage vertical */
+  text-align: center; /* Centre le texte */
+
 }
 
 .cta-button:hover {
@@ -702,16 +718,7 @@ const submitForm = () => {
    
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   /* --- Section FAQ --- */
+ /* --- Section FAQ --- */
 .faq-section {
   padding: 60px 5%;
   text-align: center;
@@ -820,13 +827,6 @@ const submitForm = () => {
   }
 }
 
-   
-   
-   
-   
-   
-   
-   
    
    /* TEMOIGNAGE SECTION */
    /* --- Styles généraux --- */
