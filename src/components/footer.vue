@@ -104,7 +104,9 @@ export default {
 
 .newsletter-input {
   flex: 1;
-  padding: 2px;
+  padding: 8px 10px;
+
+  /* padding: 2px; */
   border: 2px solid #ff7f00;
   border-radius: 5px;
   font-size: 20px;
@@ -221,6 +223,7 @@ export default {
 
   .newsletter-input {
     width: 100%;
+    margin-right: 5%;
   }
 
   .social-icons {
