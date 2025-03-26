@@ -184,13 +184,7 @@
   .why-card, .webinaire-card, .testimonial-card {
     min-height: 280px;
 }
-
-
-
-
-
-
-  /* 🔹 Styles Généraux */
+/* 🔹 Styles Généraux */
 * {
   margin: 0;
   padding: 0;
@@ -276,7 +270,7 @@ h2{
 
 .why-card {
   background: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;

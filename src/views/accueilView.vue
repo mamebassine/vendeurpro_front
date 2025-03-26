@@ -733,7 +733,7 @@ const submitForm = () => {
 
 /* --- Conteneur des questions --- */
 .faq-container {
-  max-width: 800px;
+  max-width: 280%; /*Augmenter le input  */
   margin: auto;
 }
 
@@ -741,9 +741,9 @@ const submitForm = () => {
 .faq-item {
   background: white;
   padding: 15px 20px;
-  margin: 10px 0;
+  margin: 16px 0; /* espace entre les input */
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
   border-left: 5px solid #ff7f00;
