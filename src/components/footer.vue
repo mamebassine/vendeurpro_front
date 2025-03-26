@@ -59,15 +59,15 @@ export default {
 
 <style scoped>
 /* 🎨 Style général */
+
 .footer {
   background-color: #003366;
   color: white;
-  padding: 2px 5px;
   font-family: 'Arial', sans-serif;
 }
 
 .container {
-  max-width: 1100px;  /* conpasssssss */
+  max-width: 1300px;  /* conpasssssss */
   margin: auto;
 }
 
@@ -77,13 +77,15 @@ export default {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding-bottom: 18px;
+  padding-bottom: 16px;
   border-bottom: 2px solid #ff7f00;
 }
 
 /* ✉️ Newsletter */
 .newsletter {
   max-width: 300px;
+  padding-top: 3%;
+
 }
 
 .newsletter h3 {
@@ -141,7 +143,7 @@ export default {
 
 .icons {
   display: flex;
-  gap: 30px;
+  gap: 15px;
 }
 
 .social-icon {
@@ -189,9 +191,9 @@ export default {
 /* 📜 Bas du footer */
 .copyright {
   text-align: center;
-  padding-top: 15px;
+  padding-top: 10px;
   border-top: 2px solid #ff7f00;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .copyright a {

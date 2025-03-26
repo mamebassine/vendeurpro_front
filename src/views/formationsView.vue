@@ -114,7 +114,16 @@ const formations = ref([
         objective: "Formation flexible sur la prospection, négociation et plus encore.",
         audience: "Tout public",
         duration: "1 journée par module"
-      }
+      },
+
+
+      {
+    img: "/images/baniere.jpeg",
+    title: "Coaching Vente et Persuasion",
+    objective: "Améliorez vos compétences en persuasion et en closing.",
+    audience: "Entrepreneurs, commerciaux, négociateurs",
+    duration: "2 jours intensifs"
+  }
     ]);
     
     const voirProgramme = (title) => {
@@ -237,12 +246,12 @@ onUnmounted(() => {
 /*cartes Formations  */
   
   .formation-list {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
   gap: 20px;
-  flex-wrap: wrap;
-
+  justify-items: center;
   margin-top: 3%;
+  
 }
 
 .formation-card {
@@ -252,8 +261,13 @@ onUnmounted(() => {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 280px;
-  width: 90%;
+  width: 100%;
   transition: transform 0.3s ease-in-out;
+  text-align: left;
+  
+
+
+
 
   display: flex;
   flex-direction: column;
@@ -272,11 +286,14 @@ onUnmounted(() => {
   flex-grow: 1; /* Permet aux titres de s'adapter dynamiquement */
   font-size: 1.2em;
   margin: 10px 0;
+  margin-left: 5%;
 }
 
 .formation-card p {
   flex-grow: 1; /* Assure une hauteur homogène pour les descriptions */
   font-size: 1em;
+  margin-left: 5%;
+
 }
 
 .cta-button {
@@ -289,6 +306,8 @@ onUnmounted(() => {
   border-radius: 8px;
   transition: background 0.3s ease-in-out;
   margin-top: auto; /* Force le bouton à rester en bas */
+  margin-left: 7%;
+
 
 
   text-decoration: none; /* Supprime le soulignement */
@@ -329,9 +348,9 @@ onUnmounted(() => {
 .testimonial {
   background: white;
   color: black;
-  padding: 20px;
+  padding: 90px;
   border-radius: 10px;
-  max-width: 400px;
+  max-width: 400%;
   text-align: center;
 }
 
