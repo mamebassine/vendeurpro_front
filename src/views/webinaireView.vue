@@ -104,10 +104,11 @@
   
   // 🔹 Pourquoi participer ?
   const whyPoints = ref([
-    { icon: "fas fa-user-graduate", title: "Expertise", text: "Des formateurs expérimentés et reconnus." },
-    { icon: "fas fa-tools", title: "Contenu Pratique", text: "Des techniques immédiatement applicables." },
-    { icon: "fas fa-gift", title: "Gratuité", text: "Accédez à des conseils de qualité sans engagement." },
-    { icon: "fas fa-comments", title: "Interactivité", text: "Posez vos questions en direct et obtenez des réponses personnalisées." }
+  { icon: "fas fa-comments", title: "Interactivité", text: "Posez vos questions en direct et obtenez des réponses personnalisées." },
+  { icon: "fas fa-user-graduate", title: "Expertise", text: "Des formateurs expérimentés et reconnus." },
+  { icon: "fas fa-gift", title: "Gratuité", text: "Accédez à des conseils de qualité sans engagement." },
+  { icon: "fas fa-tools", title: "Contenu Pratique", text: "Des techniques immédiatement applicables." }
+
   ]);
   
   // 🔹 Prochains webinaires
@@ -217,7 +218,7 @@ h2{
  
     font-size: 2.3rem;
   line-height: 1.3;
-  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
 .hero p {
@@ -261,35 +262,109 @@ h2{
 
 /* 🔹 POURQUOI PARTICIPER */
 .why-list {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-top: 30px;
+  display: flex;   /* Utilisation de Grid pour un agencement flexible */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajustement automatique des colonnes */
+
+  justify-content: center;  /* Centrer les cartes horizontalement */
+  /* flex-wrap: wrap; */
+  margin-top: 70px;  /* Espacement au-dessus de la section */
+
+  gap: 60px;/* Espacement entre les cartes */
 }
 
 .why-card {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 35px; /* Ajout d'espace intérieur pour l'aération */
+  border-radius: 20px; /* Coins arrondis pour un design plus doux */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 280px;
+  min-width: 300px; /* Empêche les cartes de devenir trop petites */
   transition: transform 0.3s ease-in-out;
 }
 
 .why-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px); /* Légère élévation de la carte pour un effet dynamique */
 }
 
 .why-card i {
-  font-size: 2.5rem;
+  font-size: 3rem; /* Icône plus grande pour attirer l'attention */
   color: #ff7f00;
+  margin-bottom: 15px; /* Espacement sous l'icône */
+}
+
+
+
+
+
+/* 🔹 PROCHAINS WEBINAIRES */
+
+/* 🔹 PROCHAINS WEBINAIRES - Conteneur des cartes */
+.webinaire-list {
+  display: grid; /* Utilisation de Grid pour un alignement uniforme */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cartes flexibles */
+  gap: 40px; /* Espacement plus grand entre les cartes */
+  justify-content: center;
+  margin-top: 40px;
+  padding: 20px; /* Ajout d'un peu d'espace autour */
+}
+
+/* 🔹 Style des cartes */
+.webinaire-card {
+  background: white;
+  padding: 30px; /* Plus d’espace à l’intérieur */
+  border-radius: 20px; /* Coins arrondis pour un effet moderne */
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  min-width: 300px;
+  max-width: 350px; /* Taille limite pour un rendu uniforme */
+  border: 2px solid transparent; /* Bordure discrète */
+}
+
+/* 🔹 Effet de survol interactif */
+.webinaire-card:hover {
+  transform: translateY(-5px) scale(1.03); /* Légère élévation et agrandissement */
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
+  border-color: #ff7f00; /* Mise en valeur avec une bordure colorée */
+}
+
+/* 🔹 Style du texte */
+.webinaire-card h3 {
+  font-size: 1.4rem;
+  color: #333;
   margin-bottom: 10px;
 }
 
-/* 🔹 PROCHAINS WEBINAIRES */
-.webinaire-list {
+.webinaire-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* 🔹 Bouton d'inscription */
+.cta-button {
+  display: inline-block;
+  background: #ff7f00;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* 🔹 Effet au survol du bouton */
+.cta-button:hover {
+  background: #e06b00;
+  transform: scale(1.05);
+}
+
+
+
+
+/* .webinaire-list {
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -309,10 +384,127 @@ h2{
 
 .webinaire-card:hover {
   transform: scale(1.05);
-}
+} */
+
+
+
+
+
+
+
 
 /* 🔹 TÉMOIGNAGES */
+
+/* 🔹 TÉMOIGNAGES - Conteneur principal */
 .testimonial-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Espacement équilibré */
+  margin-top: 40px;
+  flex-wrap: wrap; /* S’adapte aux écrans plus petits */
+}
+
+/* 🔹 Carte de témoignage */
+.testimonial-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.1);
+  max-width: 1000px; /* ✅ Largeur maximale définie */
+  min-width: 320px; /* ✅ Évite que la carte soit trop petite */
+  width: 100%; /* ✅ S’adapte aux écrans plus petits */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 🔹 Effet au survol */
+.testimonial-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 Image du témoignage */
+.testimonial-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Cercle parfait */
+  margin-bottom: 15px;
+  border: 4px solid #ff7f00; /* Bordure colorée pour l’effet visuel */
+  object-fit: cover;
+}
+
+/* 🔹 Texte du témoignage */
+.testimonial-card p {
+  font-size: 1.2rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* 🔹 Auteur du témoignage */
+.testimonial-card h4 {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+/* 🔹 Boutons de navigation */
+.nav-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ff7f00;
+  transition: color 0.3s, transform 0.2s;
+}
+
+/* 🔹 Effet au survol des boutons */
+.nav-btn:hover {
+  color: #e06b00;
+  transform: scale(1.2);
+}
+
+/* 🔹 Bouton d'inscription */
+.cta-button {
+  display: inline-block;
+  background: #ff7f00;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* 🔹 Effet au survol du bouton */
+.cta-button:hover {
+  background: #e06b00;
+  transform: scale(1.05);
+}
+
+/* 🔹 Responsivité */
+@media (max-width: 768px) {
+  .testimonial-container {
+    flex-direction: column; /* Stack en colonne pour mobile */
+    gap: 20px;
+  }
+
+  .nav-btn {
+    font-size: 1.5rem; /* Boutons plus petits sur mobile */
+  }
+
+  .testimonial-card {
+    max-width: 90%; /* ✅ Largeur ajustée pour mobile */
+  }
+}
+
+
+
+
+/* .testimonial-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -338,13 +530,16 @@ h2{
   width: 40%;
   border-radius: 30%;
   margin-bottom: 34px;
-}
+} */
+
+
 
 /* 🔹 FAQ */
 .faq-container {
-  max-width: 800px;
+  max-width: 85%;
   margin: auto;
   text-align: left;
+  margin-top: 5%;
 }
 
 .faq-item {
@@ -357,10 +552,14 @@ h2{
 }
 
 .faq-title {
-  font-size: 1.2rem;
+  margin-top: 13px;
+
+  font-size: 1.3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #003366;
+
 }
 
 .faq-answer {
@@ -372,52 +571,77 @@ h2{
   background: #f1f1f1;
 }
 
+
+
+
 /* 🔹 FORMULAIRE DE CONTACT */
+
 .contact-form {
-  max-width: 500px;
+  max-width: 600px; /* ✅ Augmentation de la largeur */
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); /* ✅ Ombre légère pour un effet moderne */
 }
 
+/* 🔹 Champs de saisie */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: 2px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1rem;
+  transition: 0.3s ease-in-out;
 }
 
+/* 🔹 Effet au survol & focus */
+.contact-form input:hover,
+.contact-form textarea:hover,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ff7f00; /* ✅ Bordure colorée au focus */
+  box-shadow: 0px 0px 8px rgba(255, 127, 0, 0.3);
+  outline: none;
+}
+
+/* 🔹 Champ de texte plus grand */
 .contact-form textarea {
-  height: 120px;
+  height: 140px;
   resize: none;
 }
 
-.contact-form button {
+/* 🔹 Bouton d’envoi */
+.cta-button {
+  display: inline-block;
   background: #ff7f00;
   color: white;
-  padding: 12px 20px;
+  padding: 14px 25px;
+  border-radius: 10px;
   font-size: 1.2rem;
   font-weight: bold;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
+  text-align: center;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.contact-form button:hover {
-  background: #003366;
+/* 🔹 Effet au survol du bouton */
+.cta-button:hover {
+  background: #e06b00;
+  transform: scale(1.05);
 }
+
+
 
 /* 🔹 BOUTONS GÉNÉRAUX */
 .cta-button {
-    margin-top: 15px;
-
+  margin-top: 50px; /* Espacement au-dessus du bouton */
   background: #ff7f00;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 20px; /* Taille du bouton adaptée pour une meilleure interaction */
   font-size: 1.2rem;
   border-radius: 8px;
   border: none;
@@ -425,33 +649,25 @@ h2{
   transition: 0.3s;
 
 
-  
-
 text-decoration: none; /* Supprime le soulignement */
-  display: inline-block; /* Évite le léger décalage vertical */
-  text-align: center; /* Centre le texte */
+display: inline-block; /* Évite le léger décalage vertical */
+text-align: center; /* Centre le texte */
+
+display: inline-block; /* Permet d'ajouter du padding autour du texte */
+
 }
 
 .cta-button:hover {
   background: #003366;
 }
 
-/* 🔹 RESPONSIVE DESIGN */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-  .hero img {
-    max-width: 80%;
-    margin-top: 20px;
-  }
-  .why-list,
-  .webinaire-list {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Assurer un espacement uniforme entre les sections */
+.section {
+  padding: 80px 10%; /* Uniformiser l’espacement interne */
+  min-height: 600px; /* Ajuste selon ton besoin */
 }
+
+
 
   </style>
   
