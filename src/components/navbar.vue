@@ -28,7 +28,7 @@
   <script setup>
   import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import logo from '@/assets/images/logo3.jpg';
+import logo from '@/assets/images/logobas.jpg';
 
 // import logo from '../assets/images/logo1.jpg';
 
@@ -38,12 +38,13 @@ const route = useRoute();
 // Liste des menus avec les routes
 const menuItems = [
   // { name: "Accueil", link: "/" },
-  { name: "À Propos", link: "/apropos" },
-  { name: "Nos Formations", link: "/formations" },
-  { name: "Offres des Coaching", link: "/coaching" },
-  { name: "Nos Webinaire", link: "/webinaire" },
-  { name: "Nos Ressources", link: "/actualites" },
-  { name: "Nous Contacter", link: "/contact" },
+  { name: "Se former", link: "/formations" },
+  { name: "Coaching Pro", link: "/coaching" },
+  { name: "Webinaire", link: "/webinaire" },
+  { name: "Le lab", link: "/actualites" },
+  { name: "Notre ADN", link: "/apropos" },
+
+  { name: "?", link: "/contact" },
 ];
 
 // Mettre à jour la section active
@@ -102,7 +103,7 @@ watch(route, () => {
     text-decoration: none;
     color:#ffff;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1.1rem;
     transition: color 0.3s ease-in-out;
     padding: 0.5rem 1rem;
 
