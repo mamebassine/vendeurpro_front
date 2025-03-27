@@ -185,6 +185,7 @@ onUnmounted(() => {
 
 
 <style scoped>
+
 #formations{
     margin-top: 9%;
 }
@@ -210,13 +211,15 @@ onUnmounted(() => {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   }
 /* ✅ Stylisation des Titres */
-.hero h1 {
-    font-size: 2.9em;
+.hero h1 , h2{
+    font-size: 2.4em;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
+    text-align: center;
 }
+
 
 .hero h3 {
     font-size: 2em;
@@ -239,9 +242,13 @@ onUnmounted(() => {
     margin: 0 auto;
 }
 
+.formation , p {
+  text-align: center;
+  font-size: 1.2em;
 
 
 
+}
 
 /*cartes Formations  */
   
@@ -253,7 +260,6 @@ onUnmounted(() => {
   margin-top: 3%;
   
 }
-
 .formation-card {
   background: white;
   padding: 15px;
@@ -265,9 +271,6 @@ onUnmounted(() => {
   transition: transform 0.3s ease-in-out;
   text-align: left;
   
-
-
-
 
   display: flex;
   flex-direction: column;
@@ -320,8 +323,7 @@ onUnmounted(() => {
 }
 
 .formation-card:hover{
-
-    background: #d5a371;
+background: #d5a371;
 
 }
 
@@ -378,7 +380,6 @@ onUnmounted(() => {
 .faq {
   text-align: center;
   padding: 60px 5%;
-
   margin-top: 3%;
 
 }

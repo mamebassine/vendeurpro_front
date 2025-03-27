@@ -36,7 +36,7 @@
 
     <!-- 🎯 FAQ -->
     <div class="section faq">
-      <h2>❓ Questions Fréquentes</h2>
+      <h2 class="questionsFréquentes">❓ Questions Fréquentes</h2>
       <div class="faq-container">
         <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
           <h3 @click="toggleFAQ(index)" class="faq-title">
@@ -122,11 +122,21 @@ const toggleFAQ = (index) => {
 }
 
 .titrecoaaching{
-  text-align: left;
-  font-size: 2rem;
-  line-height: 1.3;
+  /* text-align: left;
+  font-size: 2.5rem;
+  line-height: 1.3; */
 
+  font-size: 2.5em;
+  color: #003366;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
 
+.questionsFréquentes{
+    font-size: 2.5em;
+  color: #003366;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .hero h1 {
