@@ -216,9 +216,14 @@ body {
 }
 h2{
  
-    font-size: 2.3rem;
+    /* font-size: 2.3rem;
   line-height: 1.3;
-  margin-bottom: 2%;
+  margin-bottom: 2%; */
+
+  font-size: 2.5em;
+  color: #003366;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .hero p {

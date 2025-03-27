@@ -18,12 +18,9 @@
        </div>
         <img src="../assets/images/baniere.jpeg" alt="">
    </section>
-   
-   <!--ici 1ere section  -->
+<!--ici 1ere section  -->
 
-
-
- <!-- Section Pourquoi choisir VendeurPro -->
+<!-- Section Pourquoi choisir VendeurPro -->
  <section id="why-vendeurpro">
     <h2>Pourquoi Nos Formations Font la Différence</h2>
 
@@ -221,12 +218,6 @@
    
    
    
-   
-   
-   
-   
-   
-   
    <script setup>
    
    import { ref, onMounted, onUnmounted } from 'vue';
@@ -371,20 +362,8 @@ const submitForm = () => {
    
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   <style scoped>
-
-
-
-   
-   /* Section Hero*/
+  <style scoped>
+/* Section Hero*/
    .body {
      font-family: 'Roboto', sans-serif;
      margin: 0;
@@ -529,12 +508,6 @@ const submitForm = () => {
      transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
    }
    
-   
-   
-   
-
-
-
 /* Section Pourquoi choisir VendeurPro */
 #why-vendeurpro {
   text-align: center;
@@ -611,22 +584,7 @@ const submitForm = () => {
   transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .why-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .why-item {
-    width: 80%;
-  }
-}
-
-
-
-
-   
+  
    /* Section NOS FORMATIONS */
    .formations-section {
      background-color: #000;
@@ -639,6 +597,7 @@ const submitForm = () => {
      text-align: center;
      font-size: 2.5em;
      margin-bottom: 9%;
+     color: #ffffff;
    }
    
    .formations-container {
@@ -714,11 +673,7 @@ const submitForm = () => {
      transition: transform 0.3s ease-in-out;
    }
    
-   
-   
-   
-   
- /* --- Section FAQ --- */
+/* --- Section FAQ --- */
 .faq-section {
   padding: 60px 5%;
   text-align: center;
@@ -726,8 +681,9 @@ const submitForm = () => {
 }
 
 .faq-section h2 {
-  font-size: 2.2em;
-  margin-bottom: 20px;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-weight: bold;
   color: #003366;
 }
 
@@ -808,27 +764,7 @@ const submitForm = () => {
   transform: scale(1.05);
 }
 
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .faq-container {
-    width: 90%;
-  }
-
-  .faq-title {
-    font-size: 16px;
-  }
-
-  .faq-answer {
-    font-size: 14px;
-  }
-
-  .cta-button {
-    font-size: 1em;
-  }
-}
-
-   
-   /* TEMOIGNAGE SECTION */
+/* TEMOIGNAGE SECTION */
    /* --- Styles généraux --- */
    .testimonials-section {
      text-align: center;
@@ -840,10 +776,10 @@ const submitForm = () => {
    
    /* --- Titre --- */
    .title {
-     font-size: 2rem;
+     font-size: 2.5rem;
      font-weight: bold;
      margin-bottom: 20px;
-     color: #000;
+     color: #003366;
    }
    
    /* --- Wrapper des témoignages --- */
@@ -976,10 +912,11 @@ const submitForm = () => {
 }
 
 .contact-section h2 {
-  font-size: 2.4em;
+  font-size: 2.5em;
   color: #003366;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
   font-weight: bold;
+
 }
 
 /* --- Conteneur principal --- */
@@ -1066,6 +1003,12 @@ textarea {
 .section {
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
+}
+h2{
+  font-size: 2.5em;
+  color: #003366;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
    </style>
