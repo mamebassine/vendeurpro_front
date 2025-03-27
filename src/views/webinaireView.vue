@@ -407,7 +407,6 @@ h2{
   justify-content: center;
   gap: 40px; /* Espacement équilibré */
   margin-top: 40px;
-  flex-wrap: wrap; /* S’adapte aux écrans plus petits */
 }
 
 /* 🔹 Carte de témoignage */
@@ -421,6 +420,10 @@ h2{
   min-width: 320px; /* ✅ Évite que la carte soit trop petite */
   width: 100%; /* ✅ S’adapte aux écrans plus petits */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  align-items: center; /* ✅ Centre tous les éléments horizontalement */
+  flex-direction: column; /* ✅ Assure un alignement vertical */
+
 }
 
 /* 🔹 Effet au survol */
@@ -431,12 +434,14 @@ h2{
 
 /* 🔹 Image du témoignage */
 .testimonial-img {
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%; /* Cercle parfait */
   margin-bottom: 15px;
-  border: 4px solid #ff7f00; /* Bordure colorée pour l’effet visuel */
+  border: 2px solid #ff7f00; /* Bordure colorée pour l’effet visuel */
   object-fit: cover;
+  display: block; /* ✅ Assure que l’image reste un bloc centré */
+margin-left: 42%;
 }
 
 /* 🔹 Texte du témoignage */
@@ -489,25 +494,6 @@ h2{
   background: #e06b00;
   transform: scale(1.05);
 }
-
-/* 🔹 Responsivité */
-@media (max-width: 768px) {
-  .testimonial-container {
-    flex-direction: column; /* Stack en colonne pour mobile */
-    gap: 20px;
-  }
-
-  .nav-btn {
-    font-size: 1.5rem; /* Boutons plus petits sur mobile */
-  }
-
-  .testimonial-card {
-    max-width: 90%; /* ✅ Largeur ajustée pour mobile */
-  }
-}
-
-
-
 
 /* .testimonial-container {
   display: flex;
