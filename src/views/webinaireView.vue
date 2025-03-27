@@ -218,7 +218,7 @@ h2{
  
     font-size: 2.3rem;
   line-height: 1.3;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
 .hero p {
@@ -663,8 +663,8 @@ display: inline-block; /* Permet d'ajouter du padding autour du texte */
 
 /* Assurer un espacement uniforme entre les sections */
 .section {
-  padding: 80px 10%; /* Uniformiser l’espacement interne */
-  min-height: 600px; /* Ajuste selon ton besoin */
+  padding: 20px 5%; /* Uniformiser l’espacement interne */
+  min-height: 300px; /* Ajuste selon ton besoin */
 }
 
 

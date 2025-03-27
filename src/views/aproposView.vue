@@ -345,4 +345,11 @@ export default {
   border-radius: 10px;
   cursor: pointer;
 }
+
+
+/* Assurer un espacement uniforme entre les sections */
+.section {
+  padding: 20px 5%; /* Uniformiser l’espacement interne */
+  min-height: 300px; /* Ajuste selon ton besoin */
+}
 </style>

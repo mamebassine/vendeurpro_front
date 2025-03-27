@@ -426,11 +426,10 @@ onUnmounted(() => {
   background: #003366;
 }
 
-@media (max-width: 900px) {
-  .formation-list {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Assurer un espacement uniforme entre les sections */
+.section {
+  padding: 20px 5%; /* Uniformiser l’espacement interne */
+  min-height: 300px; /* Ajuste selon ton besoin */
 }
   </style>
   
