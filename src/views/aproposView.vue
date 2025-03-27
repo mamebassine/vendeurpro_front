@@ -1,30 +1,53 @@
 <template>
-  <div>
-    <h1>A propos de nous</h1>
-  </div>
-  
-  <!-- SECTION A PROPOS -->
-  <section class="about-us">
-  </section>
+ 
+ 
 
-  <!-- SECTION NOTRE MISSION -->
-  <section class="mission">
-    <div class="mission-content">
-      <img src="../assets/images/baniere.jpeg" alt="Notre mission" class="styled-image" />
-      <div class="mission-text">
-        <h2 class="title">Notre Mission : Former les Vendeurs de Demain</h2>
-        <p>
-          Chez VendeurPro, nous croyons que la vente est un métier passionnant et accessible à tous. Notre mission est de
-          former les commerçants, consultants, étudiants, chômeurs, porteurs de projets et toute personne désireuse
-          d'acquérir des compétences en vente ou de se lancer dans le métier de vendeur, que ce soit en boutique ou en B2B.
-        </p>
-        <p>
-          Nous vous accompagnons pour maîtriser les techniques de vente modernes, booster vos résultats et réussir dans
-          votre projet professionnel.
-        </p>
-      </div>
+<section>
+ <div class="max-w-screen-xl mx-auto p-45 sm:p-10 md:p-16 relative">
+    <div class="bg-cover bg-center text-center overflow-hidden"
+        style="min-height: 500px; background-image: url('/images/baniere.jpeg')"
+        title="Woman holding a mug">
     </div>
-  </section>
+    <div class="max-w-3xl mx-auto">
+        <div
+            class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+            <div class="bg-blue-100 relative top-0 -mt-32 p-5 sm:p-10">
+                <h1 href="#" class="text-gray-990 font-bold text-4xl mb-2">Notre Mission : Former les Vendeurs de Demain</h1>
+                <p class="text-gray-700 text-xs mt-2">Avec des formations:
+                    <a href="#"
+                        class="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
+                        utiles
+                    </a> Tres
+                    <a href="#"
+                        class="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
+                        Pratique
+                    </a>,
+                    <a href="#"
+                        class="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
+                        Et d'actualites aussi.
+                    </a>
+
+                </p>
+
+                <p class="text-base leading-1 my-5">
+                  Chez <strong> VendeurPro</strong>, nous croyons que la vente est un métier passionnant et accessible à tous. 
+                  Notre mission est de former les commerçants, consultants, étudiants, chômeurs, 
+                  porteurs de projets et toute personne désireuse d'acquérir des compétences en vente ou
+                   de se lancer dans le métier de vendeur, que ce soit en boutique ou en B2B.
+
+                   Nous vous accompagnons pour maîtriser les techniques de vente modernes,
+                    booster vos résultats et réussir dans votre projet professionnel.
+                </p>
+             </div>
+
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+ 
 
 <!-- SECTION NOTRE ÉQUIPE -->
 <section class="team">
@@ -153,6 +176,11 @@ export default {
 </script>
 
 <style scoped>
+.lamission{
+  margin-top: 42%;
+}
+
+
  .mission, .team, .history, .testimonials, .faq {
   margin-top: 5%;
   background: rgba(0, 51, 102, 0.2);
@@ -213,6 +241,7 @@ export default {
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
+  
 }
 
 .team-members {
