@@ -343,8 +343,8 @@ background: #d5a371;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 40px; /* Espacement équilibré */
+  margin-top: 40px;
 }
 
 .testimonial {
@@ -357,10 +357,16 @@ background: #d5a371;
 }
 
 .testimonial img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%; /* Cercle parfait */
+  margin-bottom: 15px;
+  border: 2px solid #ff7f00; /* Bordure colorée pour l’effet visuel */
   object-fit: cover;
+  display: block; /* ✅ Assure que l’image reste un bloc centré */
+margin-left: 40%;;
+
+  
 }
 
 .nav-btn {
@@ -375,6 +381,8 @@ background: #d5a371;
 .nav-btn:hover {
   transform: scale(1.2);
 }
+
+
 
 /* 🔹 FAQ */
 .faq {
