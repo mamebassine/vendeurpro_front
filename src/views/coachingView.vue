@@ -227,22 +227,10 @@ const toggleFAQ = (index) => {
   background: #003366;
 }
 
-/* 🔹 RESPONSIVE */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 50px 6%;
-  }
 
-  .hero-image {
-    max-width: 100%;
-    margin-top: 20px;
-  }
-
-  .coaching-container {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Assurer un espacement uniforme entre les sections */
+.section {
+  padding: 20px 5%; /* Uniformiser l’espacement interne */
+  min-height: 300px; /* Ajuste selon ton besoin */
 }
 </style>
