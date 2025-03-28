@@ -3,8 +3,8 @@
       <!-- 🎯 HERO SECTION -->
       <div class="hero">
         <div class="text-content">
-          <h1>📢 Apprenez les Secrets des Pros de la Vente avec Nos Webinaires Gratuits</h1>
-          <p>🚀 Découvrez des techniques éprouvées pour booster vos ventes et transformez votre business.</p>
+          <h1> Apprenez les Secrets des Pros de la Vente avec Nos Webinaires Gratuits</h1>
+          <p>Découvrez des techniques éprouvées pour booster vos ventes et transformez votre business.</p>
           <!-- <button class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</button> -->
 
           <router-link to="/contact" class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</router-link>
@@ -15,7 +15,7 @@
   
       <!-- 🎯 POURQUOI PARTICIPER -->
       <div class="section why-webinaires">
-        <h2>✨ Pourquoi Nos Webinaires Font la Différence ?</h2>
+        <h2>Pourquoi Nos Webinaires Font la Différence ?</h2>
         <div class="why-list">
           <div class="why-card" v-for="(point, index) in whyPoints" :key="index">
             <i :class="point.icon"></i>
@@ -47,7 +47,7 @@
   
       <!-- 🎯 TÉMOIGNAGES -->
       <div class="section temoignages">
-        <h2>🎤 Ce Que Disent Nos Participants</h2>
+        <h2> Ce Que Disent Nos Participants</h2>
         <div class="testimonial-container">
           <button @click="prevTestimonial" class="nav-btn">❮</button>
           <div class="testimonial-card">
@@ -65,7 +65,7 @@
   
       <!-- 🎯 FAQ -->
       <div class="section faq">
-        <h2>❓ Questions Fréquentes</h2>
+        <h2> Questions Fréquentes</h2>
         <div class="faq-container">
           <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
             <h3 @click="toggleFAQ(index)" class="faq-title">

@@ -2,7 +2,7 @@
  
  
 
-<section>
+<section class="lamission">
  <div class="max-w-screen-xl mx-auto p-45 sm:p-10 md:p-16 relative">
     <div class="bg-cover bg-center text-center overflow-hidden"
         style="min-height: 500px; background-image: url('/images/baniere.jpeg')"
@@ -176,9 +176,15 @@ export default {
 </script>
 
 <style scoped>
+
 .lamission{
-  margin-top: 42%;
+  margin-top: 5%;
+
+  padding: 20px 5%; /* Uniformiser l’espacement interne */
+  min-height: 300px; /* Ajuste selon ton besoin */
 }
+
+
 
 
  .mission, .team, .history, .testimonials, .faq {
@@ -375,10 +381,4 @@ export default {
   cursor: pointer;
 }
 
-
-/* Assurer un espacement uniforme entre les sections */
-.section {
-  padding: 20px 5%; /* Uniformiser l’espacement interne */
-  min-height: 300px; /* Ajuste selon ton besoin */
-}
 </style>

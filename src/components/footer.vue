@@ -27,7 +27,7 @@
 
       <div class="footer-middle">
         <div class="footer-links">
-          <h3>🚀 Liens utiles</h3>
+          <h3>Liens utiles</h3>
           <ul>
             <li><a href="#">Accueil</a></li>
             <li><a href="#">Formations</a></li>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="footer-links">
-          <h3>⚖️ Mentions légales</h3>
+          <h3>Mentions légales</h3>
           <ul>
             <li><a href="#">Politique de confidentialité</a></li>
             <li><a href="#">Conditions générales</a></li>

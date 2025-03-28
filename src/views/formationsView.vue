@@ -4,7 +4,7 @@
       <div class="hero">
         <div class="text-content">
           <h1>Nos Formations pour Devenir un Pro de la Vente</h1>
-          <h3>🚀 Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h3>
+          <h3>Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h3>
           <p>🎯 Bootcamps intensifs, formation certifiante et modules à la carte pour booster vos compétences en vente.</p>
         </div>
         <img src="../assets/images/baniere.jpeg" alt="Formation en vente" class="hero-image" />
@@ -14,7 +14,7 @@
     <!-- 🎯 NOS FORMATIONS -->
 
 <section class="formations">
-  <h2>✨ Choisissez la Formation qui Vous Correspond</h2>
+  <h2>Choisissez la Formation qui Vous Correspond</h2>
   <p>📘 Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
   
   <div class="formation-list">
@@ -39,7 +39,7 @@
 
 <!-- 🎤 TÉMOIGNAGES -->
 <section class="temoignages">
-  <h2>🚀 Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
+  <h2> Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
   <div class="testimonial-container">
     <button @click="prevTestimonial" class="nav-btn">❮</button>
     <div class="testimonial">
