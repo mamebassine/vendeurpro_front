@@ -2,19 +2,18 @@
     <section id="hero">
        <div class="text-content">
            <h1>Devenez un expert de la vente et boostez vos revenus !</h1>
-               <p>Des formations pratiques, adaptées au marché local, pour réussir dans la vente de produits et services</p>
-               <p>Formations sectorielles, bootcamps intensifs et coaching personnalisé pour booster vos ventes.</p>
-         <button>  
-          
-          <router-link to="/formations" class="voirplus"> Découvrir nos offres</router-link>
+            <strong>
+              <h5>Des formations pratiques, adaptées au marché local, pour réussir dans la vente de produits et services</h5>
+            </strong>               
+            <p>Formations sectorielles, bootcamps intensifs et coaching personnalisé pour booster vos ventes.</p>
+              <button>  
+              <router-link to="/formations" class="voirplus"> Découvrir nos offres</router-link>
           <!-- <a href="/formations" class="voirplus">Découvrir nos offres</a> -->
-            
-          <div class="bubble"></div>
+            <div class="bubble"></div>
              <div class="bubble"></div>
              <div class="bubble"></div>
              <div class="bubble"></div>
-           
-         </button>
+           </button>
        </div>
         <img src="../assets/images/baniere.jpeg" alt="">
    </section>
@@ -49,19 +48,11 @@
         <p>Accompagnement individuel pour réussir.</p>
       </div>
     </div>
-
     <!-- <button class="cta-button">En savoir plus</button> -->
-    
     <router-link to="/formations" class="cta-button">En savoir plus</router-link>
     <!-- <a href="/formations" class="voirplus">Découvrir nos offres</a> -->
   </section>
-
-
-
-
-
-   
-   <!-- SECTION FORMATION -->
+  <!-- SECTION FORMATION -->
    
    <section id="formations" class="formations-section">
        <div class="formations-container">
@@ -73,43 +64,34 @@
              <img src="../assets/images/baniere.jpeg" alt="Formation 1" class="formation-image"/>
              <h3 class="formation-card-title">Formation en Ecommerce</h3>
              <p class="formation-card-text">Apprenez les bases du développement web et devenez un expert en front-end.</p>
-            
-           </div>
+            </div>
    
            <div class="formation-card">
              <img src="../assets/images/baniere.jpeg" alt="Formation 2" class="formation-image"/>
              <h3 class="formation-card-title">Formation BoostezJOb</h3>
              <p class="formation-card-text">Maîtrisez le développement backend avec des technologies modernes.</p>
-             
-           </div>
+             </div>
    
            <div class="formation-card">
              <img src="../assets/images/baniere.jpeg" alt="Formation 3" class="formation-image"/>
              <h3 class="formation-card-title">Formation vente en ligne</h3>
              <p class="formation-card-text">Découvrez comment créer des applications mobiles performantes.</p>
-             
-           </div>
+             </div>
+
            <span class="nav-arrow nav-arrow-right">&#10095;</span>
-   
-         </div>
+          </div>
    
          <button class="voir-formations-btn">
-           <a href="/formations">Voir les formations</a>
-
-           <!-- <router-link to="/coaching" class="cta-button">Voir les formations</router-link> -->
-
+         <a href="/formations">Voir les formations</a>
+         <!-- <router-link to="/coaching" class="cta-button">Voir les formations</router-link> -->
          </button>
        </div>
      </section>
    
-   
-   
-   <!-- Section FAQ -->
-   
+     <!-- Section FAQ -->
    <section id="faq" class="faq-section">
-    <h2>Questions Fréquentes</h2>
-
-    <div class="faq-container">
+  <h2>Questions Fréquentes</h2>
+  <div class="faq-container">
       <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
         <h3 @click="toggle(index)" class="faq-title">
           <span>{{ item.question }}</span>
@@ -120,30 +102,22 @@
         </transition>
       </div>
     </div>
-
+    
     <!-- <button class="cta-button">Contactez-Nous</button> -->
-
     <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
-
   </section>
    
-   
-   
-   
-   <!-- Section Témoignages -->
+  <!-- Section Témoignages -->
    <section id="testimonials" class="testimonials-section">
-    <h2 class="title">Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
-
-    <div class="testimonials-wrapper">
-      <button @click="prevTestimonial" class="nav-btn">❮</button>
-
-      <div class="testimonials-container">
-        <div
-          v-for="(testimonial, index) in testimonials"
+  <h2 class="title">Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
+  <div class="testimonials-wrapper">
+  <button @click="prevTestimonial" class="nav-btn">❮</button>
+  <div class="testimonials-container">
+  <div v-for="(testimonial, index) in testimonials"
           :key="index"
           class="testimonial"
-          :class="{ active: index === currentIndex }"
-        >
+          :class="{ active: index === currentIndex }">
+
           <img v-if="testimonial.img" :src="testimonial.img" alt="Photo Témoignage">
           <video v-if="testimonial.video" :src="testimonial.video" controls></video>
           <p>"{{ testimonial.text }}"</p>
@@ -163,19 +137,14 @@
         :class="{ active: index === currentIndex }"
       ></span>
     </div>
-
     <!-- <button class="cta-button">Rejoignez-les</button> -->
-
-    <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
+   <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
 
   </section>
-   
-   
-   
-   
-   
-   <!-- Section Nos Partenaires -->
-   <section id="partners" class="partners-section">
+  <!-- Section Nos Partenaires -->
+
+
+   <!-- <section id="partners" class="partners-section">
        <h2 class="partenairelogo">Nos Partenaires</h2>
        <div class="partners-container">
            <img src="../assets/images/baniere.jpeg" alt="Partenaire 1" class="partner-logo">
@@ -184,16 +153,13 @@
            <img src="../assets/images/baniere.jpeg" alt="Partenaire 1" class="partner-logo">
            <img src="../assets/images/baniere.jpeg" alt="Partenaire 2" class="partner-logo">
        </div>
-   </section>
-   
-   
+   </section> -->
 
 
-<!-- SECTION CONTACTER -->
+  <!-- SECTION CONTACTER -->
    <section id="contact" class="contact-section">
-    <h2>Prêt à Booster Vos Ventes ?</h2>
-
-    <div class="contact-container">
+   <h2>Prêt à Booster Vos Ventes ?</h2>
+   <div class="contact-container">
       <!-- Formulaire de contact -->
       <div class="contact-form">
         <h3>Contactez-nous</h3>
@@ -208,17 +174,13 @@
           <button type="submit" class="cta-button">Inscrivez-vous Maintenant</button>
         </form>
       </div>
-
-     
     </div>
   </section>
 
    </template>
    
    
-   
-   
-   <script setup>
+  <script setup>
    
    import { ref, onMounted, onUnmounted } from 'vue';
    
@@ -255,18 +217,13 @@
      clearInterval(formationInterval);
    });
    
-   
-   
-   
-   
-   
    // Liste des questions fréquentes
-const faqItems = ref([
+  const faqItems = ref([
   { question: "Qui peut participer à vos formations ?", answer: "Nos formations sont ouvertes à tous : vendeurs, entrepreneurs, commerçants, et toute personne souhaitant améliorer ses compétences en vente.", isOpen: false },
   { question: "Quel est le format des formations (en présentiel ou en ligne) ?", answer: "Nous proposons des formations en présentiel dans nos centres et en ligne via notre plateforme e-learning.", isOpen: false },
   { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, un accompagnement post-formation est disponible sous forme de coaching et de sessions de mise en pratique.", isOpen: false },
   { question: "Comment puis-je m'inscrire ?", answer: "Cliquez sur le bouton 'Inscrivez-vous Maintenant' et remplissez le formulaire en ligne. Vous serez contacté par un conseiller.", isOpen: false }
-]);
+ ]);
 
 // Fonction pour ouvrir/fermer les questions
 const toggle = (index) => {
@@ -275,7 +232,6 @@ const toggle = (index) => {
     isOpen: i === index ? !item.isOpen : false
   }));
 };
-   
    
    // SECTION TEMOIGNAGE
 
@@ -328,13 +284,6 @@ onUnmounted(() => {
   clearInterval(interval);
 });
    
-   
-   
-   
-
-
-
-
 // Données du formulaire
 const form = ref({
   nom: "",
@@ -350,19 +299,17 @@ const submitForm = () => {
     alert("Veuillez remplir tous les champs.");
     return;
   }
-
-  console.log("Formulaire soumis :", form.value);
+console.log("Formulaire soumis :", form.value);
   alert("Votre demande a été envoyée avec succès !");
   
   // Réinitialiser le formulaire après soumission
   form.value = { nom: "", prenom: "", email: "", telephone: "", message: "" };
 };
    
-   </script>
+</script>
    
    
-   
-  <style scoped>
+<style scoped>
 /* Section Hero*/
    .body {
      font-family: 'Roboto', sans-serif;
@@ -442,13 +389,24 @@ const submitForm = () => {
      margin-top: 16%;
    }
    #hero h1 {
-     font-size: 2.5em; /* Taille du titre */
+     font-size: 3.1em; /* Taille du titre */
      margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
    }
-   #hero p {
-     font-size: 2em; /* Taille du texte du paragraphe */
+   h5{
+    font-size: 19px; /* Taille du texte du paragraphe */
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
+     font-weight: arial; /* Gras pour le titre */ 
+   }
+   h3{
+    font-size: 1.6em; /* Taille du titre */
+    font-weight: bold; /* Gras pour le titre */ 
+   }
+   #hero p {
+     font-size: 18px; /* Taille du texte du paragraphe */
+     margin: 20px 0; /* Espacement vertical entre les paragraphes */
+     font-weight: arial; /* Gras pour le titre */
+
    }
    #hero img {
      margin-top: 11%;
@@ -595,7 +553,7 @@ const submitForm = () => {
    
    .formations-title {
      text-align: center;
-     font-size: 2.5em;
+     font-size: 2.3em;
      margin-bottom: 9%;
      color: #ffffff;
    }
@@ -672,6 +630,9 @@ const submitForm = () => {
      display: flex;
      transition: transform 0.3s ease-in-out;
    }
+
+
+   
    
 /* --- Section FAQ --- */
 .faq-section {
@@ -743,6 +704,9 @@ const submitForm = () => {
   max-height: 0;
   opacity: 0;
 }
+
+
+
 
 /* --- Bouton Contact --- */
 .cta-button {
@@ -870,41 +834,8 @@ const submitForm = () => {
    .pagination-dots .active {
      background-color: #ff7f00;
    }
-   
-   
-   
-   
-   /* Nos Partenaires */
-   .partners-section{
-     margin-bottom: 25px;
-   }
-   
-   .partenairelogo{
-     text-align: center;
-     font-size: 2.5em;
-     margin-bottom: 2%;
-     margin-top: 4%;
-   
-   }
-   .partners-container {
-       display: flex;
-       justify-content: center;
-       gap: 20px;
-   }
-   .partner-logo {
-       width: 250px;
-       height: auto;
-       transition: transform 0.3s ease;
-   }
-   .partner-logo:hover {
-       transform: scale(1.1);
-   }
-   
 
-
-
-
-/* --- Section Contact & Inscription --- */
+  /* --- Section Contact & Inscription --- */
 .contact-section {
   padding: 60px 5%;
   text-align: center;
@@ -996,20 +927,21 @@ textarea {
   background: #003366;
   transform: scale(1.05);
 }
-
-
-
 /* Assurer un espacement uniforme entre les sections */
 .section {
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
 }
 h2{
-  font-size: 2.5em;
+  font-size: 30%;
   color: #003366;
   margin-bottom: 30px;
   font-weight: bold;
 }
+
+
+
+
 
    </style>
    

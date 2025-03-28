@@ -64,7 +64,7 @@ watch(route, () => {
     top: 0;
     left: 0;
     width: 100%;
-    /* background-color: #003366; */
+    background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem 0;
     z-index: 1000;  /* Assure que le header reste au-dessus des autres éléments */
@@ -87,7 +87,7 @@ watch(route, () => {
   
   /* Logo */
   .logo img {
-    height: 95px;
+    height: 83px;
   }
   
   /* Menu */
@@ -101,7 +101,7 @@ watch(route, () => {
   .menu li a {
     text-decoration: none;
     color:#ff7f00 ;
-    font-weight: 600;
+    font-weight: 600px;
     font-size: 1.5rem;
     transition: color 0.3s ease-in-out;
     padding: 0.5rem 1rem;

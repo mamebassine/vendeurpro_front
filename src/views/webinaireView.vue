@@ -79,24 +79,8 @@
         <!-- <button class="cta-button">📩 Inscrivez-vous Maintenant</button> -->
 
         <router-link to="/contact" class="cta-button">📩 Inscrivez-vous Maintenant</router-link>
-
-      </div>
-  
-      <!-- 🎯 CONTACT -->
-      <div class="section contact">
-        <h2>📞 Vous Avez des Questions ? Contactez-Nous !</h2>
-        <form @submit.prevent="sendMessage" class="contact-form">
-          <input type="text" v-model="form.fullName" placeholder="Nom complet" required />
-          <input type="email" v-model="form.email" placeholder="Email" required />
-          <input type="tel" v-model="form.phone" placeholder="Téléphone" required />
-          <textarea v-model="form.message" placeholder="Votre message"></textarea>
-          <!-- <button type="submit" class="cta-button">📤 Envoyer un Message</button> -->
-
-          <router-link to="/contact" class="cta-button">📤 Envoyer un Message</router-link>
-
-        </form>
-      </div>
-    </section>
+  </div>
+  </section>
   </template>
   
   <script setup>
@@ -525,132 +509,80 @@ margin-left: 42%;
 
 
 
-/* 🔹 FAQ */
-.faq-container {
-  max-width: 85%;
-  margin: auto;
-  text-align: left;
-  margin-top: 5%;
+/* --- Section FAQ --- */
+.faq-section {
+  padding: 60px 5%;
+  text-align: center;
+  background-color: #f9f9f9;
 }
 
+.faq-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #003366;
+}
+
+/* --- Conteneur des questions --- */
+.faq-container {
+  max-width: 280%; /*Augmenter le input  */
+  margin: auto;
+}
+
+/* --- Question en accordéon --- */
 .faq-item {
   background: white;
-  padding: 15px;
+  padding: 15px 20px;
+  margin: 16px 0; /* espace entre les input */
   border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.faq-title {
-  margin-top: 13px;
-
-  font-size: 1.3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #003366;
-
-}
-
-.faq-answer {
-  margin-top: 10px;
-  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-left: 5px solid #ff7f00;
 }
 
 .faq-item:hover {
-  background: #f1f1f1;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-/* 🔹 FORMULAIRE DE CONTACT */
-
-.contact-form {
-  max-width: 600px; /* ✅ Augmentation de la largeur */
-  margin: auto;
+/* --- Titre de la question --- */
+.faq-title {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); /* ✅ Ombre légère pour un effet moderne */
-}
-
-/* 🔹 Champs de saisie */
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 14px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: 0.3s ease-in-out;
-}
-
-/* 🔹 Effet au survol & focus */
-.contact-form input:hover,
-.contact-form textarea:hover,
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #ff7f00; /* ✅ Bordure colorée au focus */
-  box-shadow: 0px 0px 8px rgba(255, 127, 0, 0.3);
-  outline: none;
-}
-
-/* 🔹 Champ de texte plus grand */
-.contact-form textarea {
-  height: 140px;
-  resize: none;
-}
-
-/* 🔹 Bouton d’envoi */
-.cta-button {
-  display: inline-block;
-  background: #ff7f00;
-  color: white;
-  padding: 14px 25px;
-  border-radius: 10px;
-  font-size: 1.2rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
   font-weight: bold;
-  text-align: center;
-  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  color: #003366;
+  margin: 0;
 }
 
-/* 🔹 Effet au survol du bouton */
-.cta-button:hover {
-  background: #e06b00;
-  transform: scale(1.05);
+.faq-title i {
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+/* --- Réponse --- */
+.faq-answer {
+  margin-top: 10px;
+  color: #666;
+  font-size: 16px;
+  text-align: left;
+}
+
+/* --- Animation Slide pour ouverture des réponses --- */
+.slide-enter-active, .slide-leave-active {
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.slide-enter, .slide-leave-to {
+  max-height: 0;
+  opacity: 0;
 }
 
 
 
-/* 🔹 BOUTONS GÉNÉRAUX */
-.cta-button {
-  margin-top: 50px; /* Espacement au-dessus du bouton */
-  background: #ff7f00;
-  color: white;
-  padding: 12px 20px; /* Taille du bouton adaptée pour une meilleure interaction */
-  font-size: 1.2rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
 
-
-text-decoration: none; /* Supprime le soulignement */
-display: inline-block; /* Évite le léger décalage vertical */
-text-align: center; /* Centre le texte */
-
-display: inline-block; /* Permet d'ajouter du padding autour du texte */
-
-}
-
-.cta-button:hover {
-  background: #003366;
-}
 
 /* Assurer un espacement uniforme entre les sections */
 .section {

@@ -35,18 +35,19 @@
     </div>
 
     <!-- 🎯 FAQ -->
-    <div class="section faq">
-      <h2 class="questionsFréquentes">Questions Fréquentes</h2>
-      <div class="faq-container">
-        <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
-          <h3 @click="toggleFAQ(index)" class="faq-title">
-            {{ item.question }} <span class="arrow">{{ item.isOpen ? '▲' : '▼' }}</span>
-          </h3>
-          <transition name="fade">
-            <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
-          </transition>
-        </div>
+    section id="faq" class="faq-section">
+  <h2>Questions Fréquentes</h2>
+  <div class="faq-container">
+      <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
+        <h3 @click="toggle(index)" class="faq-title">
+          <span>{{ item.question }}</span>
+          <i :class="{'fas fa-chevron-down': !item.isOpen, 'fas fa-chevron-up': item.isOpen}"></i>
+        </h3>
+        <transition name="slide">
+          <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
+        </transition>
       </div>
+    
       <!-- <button class="cta-button">📩 Contactez-Nous</button> -->
 
       <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
@@ -198,26 +199,79 @@ const toggleFAQ = (index) => {
   transform: scale(1.05);
 }
 
-/* 🔹 FAQ */
+
+/* --- Section FAQ --- */
+.faq-section {
+  padding: 60px 5%;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.faq-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #003366;
+}
+
+/* --- Conteneur des questions --- */
 .faq-container {
-  max-width: 750px;
+  max-width: 280%; /*Augmenter le input  */
   margin: auto;
 }
 
+/* --- Question en accordéon --- */
 .faq-item {
   background: white;
-  padding: 15px;
+  padding: 15px 20px;
+  margin: 16px 0; /* espace entre les input */
   border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 5px solid #ff7f00;
 }
 
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Titre de la question --- */
 .faq-title {
-  font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #003366;
+  margin: 0;
 }
+
+.faq-title i {
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+/* --- Réponse --- */
+.faq-answer {
+  margin-top: 10px;
+  color: #666;
+  font-size: 16px;
+  text-align: left;
+}
+
+/* --- Animation Slide pour ouverture des réponses --- */
+.slide-enter-active, .slide-leave-active {
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.slide-enter, .slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+
 
 /* 🔹 BOUTONS */
 .cta-button {
