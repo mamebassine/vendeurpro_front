@@ -3,8 +3,8 @@
     <!-- 🎯 HERO SECTION -->
     <div class="hero">
       <div class="text-content">
-        <h1>🚀 Boostez Vos Compétences avec un Coaching Personnalisé</h1>
-        <p>🎯 Atteignez vos objectifs de vente avec un accompagnement sur mesure.</p>
+        <h1>Boostez Vos Compétences avec un Coaching Personnalisé</h1>
+        <p> Atteignez vos objectifs de vente avec un accompagnement sur mesure.</p>
         <!-- <button class="cta-button">📅 Réserver une Séance</button> -->
 
         <router-link to="/contact" class="cta-button">📅 Réserver une Séance</router-link>
@@ -15,7 +15,7 @@
 
     <!-- 🎯 PROGRAMMES DE COACHING -->
     <div class="section coaching-list">
-      <h2 class="titrecoaaching">✨ Choisissez Votre Coaching</h2>
+      <h2 class="titrecoaaching"> Choisissez Votre Coaching</h2>
       <div class="coaching-container">
         <div v-for="(coaching, index) in coachingOptions" :key="index" class="coaching-card">
           <h3>{{ coaching.title }}</h3>
@@ -36,7 +36,7 @@
 
     <!-- 🎯 FAQ -->
     <div class="section faq">
-      <h2 class="questionsFréquentes">❓ Questions Fréquentes</h2>
+      <h2 class="questionsFréquentes">Questions Fréquentes</h2>
       <div class="faq-container">
         <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
           <h3 @click="toggleFAQ(index)" class="faq-title">

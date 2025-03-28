@@ -12,8 +12,7 @@
   </router-link>
 </div>
 
-
-      <!-- Menu -->
+<!-- Menu -->
       <ul class="menu">
         <li v-for="(item, index) in menuItems" :key="index">
           <router-link :to="item.link" :class="{ active: activeSection === item.link }">
@@ -28,7 +27,7 @@
   <script setup>
   import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import logo from '@/assets/images/logobas.jpg';
+import logo from '@/assets/images/logo1.jpg';
 
 // import logo from '../assets/images/logo1.jpg';
 
@@ -65,7 +64,7 @@ watch(route, () => {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #003366;
+    /* background-color: #003366; */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem 0;
     z-index: 1000;  /* Assure que le header reste au-dessus des autres éléments */
@@ -88,7 +87,7 @@ watch(route, () => {
   
   /* Logo */
   .logo img {
-    height: 90px;
+    height: 95px;
   }
   
   /* Menu */
@@ -101,21 +100,17 @@ watch(route, () => {
   
   .menu li a {
     text-decoration: none;
-    color:#ffff;
+    color:#ff7f00 ;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     transition: color 0.3s ease-in-out;
     padding: 0.5rem 1rem;
 
   }
 
-
-
-
-  
-  /* Lien actif */
+/* Lien actif */
 .menu li a.active {
-  color: #ff7f00;
+  color:  #003366;
   border-bottom: 2px solid #ff7f00;
 }
   
