@@ -4,7 +4,7 @@
       <div class="hero">
         <div class="text-content">
           <h1>Nos Formations pour Devenir un Pro de la Vente</h1>
-          <h3>Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h3>
+          <h3>🚀 Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h3>
           <p>🎯 Bootcamps intensifs, formation certifiante et modules à la carte pour booster vos compétences en vente.</p>
         </div>
         <img src="../assets/images/baniere.jpeg" alt="Formation en vente" class="hero-image" />
@@ -14,7 +14,7 @@
     <!-- 🎯 NOS FORMATIONS -->
 
 <section class="formations">
-  <h2>Choisissez la Formation qui Vous Correspond</h2>
+  <h2>✨ Choisissez la Formation qui Vous Correspond</h2>
   <p>📘 Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
   
   <div class="formation-list">
@@ -39,7 +39,7 @@
 
 <!-- 🎤 TÉMOIGNAGES -->
 <section class="temoignages">
-  <h2> Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
+  <h2>🚀 Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
   <div class="testimonial-container">
     <button @click="prevTestimonial" class="nav-btn">❮</button>
     <div class="testimonial">
@@ -55,17 +55,20 @@
 
 </section>
 
-<!-- ❓ FAQ -->
-<section class="faq">
-  <h2>❓ Questions Fréquentes</h2>
+<!-- Section FAQ -->
+<section id="faq" class="faq-section">
+  <h2>Questions Fréquentes</h2>
   <div class="faq-container">
-    <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
-      <h3 @click="toggleFAQ(index)" class="faq-title">{{ item.question }}</h3>
-      <transition name="fade">
-        <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
-      </transition>
+      <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
+        <h3 @click="toggle(index)" class="faq-title">
+          <span>{{ item.question }}</span>
+          <i :class="{'fas fa-chevron-down': !item.isOpen, 'fas fa-chevron-up': item.isOpen}"></i>
+        </h3>
+        <transition name="slide">
+          <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
+        </transition>
+      </div>
     </div>
-  </div>
   <!-- <button class="cta-button">📩 Contactez-Nous</button> -->
    
   <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
@@ -185,7 +188,6 @@ onUnmounted(() => {
 
 
 <style scoped>
-
 #formations{
     margin-top: 9%;
 }
@@ -260,6 +262,7 @@ onUnmounted(() => {
   margin-top: 3%;
   
 }
+
 .formation-card {
   background: white;
   padding: 15px;
@@ -271,6 +274,9 @@ onUnmounted(() => {
   transition: transform 0.3s ease-in-out;
   text-align: left;
   
+
+
+
 
   display: flex;
   flex-direction: column;
@@ -323,7 +329,8 @@ onUnmounted(() => {
 }
 
 .formation-card:hover{
-background: #d5a371;
+
+    background: #d5a371;
 
 }
 
@@ -343,8 +350,8 @@ background: #d5a371;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px; /* Espacement équilibré */
-  margin-top: 40px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .testimonial {
@@ -357,16 +364,10 @@ background: #d5a371;
 }
 
 .testimonial img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%; /* Cercle parfait */
-  margin-bottom: 15px;
-  border: 2px solid #ff7f00; /* Bordure colorée pour l’effet visuel */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
   object-fit: cover;
-  display: block; /* ✅ Assure que l’image reste un bloc centré */
-margin-left: 40%;;
-
-  
 }
 
 .nav-btn {
@@ -382,39 +383,75 @@ margin-left: 40%;;
   transform: scale(1.2);
 }
 
-
-
-/* 🔹 FAQ */
-.faq {
-  text-align: center;
+/* --- Section FAQ --- */
+.faq-section {
   padding: 60px 5%;
-  margin-top: 3%;
-
+  text-align: center;
+  background-color: #f9f9f9;
 }
 
-.faq-container {
-  max-width: 700px;
-  margin: auto;
-}
-
-.faq-item {
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
-  cursor: pointer;
-}
-
-.faq-title {
-  font-size: 1.2em;
+.faq-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-weight: bold;
   color: #003366;
 }
 
+/* --- Conteneur des questions --- */
+.faq-container {
+  max-width: 280%; /*Augmenter le input  */
+  margin: auto;
+}
+
+/* --- Question en accordéon --- */
+.faq-item {
+  background: white;
+  padding: 15px 20px;
+  margin: 16px 0; /* espace entre les input */
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 5px solid #ff7f00;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Titre de la question --- */
+.faq-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #003366;
+  margin: 0;
+}
+
+.faq-title i {
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+/* --- Réponse --- */
 .faq-answer {
   margin-top: 10px;
-  color: #555;
-  font-size: 1em;
+  color: #666;
+  font-size: 16px;
+  text-align: left;
+}
+
+/* --- Animation Slide pour ouverture des réponses --- */
+.slide-enter-active, .slide-leave-active {
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.slide-enter, .slide-leave-to {
+  max-height: 0;
+  opacity: 0;
 }
 
 /* 🔹 CTA BUTTON */

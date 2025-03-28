@@ -145,33 +145,41 @@
 </section>
 
 <!-- SECTION FAQ -->
-<section class="faq">
-  <h2 class="title">Questions Fréquentes</h2>
-  <div class="accordion">
-    <div class="question">
-      <h3>Qui peut participer à vos formations ?</h3>
-      <p>Nos formations s'adressent à tous : commerçants, consultants, étudiants, chômeurs, porteurs de projets...</p>
+ <!-- Section FAQ -->
+ <section id="faq" class="faq-section">
+    <h2>Questions Fréquentes</h2>
+    <div class="faq-container">
+      <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
+        <h3 @click="toggle(index)" class="faq-title">
+          <span>{{ item.question }}</span>
+          <i :class="{'fas fa-chevron-down': !item.isOpen, 'fas fa-chevron-up': item.isOpen}"></i>
+        </h3>
+        <transition name="slide">
+          <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
+        </transition>
+      </div>
     </div>
-    <div class="question">
-      <h3>Quel est le format des formations ?</h3>
-      <p>Nous proposons des formations en présentiel et en ligne, adaptées à vos besoins et à votre emploi du temps.</p>
-    </div>
-    <div class="question">
-      <h3>Y a-t-il un suivi après la formation ?</h3>
-      <p>Oui, nous proposons des sessions de coaching individuel pour vous aider à appliquer vos nouvelles compétences.</p>
-    </div>
-    <div class="question">
-      <h3>Comment puis-je m'inscrire ?</h3>
-      <p>Remplissez simplement le formulaire d'inscription sur notre site, et notre équipe vous contactera.</p>
-    </div>
-  </div>
-  <button class="cta-button">Contactez-Nous</button>
+    <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
 </section>
 </template>
 
-<script>
-export default {
-  name: "AboutView",
+<script setup>
+import { ref } from 'vue';
+
+// Liste des questions fréquentes
+const faqItems = ref([
+  { question: "Qui peut participer à vos formations ?", answer: "Nos formations sont ouvertes à tous : vendeurs, entrepreneurs, commerçants, et toute personne souhaitant améliorer ses compétences en vente.", isOpen: false },
+  { question: "Quel est le format des formations (en présentiel ou en ligne) ?", answer: "Nous proposons des formations en présentiel dans nos centres et en ligne via notre plateforme e-learning.", isOpen: false },
+  { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, un accompagnement post-formation est disponible sous forme de coaching et de sessions de mise en pratique.", isOpen: false },
+  { question: "Comment puis-je m'inscrire ?", answer: "Cliquez sur le bouton 'Inscrivez-vous Maintenant' et remplissez le formulaire en ligne. Vous serez contacté par un conseiller.", isOpen: false }
+]);
+
+// Fonction pour ouvrir/fermer les questions
+const toggle = (index) => {
+  faqItems.value = faqItems.value.map((item, i) => ({
+    ...item,
+    isOpen: i === index ? !item.isOpen : false
+  }));
 };
 </script>
 
@@ -337,48 +345,119 @@ export default {
 
 
 
-.testimonials, .faq {
-  margin-top: 5%;
-  background: rgba(0, 51, 102, 0.2);
-  padding: 60px 20px;
+
+/* --- Section FAQ --- */
+.faq-section {
+  padding: 60px 5%;
   text-align: center;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-in-out;
+  background-color: #f9f9f9;
 }
 
-.testimonial-slider {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px;
+.faq-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #003366;
 }
 
-.testimonial {
+/* --- Conteneur des questions --- */
+.faq-container {
+  max-width: 280%;
+  margin: auto;
+}
+
+/* --- Question en accordéon --- */
+.faq-item {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 16px 0;
+  border-radius: 8px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  min-width: 300px;
-}
-
-.accordion .question {
-  background: white;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 5px solid #ff7f00;
 }
 
-.cta-button {
-  background: linear-gradient(90deg, #ff8c00, #ff2d55);
-  color: white;
-  border: none;
-  padding: 15px 25px;
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Titre de la question --- */
+.faq-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 18px;
-  border-radius: 10px;
-  cursor: pointer;
+  font-weight: bold;
+  color: #003366;
+  margin: 0;
 }
+
+.faq-title i {
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+/* --- Réponse --- */
+.faq-answer {
+  margin-top: 10px;
+  color: #666;
+  font-size: 16px;
+  text-align: left;
+}
+
+/* --- Animation Slide pour ouverture des réponses --- */
+.slide-enter-active, .slide-leave-active {
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.slide-enter, .slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* --- Bouton Contact --- */
+.cta-button {
+  background-color: #ff7f00;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #003366;
+  color: white;
+  transform: scale(1.05);
+}
+
+
+
+/* --- Bouton Contact --- */
+.cta-button {
+  background-color: #ff7f00;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #003366;
+  color: white;
+  transform: scale(1.05);
+}
+
 
 </style>
