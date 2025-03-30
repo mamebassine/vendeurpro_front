@@ -100,9 +100,9 @@ watch(route, () => {
   
   .menu li a {
     text-decoration: none;
-    color:#ff7f00 ;
+    color:#003366;
     font-weight: 600px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     transition: color 0.3s ease-in-out;
     padding: 0.5rem 1rem;
 
@@ -110,7 +110,7 @@ watch(route, () => {
 
 /* Lien actif */
 .menu li a.active {
-  color:  #003366;
+  color:  #003366;  
   border-bottom: 2px solid #ff7f00;
 }
   

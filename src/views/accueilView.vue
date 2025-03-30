@@ -173,8 +173,15 @@
           <textarea v-model="form.message" placeholder="Votre message..." required></textarea>
           <button type="submit" class="cta-button">Inscrivez-vous Maintenant</button>
         </form>
-      </div>
+      
     </div>
+
+    <!-- Image de contact -->
+    <div class="contact-image">
+      <img src="../assets/images/baniere.jpeg" alt="">
+
+    </div>
+  </div>
   </section>
 
    </template>
@@ -835,7 +842,17 @@ console.log("Formulaire soumis :", form.value);
      background-color: #ff7f00;
    }
 
-  /* --- Section Contact & Inscription --- */
+
+
+
+
+   
+  
+
+
+
+
+   /* --- Section Contact & Inscription --- */
 .contact-section {
   padding: 60px 5%;
   text-align: center;
@@ -847,7 +864,6 @@ console.log("Formulaire soumis :", form.value);
   color: #003366;
   margin-bottom: 30px;
   font-weight: bold;
-
 }
 
 /* --- Conteneur principal --- */
@@ -855,7 +871,7 @@ console.log("Formulaire soumis :", form.value);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 40px; /* Espace entre le formulaire et l'image */
 }
 
 /* --- Formulaire de contact avec plus d'espace --- */
@@ -927,16 +943,37 @@ textarea {
   background: #003366;
   transform: scale(1.05);
 }
+
 /* Assurer un espacement uniforme entre les sections */
 .section {
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
 }
-h2{
+
+h2 {
   font-size: 30%;
   color: #003366;
   margin-bottom: 30px;
   font-weight: bold;
+}
+
+/* --- Image de contact à droite (hauteur égale au formulaire) --- */
+.contact-image {
+  flex: 1;
+  min-width: 550px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-left: 20px; /* Espace entre l'image et le formulaire */
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%; /* Ajustement pour que l'image soit égale en hauteur */
+  object-fit: cover; /* Pour que l'image garde une bonne apparence */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
