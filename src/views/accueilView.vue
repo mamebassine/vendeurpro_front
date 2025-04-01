@@ -248,7 +248,7 @@ const testimonials = ref([
     // img: "../assets/images/baniere.jpeg
     img: "/images/baniere.jpeg",
     text: "Grâce à VendeurPro, mes ventes ont augmenté de 30% en 3 mois !", 
-    author: "Fouta Bah", 
+    author: "Fanta Bah", 
     result: "+30% de ventes"
   },
   { 
@@ -266,7 +266,7 @@ const testimonials = ref([
   { 
     img: "/images/baniere.jpeg",
     text: "Le coaching personnalisé a été un vrai plus pour mon entreprise.", 
-    author: "Paul Niane", 
+    author: "Pa Matar Niane", 
     result: "Coaching efficace"
   }
 ]);
@@ -401,7 +401,7 @@ console.log("Formulaire soumis :", form.value);
      font-weight: bold; /* Gras pour le titre */
    }
    h5{
-    font-size: 19px; /* Taille du texte du paragraphe */
+    font-size: 25px; /* Taille du texte du paragraphe */
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
      font-weight: arial; /* Gras pour le titre */ 
    }
@@ -410,7 +410,7 @@ console.log("Formulaire soumis :", form.value);
     font-weight: bold; /* Gras pour le titre */ 
    }
    #hero p {
-     font-size: 18px; /* Taille du texte du paragraphe */
+     font-size: 20px; /* Taille du texte du paragraphe */
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
      font-weight: arial; /* Gras pour le titre */
 
@@ -789,8 +789,8 @@ console.log("Formulaire soumis :", form.value);
    
    /* --- Image de profil --- */
    .testimonial img {
-     width: 90px;
-     height: 90px;
+     width: 130px;
+     height: 130px;
      border-radius: 50%;
      margin-bottom: 10px;
    }
@@ -798,13 +798,26 @@ console.log("Formulaire soumis :", form.value);
    /* --- Texte --- */
    .testimonial p {
      font-style: italic;
-     color: #555;
+     color: #000;
+     font-size: 18px; /* Augmente la taille de l'écriture */
+     margin-top: 14px;
+
    }
    
    .testimonial h4 {
-     margin-top: 10px;
-     color: #333;
-   }
+    font-size: 1.5rem; /* Augmente la taille de l'écriture */
+    margin-top: 14px;
+    color: #333;
+    font-weight: bold; /* Texte en gras */
+}
+.testimonial-result{
+  margin-top: 14px;
+  font-size: 14px; /* Augmente la taille de l'écriture */
+    color: #787676;
+    font-weight: bold; /* Texte en gras */
+
+
+}
    
    /* --- Boutons de navigation --- */
    .nav-btn {

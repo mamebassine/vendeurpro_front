@@ -25,13 +25,13 @@
         </div>
         <!-- <button class="cta-button">📢 Inscrivez-vous Maintenant</button> -->
 
-        <router-link to="/contact" class="cta-button">📢 Inscrivez-vous Maintenant</router-link>
+        <router-link to="/contact" class="cta-button">Inscrivez-vous Maintenant</router-link>
 
       </div>
   
       <!-- 🎯 PROCHAINS WEBINAIRES -->
       <div class="section upcoming-webinaires">
-        <h2>📅 Découvrez Nos Prochains Webinaires</h2>
+        <h2>Découvrez Nos Prochains Webinaires</h2>
         <div class="webinaire-list">
           <div v-for="(webinaire, index) in webinaires" :key="index" class="webinaire-card">
             <h3>{{ webinaire.title }}</h3>
@@ -59,7 +59,7 @@
         </div>
         <!-- <button class="cta-button">🚀 Rejoignez-les</button> -->
 
-        <router-link to="/contact" class="cta-button">🚀 Rejoignez-les</router-link>
+        <router-link to="/contact" class="cta-button">Rejoignez-les</router-link>
 
       </div>
   

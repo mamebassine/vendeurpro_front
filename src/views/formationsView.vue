@@ -4,8 +4,10 @@
       <div class="hero">
         <div class="text-content">
           <h1>Nos Formations pour Devenir un Pro de la Vente</h1>
-          <h3>🚀 Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h3>
-          <p>🎯 Bootcamps intensifs, formation certifiante et modules à la carte pour booster vos compétences en vente.</p>
+<strong>
+  <h3>Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h3>
+</strong>          
+<p>🎯 Bootcamps intensifs, formation certifiante et modules à la carte pour booster vos compétences en vente.</p>
         </div>
         <img src="../assets/images/baniere.jpeg" alt="Formation en vente" class="hero-image" />
       </div>
@@ -14,7 +16,7 @@
     <!-- 🎯 NOS FORMATIONS -->
 
 <section class="formations">
-  <h2>✨ Choisissez la Formation qui Vous Correspond</h2>
+  <h2>Choisissez la Formation qui Vous Correspond</h2>
   <p>📘 Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
   
   <div class="formation-list">
@@ -39,7 +41,7 @@
 
 <!-- 🎤 TÉMOIGNAGES -->
 <section class="temoignages">
-  <h2>🚀 Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
+  <h2> Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
   <div class="testimonial-container">
     <button @click="prevTestimonial" class="nav-btn">❮</button>
     <div class="testimonial">
@@ -50,9 +52,7 @@
     <button @click="nextTestimonial" class="nav-btn">❯</button>
   </div>
   <!-- <button class="cta-button">🚀 Rejoignez-les</button> -->
-  <router-link to="/contact" class="cta-button">🚀 Rejoignez-les</router-link>
-
-
+  <router-link to="/contact" class="cta-button"> Rejoignez-les</router-link>
 </section>
 
 <!-- Section FAQ -->
@@ -213,7 +213,15 @@ onUnmounted(() => {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   }
 /* ✅ Stylisation des Titres */
-.hero h1 , h2{
+.hero h1{
+    font-size: 2.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+h2{
     font-size: 2.4em;
     font-weight: bold;
     text-transform: uppercase;
@@ -222,9 +230,8 @@ onUnmounted(() => {
     text-align: center;
 }
 
-
 .hero h3 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 600;
     color: white;
     margin-bottom: 10px;
@@ -237,7 +244,7 @@ onUnmounted(() => {
 
 /* ✅ Stylisation du Paragraphe */
 .hero p {
-    font-size: 1.2em;
+    font-size: 98%;
     font-weight: 500;
     line-height: 1.6;
     max-width: 600px;
@@ -364,10 +371,12 @@ onUnmounted(() => {
 }
 
 .testimonial img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
+
+  margin-left: 33%;
 }
 
 .nav-btn {

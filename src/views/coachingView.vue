@@ -35,8 +35,9 @@
     </div>
 
     <!-- 🎯 FAQ -->
-    section id="faq" class="faq-section">
-  <h2>Questions Fréquentes</h2>
+    <section id="faq" class="faq-section">
+   <h2>Questions Fréquentes</h2>
+
   <div class="faq-container">
       <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
         <h3 @click="toggle(index)" class="faq-title">
@@ -51,8 +52,9 @@
       <!-- <button class="cta-button">📩 Contactez-Nous</button> -->
 
       <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
-
-    </div>
+  </div>
+  </section>
+  
   </section>
 </template>
 

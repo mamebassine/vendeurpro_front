@@ -121,30 +121,37 @@
 </section>
 
   
-  <!-- SECTION TÉMOIGNAGES -->
+<!-- SECTION TÉMOIGNAGES --> 
 <section class="testimonials">
   <h2 class="title">Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
   <div class="testimonial-slider">
     <div class="testimonial">
-      <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
-      <p>"+30% de ventes en 3 mois grâce à VendeurPro !"</p>
-      <span>- Jean Dupont</span>
+      <div class="testimonial-content">
+        <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+        <p class="testimonial-text">"+30% de ventes en 3 mois grâce à VendeurPro !"</p>
+      </div>
+      <span class="testimonial-name">- Jean Dupont</span>
     </div>
     <div class="testimonial">
-      <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
-      <p>"Grâce à cette formation, j'ai trouvé un nouvel emploi dans la vente !"</p>
-      <span>- Marie Leclerc</span>
+      <div class="testimonial-content">
+        <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+        <p class="testimonial-text">"Grâce à cette formation, j'ai trouvé un nouvel emploi dans la vente !"</p>
+      </div>
+      <span class="testimonial-name">- Marie Leclerc</span>
     </div>
     <div class="testimonial">
-      <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
-      <p>"Fidélisation accrue de mes clients et augmentation de mes revenus !"</p>
-      <span>- Ahmed Sy</span>
+      <div class="testimonial-content">
+        <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+        <p class="testimonial-text">"Fidélisation accrue de mes clients et augmentation de mes revenus !"</p>
+      </div>
+      <span class="testimonial-name">- Ahmed Sy</span>
     </div>
   </div>
   <button class="cta-button">Rejoignez-les</button>
 </section>
 
-<!-- SECTION FAQ -->
+
+
  <!-- Section FAQ -->
  <section id="faq" class="faq-section">
     <h2>Questions Fréquentes</h2>
@@ -181,6 +188,7 @@ const toggle = (index) => {
     isOpen: i === index ? !item.isOpen : false
   }));
 };
+
 </script>
 
 <style scoped>
@@ -191,11 +199,7 @@ const toggle = (index) => {
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
 }
-
-
-
-
- .mission, .team, .history, .testimonials, .faq {
+.mission, .team, .history, .testimonials, .faq {
   margin-top: 5%;
   background: rgba(0, 51, 102, 0.2);
   padding: 60px 20px;
@@ -204,7 +208,6 @@ const toggle = (index) => {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
 }
-
 .mission-content {
   display: flex;
   align-items: center;
@@ -257,7 +260,6 @@ const toggle = (index) => {
   animation: fadeIn 1s ease-in-out;
   
 }
-
 .team-members {
   display: flex;
   justify-content: center;
@@ -265,7 +267,6 @@ const toggle = (index) => {
   gap: 20px;
   margin-top: 30px;
 }
-
 .member {
   background: white;
   padding: 20px;
@@ -288,12 +289,7 @@ const toggle = (index) => {
   color: #003366;
 }
 
-
-
-
-
 /* NOTRE HISTOIRES */
-
 .history {
   margin-top: 5%;
   background: rgba(0, 51, 102, 0.2);
@@ -303,7 +299,6 @@ const toggle = (index) => {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
 }
-
 .history-content {
   display: flex;
   align-items: center;
@@ -342,10 +337,6 @@ const toggle = (index) => {
   margin-bottom: 10px;
 }
 
-
-
-
-
 /* --- Section FAQ --- */
 .faq-section {
   padding: 60px 5%;
@@ -362,7 +353,7 @@ const toggle = (index) => {
 
 /* --- Conteneur des questions --- */
 .faq-container {
-  max-width: 280%;
+  max-width: 280%; /*Augmenter le input  */
   margin: auto;
 }
 
@@ -370,7 +361,7 @@ const toggle = (index) => {
 .faq-item {
   background: white;
   padding: 15px 20px;
-  margin: 16px 0;
+  margin: 16px 0; /* espace entre les input */
   border-radius: 8px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -416,28 +407,6 @@ const toggle = (index) => {
   max-height: 0;
   opacity: 0;
 }
-
-/* --- Bouton Contact --- */
-.cta-button {
-  background-color: #ff7f00;
-  color: white;
-  padding: 12px 24px;
-  font-size: 1.2em;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  margin-top: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.cta-button:hover {
-  background-color: #003366;
-  color: white;
-  transform: scale(1.05);
-}
-
-
 
 /* --- Bouton Contact --- */
 .cta-button {
