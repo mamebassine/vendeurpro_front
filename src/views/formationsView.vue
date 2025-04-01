@@ -5,9 +5,11 @@
         <div class="text-content">
           <h1>Nos Formations pour Devenir un Pro de la Vente</h1>
 <strong>
-  <h3>Formez-vous aux Techniques de Vente Modernes avec <span>VendeurPro</span></h3>
+  <h3>Formez-vous aux Techniques de Vente Modernes avec
+    <br>
+  <span>VendeurPro</span></h3>
 </strong>          
-<p>🎯 Bootcamps intensifs, formation certifiante et modules à la carte pour booster vos compétences en vente.</p>
+<p>Bootcamps intensifs, formation certifiante et modules à la carte pour booster <br> vos compétences en vente.</p>
         </div>
         <img src="../assets/images/baniere.jpeg" alt="Formation en vente" class="hero-image" />
       </div>
@@ -75,9 +77,7 @@
 
 </section>
 </template>
-  
  
-
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
@@ -183,10 +183,6 @@ onUnmounted(() => {
 });
 </script>
 
-
-
-
-
 <style scoped>
 #formations{
     margin-top: 9%;
@@ -209,16 +205,20 @@ onUnmounted(() => {
   }
 .hero-image {
     max-width: 45%;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  
+    border-bottom-left-radius: 190px; /* Arrondir le coin supérieur gauche */
+
+    padding: 15px; /* Réduit l'espace interne de l'image */
   }
 /* ✅ Stylisation des Titres */
 .hero h1{
-    font-size: 2.4em;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+  color: #fff;
+  font-size: 3em; /* Taille du titre */
+     margin: 0 0 20px 0; /* Espacement sous le titre */
+     font-weight: bold; /* Gras pour le titre */
+     margin-bottom: 5px;
 }
 
 h2{
@@ -229,31 +229,28 @@ h2{
     margin-bottom: 10px;
     text-align: center;
 }
-
 .hero h3 {
-    font-size: 1.8em;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 10px;
+  font-size: 1.6em; /* Taille du titre */
+    font-weight: bold; /* Gras pour le titre */ 
 }
 
 .hero h3 span {
-    color: #ffeb3b;
+    color: #ff7f00;
     font-weight: bold;
 }
 
-/* ✅ Stylisation du Paragraphe */
+/* ✅ Stylisation du Paragraphe POUR LE PETITE TEXYT */
 .hero p {
-    font-size: 98%;
-    font-weight: 500;
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;
+     font-size: 20px; /* Taille du texte du paragraphe */
+     margin: 10px 0; /* Espacement vertical entre les paragraphes */
+     font-weight: arial; /* Gras pour le titre */
 }
 
 .formation , p {
-  text-align: center;
   font-size: 1.2em;
+  text-align: center;
+
+
 
 
 
@@ -350,9 +347,7 @@ h2{
   color: white;
 
   margin-top: 3%;
-
 }
-
 .testimonial-container {
   display: flex;
   align-items: center;
@@ -360,7 +355,13 @@ h2{
   gap: 20px;
   margin-top: 20px;
 }
+.testimonial h4 {
+  color: #000;
 
+  font-weight: bold; /* Gras pour le titre */
+  margin: 10px 0; /* Espacement vertical entre les paragraphes */
+
+}
 .testimonial {
   background: white;
   color: black;
@@ -369,21 +370,19 @@ h2{
   max-width: 400%;
   text-align: center;
 }
-
 .testimonial img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
 
-  margin-left: 33%;
+  margin-left: 43%;
 }
-
 .nav-btn {
   background: transparent;
   border: none;
   font-size: 2em;
-  color: white;
+  color: #ff7f00;
   cursor: pointer;
   transition: transform 0.2s;
 }

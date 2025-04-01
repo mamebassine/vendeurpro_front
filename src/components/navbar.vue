@@ -43,7 +43,7 @@ const menuItems = [
   { name: "Le lab", link: "/actualites" },
   { name: "Notre ADN", link: "/apropos" },
 
-  { name: "?", link: "/contact" },
+  { name: "Un projet ?", link: "/contact" },
 ];
 
 // Mettre à jour la section active

@@ -1,7 +1,8 @@
 
 
 <template>
-  <section class="mb-32">
+
+<section class="mb-32">
     <!-- Carte Google Maps -->
     <div id="map" class="relative h-[300px] mt-8 overflow-hidden bg-cover bg-[50%] bg-no-repeat">
       <iframe
@@ -15,9 +16,28 @@
         class="block rounded-lg bg-white px-6 py-12 shadow-md md:py-16 md:px-12 -mt-[100px] backdrop-blur-lg border border-gray-300">
         
         <div class="flex flex-wrap">
-          <!-- Formulaire de contact -->
-          <div class="mb-12 w-full md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
-            <h2 class="text-2xl font-semibold mb-6 text-center">Contactez-nous</h2>
+
+
+  <!-- MOTS TITRE ACCROCHE -->
+<!-- MOTS TITRE ACCROCHE -->
+<div class="bg-[#e6eef7] py-6 px-3 rounded-2xl shadow-md flex items-center justify-between mt-4 max-w-3xl mx-auto">
+    <div>
+        <h4 class="text-3xl font-bold text-gray-800 mb-2">
+            Boostez les performances de votre équipe
+        </h4>
+        <p class="text-gray-900">
+            Vous souhaitez former vos commerciaux ou discuter d’un 
+            accompagnement sur mesure ? Nos experts vous guident.
+        </p>
+    </div>
+</div>
+
+
+
+
+<!-- Formulaire de contact -->
+          <div class="mb-12 w-full md:px-3 lg:mb-0 lg:w-5/12 lg:px-6 mt-16 mt-16">
+            <h2 class="text-2xl font-bold mb-6 text-center">Contactez-nous</h2>
             <form class="space-y-6">
               <div class="flex flex-col">
                 <label for="nomComplet" class="mb-1 font-medium text-gray-700">Nom complet</label>
@@ -52,72 +72,74 @@
             </form>
           </div>
 
-          <!-- Informations pratiques -->
-          <div class="w-full lg:w-7/12">
-            <h2 class="text-2xl font-semibold mb-6 text-center">Informations pratiques</h2>
-            <div class="flex flex-wrap">
-              <div class="mb-6 w-full md:w-6/12 md:px-3 lg:w-6/12">
-                <div class="flex items-start">
-                  <div class="shrink-0 bg-sky-200 p-4 rounded-md">
-                    📞
-                  </div>
-                  <div class="ml-6">
-                    <p class="mb-1 font-bold">Téléphone</p>
-                    <p class="text-sm text-neutral-500">+221 77 123 45 67</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-6 w-full md:w-6/12 md:px-3 lg:w-6/12">
-                <div class="flex items-start">
-                  <div class="shrink-0 bg-sky-200 p-4 rounded-md">
-                    📍
-                  </div>
-                  <div class="ml-6">
-                    <p class="mb-1 font-bold">Adresse</p>
-                    <p class="text-sm text-neutral-500">123 Avenue de la Vente, Dakar</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-6 w-full md:w-6/12 md:px-3 lg:w-6/12">
-                <div class="flex items-start">
-                  <div class="shrink-0 bg-sky-200 p-4 rounded-md">
-                    📧
-                  </div>
-                  <div class="ml-6">
-                    <p class="mb-1 font-bold">Email</p>
-                    <p class="text-sm text-neutral-500">contact@vendeurpro.com</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-6 w-full md:w-6/12 md:px-3 lg:w-6/12">
-                <div class="flex items-start">
-                  <div class="shrink-0 bg-sky-200 p-4 rounded-md">
-                    📅
-                  </div>
-                  <div class="ml-6">
-                    <p class="mb-1 font-bold">Horaires</p>
-                    <p class="text-sm text-neutral-500">Lun - Ven, 9h - 18h</p>
-                  </div>
-                </div>
-              </div>
+         <!-- Informations pratiques --> 
+<!-- Informations pratiques -->
+<div class="w-full lg:w-7/12">
+    <h2 class="text-2xl font-bold mb-6 text-center mt-16">Informations pratiques</h2>
+    <div class="flex flex-wrap justify-center">
+        
+        <!-- Téléphone -->
+        <div class="mb-6 w-full md:w-6/12 lg:w-5/12 flex items-start gap-4">
+            <div class="text-[#ff7f00] text-2xl">
+                <i class="fas fa-phone-alt"></i>
             </div>
+            <div>
+                <p class="mb-1 font-bold text-[#003366]">Téléphone</p>
+                <p class="text-sm text-neutral-600">+221 77 123 45 67</p>
+            </div>
+        </div>
+        
+        <!-- Adresse -->
+        <div class="mb-6 w-full md:w-6/12 lg:w-5/12 flex items-start gap-4">
+            <div class="text-[#003366] text-2xl">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+                <p class="mb-1 font-bold text-[#ff7f00]">Adresse</p>
+                <p class="text-sm text-neutral-600">123 Avenue de la Vente, Dakar</p>
+            </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="mb-6 w-full md:w-6/12 lg:w-5/12 flex items-start gap-4">
+            <div class="text-[#ff7f00] text-2xl">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+                <p class="mb-1 font-bold text-[#003366]">Email</p>
+                <p class="text-sm text-neutral-600">contact@vendeurpro.com</p>
+            </div>
+        </div>
+        
+        <!-- Horaires -->
+        <div class="mb-6 w-full md:w-6/12 lg:w-5/12 flex items-start gap-4">
+            <div class="text-[#003366] text-2xl">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div>
+                <p class="mb-1 font-bold text-[#ff7f00]">Horaires</p>
+                <p class="text-sm text-neutral-600">Lun - Ven, 9h - 18h</p>
+            </div>
+        </div>
+        
+    </div>
+
+
 
             <!-- Réseaux sociaux -->
-            <h2 class="text-2xl font-semibold mt-6 text-center">Suivez-nous</h2>
-            <div class="flex space-x-4 mt-3">
-              <a href="https://www.linkedin.com" target="_blank" class="text-blue-700 text-3xl">
-                <font-awesome-icon :icon="['fab', 'linkedin']" />
-              </a>
-              <a href="https://www.instagram.com" target="_blank" class="text-pink-600 text-3xl">
-                <font-awesome-icon :icon="['fab', 'instagram']" />
-              </a>
-              <a href="https://www.facebook.com" target="_blank" class="text-blue-600 text-3xl">
-                <font-awesome-icon :icon="['fab', 'facebook']" />
-              </a>
-            </div>
+<h2 class="text-2xl font-bold mt-6 text-center">Suivez-nous</h2>
+<div class="flex justify-center space-x-8 mt-4">
+    <a href="https://www.linkedin.com" target="_blank" class="text-blue-700 text-3xl">
+        <font-awesome-icon :icon="['fab', 'linkedin']" />
+    </a>
+    <a href="https://www.instagram.com" target="_blank" class="text-pink-600 text-3xl">
+        <font-awesome-icon :icon="['fab', 'instagram']" />
+    </a>
+    <a href="https://www.facebook.com" target="_blank" class="text-blue-600 text-3xl">
+        <font-awesome-icon :icon="['fab', 'facebook']" />
+    </a>
+</div>
+
           </div>
         </div>
 
