@@ -399,7 +399,9 @@ console.log("Formulaire soumis :", form.value);
      font-size: 3.1em; /* Taille du titre */
      margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
-   }
+     margin-bottom: 5px;
+
+    }
    h5{
     font-size: 25px; /* Taille du texte du paragraphe */
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
@@ -422,8 +424,7 @@ console.log("Formulaire soumis :", form.value);
      max-width: 190%;   /* Limiter la largeur de l'image */
      height: auto;      /* Conserver les proportions de l'image */
      object-fit: cover; /* Couvrir l'espace sans déformer l'image */
-     border-bottom-left-radius: 150px; /* Arrondir le coin supérieur gauche */
-     border-top-right-radius: 50px; 
+    
    }
    button {
      position: relative;
@@ -712,9 +713,6 @@ console.log("Formulaire soumis :", form.value);
   opacity: 0;
 }
 
-
-
-
 /* --- Bouton Contact --- */
 .cta-button {
   background-color: #ff7f00;
@@ -793,21 +791,19 @@ console.log("Formulaire soumis :", form.value);
      height: 130px;
      border-radius: 50%;
      margin-bottom: 10px;
-   }
-   
-   /* --- Texte --- */
+}
+  /* --- Texte --- */
    .testimonial p {
      font-style: italic;
      color: #000;
      font-size: 18px; /* Augmente la taille de l'écriture */
      margin-top: 14px;
-
-   }
-   
-   .testimonial h4 {
+     margin: 0 0 20px 0; /* Espacement sous le titre */
+}
+.testimonial h4 {
     font-size: 1.5rem; /* Augmente la taille de l'écriture */
     margin-top: 14px;
-    color: #333;
+    color: #000;
     font-weight: bold; /* Texte en gras */
 }
 .testimonial-result{
@@ -815,8 +811,6 @@ console.log("Formulaire soumis :", form.value);
   font-size: 14px; /* Augmente la taille de l'écriture */
     color: #787676;
     font-weight: bold; /* Texte en gras */
-
-
 }
    
    /* --- Boutons de navigation --- */
@@ -855,17 +849,7 @@ console.log("Formulaire soumis :", form.value);
      background-color: #ff7f00;
    }
 
-
-
-
-
-   
-  
-
-
-
-
-   /* --- Section Contact & Inscription --- */
+/* --- Section Contact & Inscription --- */
 .contact-section {
   padding: 60px 5%;
   text-align: center;
