@@ -59,6 +59,7 @@ watch(route, () => {
     top: 0;
     left: 0;
     width: 100%;
+    height: 17%;
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem 0;
@@ -97,9 +98,11 @@ watch(route, () => {
     text-decoration: none;
     color:#003366;
     font-weight: 600px;
-    font-size: 30px;
+    font-size: 14px;
     transition: color 0.3s ease-in-out;
     padding: 0.5rem 1rem;
+    font-weight: bold;
+
 
   }
 
