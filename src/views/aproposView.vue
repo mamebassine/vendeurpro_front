@@ -73,18 +73,22 @@
       <p>Consultant en stratégie de vente digitale, expert en e-commerce.</p>
       <a href="#">Profil LinkedIn</a>
     </div>
-    
-    <div class="member">
+        <div class="member">
       <img src="/images/baniere.jpeg" alt="Fatou Ndiaye" class="styled-card-image" />
       <h3>Fatou Ndiaye</h3>
       <p>Formatrice en techniques de persuasion et fidélisation client.</p>
       <a href="#">Profil LinkedIn</a>
     </div>
   </div>
-  <p class="team-values">Valeurs : Expertise, Pragmatisme, Accompagnement Personnalisé, Accessibilité.</p>
+  <p class="team-values">
+  <span class="values-title">Valeurs :</span> Expertise, Pragmatisme, Accompagnement Personnalisé, Accessibilité.
+</p>
 </section>
 
-<section class="history">
+
+
+<!-- SECTION NOTRE HISTOIRE -->
+<!-- <section class="history">
   <h2 class="title">Notre Histoire</h2>
   <div class="history-content">
     <div class="history-text">
@@ -118,9 +122,49 @@
       <p>De nombreuses entreprises accompagnées</p>
     </div>
   </div>
-</section>
+</section> -->
 
-  
+
+ <!-- SECTION NOTRE HISTOIRE -->
+
+
+ <section class="history">
+    <h2 class="title">Notre Histoire</h2>
+    <div class="history-content">
+      <div class="history-text">
+        <p>
+          <strong>VendeurPro</strong> a été créé en 2024 pour répondre à un besoin crucial : combler le déficit de formations dans les
+        métiers de la vente au Sénégal. Face à l'utilisation majoritaire de méthodes de vente traditionnelles et à la
+        difficulté de trouver des jeunes capables de vendre des solutions, nous avons décidé d'agir.
+        </p>
+        <p>
+          Depuis, nous avons formé des dizaines de professionnels et accompagné un grand nombre d'entreprises dans leur
+        croissance, tout en aidant des étudiants, des chômeurs et des porteurs de projets à se lancer dans le métier de
+        vendeur.       
+       </p>
+      </div>
+      <div class="history-image">
+        <img src="/images/baniere.jpeg" alt="Illustration de notre histoire" />
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <img src="/images/baniere.jpeg" alt="Participants formés" />
+        <p><strong>+{{ participants }}</strong> participants formés</p>
+      </div>
+      <div class="stat-item">
+        <img src="/images/baniere.jpeg" alt="Taux de satisfaction" />
+        <p><strong>{{ satisfaction }}%</strong> de satisfaction</p>
+      </div>
+      <div class="stat-item">
+        <img src="/images/baniere.jpeg" alt="Entreprises accompagnées" />
+        <p><strong>+{{ entreprises }}</strong> entreprises accompagnées</p>
+      </div>
+    </div>
+  </section>
+
+
 <!-- SECTION TÉMOIGNAGES --> 
 <section class="testimonials">
   <h2 class="title">Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
@@ -152,7 +196,10 @@
 
 
 
- <!-- Section FAQ -->
+
+
+
+<!-- Section FAQ -->
  <section id="faq" class="faq-section">
     <h2>Questions Fréquentes</h2>
     <div class="faq-container">
@@ -170,8 +217,11 @@
 </section>
 </template>
 
+
+
+
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue'
 
 // Liste des questions fréquentes
 const faqItems = ref([
@@ -189,7 +239,46 @@ const toggle = (index) => {
   }));
 };
 
+// SECTION NOTRE HISTOIRE 
+
+const participants = ref(0)
+const satisfaction = ref(0)
+const entreprises = ref(0)
+
+function animateCounter(refVar, target, duration = 1000) {
+  const stepTime = 20
+  const steps = duration / stepTime
+  const increment = target / steps
+  let count = 0
+
+  const interval = setInterval(() => {
+    count += increment
+    if (count >= target) {
+      refVar.value = target
+      clearInterval(interval)
+    } else {
+      refVar.value = Math.floor(count)
+    }
+  }, stepTime)
+}
+
+onMounted(() => {
+  animateCounter(participants, 50)
+  animateCounter(satisfaction, 90)
+  animateCounter(entreprises, 25) // par exemple
+})
+// SECTION TÉMOIGNAGES 
+
+
+
+
+
+
+
+
 </script>
+
+
 
 <style scoped>
 
@@ -289,53 +378,150 @@ const toggle = (index) => {
   color: #003366;
 }
 
-/* NOTRE HISTOIRES */
+.member h3 {
+  font-size: 1.5rem;
+  color: #003366;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.member p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.member a {
+  text-decoration: none;
+  color: #ff7f00;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.member a:hover {
+  color: #fff;
+  background-color: #000;
+
+  padding: 12px 24px;
+border-radius: 25%;
+
+}
+/* Phrase et titre en bas */
+.team-values {
+  margin-top: 35px;
+  font-weight: 500;
+  color: #003366;
+  font-size: 1rem;
+  max-width: 700px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+.team-values .values-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #000;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+/* NOTRE HISTOIRE */
+
 .history {
   margin-top: 5%;
-  background: rgba(0, 51, 102, 0.2);
+  background: rgba(0, 51, 102, 0.1);
   padding: 60px 20px;
   text-align: center;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   animation: fadeIn 1s ease-in-out;
 }
+
+.history .title {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .history-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
+  gap: 40px;
   text-align: left;
 }
 
 .history-text {
-  width: 55%;
+  flex: 1 1 50%;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333;
   padding-right: 20px;
 }
 
 .history-image img {
-  width: 40%;
+  width: 100%;
   max-width: 500px;
-  border-radius: 15px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  flex: 1 1 40%;
 }
 
+/* Stats */
 .stats {
   display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
 }
 
 .stat-item {
   text-align: center;
+  background: #fff;
+  padding: 20px 15px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  max-width: 220px;
+  flex: 1 1 200px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
 }
 
 .stat-item img {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #003366;
+margin-left: 20%;}
+
+.stat-item p {
+  font-size: 1.2rem;
+  color: #003366;
 }
+
+.stat-item strong {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 5px;
+  color: #ff7f00;
+}
+
+
+
+
+
 
 /* --- Section FAQ --- */
 .faq-section {
@@ -427,6 +613,96 @@ const toggle = (index) => {
   color: white;
   transform: scale(1.05);
 }
+
+/* SECTION TÉMOIGNAGES */
+.testimonials {
+  margin-top: 5%;
+  background: linear-gradient(135deg, #e0f7fa, #fbe9e7);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.testimonials .title {
+  font-size: 2.2rem;
+  color: #003366;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.testimonial-slider {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.testimonial {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  max-width: 300px;
+  flex: 1 1 280px;
+  transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-content img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid #ff7f00;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  color: #333;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  color: #003366;
+  font-size: 0.95rem;
+}
+
+.cta-button {
+  background: #ff7f00;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #003366;
+  color: #fff;
+}
+
 
 
 </style>

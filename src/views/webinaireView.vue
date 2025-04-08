@@ -192,27 +192,27 @@ body {
   color: white;
   border-radius: 0 0 30px 30px;
 }
-
 .hero h1 {
-  font-size: 1.8rem;
-  line-height: 1.3;
-  margin-bottom: 15px;
+  font-size: 3.1em; /* Taille du titre */
+     margin: 0 0 20px 0; /* Espacement sous le titre */
+     font-weight: bold; /* Gras pour le titre */
+     margin-bottom: 5px;
 }
 h2{
- 
-    /* font-size: 2.3rem;
+ /* font-size: 2.3rem;
   line-height: 1.3;
   margin-bottom: 2%; */
-
-  font-size: 2.5em;
+font-size: 2.5em;
   color: #003366;
   margin-bottom: 30px;
   font-weight: bold;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: 20px; /* Taille du texte du paragraphe */
+     margin: 20px 0; /* Espacement vertical entre les paragraphes */
+     font-weight: arial; /* Gras pour le titre */
+
 }
 
 .hero .cta-button {
@@ -270,22 +270,34 @@ h2{
   min-width: 300px; /* Empêche les cartes de devenir trop petites */
   transition: transform 0.3s ease-in-out;
 }
-
 .why-card:hover {
   transform: translateY(-5px); /* Légère élévation de la carte pour un effet dynamique */
 }
-
 .why-card i {
-  font-size: 3rem; /* Icône plus grande pour attirer l'attention */
+  font-size: 3.6rem; /* Icône plus grande pour attirer l'attention */
   color: #ff7f00;
-  margin-bottom: 15px; /* Espacement sous l'icône */
+  margin-bottom: 16px; /* Espacement sous l'icône */
+}
+/* 🔹 Titre de la carte */
+.why-card h3 {
+  font-size: 1.7rem;
+  color: #003366;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* 🔹 Texte de la carte */
+.why-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
 }
 
 
 
 
 
-/* 🔹 PROCHAINS WEBINAIRES */
+
 
 /* 🔹 PROCHAINS WEBINAIRES - Conteneur des cartes */
 .webinaire-list {
@@ -319,15 +331,21 @@ h2{
 
 /* 🔹 Style du texte */
 .webinaire-card h3 {
-  font-size: 1.4rem;
-  color: #333;
+  font-size: 1.5rem;
+  color: #000;
   margin-bottom: 10px;
+  text-align: center;
+
+  font-weight: bold; /* Gras pour le titre */
+
 }
 
 .webinaire-card p {
-  font-size: 1rem;
-  color: #555;
+  font-size: 1.4rem;
+  color: #000;
   margin: 5px 0;
+
+
 }
 
 /* 🔹 Bouton d'inscription */

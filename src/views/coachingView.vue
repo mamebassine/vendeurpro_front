@@ -36,27 +36,25 @@
 
     <!-- 🎯 FAQ -->
     <section id="faq" class="faq-section">
-   <h2>Questions Fréquentes</h2>
-
-  <div class="faq-container">
+    <h2>Questions Fréquentes</h2>
+    <div class="faq-container">
       <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
-        <h3 @click="toggle(index)" class="faq-title">
+        <h3 @click="toggleFAQ(index)" class="faq-title">
           <span>{{ item.question }}</span>
           <i :class="{'fas fa-chevron-down': !item.isOpen, 'fas fa-chevron-up': item.isOpen}"></i>
         </h3>
         <transition name="slide">
-          <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
+          <p v-show="item.isOpen" class="faq-answer">{{ item.answer }}</p>
         </transition>
       </div>
-    
-      <!-- <button class="cta-button">📩 Contactez-Nous</button> -->
-
       <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
-  </div>
+    </div>
   </section>
   
   </section>
 </template>
+
+
 
 <script setup>
 import { ref } from "vue";
@@ -99,20 +97,23 @@ const toggleFAQ = (index) => {
     isOpen: i === index ? !item.isOpen : false
   }));
 };
+
 </script>
+
+
+
+
+
 
 <style scoped>
 /* 🔹 GLOBAL */
 #coaching{
     margin-top: 9%;
   }
-
-
 .section {
-  padding: 50px 8%;
+  padding: 80px 8%;
   text-align: center;
 }
-
 /* 🔹 HERO SECTION */
 .hero {
   display: flex;
@@ -123,7 +124,6 @@ const toggleFAQ = (index) => {
   color: white;
   border-radius: 0 0 30px 30px;
 }
-
 .titrecoaaching{
   /* text-align: left;
   font-size: 2.5rem;
@@ -143,19 +143,26 @@ const toggleFAQ = (index) => {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  line-height: 1.3;
+  font-size: 3em; /* Taille du titre */
+     margin: 0 0 5px 0; /* Espacement sous le titre */
+     font-weight: bold; /* Gras pour le titre */
+     margin-bottom: 5px;
+
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: 20px; /* Taille du texte du paragraphe */
+     margin: 20px 0; /* Espacement vertical entre les paragraphes */
+     font-weight: arial; /* Gras pour le titre */
 }
 
 .hero-image {
-  max-width: 400px;
+  max-width: 900px;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* clip-path: ellipse(90% 100% at 100% 100%); */
+
+  clip-path: polygon(0 0, 120% 300%, 100% 0);
 }
 
 /* 🔹 COACHING CARDS */
@@ -186,12 +193,18 @@ const toggleFAQ = (index) => {
 
 /* Ajuster les éléments intérieurs */
 .coaching-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 10px;
+  text-align: left;
+
+  font-weight: bold; /* Gras pour le titre */
+
 }
 
 .coaching-card p {
   flex-grow: 1; /* Permet au paragraphe de prendre de la place et d'uniformiser les cartes */
+  font-size: 18px;
+
 }
 
 .coaching-card button {
@@ -244,14 +257,14 @@ const toggleFAQ = (index) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #003366;
   margin: 0;
 }
 
 .faq-title i {
-  font-size: 1.2em;
+  font-size: 1.8em;
   transition: transform 0.3s ease;
 }
 
@@ -264,14 +277,26 @@ const toggleFAQ = (index) => {
 }
 
 /* --- Animation Slide pour ouverture des réponses --- */
+/* Animation Slide */
+/* Animation Slide */
 .slide-enter-active, .slide-leave-active {
-  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  overflow: hidden;
 }
 
-.slide-enter, .slide-leave-to {
+/* Quand on entre */
+.slide-enter-from, .slide-leave-to {
   max-height: 0;
   opacity: 0;
 }
+
+/* Quand on quitte */
+.slide-enter-to, .slide-leave-from {
+  max-height: 200px; /* Ajustez cette valeur selon la hauteur du contenu */
+  opacity: 1;
+}
+
+
 
 
 
@@ -280,9 +305,9 @@ const toggleFAQ = (index) => {
   background: #ff7f00;
   color: white;
   padding: 10px 18px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   border-radius: 8px;
-  transition: 0.3s;
+  transition: 0.4s;
 
   text-decoration: none; /* Supprime le soulignement */
   display: inline-block; /* Évite le léger décalage vertical */

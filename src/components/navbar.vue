@@ -50,14 +50,9 @@ const menuItems = [
 watch(route, () => {
   activeSection.value = route.path;
 });
-
-
 </script> 
 
-
-
-  
-  <style scoped>
+<style scoped>
   /* Styles de la barre de navigation */
   .navbar {
     position: fixed;  /* Ajouté pour fixer le header en haut */
@@ -87,13 +82,13 @@ watch(route, () => {
   
   /* Logo */
   .logo img {
-    height: 83px;
+    height: 110px;
   }
   
   /* Menu */
   .menu {
     display: flex;
-    gap: 2rem;
+    gap: 0.2rem;
     list-style: none;
     margin: 0 auto;
   }
@@ -102,7 +97,7 @@ watch(route, () => {
     text-decoration: none;
     color:#003366;
     font-weight: 600px;
-    font-size: 1.8rem;
+    font-size: 30px;
     transition: color 0.3s ease-in-out;
     padding: 0.5rem 1rem;
 
