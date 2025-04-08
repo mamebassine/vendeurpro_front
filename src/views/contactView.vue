@@ -6,9 +6,10 @@
     <!-- Carte Google Maps -->
     <div id="map" class="relative h-[300px] mt-8 overflow-hidden bg-cover bg-[50%] bg-no-repeat">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11672.945750644447!2d-122.42107853750231!3d37.7730507907087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858070cc2fbd55%3A0xa71491d736f62d5c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1619524992238!5m2!1sen!2sus"
-        width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63302.71814287717!2d-17.48019567518832!3d14.716677353780273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec173f5d66bfa9d%3A0xf64b4e6e8f6c38d0!2sDakar%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2ssn!4v1619524992238!5m2!1sfr!2ssn"
+    width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+
     </div>
 
     <div class="container px-6 md:px-12">

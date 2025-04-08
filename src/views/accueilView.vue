@@ -425,6 +425,10 @@ console.log("Formulaire soumis :", form.value);
      height: auto;      /* Conserver les proportions de l'image */
      object-fit: cover; /* Couvrir l'espace sans déformer l'image */
     
+     
+     border-bottom-left-radius: 190px;   /*  Arrondir le coin supérieur gauche */
+     /* border-bottom-right-radius: 190px;  */
+
    }
    button {
      position: relative;
@@ -819,7 +823,7 @@ console.log("Formulaire soumis :", form.value);
      border: none;
      font-size: 24px;
      cursor: pointer;
-     color: #003366;
+     color: #ff7f00;
      transition: transform 0.2s;
    }
    
@@ -971,6 +975,9 @@ h2 {
   object-fit: cover; /* Pour que l'image garde une bonne apparence */
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+  clip-path: ellipse(90% 70% at 90% 60%);
+
 }
 
 

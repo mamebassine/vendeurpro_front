@@ -279,10 +279,7 @@ h2{
   text-align: left;
   
 
-
-
-
-  display: flex;
+display: flex;
   flex-direction: column;
   justify-content: space-between; /* Équilibre le contenu */
   height: 100%; /* Assure une hauteur uniforme */
@@ -300,6 +297,9 @@ h2{
   font-size: 1.2em;
   margin: 10px 0;
   margin-left: 5%;
+  text-align: center;
+  font-weight: bold; /* Gras pour le titre */
+
 }
 
 .formation-card p {
