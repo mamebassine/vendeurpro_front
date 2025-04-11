@@ -557,7 +557,7 @@ console.log("Formulaire soumis :", form.value);
   
    /* Section NOS FORMATIONS */
    .formations-section {
-     background-color: #000;
+     background-color: #8997a5;
      color: white;
      padding: 50px 0;
      margin-top: 5%;
@@ -688,7 +688,7 @@ console.log("Formulaire soumis :", form.value);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #003366;
   margin: 0;
@@ -736,6 +736,9 @@ console.log("Formulaire soumis :", form.value);
   color: white;
   transform: scale(1.05);
 }
+
+
+
 
 /* TEMOIGNAGE SECTION */
    /* --- Styles généraux --- */
