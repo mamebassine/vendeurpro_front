@@ -73,7 +73,7 @@ watch(route, () => {
   
   .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* centre le contenu par défaut */
     align-items: center;
     max-width: 1200px;
     margin: auto;
@@ -81,12 +81,7 @@ watch(route, () => {
     
   }
   
-  /* Logo */
-  .logo img {
-    height: 110px;
-  }
-  
-  /* Menu */
+/* Menu */
   .menu {
     display: flex;
     gap: 0.2rem;
@@ -98,13 +93,27 @@ watch(route, () => {
     text-decoration: none;
     color:#003366;
     font-weight: 600px;
-    font-size: 14px;
+    font-size: 17px;
     transition: color 0.3s ease-in-out;
     padding: 0.5rem 1rem;
     font-weight: bold;
+}
+
+/* Logo positionné à droite */
+.logo {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Logo image sans marge déformante */
+.logo img {
+  height: 110px;
+  margin: 50%;  /* espace sur le logo */
+}
 
 
-  }
 
 /* Lien actif */
 .menu li a.active {

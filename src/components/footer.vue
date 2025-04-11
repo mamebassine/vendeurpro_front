@@ -4,7 +4,7 @@
       <div class="footer-top">
         <!-- Newsletter -->
         <div class="newsletter">
-          <h3>📩 Newsletter</h3>
+          <h3>Newsletter</h3>
           <p>Recevez nos offres exclusives.</p>
           <div class="newsletter-form">
             <input type="email" placeholder="Votre email..." class="newsletter-input" />
@@ -14,7 +14,7 @@
 
         <!-- Réseaux sociaux -->
         <div class="social-icons">
-          <h3>🌍 Suivez-nous</h3>
+          <h3>Suivez-nous</h3>
           <div class="icons">
             <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -25,16 +25,31 @@
         </div>
       </div>
 
+      <!-- Partie du milieu : liens + contact -->
       <div class="footer-middle">
+        <!-- ✅ Nos solutions -->
         <div class="footer-links">
-          <h3>Liens utiles</h3>
+          <h3>Nos solutions</h3>
           <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Formations</a></li>
+            <li><a href="#">Se former</a></li>
             <li><a href="#">Coaching</a></li>
+            <li><a href="#">Le lab</a></li>
+            <li><a href="#">Un projet</a></li>
           </ul>
         </div>
 
+        <!-- ✅ Contact -->
+        <div class="contact-info">
+          <h3>Contact</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Vente, Dakar</li>
+            <li><i class="fas fa-envelope"></i> contact@vendeurpro.com</li>
+            <li><i class="fas fa-phone"></i> +221 77 123 45 67</li>
+            <li><i class="fas fa-clock"></i> Lun - Ven, 9h - 18h</li>
+          </ul>
+        </div>
+
+        <!-- ✅ Mentions légales -->
         <div class="footer-links">
           <h3>Mentions légales</h3>
           <ul>
@@ -51,6 +66,7 @@
   </footer>
 </template>
 
+
 <script>
 export default {
   name: "FooterComponent",
@@ -58,17 +74,19 @@ export default {
 </script>
 
 <style scoped>
-/* 🎨 Style général */
-
 .footer {
   background-color: #003366;
   color: white;
   font-family: 'Arial', sans-serif;
+  padding: 4px 0; /* réduit le padding global */
+
 }
 
 .container {
-  max-width: 1300px;  /* conpasssssss */
+  max-width: 1300px;
   margin: auto;
+  padding: 0 5px;    /* SE RAPPROCHER */
+  
 }
 
 /* 🎯 Partie supérieure */
@@ -77,15 +95,15 @@ export default {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding-bottom: 16px;
-  border-bottom: 2px solid #ff7f00;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ff7f00;
+  gap: 10px;
 }
 
 /* ✉️ Newsletter */
 .newsletter {
   max-width: 300px;
   padding-top: 3%;
-
 }
 
 .newsletter h3 {
@@ -94,24 +112,24 @@ export default {
 }
 
 .newsletter p {
-  font-size: 20px;
-  color: #ddd;
+  font-size: 14px;
+  color: #ddd; 
+   margin-bottom: 6px;
+margin-left: 4%;
 }
 
 .newsletter-form {
   display: flex;
-  gap: 25px;
-  margin-top: 5px;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 .newsletter-input {
   flex: 1;
   padding: 8px 10px;
-
-  /* padding: 2px; */
   border: 2px solid #ff7f00;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 16px;
   background-color: #fff;
   color: #333;
 }
@@ -123,7 +141,7 @@ export default {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   transition: background 0.3s;
 }
 
@@ -133,17 +151,20 @@ export default {
 
 /* 🌍 Réseaux sociaux */
 .social-icons {
-  text-align: right;
+  text-align: left;
 }
 
 .social-icons h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: 15px;
+  margin-bottom: 2px;
+  font-weight: bold;
 }
 
 .icons {
   display: flex;
-  gap: 15px;
+  gap: 18px;
+  margin-top: 20px;
+
 }
 
 .social-icon {
@@ -156,31 +177,47 @@ export default {
   color: white;
 }
 
-/* 📂 Liens du footer */
+/* 📂 Liens du footer + contact */
 .footer-middle {
   display: flex;
-  justify-content: space-around;
-  padding: 20px 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  gap: 30px;
 }
 
-.footer-links h3 {
-  font-size: 22px;
-  margin-bottom: 5px;
+.footer-links,
+.contact-info {
+  flex: 1 1 300px;
+  max-width: 350px;
 }
 
-.footer-links ul {
+.footer-links h3,
+.contact-info h3 {
+  font-size: 15px;
+  margin-bottom: 2px;
+  font-weight: bold;
+
+}
+
+.footer-links ul,
+.contact-info ul {
   list-style: none;
   padding: 0;
+  margin: 10px;
+  margin-left: 4%;
+
 }
 
-.footer-links li {
-  margin-bottom: 5px;
+.footer-links li,
+.contact-info li {
+  margin-bottom: 3px;
+  font-size: 16px;
 }
 
 .footer-links a {
   color: #ddd;
   text-decoration: none;
-  font-size: 20px;
   transition: color 0.3s;
 }
 
@@ -188,12 +225,24 @@ export default {
   color: #ff7f00;
 }
 
+.contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-info i {
+  color: #ff7f00;
+  font-size: 16px;
+}
+
 /* 📜 Bas du footer */
 .copyright {
   text-align: center;
-  padding-top: 10px;
+  padding-top: 2px;
   border-top: 2px solid #ff7f00;
   font-size: 14px;
+  margin-top: 10px;
 }
 
 .copyright a {
@@ -206,40 +255,19 @@ export default {
   text-decoration: underline;
 }
 
-/* 📱 Responsive */
+/* Responsive */
 @media (max-width: 768px) {
-  .footer-top,
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .footer-middle {
     flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .newsletter {
-    text-align: center;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
-
-  .newsletter-input {
-    width: 100%;
-    margin-right: 5%;
   }
 
   .social-icons {
-    text-align: center;
-    margin-top: 15px;
-  }
-
-  .icons {
-    justify-content: center;
-  }
-
-  .footer-links {
-    text-align: center;
-    margin-bottom: 10px;
+    text-align: left;
   }
 }
 </style>
