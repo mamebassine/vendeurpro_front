@@ -257,14 +257,14 @@ const toggleFAQ = (index) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: #003366;
   margin: 0;
 }
 
 .faq-title i {
-  font-size: 1.8em;
+  font-size: 1.2em;
   transition: transform 0.3s ease;
 }
 

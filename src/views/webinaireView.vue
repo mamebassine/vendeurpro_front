@@ -63,23 +63,26 @@
 
       </div>
   
-      <!-- 🎯 FAQ -->
-      <div class="section faq">
-        <h2> Questions Fréquentes</h2>
-        <div class="faq-container">
-          <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
-            <h3 @click="toggleFAQ(index)" class="faq-title">
-              {{ item.question }} <span class="arrow">{{ item.isOpen ? '▲' : '▼' }}</span>
-            </h3>
-            <transition name="fade">
-              <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
-            </transition>
-          </div>
-        </div>
-        <!-- <button class="cta-button">📩 Inscrivez-vous Maintenant</button> -->
-
-        <router-link to="/contact" class="cta-button">📩 Inscrivez-vous Maintenant</router-link>
+   <!-- 🎯 FAQ  n2--> 
+<div class="section faq">
+  <h2> Questions Fréquentes</h2>
+  <div class="faq-container">
+    <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
+      <h3 @click="toggleFAQ(index)" class="faq-title">
+        <span>{{ item.question }}</span>
+        <!-- Icône comme dans FAQ n°1 -->
+        <i :class="{'fas fa-chevron-down': !item.isOpen, 'fas fa-chevron-up': item.isOpen}"></i>
+      </h3>
+      <transition name="fade">
+        <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
+      </transition>
+    </div>
   </div>
+
+  <!-- <button class="cta-button">📩 Inscrivez-vous Maintenant</button> -->
+  <router-link to="/contact" class="cta-button">📩 Inscrivez-vous Maintenant</router-link>
+</div>
+
   </section>
   </template>
   
@@ -569,7 +572,7 @@ margin-left: 42%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #003366;
   margin: 0;

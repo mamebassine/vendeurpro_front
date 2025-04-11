@@ -433,7 +433,7 @@ display: flex;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #003366;
   margin: 0;
