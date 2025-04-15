@@ -1,18 +1,15 @@
 <template>
- 
- 
-
-<section class="lamission">
+ <section class="lamission">
  <div class="max-w-screen-xl mx-auto p-45 sm:p-10 md:p-16 relative">
     <div class="bg-cover bg-center text-center overflow-hidden"
-        style="min-height: 500px; background-image: url('/images/baniere.jpeg')"
+        style="min-height: 350px; background-image: url('/images/baniere.jpeg')"
         title="Woman holding a mug">
     </div>
     <div class="max-w-3xl mx-auto">
         <div
             class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
             <div class="bg-blue-100 relative top-0 -mt-32 p-5 sm:p-10">
-                <h1 href="#" class="text-gray-990 font-bold text-4xl mb-2">Notre Mission : Former les Vendeurs de Demain</h1>
+                <h1 href="#" class="text-gray-990 font-bold text-3xl mb-2">Notre Mission : Former les Vendeurs de Demain</h1>
                 <p class="text-gray-700 text-xs mt-2">Avec des formations:
                     <a href="#"
                         class="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
@@ -268,17 +265,7 @@ onMounted(() => {
   animateCounter(entreprises, 25) // par exemple
 })
 // SECTION TÉMOIGNAGES 
-
-
-
-
-
-
-
-
 </script>
-
-
 
 <style scoped>
 
@@ -517,7 +504,11 @@ margin-left: 20%;}
   margin-bottom: 5px;
   color: #ff7f00;
 }
-
+.team h2{
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #003366;
+}
 
 
 
@@ -531,7 +522,7 @@ margin-left: 20%;}
 }
 
 .faq-section h2 {
-  font-size: 2.5em;
+  font-size: 1.8em;
   margin-bottom: 30px;
   font-weight: bold;
   color: #003366;
@@ -626,7 +617,7 @@ margin-left: 20%;}
 }
 
 .testimonials .title {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   color: #003366;
   margin-bottom: 40px;
   text-transform: uppercase;

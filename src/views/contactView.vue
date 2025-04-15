@@ -1,25 +1,18 @@
-
-
 <template>
-
 <section class="mb-32">
     <!-- Carte Google Maps -->
     <div id="map" class="relative h-[300px] mt-8 overflow-hidden bg-cover bg-[50%] bg-no-repeat">
-      <iframe
+<iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63302.71814287717!2d-17.48019567518832!3d14.716677353780273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec173f5d66bfa9d%3A0xf64b4e6e8f6c38d0!2sDakar%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2ssn!4v1619524992238!5m2!1sfr!2ssn"
     width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy">
 </iframe>
 
-    </div>
-
-    <div class="container px-6 md:px-12">
+</div>
+<div class="container px-6 md:px-12">
       <div
         class="block rounded-lg bg-white px-6 py-12 shadow-md md:py-16 md:px-12 -mt-[100px] backdrop-blur-lg border border-gray-300">
-        
         <div class="flex flex-wrap">
-
-
-  <!-- MOTS TITRE ACCROCHE -->
+<!-- MOTS TITRE ACCROCHE -->
 <!-- MOTS TITRE ACCROCHE -->
 <div class="bg-[#e6eef7] py-6 px-3 rounded-2xl shadow-md flex items-center justify-between mt-4 max-w-3xl mx-auto">
     <div>
@@ -32,9 +25,6 @@
         </p>
     </div>
 </div>
-
-
-
 
 <!-- Formulaire de contact -->
           <div class="mb-12 w-full md:px-3 lg:mb-0 lg:w-5/12 lg:px-6 mt-16 mt-16">
@@ -124,10 +114,7 @@
         </div>
         
     </div>
-
-
-
-            <!-- Réseaux sociaux -->
+<!-- Réseaux sociaux -->
 <h2 class="text-2xl font-bold mt-6 text-center">Suivez-nous</h2>
 <div class="flex justify-center space-x-8 mt-4">
     <a href="https://www.linkedin.com" target="_blank" class="text-blue-700 text-3xl">
@@ -250,14 +237,7 @@ button:hover {
 iframe {
   border-radius: 10px;
 }
-
-
 </style>
-
-
-
-
-
 
 
 
@@ -383,16 +363,6 @@ export default {
   margin-top: 10%;
 }
 </style> -->
-
-
-
-
-
-
-
-
-
-
 <!-- ICI C'EST BON APRES ON CHPOIX -->
 
  <!-- <template>

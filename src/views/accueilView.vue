@@ -103,7 +103,7 @@
       </div>
     </div>
     
-    <!-- <button class="cta-button">Contactez-Nous</button> -->
+   <!-- <button class="cta-button">Contactez-Nous</button> -->
     <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
   </section>
    
@@ -396,27 +396,29 @@ console.log("Formulaire soumis :", form.value);
      margin-top: 16%;
    }
    #hero h1 {
-     font-size: 3.1em; /* Taille du titre */
+     font-size: 2.8em; /* Taille du titre */
      margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
      margin-bottom: 5px;
 
     }
    h5{
-    font-size: 25px; /* Taille du texte du paragraphe */
+    font-size: 18px; /* Taille du texte du paragraphe */
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
      font-weight: arial; /* Gras pour le titre */ 
    }
+   #hero p {
+     font-size: 17px; /* Taille du texte du paragraphe */
+     margin: 20px 0; /* Espacement vertical entre les paragraphes */
+     font-weight: arial; /* Gras pour le titre */
+     color: #333;
+}
+
    h3{
     font-size: 1.6em; /* Taille du titre */
     font-weight: bold; /* Gras pour le titre */ 
    }
-   #hero p {
-     font-size: 20px; /* Taille du texte du paragraphe */
-     margin: 20px 0; /* Espacement vertical entre les paragraphes */
-     font-weight: arial; /* Gras pour le titre */
-
-   }
+   
    #hero img {
      margin-top: 11%;
      /* margin-left: 10%;  Marge à gauche */
