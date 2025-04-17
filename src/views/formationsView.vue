@@ -76,17 +76,26 @@
 
               <router-link to="/formation-vente-directe" class="card">
                 <h3>Pro Vendeur BtoC</h3>
-                <p>Maîtrisez la vente en boutique, sur les réseaux sociaux et WhatsApp.</p>
+                <p>
+                  <strong>Objectifs :</strong>
+
+                  Maîtrisez la vente en boutique, sur les réseaux sociaux et WhatsApp.</p>
               </router-link>
 
               <router-link to="/formation-btob" class="card">
                 <h3>Closer BtoB</h3>
-                <p>Devenez un expert en vente aux entreprises et prospection commerciale.</p>
+                <p>
+                  <strong>Objectifs :</strong>
+
+                  Devenez un expert en vente aux entreprises et prospection commerciale.</p>
               </router-link>
 
               <router-link to="/formation-vente-digitale" class="card">
                 <h3>Social Selling Master</h3>
-                <p>Maîtrisez la vente via TikTok, WhatsApp et autres canaux digitaux.</p>
+                <p>
+                  <strong>Objectifs :</strong>
+
+                  Maîtrisez la vente via TikTok, WhatsApp et autres canaux digitaux.</p>
               </router-link>
 
             </div>
