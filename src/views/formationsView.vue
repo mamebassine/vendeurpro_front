@@ -36,129 +36,126 @@
     </div>
      </div> -->
 
+  <div class="container">
+          <!-- Bootcamps --> 
+          <section>
+            <h4>Bootcamps</h4>
+            <div class="card-grid">
+              
+              <router-link to="/bootcamp-vendeur" class="card">
+                <h3>L'Art de Vendre</h3>
+                <p>
+                  <strong>Objectifs :</strong>
+                  Acquérir les techniques de vente essentielles pour booster vos ventes.
+                </p>
+              </router-link>
 
+              <router-link to="/bootcamp-services" class="card">
+                <h3>Vente Digitale et E-commerce</h3>
+                <p>
+                  <strong>Objectifs :</strong>
+                  Maîtrisez la vente en ligne et le e-commerce.
+                </p>
+              </router-link>
 
-     <div class="container">
-<!-- Bootcamps --> 
-<section>
-  <h4>Bootcamps</h4>
-  <div class="card-grid">
-    
-    <router-link to="/bootcamp-vendeur" class="card">
-      <h3>L'Art de Vendre</h3>
-      <p>
-        <strong>Objectifs :</strong>
-        Acquérir les techniques de vente essentielles pour booster vos ventes.
-      </p>
-    </router-link>
+              <router-link to="/bootcamp-produits" class="card">
+                <h3>Vente de Produits</h3>
+                <p>
+                  <strong>Objectifs :</strong>
+                  Apprenez à vendre efficacement aux entreprises.
+                </p>
+              </router-link>
 
-    <router-link to="/bootcamp-services" class="card">
-      <h3>Vente Digitale et E-commerce</h3>
-      <p>
-        <strong>Objectifs :</strong>
-        Maîtrisez la vente en ligne et le e-commerce.
-      </p>
-    </router-link>
-
-    <router-link to="/bootcamp-produits" class="card">
-      <h3>Vente de Produits</h3>
-      <p>
-        <strong>Objectifs :</strong>
-        Apprenez à vendre efficacement aux entreprises.
-      </p>
-    </router-link>
-
-  </div>
-</section>
-
-
-<!-- Formations Certifiantes -->
-<section>
-  <h4>Formations Certifiantes (90 jours)</h4>
-  <div class="card-grid">
-
-    <router-link to="/formation-vente-directe" class="card">
-      <h3>Pro Vendeur BtoC</h3>
-      <p>Maîtrisez la vente en boutique, sur les réseaux sociaux et WhatsApp.</p>
-    </router-link>
-
-    <router-link to="/formation-btob" class="card">
-      <h3>Closer BtoB</h3>
-      <p>Devenez un expert en vente aux entreprises et prospection commerciale.</p>
-    </router-link>
-
-    <router-link to="/formation-vente-digitale" class="card">
-      <h3>Social Selling Master</h3>
-      <p>Maîtrisez la vente via TikTok, WhatsApp et autres canaux digitaux.</p>
-    </router-link>
-
-  </div>
-</section>
-
- <!-- Modules à la Carte -->
-  <section>
-      <h4>Modules à la Carte pour une Formation Continue</h4>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div
-              v-for="(module, index) in modules"
-              :key="index"
-              class="border border-gray-300 rounded-xl shadow p-6 relative bg-white"
-            >
-              <div class="flex justify-between items-center">
-                <!-- Supprimé le numéro ici -->
-                <h3 class="text-lg font-semibold text-gray-800">
-                  {{ module.title }}
-                </h3>
-                <button @click="toggle(index)">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    :class="{ 'rotate-180': expanded === index }"
-                    class="h-6 w-6 transition-transform text-orange-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              </div>
-
-              <!-- Court résumé affiché par défaut -->
-              <p class="mt-2 text-sm text-gray-600">
-                {{ module.objectif }}
-              </p>
-
-              <!-- Affichage des détails seulement si cliqué -->
-              <transition name="fade">
-                <div v-if="expanded === index" class="mt-4 text-gray-700 space-y-3">
-                  <div>
-                    <strong>👥 À qui s’adresse ce module ?</strong>
-                    <ul class="list-disc list-inside text-sm mt-1">
-                      <li v-for="(aud, i) in module.audience" :key="i">{{ aud }}</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <strong>📘 Ce que vous apprendrez :</strong>
-                    <ul class="list-disc list-inside text-sm mt-1">
-                      <li v-for="(item, i) in module.apprentissages" :key="i">{{ item }}</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <strong>⏱ Durée :</strong> {{ module.duree }}<br />
-                    <strong>💻 Mode :</strong> {{ module.mode }}<br />
-                    <span v-if="module.date"><strong>📅 Prochaine session :</strong> {{ module.date }}</span>
-                  </div>
-                </div>
-              </transition>
             </div>
-          </div>
+          </section>
+
+          <!-- Formations Certifiantes -->
+          <section>
+            <h4>Formations Certifiantes (90 jours)</h4>
+            <div class="card-grid">
+
+              <router-link to="/formation-vente-directe" class="card">
+                <h3>Pro Vendeur BtoC</h3>
+                <p>Maîtrisez la vente en boutique, sur les réseaux sociaux et WhatsApp.</p>
+              </router-link>
+
+              <router-link to="/formation-btob" class="card">
+                <h3>Closer BtoB</h3>
+                <p>Devenez un expert en vente aux entreprises et prospection commerciale.</p>
+              </router-link>
+
+              <router-link to="/formation-vente-digitale" class="card">
+                <h3>Social Selling Master</h3>
+                <p>Maîtrisez la vente via TikTok, WhatsApp et autres canaux digitaux.</p>
+              </router-link>
+
+            </div>
+          </section>
+
+          <!-- Modules à la Carte -->
+            <section>
+                <h4>Modules à la Carte pour une Formation Continue</h4>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <div
+                        v-for="(module, index) in modules"
+                        :key="index"
+                        class="border border-gray-300 rounded-xl shadow p-6 relative bg-white"
+                      >
+                        <div class="flex justify-between items-center">
+                          <!-- Supprimé le numéro ici -->
+                          <h3 class="text-lg font-semibold text-gray-800">
+                            {{ module.title }}
+                          </h3>
+                          <button @click="toggle(index)">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              :class="{ 'rotate-180': expanded === index }"
+                              class="h-6 w-6 transition-transform text-orange-500"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+                        </div>
+
+                        <!-- Court résumé affiché par défaut -->
+                        <p class="mt-2 text-sm text-gray-600">
+                          {{ module.objectif }}
+                        </p>
+
+                        <!-- Affichage des détails seulement si cliqué -->
+                        <transition name="fade">
+                          <div v-if="expanded === index" class="mt-4 text-gray-700 space-y-3">
+                            <div>
+                              <strong>👥 À qui s’adresse ce module ?</strong>
+                              <ul class="list-disc list-inside text-sm mt-1">
+                                <li v-for="(aud, i) in module.audience" :key="i">{{ aud }}</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <strong>📘 Ce que vous apprendrez :</strong>
+                              <ul class="list-disc list-inside text-sm mt-1">
+                                <li v-for="(item, i) in module.apprentissages" :key="i">{{ item }}</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <strong>⏱ Durée :</strong> {{ module.duree }}<br />
+                              <strong>💻 Mode :</strong> {{ module.mode }}<br />
+                              <span v-if="module.date"><strong>📅 Prochaine session :</strong> {{ module.date }}</span>
+                            </div>
+                          </div>
+                        </transition>
+                      </div>
+                    </div>
+          </section>
+
+</div>
 </section>
 
-
-  </div>
-</section>
 <!-- 🎤 TÉMOIGNAGES -->
 <section class="temoignages">
   <h2> Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
@@ -198,11 +195,7 @@
  
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-
-
 //Données réactives pour formations
-
-
 const formations = ref([
       {
         img: "/images/baniere.jpeg",
@@ -254,7 +247,6 @@ const formations = ref([
       alert(`Vous allez voir le programme de la formation : ${title}`);
     };
 
-
 const testimonials = ref([
   { img: "/images/baniere.jpeg", text: "J'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
   { img: "/images/baniere.jpeg", text: "Une formation ultra-pratique qui a boosté mon business.", author: "Aminata Sow" },
@@ -268,11 +260,6 @@ const faqItems = ref([
   { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, nous offrons du coaching après la formation.", isOpen: false },
   { question: "Comment puis-je m'inscrire ?", answer: "Inscrivez-vous via notre site ou contactez-nous.", isOpen: false },
 ]);
-
-
-
-
-
 
 //  LES 6 CARTES
 const expanded = ref(null) // Un seul module ouvert à la fois
