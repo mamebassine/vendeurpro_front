@@ -11,12 +11,12 @@ import ContactView from '@/views/contactView.vue'
 
 
 
-import BootcampVendeurView from '@/views/BootcampVendeurView.vue'
-import BootcampProduitsView from '@/views/BootcampProduitsView.vue'
-import BootcampServicesView from '@/views/BootcampServicesView.vue'
-import FormationBtoBView from '@/views/FormationBtoBView.vue'
-import FormationVenteDirecteView from '@/views/FormationVenteDirecteView.vue'
-import FormationVenteDigitaleView from '@/views/FormationVenteDigitaleView.vue'
+import BootcampVendeurView from '@/views/bootcampVendeurView.vue'
+import BootcampProduitsView from '@/views/bootcampProduitsView.vue'
+import BootcampServicesView from '@/views/bootcampServicesView.vue'
+import FormationBtoBView from '@/views/formationBtoBView.vue'
+import FormationVenteDirecteView from '@/views/formationVenteDirecteView.vue'
+import FormationVenteDigitaleView from '@/views/formationVenteDigitaleView.vue'
 
 
 const router = createRouter({
