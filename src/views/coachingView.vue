@@ -10,7 +10,7 @@
         <router-link to="/contact" class="cta-button">📅 Réserver une Séance</router-link>
 
       </div>
-      <img src="../assets/images/baniere.jpeg" alt="Coaching Vente" class="hero-image" />
+      <img src="../assets/images/banierea.jpg" alt="Coaching Vente" class="hero-image" />
     </div>
 
     <!-- 🎯 PROGRAMMES DE COACHING -->
@@ -120,7 +120,7 @@ const toggleFAQ = (index) => {
   align-items: center;
   justify-content: space-between;
   padding: 60px 8%;
-  background: linear-gradient(120deg, #003366, #ff7f00);
+  background: linear-gradient(120deg, #003366, #fff);
   color: white;
   border-radius: 0 0 30px 30px;
 }
@@ -143,22 +143,22 @@ const toggleFAQ = (index) => {
 }
 
 .hero h1 {
-  font-size: 3em; /* Taille du titre */
-     margin: 0 0 5px 0; /* Espacement sous le titre */
+  font-size: 2.7em; /* Taille du titre */
+  margin: 0 0 5px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
      margin-bottom: 5px;
 
 }
 
 .hero p {
-  font-size: 20px; /* Taille du texte du paragraphe */
+  font-size: 17px; /* Taille du texte du paragraphe */
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
      font-weight: arial; /* Gras pour le titre */
 }
 
 .hero-image {
-  max-width: 900px;
-  border-radius: 20px;
+  max-width: 610px;
+  border-radius: 80px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   /* clip-path: ellipse(90% 100% at 100% 100%); */
 

@@ -159,11 +159,7 @@
   };
   </script>
   
-
-
-
-
-  <style scoped>
+ <style scoped>
   
   #webinaires{
     margin-top: 9%;
@@ -191,13 +187,13 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 60px 8%;
-  background: linear-gradient(120deg, #003366, #ff7f00);
+  background: linear-gradient(120deg, #bab6b6, #ff7f00);
   color: white;
   border-radius: 0 0 30px 30px;
 }
 .hero h1 {
-  font-size: 3.1em; /* Taille du titre */
-     margin: 0 0 20px 0; /* Espacement sous le titre */
+  font-size: 2.8em; /* Taille du titre */
+  margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
      margin-bottom: 5px;
 }
@@ -205,14 +201,14 @@ h2{
  /* font-size: 2.3rem;
   line-height: 1.3;
   margin-bottom: 2%; */
-font-size: 2.5em;
+font-size: 2em;
   color: #003366;
   margin-bottom: 30px;
   font-weight: bold;
 }
 
 .hero p {
-  font-size: 20px; /* Taille du texte du paragraphe */
+  font-size: 17px; /* Taille du texte du paragraphe */
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
      font-weight: arial; /* Gras pour le titre */
 

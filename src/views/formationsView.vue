@@ -21,7 +21,7 @@
   <h2>Choisissez la Formation qui Vous Correspond</h2>
   <p>📘 Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
   
-  <div class="formation-list">
+  <!-- <div class="formation-list">
     <div v-for="(formation, index) in formations" :key="index" class="formation-card">
       <img :src="formation.img" alt="Formation en vente" class="formation-image" />
       <div class="formation-content">
@@ -29,18 +29,136 @@
         <p><strong>Objectifs :</strong> {{ formation.objective }}</p>
         <p><strong>Public cible :</strong> {{ formation.audience }}</p>
         <p><strong>Durée :</strong> {{ formation.duration }}</p>
-        <!-- <button class="cta-button">📖 Voir le Programme</button> -->
 
-       <!-- 🔗 Bouton de navigation vers la page du programme détaillé -->
 
         <router-link to="/actualites" class="cta-button">📖 Voir le Programme</router-link>
-
-
 </div>
     </div>
-     </div>
+     </div> -->
+
+
+
+     <div class="container">
+<!-- Bootcamps --> 
+<section>
+  <h4>Bootcamps</h4>
+  <div class="card-grid">
+    
+    <router-link to="/bootcamp-vendeur" class="card">
+      <h3>L'Art de Vendre</h3>
+      <p>
+        <strong>Objectifs :</strong>
+        Acquérir les techniques de vente essentielles pour booster vos ventes.
+      </p>
+    </router-link>
+
+    <router-link to="/bootcamp-services" class="card">
+      <h3>Vente Digitale et E-commerce</h3>
+      <p>
+        <strong>Objectifs :</strong>
+        Maîtrisez la vente en ligne et le e-commerce.
+      </p>
+    </router-link>
+
+    <router-link to="/bootcamp-produits" class="card">
+      <h3>Vente de Produits</h3>
+      <p>
+        <strong>Objectifs :</strong>
+        Apprenez à vendre efficacement aux entreprises.
+      </p>
+    </router-link>
+
+  </div>
 </section>
 
+
+<!-- Formations Certifiantes -->
+<section>
+  <h4>Formations Certifiantes (90 jours)</h4>
+  <div class="card-grid">
+
+    <router-link to="/formation-vente-directe" class="card">
+      <h3>Pro Vendeur BtoC</h3>
+      <p>Maîtrisez la vente en boutique, sur les réseaux sociaux et WhatsApp.</p>
+    </router-link>
+
+    <router-link to="/formation-btob" class="card">
+      <h3>Closer BtoB</h3>
+      <p>Devenez un expert en vente aux entreprises et prospection commerciale.</p>
+    </router-link>
+
+    <router-link to="/formation-vente-digitale" class="card">
+      <h3>Social Selling Master</h3>
+      <p>Maîtrisez la vente via TikTok, WhatsApp et autres canaux digitaux.</p>
+    </router-link>
+
+  </div>
+</section>
+
+ <!-- Modules à la Carte -->
+  <section>
+      <h4>Modules à la Carte pour une Formation Continue</h4>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div
+              v-for="(module, index) in modules"
+              :key="index"
+              class="border border-gray-300 rounded-xl shadow p-6 relative bg-white"
+            >
+              <div class="flex justify-between items-center">
+                <!-- Supprimé le numéro ici -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ module.title }}
+                </h3>
+                <button @click="toggle(index)">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    :class="{ 'rotate-180': expanded === index }"
+                    class="h-6 w-6 transition-transform text-orange-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Court résumé affiché par défaut -->
+              <p class="mt-2 text-sm text-gray-600">
+                {{ module.objectif }}
+              </p>
+
+              <!-- Affichage des détails seulement si cliqué -->
+              <transition name="fade">
+                <div v-if="expanded === index" class="mt-4 text-gray-700 space-y-3">
+                  <div>
+                    <strong>👥 À qui s’adresse ce module ?</strong>
+                    <ul class="list-disc list-inside text-sm mt-1">
+                      <li v-for="(aud, i) in module.audience" :key="i">{{ aud }}</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <strong>📘 Ce que vous apprendrez :</strong>
+                    <ul class="list-disc list-inside text-sm mt-1">
+                      <li v-for="(item, i) in module.apprentissages" :key="i">{{ item }}</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <strong>⏱ Durée :</strong> {{ module.duree }}<br />
+                    <strong>💻 Mode :</strong> {{ module.mode }}<br />
+                    <span v-if="module.date"><strong>📅 Prochaine session :</strong> {{ module.date }}</span>
+                  </div>
+                </div>
+              </transition>
+            </div>
+          </div>
+</section>
+
+
+  </div>
+</section>
 <!-- 🎤 TÉMOIGNAGES -->
 <section class="temoignages">
   <h2> Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
@@ -81,7 +199,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
-// 🔹 Données réactives
+
+//Données réactives pour formations
+
+
 const formations = ref([
       {
         img: "/images/baniere.jpeg",
@@ -134,14 +255,6 @@ const formations = ref([
     };
 
 
-
-// const formations = ref([
-//   { img: "/images/baniere.jpeg", title: "Bootcamp : L'Art de Vendre", description: "💡 Techniques essentielles pour booster vos ventes." },
-//   { img: "/images/baniere.jpeg", title: "Vente Digitale et E-commerce", description: "🛒 Maîtrisez la vente en ligne et le e-commerce." },
-//   { img: "/images/baniere.jpeg", title: "Vente B2B : Techniques avancées", description: "📈 Apprenez à vendre aux entreprises efficacement." },
-//   { img: "/images/baniere.jpeg", title: "Modules à la Carte : Vente & Négociation", description: "📊 Formation flexible sur la prospection, négociation et plus encore." },
-// ]);
-
 const testimonials = ref([
   { img: "/images/baniere.jpeg", text: "J'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
   { img: "/images/baniere.jpeg", text: "Une formation ultra-pratique qui a boosté mon business.", author: "Aminata Sow" },
@@ -155,6 +268,111 @@ const faqItems = ref([
   { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, nous offrons du coaching après la formation.", isOpen: false },
   { question: "Comment puis-je m'inscrire ?", answer: "Inscrivez-vous via notre site ou contactez-nous.", isOpen: false },
 ]);
+
+
+
+
+
+
+//  LES 6 CARTES
+const expanded = ref(null) // Un seul module ouvert à la fois
+
+const toggle = (index) => {
+  expanded.value = expanded.value === index ? null : index
+}
+
+
+
+const modules = [
+  {
+    title: "Maîtriser l’art du pitch commercial",
+    objectif: "Savoir convaincre rapidement avec un discours clair, structuré et captivant.",
+    audience: ["Vendeurs terrain ou boutique", "Entrepreneurs", "Toute personne amenée à présenter une offre ou un projet"],
+    apprentissages: [
+      "Construire un pitch en 3 temps",
+      "Utiliser les émotions et l’effet de surprise",
+      "Adapter son message à son interlocuteur",
+      "Exprimer de la valeur en peu de mots"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: ""
+  },
+  {
+    title: "Vendre avec WhatsApp et les réseaux sociaux",
+    objectif: "Développer ses ventes en maîtrisant les canaux les plus utilisés au Sénégal.",
+    audience: ["Commerçants et e-commerçants", "Auto-entrepreneurs", "Community managers"],
+    apprentissages: [
+      "Utiliser WhatsApp Business pour la vente",
+      "Créer du contenu vendeur sur Facebook, Instagram, TikTok",
+      "Répondre efficacement aux messages et commentaires",
+      "Mettre en place un mini tunnel de vente via les réseaux"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  },
+  {
+    title: "Techniques de relance et suivi client",
+    objectif: "Convertir plus grâce à un suivi client régulier, humain et stratégique.",
+    audience: ["Commerciaux", "Freelances et prestataires de service", "Vendeurs en ligne ou boutique"],
+    apprentissages: [
+      "Les 5 types de relances efficaces",
+      "Que dire et quand le dire",
+      "Automatiser certaines étapes sans perdre l’humain",
+      "Fidéliser par le suivi régulier"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  },
+  {
+    title: "Conclure ses ventes plus facilement",
+    objectif: "Apprendre à bien finir le processus de vente avec assurance et efficacité.",
+    audience: ["Vendeurs", "Agents immobiliers, commerciaux B2B", "Chargés de clientèle"],
+    apprentissages: [
+      "Identifier les signaux d’achat",
+      "Lever les objections finales",
+      "Formuler une proposition de conclusion claire",
+      "Techniques de closing adaptées au B2C et B2B"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  },
+  {
+    title: "Valoriser ses produits comme un pro",
+    objectif: "Savoir mettre en avant ses produits pour susciter l’envie d’acheter.",
+    audience: ["Commerçants", "Vendeurs en ligne ou en boutique", "Présentateurs de produits/services"],
+    apprentissages: [
+      "Les règles du storytelling produit",
+      "Techniques d’exposition physique ou digitale",
+      "Comment créer une fiche produit convaincante",
+      "Parler bénéfices plutôt que caractéristiques"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  },
+  {
+    title: "Gérer son portefeuille client efficacement",
+    objectif: "Organiser, classer et exploiter son portefeuille client pour vendre plus.",
+    audience: ["Commerciaux terrain ou télévente", "Entrepreneurs avec une base client", "Agents immobiliers, prestataires de service"],
+    apprentissages: [
+      "Segmentation et priorisation",
+      "Mise en place d’un tableau de bord client",
+      "Suivi des opportunités de vente",
+      "Réactivation des clients dormants"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  }
+]
+
+
+
+
 
 // 🔹 Fonctions pour gérer les témoignages
 const nextTestimonial = () => {
@@ -182,6 +400,9 @@ onUnmounted(() => {
   clearInterval(interval);
 });
 </script>
+
+
+
 
 <style scoped>
 #formations{
@@ -215,14 +436,14 @@ onUnmounted(() => {
 /* ✅ Stylisation des Titres */
 .hero h1{
   color: #fff;
-  font-size: 3em; /* Taille du titre */
-     margin: 0 0 20px 0; /* Espacement sous le titre */
+  font-size: 2.8em; /* Taille du titre */
+  margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
      margin-bottom: 5px;
 }
 
 h2{
-    font-size: 2.4em;
+    font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -230,9 +451,9 @@ h2{
     text-align: center;
 }
 .hero h3 {
-  font-size: 1.6em; /* Taille du titre */
-    font-weight: bold; /* Gras pour le titre */ 
-}
+  font-size: 22px; /* Taille du texte du paragraphe */
+     margin: 20px 0; /* Espacement vertical entre les paragraphes */
+     font-weight: arial; /* Gras pour le titre */ }
 
 .hero h3 span {
     color: #ff7f00;
@@ -241,109 +462,115 @@ h2{
 
 /* ✅ Stylisation du Paragraphe POUR LE PETITE TEXYT */
 .hero p {
-     font-size: 20px; /* Taille du texte du paragraphe */
-     margin: 10px 0; /* Espacement vertical entre les paragraphes */
+  font-size: 15px; /* Taille du texte du paragraphe */
+     margin: 20px 0; /* Espacement vertical entre les paragraphes */
      font-weight: arial; /* Gras pour le titre */
+     color: #fff;
+     text-align: left;
+
 }
 
 .formation , p {
-  font-size: 1.2em;
   text-align: center;
+} 
 
+/* PARTIE F0RMATIONS */
 
-
-
-
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/*cartes Formations  */
+section {
+  margin-bottom: 3rem;
   
-  .formation-list {
+}
+
+h4{
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: left
+}
+
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
-  gap: 20px;
-  justify-items: center;
-  margin-top: 3%;
-  
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-.formation-card {
-  background: white;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 280px;
-  width: 100%;
-  transition: transform 0.3s ease-in-out;
-  text-align: left;
-  
-
-display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Équilibre le contenu */
-  height: 100%; /* Assure une hauteur uniforme */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.formation-image {
-  width: 100%;
-  max-height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
+.card:hover, h3 p {
+  transform: translateY(-4px);
+background-color:#003366 ; 
+/* box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); */
 }
 
-.formation-card h3 {
-  flex-grow: 1; /* Permet aux titres de s'adapter dynamiquement */
-  font-size: 1.2em;
-  margin: 10px 0;
-  margin-left: 5%;
-  text-align: center;
+.card:hover h3,
+.card:hover p {
+  color: #ff7f00;
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  color: #000;
+
   font-weight: bold; /* Gras pour le titre */
 
+  
 }
 
-.formation-card p {
-  flex-grow: 1; /* Assure une hauteur homogène pour les descriptions */
-  font-size: 1em;
-  margin-left: 5%;
+.card p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.2;
+  text-align: justify;
+}
+
+
+/* POUR LES 6 DERNIERS CARTES EN BAS */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+
+
+
+.card {
+  position: relative;
+  padding-bottom: 40px; /* Pour laisser de la place à l’icône */
+}
+
+.icon-bottom {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 25px;
+  color: #ff7f00; /* ou n’importe quelle couleur qui va bien avec ton thème */
 
 }
 
-.cta-button {
-  background: #ff7f00;
-  padding: 12px 20px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1em;
-  border-radius: 8px;
-  transition: background 0.3s ease-in-out;
-  margin-top: auto; /* Force le bouton à rester en bas */
-  margin-left: 7%;
 
 
-
-  text-decoration: none; /* Supprime le soulignement */
-  display: inline-block; /* Évite le léger décalage vertical */
-  text-align: center; /* Centre le texte */
-}
-
-.cta-button:hover {
-  background: #003366;
-}
-
-.formation-card:hover{
-
-    background: #d5a371;
-
-}
 
 
 /* 🔹 TÉMOIGNAGES */
 .temoignages {
   text-align: center;
   padding: 60px 5%;
-  background: #003366;
+  background-color: #003366;
   color: white;
 
   margin-top: 3%;
@@ -390,6 +617,7 @@ display: flex;
 .nav-btn:hover {
   transform: scale(1.2);
 }
+
 
 /* --- Section FAQ --- */
 .faq-section {
