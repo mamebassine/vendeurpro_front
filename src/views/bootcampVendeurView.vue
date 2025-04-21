@@ -77,7 +77,7 @@
 
 .highlight {
   font-weight: 600;
-  color: #2563eb;
+  color: #ff7f00;
 }
 
 .card-section {
@@ -106,10 +106,10 @@ ul li {
 }
 
 .cta-button {
-  background-color: #2563eb;
+  background-color: #ff7f00;
   color: white;
   padding: 14px 32px;
-  border-radius: 9999px;
+  border-radius: 8px;
   font-size: 1.125rem;
   font-weight: 600;
   border: none;
@@ -119,6 +119,6 @@ ul li {
 }
 
 .cta-button:hover {
-  background-color: #1d4ed8;
+  background-color: #003366;
 }
 </style>

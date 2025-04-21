@@ -7,7 +7,7 @@
         <p> Atteignez vos objectifs de vente avec un accompagnement sur mesure.</p>
         <!-- <button class="cta-button">📅 Réserver une Séance</button> -->
 
-        <router-link to="/contact" class="cta-button">📅 Réserver une Séance</router-link>
+        <router-link to="/contact" class="cta-button">Réserver une Séance</router-link>
 
       </div>
       <img src="../assets/images/banierea.jpg" alt="Coaching Vente" class="hero-image" />
@@ -15,16 +15,16 @@
 
     <!-- 🎯 PROGRAMMES DE COACHING -->
     <div class="section coaching-list">
-      <h2 class="titrecoaaching"> Choisissez Votre Coaching</h2>
+      <h2 class="titrecoaaching">Choisissez Votre Coaching</h2>
       <div class="coaching-container">
         <div v-for="(coaching, index) in coachingOptions" :key="index" class="coaching-card">
           <h3>{{ coaching.title }}</h3>
-          <p><strong>🎯 Public :</strong> {{ coaching.public }}</p>
+          <p><strong>Public :</strong> {{ coaching.public }}</p>
           <ul>
             <li v-for="(obj, i) in coaching.objectives" :key="i">✔️ {{ obj }}</li>
           </ul>
-          <p><strong>📅 Durée :</strong> {{ coaching.duration }}</p>
-          <p><strong>💰 Tarif :</strong> {{ coaching.price }}</p>
+          <p><strong>Durée :</strong> {{ coaching.duration }}</p>
+          <p><strong>Tarif :</strong> {{ coaching.price }}</p>
 
           <!-- <button class="cta-button">📞 Réserver une Séance</button> -->
 
@@ -62,7 +62,7 @@ import { ref } from "vue";
 // 🔹 Coaching Options
 const coachingOptions = ref([
   {
-    title: "📈 Coaching pour Commerçants & Prestataires",
+    title: "📈Coaching pour Commerçants & Prestataires",
     public: "Commerçants (boutiques, marchés) & Prestataires (coiffeurs, consultants...)",
     objectives: ["Améliorer les techniques de vente", "Augmenter le chiffre d'affaires", "Fidéliser la clientèle"],
     duration: "3 à 6 sessions",

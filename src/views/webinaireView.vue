@@ -15,7 +15,7 @@
   
       <!-- 🎯 POURQUOI PARTICIPER -->
       <div class="section why-webinaires">
-        <h2>Pourquoi Nos Webinaires Font la Différence ?</h2>
+        <h2>Pourquoi nos webinaires font la différence ?</h2>
         <div class="why-list">
           <div class="why-card" v-for="(point, index) in whyPoints" :key="index">
             <i :class="point.icon"></i>
@@ -31,7 +31,7 @@
   
       <!-- 🎯 PROCHAINS WEBINAIRES -->
       <div class="section upcoming-webinaires">
-        <h2>Découvrez Nos Prochains Webinaires</h2>
+        <h2>Découvrez nos prochains webinaires</h2>
         <div class="webinaire-list">
           <div v-for="(webinaire, index) in webinaires" :key="index" class="webinaire-card">
             <h3>{{ webinaire.title }}</h3>
@@ -47,7 +47,7 @@
   
       <!-- 🎯 TÉMOIGNAGES -->
       <div class="section temoignages">
-        <h2> Ce Que Disent Nos Participants</h2>
+        <h2> Ce que disent nos participants</h2>
         <div class="testimonial-container">
           <button @click="prevTestimonial" class="nav-btn">❮</button>
           <div class="testimonial-card">
@@ -65,7 +65,7 @@
   
    <!-- 🎯 FAQ  n2--> 
 <div class="section faq">
-  <h2> Questions Fréquentes</h2>
+  <h2> Questions fréquentes</h2>
   <div class="faq-container">
     <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
       <h3 @click="toggleFAQ(index)" class="faq-title">
@@ -316,8 +316,8 @@ font-size: 2em;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  min-width: 300px;
-  max-width: 350px; /* Taille limite pour un rendu uniforme */
+  min-width: 100px;
+  max-width: 310px; /* Taille limite pour un rendu uniforme */
   border: 2px solid transparent; /* Bordure discrète */
 }
 
@@ -330,7 +330,7 @@ font-size: 2em;
 
 /* 🔹 Style du texte */
 .webinaire-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #000;
   margin-bottom: 10px;
   text-align: center;
@@ -340,7 +340,7 @@ font-size: 2em;
 }
 
 .webinaire-card p {
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: #000;
   margin: 5px 0;
 
@@ -352,9 +352,9 @@ font-size: 2em;
   display: inline-block;
   background: #ff7f00;
   color: white;
-  padding: 12px 25px;
+  padding: 10px 20px;
   border-radius: 10px;
-  font-size: 1.1rem;
+  font-size: 0.6rem;
   margin-top: 15px;
   text-decoration: none;
   font-weight: bold;
@@ -399,7 +399,6 @@ font-size: 2em;
 
 
 
-/* 🔹 TÉMOIGNAGES */
 
 /* 🔹 TÉMOIGNAGES - Conteneur principal */
 .testimonial-container {
@@ -413,12 +412,12 @@ font-size: 2em;
 /* 🔹 Carte de témoignage */
 .testimonial-card {
   background: white;
-  padding: 40px;
+  padding: 10px;
   border-radius: 15px;
   text-align: center;
   box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.1);
-  max-width: 1000px; /* ✅ Largeur maximale définie */
-  min-width: 320px; /* ✅ Évite que la carte soit trop petite */
+  max-width: 9500px; /* ✅ Largeur maximale définie */
+  min-width: 1310px; /* ✅ Évite que la carte soit trop petite */
   width: 100%; /* ✅ S’adapte aux écrans plus petits */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
