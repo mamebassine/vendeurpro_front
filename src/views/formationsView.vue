@@ -101,14 +101,13 @@
             </div>
           </section>
 
-          <!-- Modules à la Carte -->
+          <!-- Modules de 6 Cartes -->
             <section>
                 <h4>Modules à la Carte pour une Formation Continue</h4>
 
                     <div class="grid md:grid-cols-2 gap-6">
-                      <div
-                        v-for="(module, index) in modules"
-                        :key="index"
+                      <div v-for="(module, index) in modules"
+                      :key="index"
                         class="border border-gray-300 rounded-xl shadow p-6 relative bg-white"
                       >
                         <div class="flex justify-between items-center">
@@ -202,7 +201,7 @@
 </section>
 </template>
  
-<script setup>
+<!-- <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 //Données réactives pour formations
 const formations = ref([
@@ -279,7 +278,7 @@ const toggle = (index) => {
 
 
 
-const modules = [
+const modules = ref([
   {
     title: "Maîtriser l’art du pitch commercial",
     objectif: "Savoir convaincre rapidement avec un discours clair, structuré et captivant.",
@@ -364,8 +363,13 @@ const modules = [
     mode: "Présentiel (Dakar)",
     date: "[Date à définir]"
   }
-]
+]);
 
+const expanded = ref(null);
+
+const toggle = (index) => {
+  expanded.value = expanded.value === index ? null : index;
+};
 
 
 
@@ -388,6 +392,197 @@ const toggleFAQ = (index) => {
 };
 
 // 🔹 Gestion du slider automatique des témoignages
+let interval = null;
+onMounted(() => {
+  interval = setInterval(nextTestimonial, 5000);
+});
+onUnmounted(() => {
+  clearInterval(interval);
+});
+</script> -->
+
+
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+
+// 🔹 Données réactives pour formations
+const formations = ref([
+  {
+    img: "/images/baniere.jpeg",
+    title: "Bootcamp : L'Art de Vendre",
+    objective: "Acquérir les techniques de vente essentielles pour booster vos ventes.",
+    audience: "Commerçants, freelances, porteurs de projets",
+    duration: "3 jours intensifs"
+  },
+  {
+    img: "/images/baniere.jpeg",
+    title: "Vente Digitale et E-commerce",
+    objective: "Maîtrisez la vente en ligne et le e-commerce.",
+    audience: "Commerçants en ligne, entrepreneurs digitaux",
+    duration: "3 jours intensifs"
+  },
+  {
+    img: "/images/baniere.jpeg",
+    title: "Vente B2B : Techniques pour Vendre aux Entreprises",
+    objective: "Apprenez à vendre efficacement aux entreprises.",
+    audience: "Vendeurs B2B, consultants",
+    duration: "3 jours intensifs"
+  },
+  {
+    img: "/images/baniere.jpeg",
+    title: "Formation Certifiante : Devenez un Expert en Vente",
+    objective: "Maîtriser toutes les techniques de vente modernes.",
+    audience: "Vendeurs, commerciaux, entrepreneurs",
+    duration: "3 mois"
+  },
+  {
+    img: "/images/baniere.jpeg",
+    title: "Modules à la Carte : Vente & Négociation",
+    objective: "Formation flexible sur la prospection, négociation et plus encore.",
+    audience: "Tout public",
+    duration: "1 journée par module"
+  },
+  {
+    img: "/images/baniere.jpeg",
+    title: "Coaching Vente et Persuasion",
+    objective: "Améliorez vos compétences en persuasion et en closing.",
+    audience: "Entrepreneurs, commerciaux, négociateurs",
+    duration: "2 jours intensifs"
+  }
+]);
+
+const voirProgramme = (title) => {
+  alert(`Vous allez voir le programme de la formation : ${title}`);
+};
+
+// 🔹 Témoignages
+const testimonials = ref([
+  { img: "/images/baniere.jpeg", text: "J'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
+  { img: "/images/baniere.jpeg", text: "Une formation ultra-pratique qui a boosté mon business.", author: "Aminata Sow" },
+  { img: "/images/baniere.jpeg", text: "Enfin une formation qui enseigne des techniques concrètes.", author: "Serigne Ndiaye" },
+]);
+
+const currentIndex = ref(0);
+
+// 🔹 FAQ
+const faqItems = ref([
+  { question: "Qui peut participer à vos formations ?", answer: "Nos formations sont ouvertes à tous.", isOpen: false },
+  { question: "Quel est le format des formations ?", answer: "Nous proposons des formations en ligne et en présentiel.", isOpen: false },
+  { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, nous offrons du coaching après la formation.", isOpen: false },
+  { question: "Comment puis-je m'inscrire ?", answer: "Inscrivez-vous via notre site ou contactez-nous.", isOpen: false },
+]);
+
+// 🔹 Modules (6 cartes)
+const expanded = ref(null); // Un seul module ouvert à la fois
+const toggle = (index) => {
+  expanded.value = expanded.value === index ? null : index;
+};
+
+const modules = ref([
+  {
+    title: "Maîtriser l’art du pitch commercial",
+    objectif: "Savoir convaincre rapidement avec un discours clair, structuré et captivant.",
+    audience: ["Vendeurs terrain ou boutique", "Entrepreneurs", "Toute personne amenée à présenter une offre ou un projet"],
+    apprentissages: [
+      "Construire un pitch en 3 temps",
+      "Utiliser les émotions et l’effet de surprise",
+      "Adapter son message à son interlocuteur",
+      "Exprimer de la valeur en peu de mots"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: ""
+  },
+  {
+    title: "Vendre avec WhatsApp et les réseaux sociaux",
+    objectif: "Développer ses ventes en maîtrisant les canaux les plus utilisés au Sénégal.",
+    audience: ["Commerçants et e-commerçants", "Auto-entrepreneurs", "Community managers"],
+    apprentissages: [
+      "Utiliser WhatsApp Business pour la vente",
+      "Créer du contenu vendeur sur Facebook, Instagram, TikTok",
+      "Répondre efficacement aux messages et commentaires",
+      "Mettre en place un mini tunnel de vente via les réseaux"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  },
+  {
+    title: "Techniques de relance et suivi client",
+    objectif: "Convertir plus grâce à un suivi client régulier, humain et stratégique.",
+    audience: ["Commerciaux", "Freelances et prestataires de service", "Vendeurs en ligne ou boutique"],
+    apprentissages: [
+      "Les 5 types de relances efficaces",
+      "Que dire et quand le dire",
+      "Automatiser certaines étapes sans perdre l’humain",
+      "Fidéliser par le suivi régulier"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  },
+  {
+    title: "Conclure ses ventes plus facilement",
+    objectif: "Apprendre à bien finir le processus de vente avec assurance et efficacité.",
+    audience: ["Vendeurs", "Agents immobiliers, commerciaux B2B", "Chargés de clientèle"],
+    apprentissages: [
+      "Identifier les signaux d’achat",
+      "Lever les objections finales",
+      "Formuler une proposition de conclusion claire",
+      "Techniques de closing adaptées au B2C et B2B"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  },
+  {
+    title: "Valoriser ses produits comme un pro",
+    objectif: "Savoir mettre en avant ses produits pour susciter l’envie d’acheter.",
+    audience: ["Commerçants", "Vendeurs en ligne ou en boutique", "Présentateurs de produits/services"],
+    apprentissages: [
+      "Les règles du storytelling produit",
+      "Techniques d’exposition physique ou digitale",
+      "Comment créer une fiche produit convaincante",
+      "Parler bénéfices plutôt que caractéristiques"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  },
+  {
+    title: "Gérer son portefeuille client efficacement",
+    objectif: "Organiser, classer et exploiter son portefeuille client pour vendre plus.",
+    audience: ["Commerciaux terrain ou télévente", "Entrepreneurs avec une base client", "Agents immobiliers, prestataires de service"],
+    apprentissages: [
+      "Segmentation et priorisation",
+      "Mise en place d’un tableau de bord client",
+      "Suivi des opportunités de vente",
+      "Réactivation des clients dormants"
+    ],
+    duree: "1 journée (7 heures)",
+    mode: "Présentiel (Dakar)",
+    date: "[Date à définir]"
+  }
+]);
+
+// 🔹 Témoignages : navigation
+const nextTestimonial = () => {
+  currentIndex.value = (currentIndex.value + 1) % testimonials.value.length;
+};
+
+const prevTestimonial = () => {
+  currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
+};
+
+// 🔹 FAQ : toggle
+const toggleFAQ = (index) => {
+  faqItems.value = faqItems.value.map((item, i) => ({
+    ...item,
+    isOpen: i === index ? !item.isOpen : false,
+  }));
+};
+
+// 🔹 Témoignages : slider automatique
 let interval = null;
 onMounted(() => {
   interval = setInterval(nextTestimonial, 5000);
@@ -465,7 +660,7 @@ h2{
      text-align: left;
 
 }
-
+/* TITRE BI JE CROIS */
 .formation , p {
   text-align: center;
 } 
