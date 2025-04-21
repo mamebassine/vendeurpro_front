@@ -115,7 +115,7 @@
                           <h3 class="text-lg font-semibold text-gray-800">
                             {{ module.title }}
                           </h3>
-                          <button @click="toggle(index)">
+                          <button @click="toggleModule(index)">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               :class="{ 'rotate-180': expanded === index }"
@@ -166,7 +166,7 @@
 
 <!-- 🎤 TÉMOIGNAGES -->
 <section class="temoignages">
-  <h2> Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
+  <h2> Ils ont transformé leurs ventes avec vendeurPro</h2>
   <div class="testimonial-container">
     <button @click="prevTestimonial" class="nav-btn">❮</button>
     <div class="testimonial">
@@ -182,7 +182,7 @@
 
 <!-- Section FAQ -->
 <section id="faq" class="faq-section">
-  <h2>Questions Fréquentes</h2>
+  <h2>Questions fréquentes</h2>
   <div class="faq-container">
       <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
         <h3 @click="toggle(index)" class="faq-title">
@@ -408,7 +408,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 // 🔹 Données réactives pour formations
 const formations = ref([
   {
-    img: "/images/baniere.jpeg",
+    img: "/images/banierea.jpg",
     title: "Bootcamp : L'Art de Vendre",
     objective: "Acquérir les techniques de vente essentielles pour booster vos ventes.",
     audience: "Commerçants, freelances, porteurs de projets",
@@ -457,9 +457,9 @@ const voirProgramme = (title) => {
 
 // 🔹 Témoignages
 const testimonials = ref([
-  { img: "/images/baniere.jpeg", text: "J'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
+  { img: "/images/banierea.jpg", text: "J'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
   { img: "/images/baniere.jpeg", text: "Une formation ultra-pratique qui a boosté mon business.", author: "Aminata Sow" },
-  { img: "/images/baniere.jpeg", text: "Enfin une formation qui enseigne des techniques concrètes.", author: "Serigne Ndiaye" },
+  { img: "/images/banierea.jpg", text: "Enfin une formation qui enseigne des techniques concrètes.", author: "Serigne Ndiaye" },
 ]);
 
 const currentIndex = ref(0);
@@ -470,11 +470,16 @@ const faqItems = ref([
   { question: "Quel est le format des formations ?", answer: "Nous proposons des formations en ligne et en présentiel.", isOpen: false },
   { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, nous offrons du coaching après la formation.", isOpen: false },
   { question: "Comment puis-je m'inscrire ?", answer: "Inscrivez-vous via notre site ou contactez-nous.", isOpen: false },
-]);
+])
+
+function toggle(index) {
+  faqItems.value[index].isOpen = !faqItems.value[index].isOpen
+}
+
 
 // 🔹 Modules (6 cartes)
 const expanded = ref(null); // Un seul module ouvert à la fois
-const toggle = (index) => {
+const toggleModule = (index) => {
   expanded.value = expanded.value === index ? null : index;
 };
 
@@ -760,7 +765,7 @@ background-color:#003366 ;
 /* 🔹 TÉMOIGNAGES */
 .temoignages {
   text-align: center;
-  padding: 60px 5%;
+  padding: 30px 2%;
   background-color: #003366;
   color: white;
 
@@ -775,18 +780,23 @@ background-color:#003366 ;
 }
 .testimonial h4 {
   color: #000;
-
+text-align: center;
   font-weight: bold; /* Gras pour le titre */
-  margin: 10px 0; /* Espacement vertical entre les paragraphes */
+  /* margin: 10px 0;  */
+  /* Espacement vertical entre les paragraphes */
 
 }
 .testimonial {
   background: white;
   color: black;
-  padding: 90px;
+  /* Pour diminuer la grandeur */
+  padding: 60px;
   border-radius: 10px;
-  max-width: 400%;
+  max-width: 40%;
   text-align: center;
+
+  max-width: 9500px; /* ✅ Largeur maximale définie */
+  min-width: 1310px;
 }
 .testimonial img {
   width: 100px;
@@ -794,7 +804,7 @@ background-color:#003366 ;
   border-radius: 50%;
   object-fit: cover;
 
-  margin-left: 43%;
+  margin-left: 44%;
 }
 .nav-btn {
   background: transparent;

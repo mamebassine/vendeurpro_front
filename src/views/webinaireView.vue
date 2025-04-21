@@ -108,7 +108,7 @@
   // 🔹 Témoignages avec slider automatique
   const testimonials = ref([
     { img: "/images/baniere.jpeg", text: "J'ai augmenté mes ventes de 20% après ce webinaire !", author: "Sophie L." },
-    { img: "/images/baniere.jpeg", text: "Des conseils très pratiques et applicables.", author: "Marc D." },
+    { img: "/images/banierea.jpg", text: "Des conseils très pratiques et applicables.", author: "Marc D." },
     { img: "/images/baniere.jpeg", text: "Je recommande à tous les entrepreneurs.", author: "Fatou N." }
   ]);
   
@@ -293,11 +293,6 @@ font-size: 2em;
 }
 
 
-
-
-
-
-
 /* 🔹 PROCHAINS WEBINAIRES - Conteneur des cartes */
 .webinaire-list {
   display: grid; /* Utilisation de Grid pour un alignement uniforme */
@@ -343,8 +338,6 @@ font-size: 2em;
   font-size: 1rem;
   color: #000;
   margin: 5px 0;
-
-
 }
 
 /* 🔹 Bouton d'inscription */

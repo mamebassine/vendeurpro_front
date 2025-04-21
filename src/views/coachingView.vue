@@ -277,8 +277,7 @@ const toggleFAQ = (index) => {
 }
 
 /* --- Animation Slide pour ouverture des réponses --- */
-/* Animation Slide */
-/* Animation Slide */
+
 .slide-enter-active, .slide-leave-active {
   transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
   overflow: hidden;
@@ -295,10 +294,6 @@ const toggleFAQ = (index) => {
   max-height: 200px; /* Ajustez cette valeur selon la hauteur du contenu */
   opacity: 1;
 }
-
-
-
-
 
 /* 🔹 BOUTONS */
 .cta-button {

@@ -246,7 +246,7 @@ const toggle = (index) => {
 const testimonials = ref([
   { 
     // img: "../assets/images/baniere.jpeg
-    img: "/images/baniere.jpeg",
+    img: "/images/banierea.jpg",
     text: "Grâce à VendeurPro, mes ventes ont augmenté de 30% en 3 mois !", 
     author: "Fanta Bah", 
     result: "+30% de ventes"
@@ -264,7 +264,7 @@ const testimonials = ref([
     result: "Transformation des ventes"
   },
   { 
-    img: "/images/baniere.jpeg",
+    img: "/images/banierea.jpg",
     text: "Le coaching personnalisé a été un vrai plus pour mon entreprise.", 
     author: "Pa Matar Niane", 
     result: "Coaching efficace"
