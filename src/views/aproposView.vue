@@ -146,19 +146,20 @@
     </div>
 
     <div class="stats">
-      <div class="stat-item">
-        <img src="/images/baniere.jpeg" alt="Participants formés" />
-        <p><strong>+{{ participants }}</strong> participants formés</p>
-      </div>
-      <div class="stat-item">
-        <img src="/images/baniere.jpeg" alt="Taux de satisfaction" />
-        <p><strong>{{ satisfaction }}%</strong> de satisfaction</p>
-      </div>
-      <div class="stat-item">
-        <img src="/images/baniere.jpeg" alt="Entreprises accompagnées" />
-        <p><strong>+{{ entreprises }}</strong> entreprises accompagnées</p>
-      </div>
-    </div>
+  <div class="stat-item">
+    <i class="fas fa-user-graduate fa-3x"></i>
+    <p><strong>+{{ participants }}</strong> participants formés</p>
+  </div>
+  <div class="stat-item">
+    <i class="fas fa-smile-beam fa-3x"></i>
+    <p><strong>{{ satisfaction }}%</strong> de satisfaction</p>
+  </div>
+  <div class="stat-item">
+    <i class="fas fa-building fa-3x"></i>
+    <p><strong>+{{ entreprises }}</strong> entreprises accompagnées</p>
+  </div>
+</div>
+
   </section>
 
 
@@ -461,21 +462,43 @@ border-radius: 25%;
 }
 
 /* Stats */
+/* ICI */
 .stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  max-width: 200px;
+}
+
+.stat-item i {
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+
+
+/* .stats {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 30px;
   margin-top: 50px;
-}
+} */
 
 .stat-item {
   text-align: center;
   background: #fff;
-  padding: 20px 15px;
+  padding: 30px 2px;
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-  max-width: 220px;
+  max-width: 320px;
   flex: 1 1 200px;
   transition: transform 0.3s ease;
 }
@@ -486,12 +509,13 @@ border-radius: 25%;
 
 .stat-item img {
   width: 120px;
-  height: 120px;
+  height: 420px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 15px;
   border: 2px solid #003366;
-margin-left: 20%;}
+margin-left: 20%;
+}
 
 .stat-item p {
   font-size: 1.2rem;

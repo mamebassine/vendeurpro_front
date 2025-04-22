@@ -246,7 +246,7 @@ const toggle = (index) => {
 const testimonials = ref([
   { 
     // img: "../assets/images/baniere.jpeg
-    img: "/images/baniere.jpeg",
+    img: "/images/banierea.jpg",
     text: "Grâce à VendeurPro, mes ventes ont augmenté de 30% en 3 mois !", 
     author: "Fanta Bah", 
     result: "+30% de ventes"
@@ -264,7 +264,7 @@ const testimonials = ref([
     result: "Transformation des ventes"
   },
   { 
-    img: "/images/baniere.jpeg",
+    img: "/images/banierea.jpg",
     text: "Le coaching personnalisé a été un vrai plus pour mon entreprise.", 
     author: "Pa Matar Niane", 
     result: "Coaching efficace"
@@ -396,7 +396,7 @@ console.log("Formulaire soumis :", form.value);
      margin-top: 16%;
    }
    #hero h1 {
-     font-size: 2.8em; /* Taille du titre */
+     font-size: 2.4em; /* Taille du titre */
      margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
      margin-bottom: 5px;
