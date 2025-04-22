@@ -71,7 +71,7 @@
 
           <!-- Formations Certifiantes -->
           <section>
-            <h4>Formations Certifiantes (90 jours)</h4>
+            <h4>Formations Certifiantes</h4>
             <div class="card-grid">
 
               <router-link to="/formation-vente-directe" class="card">
@@ -615,7 +615,7 @@ onUnmounted(() => {
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    background: linear-gradient(to right, #003366, #ff7f00);
+    background: linear-gradient(120deg, #003366, #fff);
     color: white;
     padding: 60px 5%;
     
@@ -632,7 +632,7 @@ onUnmounted(() => {
 /* ✅ Stylisation des Titres */
 .hero h1{
   color: #fff;
-  font-size: 2.8em; /* Taille du titre */
+  font-size: 2.4em; /* Taille du titre */
   margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
      margin-bottom: 5px;

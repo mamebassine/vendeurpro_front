@@ -187,12 +187,12 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 60px 8%;
-  background: linear-gradient(120deg, #bab6b6, #ff7f00);
+  background: linear-gradient(120deg, #003366, #fff);
   color: white;
   border-radius: 0 0 30px 30px;
 }
 .hero h1 {
-  font-size: 2.8em; /* Taille du titre */
+  font-size: 2.4em; /* Taille du titre */
   margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
      margin-bottom: 5px;

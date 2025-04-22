@@ -97,13 +97,7 @@ const toggleFAQ = (index) => {
     isOpen: i === index ? !item.isOpen : false
   }));
 };
-
 </script>
-
-
-
-
-
 
 <style scoped>
 /* 🔹 GLOBAL */
@@ -125,58 +119,44 @@ const toggleFAQ = (index) => {
   border-radius: 0 0 30px 30px;
 }
 .titrecoaaching{
-  /* text-align: left;
-  font-size: 2.5rem;
-  line-height: 1.3; */
-
   font-size: 2.5em;
   color: #003366;
   margin-bottom: 30px;
   font-weight: bold;
 }
-
 .questionsFréquentes{
     font-size: 2.5em;
   color: #003366;
   margin-bottom: 30px;
   font-weight: bold;
 }
-
 .hero h1 {
-  font-size: 2.7em; /* Taille du titre */
+  font-size: 2.4em; /* Taille du titre */
   margin: 0 0 5px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
      margin-bottom: 5px;
-
 }
-
 .hero p {
   font-size: 17px; /* Taille du texte du paragraphe */
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
      font-weight: arial; /* Gras pour le titre */
 }
-
 .hero-image {
   max-width: 610px;
   border-radius: 80px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   /* clip-path: ellipse(90% 100% at 100% 100%); */
-
   clip-path: polygon(0 0, 120% 300%, 100% 0);
 }
-
 /* 🔹 COACHING CARDS */
 .coaching-container {
   display: flex;
   justify-content: center;
   gap: 12%;  /* Réduction de l'espacement */
   flex-wrap: wrap;
-  margin-top: 5%;
-
+  margin-top: 3%;
   align-items: stretch; /* Aligne les cartes pour qu'elles aient la même hauteur */
-
 }
-
 .coaching-card {
   background: white;
   padding: 15px; /* Augmentation du padding pour équilibrer l'espace intérieur */
@@ -190,51 +170,40 @@ const toggleFAQ = (index) => {
   flex-direction: column;
   justify-content: space-between; /* Répartit le contenu */
 }
-
 /* Ajuster les éléments intérieurs */
 .coaching-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
   text-align: left;
-
   font-weight: bold; /* Gras pour le titre */
-
 }
-
 .coaching-card p {
   flex-grow: 1; /* Permet au paragraphe de prendre de la place et d'uniformiser les cartes */
   font-size: 18px;
-
 }
-
 .coaching-card button {
   margin-top: auto; /* Positionne le bouton en bas */
 }
 .coaching-card:hover {
   transform: scale(1.05);
 }
-
-
 /* --- Section FAQ --- */
 .faq-section {
   padding: 60px 5%;
   text-align: center;
   background-color: #f9f9f9;
 }
-
 .faq-section h2 {
   font-size: 2.5em;
   margin-bottom: 30px;
   font-weight: bold;
   color: #003366;
 }
-
 /* --- Conteneur des questions --- */
 .faq-container {
   max-width: 280%; /*Augmenter le input  */
   margin: auto;
 }
-
 /* --- Question en accordéon --- */
 .faq-item {
   background: white;
@@ -246,12 +215,10 @@ const toggleFAQ = (index) => {
   transition: all 0.3s ease;
   border-left: 5px solid #ff7f00;
 }
-
 .faq-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
 /* --- Titre de la question --- */
 .faq-title {
   display: flex;
@@ -262,12 +229,10 @@ const toggleFAQ = (index) => {
   color: #003366;
   margin: 0;
 }
-
 .faq-title i {
   font-size: 1.2em;
   transition: transform 0.3s ease;
 }
-
 /* --- Réponse --- */
 .faq-answer {
   margin-top: 10px;
@@ -275,26 +240,21 @@ const toggleFAQ = (index) => {
   font-size: 16px;
   text-align: left;
 }
-
 /* --- Animation Slide pour ouverture des réponses --- */
-
 .slide-enter-active, .slide-leave-active {
   transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
   overflow: hidden;
 }
-
 /* Quand on entre */
 .slide-enter-from, .slide-leave-to {
   max-height: 0;
   opacity: 0;
 }
-
 /* Quand on quitte */
 .slide-enter-to, .slide-leave-from {
   max-height: 200px; /* Ajustez cette valeur selon la hauteur du contenu */
   opacity: 1;
 }
-
 /* 🔹 BOUTONS */
 .cta-button {
   background: #ff7f00;
@@ -303,17 +263,13 @@ const toggleFAQ = (index) => {
   font-size: 1.2rem;
   border-radius: 8px;
   transition: 0.4s;
-
   text-decoration: none; /* Supprime le soulignement */
   display: inline-block; /* Évite le léger décalage vertical */
   text-align: center; /* Centre le texte */
 }
-
 .cta-button:hover {
   background: #003366;
 }
-
-
 /* Assurer un espacement uniforme entre les sections */
 .section {
   padding: 20px 5%; /* Uniformiser l’espacement interne */
