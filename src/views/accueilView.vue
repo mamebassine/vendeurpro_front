@@ -168,11 +168,11 @@
         <h3>Contactez-nous</h3>
         <form @submit.prevent="submitForm">
           <div class="input-group">
-            <input type="text" v-model="form.nom" placeholder="Nom" required />
-            <input type="text" v-model="form.prenom" placeholder="Prénom" required />
+            <input type="text" v-model="form.nom" placeholder="Votre nom" required />
+            <input type="text" v-model="form.prenom" placeholder="Votre prénom" required />
           </div>
-          <input type="email" v-model="form.email" placeholder="Email" required />
-          <input type="tel" v-model="form.telephone" placeholder="Téléphone" required />
+          <input type="email" v-model="form.email" placeholder="Votre email" required />
+          <input type="tel" v-model="form.telephone" placeholder="Votre téléphone" required />
           <textarea v-model="form.message" placeholder="Votre message..." required></textarea>
           <button type="submit" class="cta-button">Inscrivez-vous Maintenant</button>
         </form>
@@ -181,7 +181,7 @@
 
     <!-- Image de contact -->
     <div class="contact-image">
-      <img src="../assets/images/baniere.jpeg" alt="">
+      <img src="../assets/images/contact1.png" alt="">
 
     </div>
   </div>
@@ -249,7 +249,7 @@ const toggle = (index) => {
 const testimonials = ref([
   { 
     // img: "../assets/images/baniere.jpeg
-    img: "/images/banierea.jpg",
+    img: "/images/image2.png",
     text: "Grâce à VendeurPro, mes ventes ont augmenté de 30% en 3 mois !", 
     author: "Fanta Bah", 
     result: "+30% de ventes"
@@ -261,13 +261,13 @@ const testimonials = ref([
     result: "Fidélisation accrue"
   },
   { 
-    img: "/images/baniere.jpeg",
+    img: "/images/image8.jpeg",
     text: "J'ai appris des techniques de vente qui ont transformé mon commerce.", 
     author: "Sophie Ly", 
     result: "Transformation des ventes"
   },
   { 
-    img: "/images/banierea.jpg",
+    img: "/images/image7.jpeg",
     text: "Le coaching personnalisé a été un vrai plus pour mon entreprise.", 
     author: "Pa Matar Niane", 
     result: "Coaching efficace"
@@ -571,8 +571,8 @@ margin-top: 5px;
   
    /* Section NOS FORMATIONS */
    .formations-section {
-     background-color: #8997a5;
-     color: white;
+    background: linear-gradient(5deg, #fff, #003366, #fff);
+    color: white;
      padding: 50px 0;
      margin-top: 5%;
    }
@@ -904,6 +904,7 @@ margin-top: 5px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  
 }
 
 .contact-form:hover {
@@ -928,7 +929,7 @@ textarea {
   width: 100%;
   padding: 8px;  /* DIMINUER LES INPUT */
   margin-bottom: 8px; /* Ajout d’espace entre les champs */
-  border: 1.5px solid #ccc;
+  border: 1.5px solid #003366;
   border-radius: 6px;
   font-size: 1em;
   transition: border-color 0.3s;
@@ -938,6 +939,7 @@ input:focus,
 textarea:focus {
   border-color: #ff7f00;
   outline: none;
+  
 }
 
 textarea {
@@ -996,6 +998,8 @@ h2 {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 
   clip-path: ellipse(90% 70% at 90% 60%);
+
+background: linear-gradient(120deg, #003366, #fff);
 
 }
 
