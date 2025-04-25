@@ -11,7 +11,7 @@
 </strong>          
 <p>Bootcamps intensifs, formation certifiante et modules à la carte pour booster <br> vos compétences en vente.</p>
         </div>
-        <img src="../assets/images/baniere.jpeg" alt="Formation en vente" class="hero-image" />
+        <img src="../assets/images/formation2.png" alt="Formation en vente" class="hero-image" />
       </div>
       </section>
 
@@ -617,17 +617,17 @@ onUnmounted(() => {
     gap: 40px;
     background: linear-gradient(120deg, #003366, #fff);
     color: white;
-    padding: 60px 5%;
+    padding: 10px 6%;
     
   }
 .hero-image {
-    max-width: 45%;
+    max-width: 35%;
     /* border-radius: 20px; */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-  
-    border-bottom-left-radius: 190px; /* Arrondir le coin supérieur gauche */
+    box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 297px; /* Arrondir le coin supérieur gauche */
+    border-bottom-right-radius: 250px; /* Arrondir le coin supérieur gauche */
 
-    padding: 15px; /* Réduit l'espace interne de l'image */
+    padding: 1px; /* Réduit l'espace interne de l'image */
   }
 /* ✅ Stylisation des Titres */
 .hero h1{
