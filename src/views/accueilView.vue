@@ -15,7 +15,7 @@
              <div class="bubble"></div>
            </button>
        </div>
-        <img src="../assets/images/baniere.jpeg" alt="">
+        <img src="../assets/images/vendeur10a.png" alt="">
    </section>
 <!--ici 1ere section  -->
 
@@ -57,25 +57,28 @@
    <section id="formations" class="formations-section">
        <div class="formations-container">
          <h2 class="formations-title">Découvrez Nos Formation</h2>
+         <!-- <p class="formations-para">Choisissez la formation qui correspond à vos besoins.</p> -->
          <span class="nav-arrow nav-arrow-left">&#10094;</span> 
    
          <div class="formations-content">
            <div class="formation-card">
-             <img src="../assets/images/baniere.jpeg" alt="Formation 1" class="formation-image"/>
-             <h3 class="formation-card-title">Formation en Ecommerce</h3>
-             <p class="formation-card-text">Apprenez les bases du développement web et devenez un expert en front-end.</p>
+             <img src="../assets/images/bassinef3.png" alt="Formation 1" class="formation-image"/>
+             <h3 class="formation-card-title">Bootcamps Intensifs : 
+              3 Jours pour Transformer Vos Ventes</h3>
+             <p class="formation-card-text">Public : petits commerçants, freelances, porteurs de projets.</p>
             </div>
-   
-           <div class="formation-card">
-             <img src="../assets/images/baniere.jpeg" alt="Formation 2" class="formation-image"/>
-             <h3 class="formation-card-title">Formation BoostezJOb</h3>
-             <p class="formation-card-text">Maîtrisez le développement backend avec des technologies modernes.</p>
+         
+            <div class="formation-card">
+             <img src="../assets/images/bassinef5.png" alt="Formation 3" class="formation-image"/>
+             <h3 class="formation-card-title">Vente B2B : Techniques pour Vendre aux Entreprises</h3>
+             <p class="formation-card-text">Public : vendeurs B2B, consultants.</p>
              </div>
-   
-           <div class="formation-card">
-             <img src="../assets/images/baniere.jpeg" alt="Formation 3" class="formation-image"/>
-             <h3 class="formation-card-title">Formation vente en ligne</h3>
-             <p class="formation-card-text">Découvrez comment créer des applications mobiles performantes.</p>
+
+
+             <div class="formation-card">
+             <img src="../assets/images/bassinef4.png" alt="Formation 2" class="formation-image"/>
+             <h3 class="formation-card-title">Vente Digitale et E-commerce : Vendre en Ligne comme un Pro</h3>
+             <p class="formation-card-text">Public : commerçants en ligne, entrepreneurs digitaux.</p>
              </div>
 
            <span class="nav-arrow nav-arrow-right">&#10095;</span>
@@ -388,18 +391,25 @@ console.log("Formulaire soumis :", form.value);
      align-items: center; /* Alignement vertical des éléments */
      justify-content: space-between; /* Répartir les éléments sur toute la largeur */
      padding: 10px 10px; /* Espacement intérieur */
-     margin-left: 3%;
+     margin-left: 1px;
+
+     /* background: linear-gradient(120deg, #e5c6a8, #fff); */
+margin-top: 5px;
    }
    
    #hero .text-content {
      max-width: 70%; /* Limiter la largeur du texte pour permettre de l'espace pour l'image */
      margin-top: 16%;
+     
+     margin-left:5%;
+
    }
    #hero h1 {
      font-size: 2.4em; /* Taille du titre */
      margin: 0 0 20px 0; /* Espacement sous le titre */
      font-weight: bold; /* Gras pour le titre */
-     margin-bottom: 5px;
+     margin-top: -16%;
+
 
     }
    h5{
@@ -422,14 +432,15 @@ console.log("Formulaire soumis :", form.value);
    #hero img {
      margin-top: 11%;
      /* margin-left: 10%;  Marge à gauche */
-     margin-right: 3%; /* Marge à droite */
-     max-width: 190%;   /* Limiter la largeur de l'image */
+     max-width: 76%;   /* Limiter la largeur de l'image */
      height: auto;      /* Conserver les proportions de l'image */
      object-fit: cover; /* Couvrir l'espace sans déformer l'image */
     
      
      border-bottom-left-radius: 190px;   /*  Arrondir le coin supérieur gauche */
      /* border-bottom-right-radius: 190px;  */
+     margin-right: 5%; /* Marge à droite */
+     background: linear-gradient(120deg, #e5c6a8, #fff);
 
    }
    button {
@@ -444,6 +455,7 @@ console.log("Formulaire soumis :", form.value);
      cursor: pointer;
      overflow: hidden;
      transition: background-color 0.3s ease, transform 0.2s ease;
+     margin-top:20px;
    }
    
    button:hover {
@@ -571,6 +583,8 @@ console.log("Formulaire soumis :", form.value);
      margin-bottom: 9%;
      color: #ffffff;
    }
+
+   
    
    .formations-container {
      display: flex;

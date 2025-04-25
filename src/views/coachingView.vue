@@ -10,7 +10,7 @@
         <router-link to="/contact" class="cta-button">Réserver une Séance</router-link>
 
       </div>
-      <img src="../assets/images/banierea.jpg" alt="Coaching Vente" class="hero-image" />
+      <img src="../assets/images/vendeur27.jpg" alt="Coaching Vente" class="hero-image" />
     </div>
 
     <!-- 🎯 PROGRAMMES DE COACHING -->
@@ -141,13 +141,30 @@ const toggleFAQ = (index) => {
      margin: 20px 0; /* Espacement vertical entre les paragraphes */
      font-weight: arial; /* Gras pour le titre */
 }
+
 .hero-image {
-  max-width: 610px;
-  border-radius: 80px;
+  border-radius: 8px;
+  margin-left: 21px;
+  margin-top: 20px;
+
+  
+  max-width: 640px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  /* clip-path: ellipse(90% 100% at 100% 100%); */
-  clip-path: polygon(0 0, 120% 300%, 100% 0);
+  clip-path: polygon(
+    0% 0%, 
+    100% 0%, 
+    100% 80%, 
+    50% 100%, 
+    0% 80%
+  );
+
+  border: 6px solid #e5c6a8;
+  border-radius: 0 0 200px 200px;
 }
+
+
+
+
 /* 🔹 COACHING CARDS */
 .coaching-container {
   display: flex;

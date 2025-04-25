@@ -18,11 +18,6 @@ import navbar from './components/navbar.vue';
 
 </template>
 
-
-
-
-
-
 <style scoped>
 
 </style>
