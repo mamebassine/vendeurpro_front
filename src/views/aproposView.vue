@@ -2,7 +2,7 @@
  <section class="lamission">
  <div class="max-w-screen-xl mx-auto p-45 sm:p-10 md:p-16 relative">
     <div class="bg-cover bg-center text-center overflow-hidden"
-        style="min-height: 350px; background-image: url('/images/baniere.jpeg')"
+    style="min-height: 330px; width: 130%; max-width: 105%; background-image: url('/images/vendeur8.png')"
         title="Woman holding a mug">
     </div>
     <div class="max-w-3xl mx-auto">
@@ -272,7 +272,7 @@ onMounted(() => {
 
 .lamission{
   margin-top: 5%;
-
+background-color: #625f5f52;
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
 }
