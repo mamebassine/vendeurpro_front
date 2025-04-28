@@ -31,7 +31,7 @@
             <h2 class="text-2xl font-bold mb-6 text-center">Contactez-nous</h2>
             <form class="space-y-6">
               <div class="flex flex-col">
-                <label for="nomComplet" class="mb-1 font-medium text-gray-700">Nom complet</label>
+                <label for="nomComplet" class="mb-1 font-medium text-gray-700">Votre nom complet</label>
                 <input type="text"
                   id="nomComplet"
                   placeholder="El Maoda ly"
@@ -40,7 +40,7 @@
               </div>
 
               <div class="flex flex-col">
-                <label for="email" class="mb-1 font-medium text-gray-700">Email</label>
+                <label for="email" class="mb-1 font-medium text-gray-700">Votre email</label>
                 <input type="email"
                   id="email"
                   placeholder="maoda999@gmail.com"
@@ -49,7 +49,7 @@
               </div>
 
               <div class="flex flex-col">
-                <label for="message" class="mb-1 font-medium text-gray-700">Message</label>
+                <label for="message" class="mb-1 font-medium text-gray-700">Votre message</label>
                 <textarea id="message"
                   rows="4"
                   placeholder="Vraiment c'est très utile ..."

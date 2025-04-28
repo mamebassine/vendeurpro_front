@@ -666,7 +666,14 @@ margin-top: 5px;
 .faq-section {
   padding: 60px 5%;
   text-align: center;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+
+  background-image: url('/images/baniere.jpeg'); /* ton image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 20px;
+  color: #000; /* si ton image est foncée */
 }
 
 .faq-section h2 {
