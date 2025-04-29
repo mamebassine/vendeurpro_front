@@ -68,80 +68,84 @@
 
 
 <script>
+
+
+
 export default {
   name: "FooterComponent",
 };
 </script>
 
 <style scoped>
+
+/* Footer général */
 .footer {
   background-color: #003366;
   color: white;
   font-family: 'Arial', sans-serif;
-  padding: 4px 0; /* réduit le padding global */
-
+  padding: 30px 0;
 }
 
 .container {
   max-width: 1300px;
   margin: auto;
-  padding: 0 5px;    /* SE RAPPROCHER */
-  
+  padding: 0 15px;
 }
 
-/* 🎯 Partie supérieure */
+/* Partie supérieure */
 .footer-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #ff7f00;
-  gap: 10px;
+  gap: 20px;
 }
 
-/* ✉️ Newsletter */
+/* Newsletter */
 .newsletter {
-  max-width: 300px;
-  padding-top: 3%;
+  flex: 1 1 300px;
 }
 
 .newsletter h3 {
   font-size: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .newsletter p {
   font-size: 14px;
-  color: #ddd; 
-   margin-bottom: 6px;
-margin-left: 4%;
+  color: #ddd;
+  margin-bottom: 10px;
 }
 
 .newsletter-form {
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 10px;
 }
 
 .newsletter-input {
-  flex: 1;
+  flex: 1 1 200px;
   padding: 8px 10px;
   border: 2px solid #ff7f00;
   border-radius: 5px;
   font-size: 16px;
   background-color: #fff;
   color: #333;
+  min-width: 180px;
 }
 
 .subscribe-btn {
   background-color: #ff7f00;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  white-space: nowrap;
   transition: background 0.3s;
 }
 
@@ -149,26 +153,26 @@ margin-left: 4%;
   background-color: #e56b00;
 }
 
-/* 🌍 Réseaux sociaux */
+/* Réseaux sociaux */
 .social-icons {
+  flex: 1 1 200px;
   text-align: left;
 }
 
 .social-icons h3 {
-  font-size: 15px;
-  margin-bottom: 2px;
+  font-size: 18px;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
 .icons {
   display: flex;
-  gap: 18px;
-  margin-top: 20px;
-
+  gap: 15px;
+  margin-top: 10px;
 }
 
 .social-icon {
-  font-size: 28px;
+  font-size: 26px;
   color: #ff7f00;
   transition: color 0.3s;
 }
@@ -177,41 +181,36 @@ margin-left: 4%;
   color: white;
 }
 
-/* 📂 Liens du footer + contact */
+/* Partie milieu */
 .footer-middle {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 10px 0;
+  padding: 20px 0;
   gap: 30px;
 }
 
 .footer-links,
 .contact-info {
-  flex: 1 1 300px;
-  max-width: 350px;
+  flex: 1 1 250px;
 }
 
 .footer-links h3,
 .contact-info h3 {
-  font-size: 15px;
-  margin-bottom: 2px;
-  font-weight: bold;
-
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .footer-links ul,
 .contact-info ul {
   list-style: none;
   padding: 0;
-  margin: 10px;
-  margin-left: 4%;
-
+  margin: 0;
 }
 
 .footer-links li,
 .contact-info li {
-  margin-bottom: 3px;
+  margin-bottom: 8px;
   font-size: 16px;
 }
 
@@ -236,10 +235,10 @@ margin-left: 4%;
   font-size: 16px;
 }
 
-/* 📜 Bas du footer */
+/* Bas du footer */
 .copyright {
   text-align: center;
-  padding-top: 2px;
+  padding-top: 20px;
   border-top: 2px solid #ff7f00;
   font-size: 14px;
   margin-top: 10px;
@@ -255,19 +254,43 @@ margin-left: 4%;
   text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 3px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .newsletter-input, .subscribe-btn {
+    width: 100%;
+  }
+
+  .social-icons {
+    text-align: center;
   }
 
   .footer-middle {
     flex-direction: column;
+    align-items: center;
+    gap: 3px;
   }
 
-  .social-icons {
-    text-align: left;
+  .footer-links, .contact-info {
+    text-align: center;
+  }
+
+  .footer-links ul, .contact-info ul {
+    margin: 0 auto;
+    padding: 0;
   }
 }
+
+
 </style>

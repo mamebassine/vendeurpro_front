@@ -8,7 +8,6 @@
             <p>Formations sectorielles, bootcamps intensifs et coaching personnalisé pour booster vos ventes.</p>
               <button>  
               <router-link to="/formations" class="voirplus"> Découvrir nos offres</router-link>
-          <!-- <a href="/formations" class="voirplus">Découvrir nos offres</a> -->
             <div class="bubble"></div>
              <div class="bubble"></div>
              <div class="bubble"></div>
@@ -48,9 +47,7 @@
         <p>Accompagnement individuel pour réussir.</p>
       </div>
     </div>
-    <!-- <button class="cta-button">En savoir plus</button> -->
     <router-link to="/formations" class="cta-button">En savoir plus</router-link>
-    <!-- <a href="/formations" class="voirplus">Découvrir nos offres</a> -->
   </section>
   <!-- SECTION FORMATION -->
    
@@ -86,7 +83,6 @@
    
          <button class="voir-formations-btn">
          <a href="/formations">Voir les formations</a>
-         <!-- <router-link to="/coaching" class="cta-button">Voir les formations</router-link> -->
          </button>
        </div>
      </section>
@@ -106,7 +102,6 @@
       </div>
     </div>
     
-   <!-- <button class="cta-button">Contactez-Nous</button> -->
     <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
   </section>
    
@@ -181,7 +176,7 @@
 
     <!-- Image de contact -->
     <div class="contact-image">
-      <img src="../assets/images/contact1.png" alt="">
+      <img src="../assets/images/vendeur9a.png" alt="">
 
     </div>
   </div>
@@ -248,7 +243,6 @@ const toggle = (index) => {
 // Témoignages avec images, vidéos et résultats
 const testimonials = ref([
   { 
-    // img: "../assets/images/baniere.jpeg
     img: "/images/image2.png",
     text: "Grâce à VendeurPro, mes ventes ont augmenté de 30% en 3 mois !", 
     author: "Fanta Bah", 
@@ -666,14 +660,7 @@ margin-top: 5px;
 .faq-section {
   padding: 60px 5%;
   text-align: center;
-  /* background-color: #f9f9f9; */
-
-  background-image: url('/images/baniere.jpeg'); /* ton image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 40px 20px;
-  color: #000; /* si ton image est foncée */
+  
 }
 
 .faq-section h2 {
@@ -989,7 +976,7 @@ h2 {
 /* --- Image de contact à droite (hauteur égale au formulaire) --- */
 .contact-image {
   flex: 1;
-  min-width: 550px;
+  min-width: 450px;
   max-width: 400px;
   display: flex;
   justify-content: center;
@@ -1010,9 +997,5 @@ background: linear-gradient(120deg, #003366, #fff);
 
 }
 
-
-
-
-
-   </style>
+</style>
    
