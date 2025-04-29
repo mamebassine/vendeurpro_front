@@ -9,32 +9,30 @@
         <div
             class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
             <div class="bg-blue-100 relative top-0 -mt-32 p-5 sm:p-10">
+              <!-- <div class="relative top-0 -mt-32 p-5 sm:p-10" style="background-color: #003366;"> -->
                 <h1 href="#" class="text-gray-990 font-bold text-3xl mb-2">Notre Mission : Former les Vendeurs de Demain</h1>
-                <p class="text-gray-700 text-xs mt-2">Avec des formations:
-                    <a href="#"
-                        class="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                        utiles
-                    </a> Tres
-                    <a href="#"
-                        class="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                        Pratique
-                    </a>,
-                    <a href="#"
-                        class="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                        Et d'actualites aussi.
-                    </a>
+                    <p class="text-gray-700 text-xs mt-2">
+                        Avec des formations :
+                        <a href="#" class="font-bold transition duration-800 ease-in-out" style="color: #ff7f00;">
+                            utiles
+                        </a> Très
+                        <a href="#" class="text-xs font-bold transition duration-800 ease-in-out" style="color: #ff7f00;">
+                            Pratique
+                        </a>,
+                        <a href="#" class="text-xs font-bold transition duration-800 ease-in-out" style="color: #ff7f00;">
+                            Et d'actualités aussi.
+                        </a>
+                    </p>
+                    
+                    <p class="text-base leading-1 my-5">
+                        Chez <strong> VendeurPro</strong>, nous croyons que la vente est un métier passionnant et accessible à tous. 
+                        Notre mission est de former les commerçants, consultants, étudiants, chômeurs, 
+                        porteurs de projets et toute personne désireuse d'acquérir des compétences en vente ou
+                        de se lancer dans le métier de vendeur, que ce soit en boutique ou en B2B.
 
-                </p>
-
-                <p class="text-base leading-1 my-5">
-                  Chez <strong> VendeurPro</strong>, nous croyons que la vente est un métier passionnant et accessible à tous. 
-                  Notre mission est de former les commerçants, consultants, étudiants, chômeurs, 
-                  porteurs de projets et toute personne désireuse d'acquérir des compétences en vente ou
-                   de se lancer dans le métier de vendeur, que ce soit en boutique ou en B2B.
-
-                   Nous vous accompagnons pour maîtriser les techniques de vente modernes,
-                    booster vos résultats et réussir dans votre projet professionnel.
-                </p>
+                        Nous vous accompagnons pour maîtriser les techniques de vente modernes,
+                          booster vos résultats et réussir dans votre projet professionnel.
+                   </p>
              </div>
 
         </div>
@@ -42,36 +40,32 @@
 </div>
 </section>
 
-
-
- 
-
 <!-- SECTION NOTRE ÉQUIPE -->
 <section class="team">
   <h2 class="title">Rencontrez Notre Équipe d'Experts en Vente</h2>
   <div class="team-members">
     <div class="member">
-      <img src="/images/baniere.jpeg" alt="Jean Dupont" class="styled-card-image" />
+      <img src="/images/vendeur7.jpg" alt="Jean Dupont" class="styled-card-image" />
       <h3>Jean Dupont</h3>
       <p>Expert en vente B2B avec 15 ans d'expérience dans la négociation commerciale.</p>
       <a href="#">Profil LinkedIn</a>
     </div>
     
     <div class="member">
-      <img src="/images/baniere.jpeg" alt="Sophie Martin" class="styled-card-image" />
+      <img src="/images/vendeur7.jpg" alt="Sophie Martin" class="styled-card-image" />
       <h3>Sophie Martin</h3>
       <p>Coach en vente et en développement personnel, spécialiste en retail.</p>
       <a href="#">Profil LinkedIn</a>
     </div>
     
     <div class="member">
-      <img src="/images/baniere.jpeg" alt="David Leroy" class="styled-card-image" />
+      <img src="/images/vendeur7.jpg" alt="David Leroy" class="styled-card-image" />
       <h3>David Leroy</h3>
       <p>Consultant en stratégie de vente digitale, expert en e-commerce.</p>
       <a href="#">Profil LinkedIn</a>
     </div>
         <div class="member">
-      <img src="/images/baniere.jpeg" alt="Fatou Ndiaye" class="styled-card-image" />
+      <img src="/images/vendeur7.jpg" alt="Fatou Ndiaye" class="styled-card-image" />
       <h3>Fatou Ndiaye</h3>
       <p>Formatrice en techniques de persuasion et fidélisation client.</p>
       <a href="#">Profil LinkedIn</a>
@@ -141,7 +135,7 @@
        </p>
       </div>
       <div class="history-image">
-        <img src="/images/baniere.jpeg" alt="Illustration de notre histoire" />
+        <img src="/images/photo15.jpg" alt="Illustration de notre histoire" />
       </div>
     </div>
 
@@ -455,7 +449,7 @@ border-radius: 25%;
 
 .history-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 200px;
   border-radius: 20px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   flex: 1 1 40%;

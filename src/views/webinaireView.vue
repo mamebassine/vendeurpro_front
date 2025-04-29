@@ -10,7 +10,7 @@
           <router-link to="/contact" class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</router-link>
 
         </div>
-        <img src="../assets/images/imagewebinaire1.png" alt="Webinaire en action" class="hero-image" />
+        <img src="../assets/images/photo8.jpg" alt="Webinaire en action" class="hero-image" />
       </div>
   
       <!-- 🎯 POURQUOI PARTICIPER -->
@@ -237,7 +237,7 @@ font-size: 2em;
 }
 
 .hero img {
-  max-width: 45%;
+  max-width: 54%;
   border-radius: 20px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }

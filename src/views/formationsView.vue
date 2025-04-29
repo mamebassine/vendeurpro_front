@@ -11,7 +11,7 @@
 </strong>          
 <p>Bootcamps intensifs, formation certifiante et modules à la carte pour booster <br> vos compétences en vente.</p>
         </div>
-        <img src="../assets/images/formation2.png" alt="Formation en vente" class="hero-image" />
+        <img src="../assets/images/photo26.png" alt="Formation en vente" class="hero-image" />
       </div>
       </section>
 
@@ -105,12 +105,13 @@
             <section>
                 <h4>Modules à la Carte pour une Formation Continue</h4>
 
-                    <div class="grid md:grid-cols-2 gap-6">
-                      <div v-for="(module, index) in modules"
-                      :key="index"
-                        class="border border-gray-300 rounded-xl shadow p-6 relative bg-white"
-                      >
-                        <div class="flex justify-between items-center">
+                    <div class="flex flex-wrap gap-6">
+                      <div
+  v-for="(module, index) in modules"
+  :key="index"
+  class="border border-gray-300 rounded-xl shadow p-6 relative bg-white transition-all duration-500 ease-in-out overflow-hidden md:w-[48%] md:h-[38%] w-full"
+>
+                         <div class="flex justify-between items-center">
                           <!-- Supprimé le numéro ici -->
                           <h3 class="text-lg font-semibold text-gray-800">
                             {{ module.title }}
@@ -621,13 +622,18 @@ onUnmounted(() => {
     
   }
 .hero-image {
-    max-width: 35%;
+    max-width: 50%;
     /* border-radius: 20px; */
     box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.2);
-    border-top-left-radius: 297px; /* Arrondir le coin supérieur gauche */
-    border-bottom-right-radius: 250px; /* Arrondir le coin supérieur gauche */
+    border-top-left-radius: 497px; 
+    border-bottom-right-radius: 210px;
 
-    padding: 1px; /* Réduit l'espace interne de l'image */
+    padding: 5px; /* Réduit l'espace interne de l'image */
+
+
+
+    /* border-top-left-radius: 297px; 
+    border-bottom-right-radius: 250px;  */
   }
 /* ✅ Stylisation des Titres */
 .hero h1{
