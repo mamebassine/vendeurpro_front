@@ -2,8 +2,9 @@
  <section class="lamission">
  <div class="max-w-screen-xl mx-auto p-45 sm:p-10 md:p-16 relative">
     <div class="bg-cover bg-center text-center overflow-hidden"
-    style="min-height: 330px; width: 130%; max-width: 105%; background-image: url('/images/vendeur8.png')"
-        title="Woman holding a mug">
+    style="min-height: 330px; width: 130%; max-width: 105%; background-image: url('/images/vendeur21.jpg')"
+        title="Woman holding a mug"
+        >
     </div>
     <div class="max-w-3xl mx-auto">
         <div
@@ -449,7 +450,8 @@ border-radius: 25%;
 
 .history-image img {
   width: 100%;
-  max-width: 200px;
+  max-width: 800px; /* augmenté */
+  height: 420px;     /* augmenté */
   border-radius: 20px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   flex: 1 1 40%;
@@ -527,10 +529,6 @@ margin-left: 20%;
   font-weight: bold;
   color: #003366;
 }
-
-
-
-
 
 /* --- Section FAQ --- */
 .faq-section {

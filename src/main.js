@@ -8,11 +8,13 @@ import router from './router'; // Import du routeur seulement
 import '@fortawesome/fontawesome-free/css/all.css';
 
 
+
 // SA CONSERNE LE ICONES SUR LES CONTACT
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFacebook, faInstagram, faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-library.add(faLinkedin, faInstagram, faFacebook);
+library.add(faFacebook, faInstagram, faLinkedin, faTiktok)
+
 
 
 const app = createApp(App)

@@ -16,11 +16,12 @@
         <div class="social-icons">
           <h3>Suivez-nous</h3>
           <div class="icons">
-            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+<a href="https://www.facebook.com/profile.php?id=61575150717010" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="https://www.instagram.com/vendeurpros" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+<a href="https://www.linkedin.com/company/vendeurpro/?viewAsMember=true" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+<a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+
           </div>
         </div>
       </div>
@@ -43,8 +44,8 @@
           <h3>Contact</h3>
           <ul>
             <li><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Vente, Dakar</li>
-            <li><i class="fas fa-envelope"></i> contact@vendeurpro.com</li>
-            <li><i class="fas fa-phone"></i> +221 77 123 45 67</li>
+            <li><i class="fas fa-envelope"></i> contact@vendeur-pro.com</li>
+            <li><i class="fas fa-phone"></i> 33 8 68 54 14 ou +221 75 6311686</li>
             <li><i class="fas fa-clock"></i> Lun - Ven, 9h - 18h</li>
           </ul>
         </div>
