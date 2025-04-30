@@ -79,7 +79,7 @@
             </div>
             <div>
                 <p class="mb-1 font-bold text-[#003366]">Téléphone</p>
-                <p class="text-sm text-neutral-600">33 8 68 54 14 ou +221 75 6311686</p>
+                <p class="text-sm text-neutral-600">33 8 68 54 14 // 75 6311686</p>
             </div>
         </div>
         
@@ -90,7 +90,7 @@
             </div>
             <div>
                 <p class="mb-1 font-bold text-[#ff7f00]">Adresse</p>
-                <p class="text-sm text-neutral-600">123 Avenue de la Vente, Dakar</p>
+                <p class="text-sm text-neutral-600">4 cité Cpi, VDN Dakar</p>
             </div>
         </div>
         

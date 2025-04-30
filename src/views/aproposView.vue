@@ -39,7 +39,7 @@
 
 <!-- SECTION NOTRE ÉQUIPE -->
 <section class="team">
-  <h2 class="title">Rencontrez Notre Équipe d'Experts en Vente</h2>
+  <h2 class="title">LE STUDIO PEDAGOGIQUE</h2>
   <div class="team-members">
     <div class="member">
       <img src="/images/vendeur7.jpg" alt="Jean Dupont" class="styled-card-image" />
