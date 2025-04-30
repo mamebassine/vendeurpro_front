@@ -7,7 +7,10 @@
             </strong>               
             <p>Formations sectorielles, bootcamps intensifs et coaching personnalisé pour booster vos ventes.</p>
               <button>  
-              <router-link to="/formations" class="voirplus"> Découvrir nos offres</router-link>
+              <router-link to="/formations" class="voirplus"> 
+                Découvrir nos offres
+              </router-link>
+
             <div class="bubble"></div>
              <div class="bubble"></div>
              <div class="bubble"></div>
@@ -81,9 +84,15 @@
            <span class="nav-arrow nav-arrow-right">&#10095;</span>
           </div>
    
-         <button class="voir-formations-btn">
+         <!-- <button class="voir-formations-btn">
          <a href="/formations">Voir les formations</a>
-         </button>
+         </button> -->
+         <router-link to="/formations" class="inline-block px-6 py-3 bg-[#ff7f00] text-white font-bold rounded hover:bg-[#002855] transition duration-400">
+  Voir les formations
+</router-link>
+
+
+
        </div>
      </section>
    

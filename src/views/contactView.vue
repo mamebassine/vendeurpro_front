@@ -13,7 +13,6 @@
         class="block rounded-lg bg-white px-6 py-12 shadow-md md:py-16 md:px-12 -mt-[100px] backdrop-blur-lg border border-gray-300">
         <div class="flex flex-wrap">
 <!-- MOTS TITRE ACCROCHE -->
-<!-- MOTS TITRE ACCROCHE -->
 <div class="bg-[#e6eef7] py-6 px-3 rounded-2xl shadow-md flex items-center justify-between mt-4 max-w-3xl mx-auto">
     <div>
         <h4 class="text-3xl font-bold text-gray-800 mb-2">
@@ -27,41 +26,42 @@
 </div>
 
 <!-- Formulaire de contact -->
-          <div class="mb-12 w-full md:px-3 lg:mb-0 lg:w-5/12 lg:px-6 mt-16 mt-16">
-            <h2 class="text-2xl font-bold mb-6 text-center">Contactez-nous</h2>
-            <form class="space-y-6">
-              <div class="flex flex-col">
-                <label for="nomComplet" class="mb-1 font-medium text-gray-700">Votre nom complet</label>
-                <input type="text"
-                  id="nomComplet"
-                  placeholder="El Maoda ly"
-                  class="w-full rounded border border-gray-300 bg-white py-2 px-3 outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-500"
-                />
-              </div>
+<div class="mb-12 w-full md:px-3 lg:mb-0 lg:w-5/12 lg:px-6 mt-16">
+  <h2 class="text-2xl font-bold mb-6 text-center">Contactez-nous</h2>
+  <form class="space-y-6">
+    <div class="flex flex-col">
+      <label for="nomComplet" class="mb-1 font-semibold text-gray-700">Votre nom complet</label>
+      <input type="text"
+        id="nomComplet"
+        placeholder="El Maoda ly"
+        class="w-full rounded border-1 border-[#003366] bg-white py-3 px-4 outline-none focus:ring-2 focus:ring-[#003366] focus:border-[#003366]"
+      />
+    </div>
 
-              <div class="flex flex-col">
-                <label for="email" class="mb-1 font-medium text-gray-700">Votre email</label>
-                <input type="email"
-                  id="email"
-                  placeholder="maoda999@gmail.com"
-                  class="w-full rounded border border-gray-300 bg-white py-2 px-3 outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-500"
-                />
-              </div>
+    <div class="flex flex-col">
+      <label for="email" class="mb-1 font-semibold text-gray-700">Votre email</label>
+      <input type="email"
+        id="email"
+        placeholder="maoda999@gmail.com"
+        class="w-full rounded border-1 border-[#003366] bg-white py-3 px-4 outline-none focus:ring-2 focus:ring-[#003366] focus:border-[#003366]"
+      />
+    </div>
 
-              <div class="flex flex-col">
-                <label for="message" class="mb-1 font-medium text-gray-700">Votre message</label>
-                <textarea id="message"
-                  rows="4"
-                  placeholder="Vraiment c'est très utile ..."
-                  class="w-full rounded border border-gray-300 bg-white py-2 px-3 outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-500"
-                ></textarea>
-              </div>
+    <div class="flex flex-col">
+      <label for="message" class="mb-1 font-semibold text-gray-700">Votre message</label>
+      <textarea id="message"
+        rows="5"
+        placeholder="Vraiment c'est très utile ..."
+        class="w-full rounded border-1 border-[#003366] bg-white py-3 px-4 outline-none focus:ring-2 focus:ring-[#003366] focus:border-[#003366]"
+      ></textarea>
+    </div>
 
-              <button type="submit" class="w-full rounded bg-[#ff7f00] text-white px-6 py-3 text-sm font-semibold uppercase hover:bg-[#002855] transition duration-200">
-                Envoyer
-              </button>
-            </form>
-          </div>
+    <button type="submit" class="w-full rounded bg-[#ff7f00] text-white px-6 py-3 text-sm font-semibold uppercase hover:bg-[#002855] transition duration-200">
+      Envoyer
+    </button>
+  </form>
+</div>
+
 
          <!-- Informations pratiques --> 
 <!-- Informations pratiques -->
@@ -76,7 +76,7 @@
             </div>
             <div>
                 <p class="mb-1 font-bold text-[#003366]">Téléphone</p>
-                <p class="text-sm text-neutral-600">+221 77 123 45 67</p>
+                <p class="text-sm text-neutral-600">33 8 68 54 14 ou +221 75 6311686</p>
             </div>
         </div>
         
@@ -98,7 +98,7 @@
             </div>
             <div>
                 <p class="mb-1 font-bold text-[#003366]">Email</p>
-                <p class="text-sm text-neutral-600">contact@vendeurpro.com</p>
+                <p class="text-sm text-neutral-600">contact@vendeur-pro.com</p>
             </div>
         </div>
         
@@ -114,19 +114,41 @@
         </div>
         
     </div>
+
+
 <!-- Réseaux sociaux -->
-<h2 class="text-2xl font-bold mt-6 text-center">Suivez-nous</h2>
-<div class="flex justify-center space-x-8 mt-4">
-    <a href="https://www.linkedin.com" target="_blank" class="text-blue-700 text-3xl">
+<div class="mt-16">
+  <h2 class="text-2xl font-bold text-center">Suivez-nous</h2>
+  <div class="flex justify-center space-x-8 mt-4">
+    <a href="https://www.linkedin.com/company/vendeurpro/?viewAsMember=true" 
+       target="_blank" rel="noopener"
+       class="text-blue-400 text-3xl hover:text-blue-500 transition-colors duration-300">
         <font-awesome-icon :icon="['fab', 'linkedin']" />
     </a>
-    <a href="https://www.instagram.com" target="_blank" class="text-pink-600 text-3xl">
+
+    <a href="https://www.instagram.com/vendeurpros" 
+       target="_blank" rel="noopener"
+       class="text-pink-400 text-3xl hover:text-pink-300 transition-colors duration-300">
         <font-awesome-icon :icon="['fab', 'instagram']" />
     </a>
-    <a href="https://www.facebook.com" target="_blank" class="text-blue-600 text-3xl">
+
+    <a href="https://www.facebook.com/profile.php?id=61575150717010" 
+       target="_blank" rel="noopener"
+       class="text-blue-400 text-3xl hover:text-blue-500 transition-colors duration-300">
         <font-awesome-icon :icon="['fab', 'facebook']" />
     </a>
+
+    <a href="https://www.tiktok.com/@vendeurpro" 
+       target="_blank" rel="noopener"
+       class="text-3xl transition-colors duration-300 hover:text-[#69C9D0]" style="color: #EE1D52;">
+        <i class="fab fa-tiktok"></i>
+    </a>
+  </div>
 </div>
+
+
+
+
 
           </div>
         </div>
