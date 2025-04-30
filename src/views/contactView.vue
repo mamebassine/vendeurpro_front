@@ -2,16 +2,19 @@
 <section class="mb-32">
     <!-- Carte Google Maps -->
     <div id="map" class="relative h-[300px] mt-8 overflow-hidden bg-cover bg-[50%] bg-no-repeat">
-<iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63302.71814287717!2d-17.48019567518832!3d14.716677353780273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec173f5d66bfa9d%3A0xf64b4e6e8f6c38d0!2sDakar%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2ssn!4v1619524992238!5m2!1sfr!2ssn"
-    width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy">
-</iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1929.3278969283074!2d-17.473812857995174!3d14.
 
+732042200000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec10d53f3ccc2f1%3A0x717462a5f1650cf9!
+2sPrincesse%20Sophie!5e0!3m2!1sfr!2ssn!4v1746010137555!5m2!1sfr!2ssn"
+
+ width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+</iframe>
 </div>
-<div class="container px-6 md:px-12">
-      <div
-        class="block rounded-lg bg-white px-6 py-12 shadow-md md:py-16 md:px-12 -mt-[100px] backdrop-blur-lg border border-gray-300">
-        <div class="flex flex-wrap">
+<!-- BANDE DE BACGRAOUND -->
+<div class="container px-6 md:px-11">
+  <div class="block rounded-lg bg-white px-4 py-8 shadow-md md:px-8 md:py-10 -mt-[80px] backdrop-blur-lg border border-gray-300">
+    <div class="flex flex-wrap">
 <!-- MOTS TITRE ACCROCHE -->
 <div class="bg-[#e6eef7] py-6 px-3 rounded-2xl shadow-md flex items-center justify-between mt-4 max-w-3xl mx-auto">
     <div>
@@ -156,6 +159,8 @@
       </div>
     </div>
   </section>
+
+
 </template>
 
 <script>

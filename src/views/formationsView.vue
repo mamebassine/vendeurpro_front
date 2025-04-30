@@ -11,7 +11,7 @@
 </strong>          
 <p>Bootcamps intensifs, formation certifiante et modules à la carte pour booster <br> vos compétences en vente.</p>
         </div>
-        <img src="../assets/images/photo26.png" alt="Formation en vente" class="hero-image" />
+        <img src="../assets/images/ici.png" alt="Formation en vente" class="hero-image" />
       </div>
       </section>
 
@@ -458,9 +458,9 @@ const voirProgramme = (title) => {
 
 // 🔹 Témoignages
 const testimonials = ref([
-  { img: "/images/banierea.jpg", text: "J'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
-  { img: "/images/baniere.jpeg", text: "Une formation ultra-pratique qui a boosté mon business.", author: "Aminata Sow" },
-  { img: "/images/banierea.jpg", text: "Enfin une formation qui enseigne des techniques concrètes.", author: "Serigne Ndiaye" },
+  { img: "/images/temoin.jpg", text: "J'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
+  { img: "/images/temoin13.jpg", text: "Une formation ultra-pratique qui a boosté mon business.", author: "Aminata Sow" },
+  { img: "/images/temoin2.jpg", text: "Enfin une formation qui enseigne des techniques concrètes.", author: "Serigne Ndiaye" },
 ]);
 
 const currentIndex = ref(0);
@@ -622,18 +622,20 @@ onUnmounted(() => {
     
   }
 .hero-image {
-    max-width: 50%;
+    max-width: 57%;
     /* border-radius: 20px; */
-    box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.2);
-    border-top-left-radius: 497px; 
-    border-bottom-right-radius: 210px;
+    /* box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.2); */
 
-    padding: 5px; /* Réduit l'espace interne de l'image */
+    /* border-top-left-radius: 797px; 
+    border-top-left-radius: 460px;
 
+border-bottom-right-radius: 260px;
+    border-bottom-left-radius: 60px; */
+padding: 5px; 
 
-
-    /* border-top-left-radius: 297px; 
-    border-bottom-right-radius: 250px;  */
+border-top-left-radius: 207px; 
+    border-bottom-right-radius: 120px; 
+    background-color: #003366;
   }
 /* ✅ Stylisation des Titres */
 .hero h1{
@@ -807,7 +809,7 @@ text-align: center;
 .testimonial img {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 20%;
   object-fit: cover;
 
   margin-left: 44%;
