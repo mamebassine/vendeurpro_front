@@ -107,9 +107,9 @@
   
   // 🔹 Témoignages avec slider automatique
   const testimonials = ref([
-    { img: "/images/baniere.jpeg", text: "J'ai augmenté mes ventes de 20% après ce webinaire !", author: "Sophie L." },
-    { img: "/images/banierea.jpg", text: "Des conseils très pratiques et applicables.", author: "Marc D." },
-    { img: "/images/baniere.jpeg", text: "Je recommande à tous les entrepreneurs.", author: "Fatou N." }
+    { img: "/images/photo2.jpg", text: "J'ai augmenté mes ventes de 20% après ce webinaire !", author: "Sophie L." },
+    { img: "/images/baniere2.jpeg", text: "Des conseils très pratiques et applicables.", author: "Marc D." },
+    { img: "/images/vendeur22.jpg", text: "Je recommande à tous les entrepreneurs.", author: "Fatou N." }
   ]);
   
   const currentIndex = ref(0);

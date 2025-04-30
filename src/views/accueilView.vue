@@ -252,19 +252,24 @@ const toggle = (index) => {
 // Témoignages avec images, vidéos et résultats
 const testimonials = ref([
   { 
-    img: "/images/image2.png",
+    img: "/images/temoin9.jpg",
     text: "Grâce à VendeurPro, mes ventes ont augmenté de 30% en 3 mois !", 
     author: "Fanta Bah", 
     result: "+30% de ventes"
   },
   { 
-    video: "/videos/temoignage2.mp4", 
-    text: "Une formation ultra-pratique qui m'a permis de fidéliser mes clients.", 
-    author: "Jean Michel Mendy", 
-    result: "Fidélisation accrue"
+    img: "/images/vendeur23.jpg",
+    text: "J'ai appris des techniques de vente qui ont transformé mon commerce.", 
+    author: "Sophie Ly", 
+    result: "Transformation des ventes"
+
+    // video: "/images/video.mp4", 
+    // text: "Une formation ultra-pratique qui m'a permis de fidéliser mes clients.", 
+    // author: "Jean Michel Mendy", 
+    // result: "Fidélisation accrue"
   },
   { 
-    img: "/images/image8.jpeg",
+    img: "/images/temoin11.jpg",
     text: "J'ai appris des techniques de vente qui ont transformé mon commerce.", 
     author: "Sophie Ly", 
     result: "Transformation des ventes"

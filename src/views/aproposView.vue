@@ -1,49 +1,45 @@
 <template>
- <section class="lamission">
- <div class="max-w-screen-xl mx-auto p-45 sm:p-10 md:p-16 relative">
-    <div class="bg-cover bg-center text-center overflow-hidden"
-    style="min-height: 330px; width: 130%; max-width: 105%; background-image: url('/images/vendeur21.jpg')"
-        title="Woman holding a mug"
-        >
+<section class="lamission w-full bg-white py-1">
+  <div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Marge top ajoutée ici pour descendre l’image -->
+    <div
+      class="bg-cover bg-center rounded-2xl shadow-lg overflow-hidden mx-auto mt-16" 
+      style="min-height: 390px; background-image: url('/images/photo26.png');"
+      title="Woman holding a mug">
     </div>
-    <div class="max-w-3xl mx-auto">
-        <div
-            class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
-            <div class="bg-blue-100 relative top-0 -mt-32 p-5 sm:p-10">
-              <!-- <div class="relative top-0 -mt-32 p-5 sm:p-10" style="background-color: #003366;"> -->
-                <h1 href="#" class="text-gray-990 font-bold text-3xl mb-2">Notre Mission : Former les Vendeurs de Demain</h1>
-                    <p class="text-gray-700 text-xs mt-2">
-                        Avec des formations :
-                        <a href="#" class="font-bold transition duration-800 ease-in-out" style="color: #ff7f00;">
-                            utiles
-                        </a> Très
-                        <a href="#" class="text-xs font-bold transition duration-800 ease-in-out" style="color: #ff7f00;">
-                            Pratique
-                        </a>,
-                        <a href="#" class="text-xs font-bold transition duration-800 ease-in-out" style="color: #ff7f00;">
-                            Et d'actualités aussi.
-                        </a>
-                    </p>
-                    
-                    <p class="text-base leading-1 my-5">
-                        Chez <strong> VendeurPro</strong>, nous croyons que la vente est un métier passionnant et accessible à tous. 
-                        Notre mission est de former les commerçants, consultants, étudiants, chômeurs, 
-                        porteurs de projets et toute personne désireuse d'acquérir des compétences en vente ou
-                        de se lancer dans le métier de vendeur, que ce soit en boutique ou en B2B.
 
-                        Nous vous accompagnons pour maîtriser les techniques de vente modernes,
-                          booster vos résultats et réussir dans votre projet professionnel.
-                   </p>
-             </div>
-
-        </div>
+    <div class="relative z-10 max-w-3xl mx-auto bg-blue-100 rounded-xl shadow-lg p-6 sm:p-10 mt-[-80px]">
+      <h1 class="text-gray-900 font-bold text-3xl mb-4">
+        Notre Mission : Former les Vendeurs de Demain
+      </h1>
+      <p class="text-gray-700 text-sm mb-4">
+        Avec des formations :
+        <a href="#" class="font-bold text-orange-500 hover:underline">utiles</a>,
+        <a href="#" class="font-bold text-orange-500 hover:underline">pratiques</a>,
+        <a href="#" class="font-bold text-orange-500 hover:underline">et d'actualités aussi</a>.
+      </p>
+      <p class="text-base leading-relaxed text-gray-800">
+        Chez <strong>VendeurPro</strong>, nous croyons que la vente est un métier passionnant et accessible à tous. 
+        Notre mission est de former les commerçants, consultants, étudiants, chômeurs, 
+        porteurs de projets et toute personne désireuse d'acquérir des compétences en vente ou
+        de se lancer dans le métier de vendeur, que ce soit en boutique ou en B2B.
+        <br /><br />
+        Nous vous accompagnons pour maîtriser les techniques de vente modernes,
+        booster vos résultats et réussir dans votre projet professionnel.
+      </p>
     </div>
-</div>
+  </div>
 </section>
+
+
+
+
+
 
 <!-- SECTION NOTRE ÉQUIPE -->
 <section class="team">
-  <h2 class="title">Rencontrez Notre Équipe d'Experts en Vente</h2>
+  <h2 class="title">LE STUDIO PEDAGOGIQUE</h2>
   <div class="team-members">
     <div class="member">
       <img src="/images/vendeur7.jpg" alt="Jean Dupont" class="styled-card-image" />
@@ -164,21 +160,21 @@
   <div class="testimonial-slider">
     <div class="testimonial">
       <div class="testimonial-content">
-        <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+        <img src="/images/image4.jpeg" alt="Témoignage" class="styled-card-image" />
         <p class="testimonial-text">"+30% de ventes en 3 mois grâce à VendeurPro !"</p>
       </div>
       <span class="testimonial-name">- Jean Dupont</span>
     </div>
     <div class="testimonial">
       <div class="testimonial-content">
-        <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+        <img src="/images/aproposa.jpeg" alt="Témoignage" class="styled-card-image" />
         <p class="testimonial-text">"Grâce à cette formation, j'ai trouvé un nouvel emploi dans la vente !"</p>
       </div>
       <span class="testimonial-name">- Marie Leclerc</span>
     </div>
     <div class="testimonial">
       <div class="testimonial-content">
-        <img src="/images/baniere.jpeg" alt="Témoignage" class="styled-card-image" />
+        <img src="/images/image5.jpeg" alt="Témoignage" class="styled-card-image" />
         <p class="testimonial-text">"Fidélisation accrue de mes clients et augmentation de mes revenus !"</p>
       </div>
       <span class="testimonial-name">- Ahmed Sy</span>

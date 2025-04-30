@@ -35,7 +35,6 @@
             <li><a href="#">Se former</a></li>
             <li><a href="#">Coaching</a></li>
             <li><a href="#">Le lab</a></li>
-            <li><a href="#">Un projet</a></li>
           </ul>
         </div>
 
@@ -43,9 +42,9 @@
         <div class="contact-info">
           <h3>Contact</h3>
           <ul>
-            <li><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Vente, Dakar</li>
+            <li><i class="fas fa-map-marker-alt"></i> 4 cité Cpi, VDN Dakar</li>
             <li><i class="fas fa-envelope"></i> contact@vendeur-pro.com</li>
-            <li><i class="fas fa-phone"></i> 33 8 68 54 14 ou +221 75 6311686</li>
+            <li><i class="fas fa-phone"></i> 33 8 68 54 14 // 75 6311686</li>
             <li><i class="fas fa-clock"></i> Lun - Ven, 9h - 18h</li>
           </ul>
         </div>
