@@ -9,7 +9,7 @@
       title="Woman holding a mug">
     </div>
 
-    <div class="relative z-10 max-w-3xl mx-auto bg-blue-100 rounded-xl shadow-lg p-6 sm:p-10 mt-[-80px]">
+    <div class="relative z-10 max-w-3xl mx-auto bg-[#d1d5db] rounded-xl shadow-lg p-6 sm:p-10 mt-[-80px]">
       <h1 class="text-gray-900 font-bold text-3xl mb-4">
         Notre Mission : Former les Vendeurs de Demain
       </h1>
@@ -263,7 +263,7 @@ onMounted(() => {
 
 .lamission{
   margin-top: 5%;
-background-color: #625f5f52;
+background-color: #b6aeae52;
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
 }

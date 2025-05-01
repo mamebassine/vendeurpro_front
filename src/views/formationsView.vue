@@ -623,7 +623,7 @@ onUnmounted(() => {
   }
 .hero-image {
     max-width: 57%;
-    /* border-radius: 20px; */
+    border-radius: 20px;
     /* box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.2); */
 
     /* border-top-left-radius: 797px; 
@@ -634,7 +634,7 @@ border-bottom-right-radius: 260px;
 padding: 5px; 
 
 border-top-left-radius: 207px; 
-    border-bottom-right-radius: 120px; 
+    border-bottom-right-radius: 10px; 
     background-color: #003366;
   }
 /* ✅ Stylisation des Titres */

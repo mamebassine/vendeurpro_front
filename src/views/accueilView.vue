@@ -526,6 +526,11 @@ margin-top: 5px;
 .why-item {
   flex: 1;
   background: #003366;
+
+
+  background: #75c5fefb;
+
+
   padding: 30px;
   border-radius: 8px;
   color: white;
