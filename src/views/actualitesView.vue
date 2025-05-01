@@ -23,47 +23,63 @@
   
   <script setup>
   import image1 from '@/assets/images/photo5.png';
-  import image2 from '@/assets/images/photo5.png';
-  import image3 from '@/assets/images/photo5.png';
+  import image2 from '@/assets/images/vendeur21.jpg';
+  import image3 from '@/assets/images/photo4.jpg';
+
+  import image4 from '@/assets/images/vendeur28.jpg';
+  import image5 from '@/assets/images/photo14.jpg';
+  import image6 from '@/assets/images/vendeur20.jpg';
   
   const cards = [
     {
       title: "Carrières dans la Vente au Sénégal : Plus qu'un Métier, une Voie Royale vers le Succès",
-      description: `Au Sénégal, le secteur de la vente se distingue par ses opportunités d'insertion professionnelle rapide, bien qu'il soit parfois sous-estimé. Chez VendeurPro, nous considérons la vente non seulement comme une profession, mais aussi comme une voie vers l'épanouissement personnel et professionnel.
-  
-  Voici une liste d’opportunités spécifiques qu’offrent les métiers de la vente.`,
+      description: `Au Sénégal, le secteur de la vente se distingue par ses opportunités d'insertion professionnelle rapide, bien qu'il soit parfois sous-estimé.`,
       image: image1,
       route: '/actualites-a',
       date: 'Publié le 28 Avril 2025'
     },
     {
       title: '5 erreurs classiques que tout jeune vendeur doit éviter',
-      description: `S'engager dans les métiers de la vente constitue une entreprise stimulante, bien que non exempte de défis. Au sein de VendeurPro, où nous accompagnons quotidiennement de jeunes talents, nous avons identifié les écueils les plus fréquemment rencontrés. La reconnaissance de ces erreurs représente déjà un premier pas vers leur évitement.`,
+      description: `S'engager dans les métiers de la vente constitue une entreprise stimulante, bien que non exempte de défis.`,
       image: image2,
       route: '/actualites-b',
       date: 'Publié le 27 Avril 2025'
     },
     {
       title: 'Les trois compétences maîtresses que tout vendeur de qualité doit posséder',
-      description: `L'acte de vente dépasse la simple présentation d'un produit ou d'un service. Il s'agit essentiellement de comprendre, de persuader et de guider un client tout au long de son parcours d'achat. Chez VendeurPro, nous sommes convaincus que trois compétences fondamentales distinguent un vendeur ordinaire d'un vendeur exceptionnel.`,
+      description: `L'acte de vente dépasse la simple présentation d'un produit ou d'un service.`,
       image: image3,
       route: '/actualites-c',
       date: 'Publié le 26 Avril 2025'
-    }
+    },
 
 
     // les autres cartes
 
 
-    
+    {
+      title: "Comment une formation intensive en vente peut révolutionner votre carrière ?",
+      description: `Une formation intensive se distingue d'une formation conventionnelle.`,
+      image: image4,
+      route: '/actualites-d',
+      date: 'Publié le 28 Avril 2025'
+    },
+    {
+      title: 'Achanger apres 5 erreurs classiques que tout jeune vendeur doit éviter',
+      description: `S'engager dans les métiers de la vente constitue une entreprise stimulante, bien que non exempte de défis.`,
+      image: image5,
+      route: '/actualites-e',
+      date: 'Publié le 27 Avril 2025'
+    },
+    {
+      title: 'Achanger apres Les trois compétences maîtresses que tout vendeur de qualité doit posséder',
+      description: `L'acte de vente dépasse la simple présentation d'un produit ou d'un service. `,
+      image: image6,
+      route: '/actualites-f',
+      date: 'Publié le 26 Avril 2025'
+    },
 
-
-
-
-
-
-
-  ];
+];
   </script>
   
   <style scoped>
@@ -82,8 +98,34 @@
     margin-bottom: 40px;
     color: #222;
   }
-  
   .cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+  gap: 20px;
+}
+
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 100%; /* occupe la totalité de sa colonne */
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+
+  
+  /* .cards-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -95,7 +137,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
-  }
+  } */
   
   .card:hover {
     transform: translateY(-5px);
