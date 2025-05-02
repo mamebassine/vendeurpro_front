@@ -39,7 +39,7 @@
             <p><strong>⏳ Durée :</strong> {{ webinaire.duration }}</p>
             <!-- <button class="cta-button">📝 S'inscrire</button> -->
 
-            <router-link to="/contact" class="cta-button">📝 S'inscriret</router-link>
+            <router-link to="/contact" class="cta-button">📝 S'inscrire</router-link>
 
           </div>
         </div>
@@ -249,6 +249,11 @@ font-size: 2em;
 }
 
 /* responsive */
+@media (max-width: 1024px) {
+ .hero img {
+    display: none !important;
+  }
+}
 @media (max-width: 1024px) {
   .hero {
     margin-top:22%; 

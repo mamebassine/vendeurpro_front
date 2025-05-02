@@ -166,6 +166,11 @@ const toggleFAQ = (index) => {
 
 /* responsive */
 @media (max-width: 1024px) {
+ .hero img {
+    display: none !important;
+  }
+}
+@media (max-width: 1024px) {
   .hero {
     margin-top:22%; 
     flex-direction: column;
@@ -289,6 +294,36 @@ const toggleFAQ = (index) => {
 .coaching-card:hover {
   transform: scale(1.05);
 }
+/* responsive */
+
+@media (max-width: 1024px) {
+  .coaching-container {
+    gap: 5%;
+    justify-content: center;
+  }
+
+  .coaching-card {
+    max-width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .coaching-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .coaching-card {
+    max-width: 90%;
+  }
+}
+
+
+
+
+
 /* --- Section FAQ --- */
 .faq-section {
   padding: 60px 5%;

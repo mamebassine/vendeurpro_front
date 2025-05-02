@@ -677,8 +677,14 @@ h2{
 .formation , p {
   text-align: center;
 } 
-/* responsive */
+
 /* Responsiveness HERO + FORMATIONS */
+@media (max-width: 1024px) {
+ .hero img {
+    display: none !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero {
     margin-top: 22%;

@@ -22,7 +22,7 @@
   </template>
   
   <script setup>
-  import image1 from '@/assets/images/photo5.png';
+  import image1 from '@/assets/images/baniere7.jpg';
   import image2 from '@/assets/images/vendeur21.jpg';
   import image3 from '@/assets/images/photo4.jpg';
 

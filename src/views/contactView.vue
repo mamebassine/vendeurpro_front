@@ -277,6 +277,74 @@ button:hover {
 iframe {
   border-radius: 10px;
 }
+
+
+
+/* responsive */
+
+@media (max-width: 1024px) {
+  .wath {
+    margin-top: 20%;
+  }
+
+  .reseaux-sociaux a {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wath {
+    margin-top: 15%;
+  }
+
+  .reseaux-sociaux {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .reseaux-sociaux a {
+    margin-right: 0;
+  }
+
+  .formulaire,
+  .informations-pratiques,
+  #map {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #map {
+    height: 250px;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  #map {
+    height: 200px;
+  }
+
+  .block {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 0.95em;
+  }
+
+  button {
+    font-size: 0.95em;
+  }
+}
+
 </style>
 
 
