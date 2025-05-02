@@ -50,6 +50,9 @@ watch(route, () => {
 
 <style scoped >
 
+body {
+  padding-top: 110px; /* sinon le contenu passe sous la navbar */
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -80,6 +83,8 @@ watch(route, () => {
   list-style: none;
   margin: 0;
   padding: 0;
+
+  transition: all 0.3s ease;
 }
 
 .menu li a {
@@ -105,6 +110,10 @@ watch(route, () => {
   display: none;
   font-size: 2rem;
   cursor: pointer;
+  padding: 0.5rem;
+
+  color: #003366;
+
 }
 
 /* RESPONSIVE */

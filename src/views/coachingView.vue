@@ -164,6 +164,96 @@ const toggleFAQ = (index) => {
 
 
 
+/* responsive */
+@media (max-width: 1024px) {
+ .hero img {
+    display: none !important;
+  }
+}
+@media (max-width: 1024px) {
+  .hero {
+    margin-top:22%; 
+    flex-direction: column;
+    padding: 40px 6%;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-left: 0;
+    margin-top: 30px;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 5%;
+  }
+
+  .titrecoaaching,
+  .questionsFréquentes {
+    font-size: 2em;
+  }
+
+  .hero h1 {
+    font-size: 1.7em;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-image {
+    border-radius: 0 0 120px 120px;
+    clip-path: polygon(
+      0% 0%, 
+      100% 0%, 
+      100% 85%, 
+      50% 100%, 
+      0% 85%
+    );
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 30px 4%;
+  }
+
+  .titrecoaaching,
+  .questionsFréquentes {
+    font-size: 1.6em;
+  }
+
+  .hero h1 {
+    font-size: 1.4em;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-image {
+    border-radius: 0 0 100px 100px;
+    clip-path: polygon(
+      0% 0%, 
+      100% 0%, 
+      100% 90%, 
+      50% 100%, 
+      0% 90%
+    );
+  }
+}
+
+
 
 /* 🔹 COACHING CARDS */
 .coaching-container {
@@ -204,6 +294,36 @@ const toggleFAQ = (index) => {
 .coaching-card:hover {
   transform: scale(1.05);
 }
+/* responsive */
+
+@media (max-width: 1024px) {
+  .coaching-container {
+    gap: 5%;
+    justify-content: center;
+  }
+
+  .coaching-card {
+    max-width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .coaching-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .coaching-card {
+    max-width: 90%;
+  }
+}
+
+
+
+
+
 /* --- Section FAQ --- */
 .faq-section {
   padding: 60px 5%;

@@ -19,6 +19,16 @@ import FormationVenteDirecteView from '@/views/formationVenteDirecteView.vue'
 import FormationVenteDigitaleView from '@/views/formationVenteDigitaleView.vue'
 
 
+
+
+// 👉 Import des pages actuA à actuF
+import ActuAView from '@/views/actuAView.vue'
+import ActuBView from '@/views/actuBView.vue'
+import ActuCView from '@/views/actuCView.vue'
+import ActuDView from '@/views/actuDView.vue'
+import ActuEView from '@/views/actuEView.vue'
+import ActuFView from '@/views/actuFView.vue'
+
 const router = createRouter({
   
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,8 +47,17 @@ const router = createRouter({
     { path: '/bootcamp-services', name: 'bootcamp-services', component: BootcampServicesView },
     { path: '/formation-btob', name: 'formation-btob', component: FormationBtoBView },
     { path: '/formation-vente-directe', name: 'formation-vente-directe', component: FormationVenteDirecteView },
-    { path: '/formation-vente-digitale', name: 'formation-vente-digitale', component: FormationVenteDigitaleView }
+    { path: '/formation-vente-digitale', name: 'formation-vente-digitale', component: FormationVenteDigitaleView },
   
+
+         // ✅ Nouvelles routes pour les pages actualités détaillées
+{ path: '/actualites-a', name: 'actu-a', component: ActuAView },
+{ path: '/actualites-b', name: 'actu-b', component: ActuBView },
+{ path: '/actualites-c', name: 'actu-c', component: ActuCView },
+{ path: '/actualites-d', name: 'actu-d', component: ActuDView },
+{ path: '/actualites-e', name: 'actu-e', component: ActuEView },
+{ path: '/actualites-f', name: 'actu-f', component: ActuFView }
+
   ],
 })
 

@@ -11,7 +11,7 @@
 </strong>          
 <p>Bootcamps intensifs, formation certifiante et modules à la carte pour booster <br> vos compétences en vente.</p>
         </div>
-        <img src="../assets/images/ici.png" alt="Formation en vente" class="hero-image" />
+        <img src="../assets/images/vendeur27.jpg" alt="Formation en vente" class="hero-image" />
       </div>
       </section>
 
@@ -615,15 +615,15 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 50px;
     background: linear-gradient(120deg, #003366, #fff);
     color: white;
-    padding: 10px 6%;
+    padding: 17px 4%;
     
   }
 .hero-image {
-    max-width: 57%;
-    /* border-radius: 20px; */
+    max-width: 49%;
+    border-radius: 20px;
     /* box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.2); */
 
     /* border-top-left-radius: 797px; 
@@ -633,8 +633,8 @@ border-bottom-right-radius: 260px;
     border-bottom-left-radius: 60px; */
 padding: 5px; 
 
-border-top-left-radius: 207px; 
-    border-bottom-right-radius: 120px; 
+border-top-left-radius: 707px; 
+    /* border-bottom-right-radius: 10px;  */
     background-color: #003366;
   }
 /* ✅ Stylisation des Titres */
@@ -677,6 +677,92 @@ h2{
 .formation , p {
   text-align: center;
 } 
+
+/* Responsiveness HERO + FORMATIONS */
+@media (max-width: 1024px) {
+ .hero img {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    margin-top: 22%;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding: 40px 5%;
+  }
+
+  .hero-image {
+    max-width: 90%;
+    margin: 0 auto;
+    border-top-left-radius: 300px;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero h3 {
+    font-size: 18px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8em;
+  }
+
+  .hero h3 {
+    font-size: 16px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-image {
+    max-width: 95%;
+    border-top-left-radius: 180px;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5em;
+  }
+
+  .hero h3 {
+    font-size: 14px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    padding: 0;
+    border-radius: 20px;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+}
+
+
+
 
 /* PARTIE F0RMATIONS */
 
@@ -803,16 +889,25 @@ text-align: center;
   max-width: 40%;
   text-align: center;
 
-  max-width: 9500px; /* ✅ Largeur maximale définie */
+  /* max-width: 600px;
+width: 100%; */
+
+
+  max-width: 9500px; 
   min-width: 1310px;
 }
 .testimonial img {
-  width: 100px;
-  height: 100px;
-  border-radius: 20%;
+  width: 180px;
+  height: 170px;
+  border-radius: 200%;
   object-fit: cover;
 
-  margin-left: 44%;
+  /* margin-left: 44%; */
+
+  margin-left: auto;
+margin-right: auto;
+display: block;
+
 }
 .nav-btn {
   background: transparent;
@@ -826,6 +921,67 @@ text-align: center;
 .nav-btn:hover {
   transform: scale(1.2);
 }
+
+/* responsive */
+
+@media (max-width: 1024px) {
+  .testimonial-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .testimonial {
+    min-width: auto;
+    max-width: 90%;
+    padding: 40px;
+  }
+
+  .testimonial img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .temoignages {
+    padding: 20px 5%;
+  }
+
+  .testimonial {
+    padding: 30px;
+  }
+
+  .testimonial img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .nav-btn {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial {
+    padding: 20px;
+  }
+
+  .testimonial img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .testimonial h4 {
+    font-size: 1em;
+  }
+
+  .nav-btn {
+    font-size: 1.5em;
+  }
+}
+
+
 
 
 /* --- Section FAQ --- */

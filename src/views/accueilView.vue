@@ -19,7 +19,6 @@
        </div>
         <img src="../assets/images/vendeur10a.png" alt="">
    </section>
-<!--ici 1ere section  -->
 
 <!-- Section Pourquoi choisir VendeurPro -->
  <section id="why-vendeurpro">
@@ -52,8 +51,8 @@
     </div>
     <router-link to="/formations" class="cta-button">En savoir plus</router-link>
   </section>
+
   <!-- SECTION FORMATION -->
-   
    <section id="formations" class="formations-section">
        <div class="formations-container">
          <h2 class="formations-title">Découvrez Nos Formation</h2>
@@ -83,17 +82,12 @@
 
            <span class="nav-arrow nav-arrow-right">&#10095;</span>
           </div>
-   
-         <!-- <button class="voir-formations-btn">
-         <a href="/formations">Voir les formations</a>
-         </button> -->
-         <router-link to="/formations" class="inline-block px-6 py-3 bg-[#ff7f00] text-white font-bold rounded hover:bg-[#002855] transition duration-400">
+          
+          <router-link to="/formations" class="inline-block px-6 py-3 bg-[#ff7f00] text-white font-bold rounded hover:bg-[#002855] transition duration-400">
   Voir les formations
-</router-link>
+          </router-link>
 
-
-
-       </div>
+        </div>
      </section>
    
      <!-- Section FAQ -->
@@ -144,14 +138,12 @@
         :class="{ active: index === currentIndex }"
       ></span>
     </div>
-    <!-- <button class="cta-button">Rejoignez-les</button> -->
+
    <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
 
   </section>
   <!-- Section Nos Partenaires -->
-
-
-   <!-- <section id="partners" class="partners-section">
+<!-- <section id="partners" class="partners-section">
        <h2 class="partenairelogo">Nos Partenaires</h2>
        <div class="partners-container">
            <img src="../assets/images/baniere.jpeg" alt="Partenaire 1" class="partner-logo">
@@ -197,8 +189,6 @@
   <script setup>
    
    import { ref, onMounted, onUnmounted } from 'vue';
-   
-   // <!--ici 1ere section  -->
    
    // Tableau des formations
    const formations = ref([
@@ -247,8 +237,6 @@ const toggle = (index) => {
   }));
 };
    
-   // SECTION TEMOIGNAGE
-
 // Témoignages avec images, vidéos et résultats
 const testimonials = ref([
   { 
@@ -499,6 +487,103 @@ margin-top: 5px;
      opacity: 0;
      transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
    }
+
+
+
+   /* responsive */
+   @media (max-width: 1024px) {
+  #hero::before,
+  #hero::after,
+  .bubble,
+  #hero img {
+    display: none !important;
+  }
+}
+
+
+   @media (max-width: 1024px) {
+  #hero {
+    margin-top: 22%;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  #hero .text-content {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  #hero img {
+    max-width: 85%;
+    margin: 30px auto 0;
+    border-bottom-left-radius: 100px;
+  }
+
+  #hero h1 {
+    font-size: 2em;
+    margin-top: 0;
+  }
+
+  h5,
+  #hero p {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 1.7em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  h5,
+  #hero p {
+    font-size: 15px;
+  }
+
+  #hero img {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 1.5em;
+  }
+
+  h5,
+  #hero p {
+    font-size: 14px;
+  }
+
+  #hero .text-content {
+    margin-top: 20px;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 10px 16px;
+  }
+
+  #hero img {
+    max-width: 95%;
+    border-bottom-left-radius: 60px;
+  }
+}
+
+
+   
    
 /* Section Pourquoi choisir VendeurPro */
 #why-vendeurpro {
@@ -526,6 +611,11 @@ margin-top: 5px;
 .why-item {
   flex: 1;
   background: #003366;
+
+
+  background: #003366;
+
+
   padding: 30px;
   border-radius: 8px;
   color: white;
@@ -583,6 +673,9 @@ margin-top: 5px;
     color: white;
      padding: 50px 0;
      margin-top: 5%;
+
+     width: 100%;
+     box-sizing: border-box;
    }
    
    .formations-title {
@@ -598,6 +691,9 @@ margin-top: 5px;
      display: flex;
      flex-direction: column;
      align-items: center;
+
+     width: 90%;
+     margin: 0 auto;
    }
    
    .formations-content {
@@ -666,6 +762,53 @@ margin-top: 5px;
      display: flex;
      transition: transform 0.3s ease-in-out;
    }
+
+
+
+
+   @media (max-width: 1024px) {
+  .formations-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-arrow-left,
+  .nav-arrow-right {
+    display: none; /* Cacher les flèches sur petit écran */
+  }
+}
+
+@media (max-width: 768px) {
+  .formations-title {
+    font-size: 1.8em;
+    margin-bottom: 40px;
+  }
+
+  .formation-card {
+    width: 90%;
+    max-width: none;
+    margin-bottom: 20px;
+  }
+
+  .formations-content {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formations-title {
+    font-size: 1.5em;
+  }
+
+  .formation-card-title {
+    font-size: 1.2em;
+  }
+
+  .formation-card-text {
+    font-size: 0.95em;
+  }
+}
+
 
 
    

@@ -39,7 +39,7 @@
             <p><strong>⏳ Durée :</strong> {{ webinaire.duration }}</p>
             <!-- <button class="cta-button">📝 S'inscrire</button> -->
 
-            <router-link to="/contact" class="cta-button">📝 S'inscriret</router-link>
+            <router-link to="/contact" class="cta-button">📝 S'inscrire</router-link>
 
           </div>
         </div>
@@ -248,6 +248,103 @@ font-size: 2em;
   text-align: center;
 }
 
+/* responsive */
+@media (max-width: 1024px) {
+ .hero img {
+    display: none !important;
+  }
+}
+@media (max-width: 1024px) {
+  .hero {
+    margin-top:22%; 
+
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 6%;
+  }
+
+  .hero img {
+    max-width: 80%;
+    margin-top: 30px;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .section {
+    padding: 40px 6%;
+  }
+
+  .why-card, .webinaire-card, .testimonial-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8em;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  h2 {
+    font-size: 1.7em;
+  }
+
+  .hero img {
+    max-width: 90%;
+  }
+
+  .hero .cta-button {
+    font-size: 0.95rem;
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 30px 4%;
+  }
+
+  .hero h1 {
+    font-size: 1.5em;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero .cta-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .hero img {
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+
 /* 🔹 POURQUOI PARTICIPER */
 .why-list {
   display: flex;   /* Utilisation de Grid pour un agencement flexible */
@@ -361,38 +458,6 @@ font-size: 2em;
 }
 
 
-
-
-/* .webinaire-list {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.webinaire-card {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 320px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.webinaire-card:hover {
-  transform: scale(1.05);
-} */
-
-
-
-
-
-
-
-
-
 /* 🔹 TÉMOIGNAGES - Conteneur principal */
 .testimonial-container {
   display: flex;
@@ -487,34 +552,109 @@ margin-left: 42%;
   background: #e06b00;
   transform: scale(1.05);
 }
+/* RESPONSIVES POUR LES DEUX */
+@media (max-width: 1024px) {
+  .testimonial-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+  }
 
-/* .testimonial-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 80px;
-  margin-top: 40px;
+  .testimonial-card {
+    min-width: 90%;
+    margin: 0 auto;
+  }
+
+  .testimonial-img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .why-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .webinaire-list {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    padding: 10px;
+    gap: 30px;
+  }
 }
 
-.testimonial-card {
-  background: white;
-  padding: 70px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 5px 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 1000%;
-  transition: transform 0.3s;
+@media (max-width: 768px) {
+  .why-list,
+  .testimonial-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5%;
+  }
+
+  .why-card,
+  .webinaire-card,
+  .testimonial-card {
+    width: 100%;
+    min-width: auto;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .testimonial-img {
+    width: 120px;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .why-card h3,
+  .webinaire-card h3,
+  .testimonial-card h4 {
+    font-size: 1.3rem;
+  }
+
+  .webinaire-card {
+    max-width: 100%;
+  }
+
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 10px 18px;
+  }
 }
 
-.testimonial-card:hover {
-  transform: scale(1.05);
+@media (max-width: 480px) {
+  .why-list,
+  .testimonial-container {
+    gap: 20px;
+  }
+
+  .why-card i {
+    font-size: 2.5rem;
+  }
+
+  .why-card h3,
+  .webinaire-card h3,
+  .testimonial-card h4 {
+    font-size: 1.1rem;
+  }
+
+  .why-card p,
+  .webinaire-card p,
+  .testimonial-card p {
+    font-size: 0.95rem;
+  }
+
+  .cta-button {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
 }
 
-.testimonial-img {
-  width: 40%;
-  border-radius: 30%;
-  margin-bottom: 34px;
-} */
+
+
+
+
 
 
 

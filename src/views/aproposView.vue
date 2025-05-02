@@ -3,13 +3,14 @@
   <div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Marge top ajoutée ici pour descendre l’image -->
-    <div
-      class="bg-cover bg-center rounded-2xl shadow-lg overflow-hidden mx-auto mt-16" 
+    <!-- <div id="map" class="relative h-[700px] mt-18 overflow-hidden bg-cover bg-[70%] bg-recovert"> -->
+
+    <div class="bg-cover bg-center rounded-2xl shadow-lg overflow-hidden bg-cover bg-[70%] mx-auto mt-16" 
       style="min-height: 390px; background-image: url('/images/photo26.png');"
       title="Woman holding a mug">
     </div>
 
-    <div class="relative z-10 max-w-3xl mx-auto bg-blue-100 rounded-xl shadow-lg p-6 sm:p-10 mt-[-80px]">
+    <div class="relative z-10 max-w-3xl mx-auto bg-[#d1d5db] rounded-xl shadow-lg p-6 sm:p-10 mt-[-80px]">
       <h1 class="text-gray-900 font-bold text-3xl mb-4">
         Notre Mission : Former les Vendeurs de Demain
       </h1>
@@ -263,7 +264,7 @@ onMounted(() => {
 
 .lamission{
   margin-top: 5%;
-background-color: #625f5f52;
+background-color: #b6aeae52;
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
 }
@@ -707,5 +708,126 @@ margin-left: 20%;
 }
 
 
+
+/* responsive */
+
+@media (max-width: 1024px) {
+  .mission-content,
+  .history-content {
+    flex-direction: column;
+    text-align: center;
+    
+  }
+
+  .mission-text,
+  .history-text {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  .mission img,
+  .history-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 29px;
+  }
+
+  .team-members {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .stat-item img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faq-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+    
+  }
+
+  .mission,
+  .team,
+  .history,
+  .testimonials,
+  .faq {
+    padding: 40px 15px;
+  }
+
+  .member,
+  .stat-item,
+  .testimonial {
+    max-width: 100%;
+  }
+
+  .mission-content,
+  .history-content {
+    gap: 30px;
+  }
+
+  .testimonial-slider {
+    flex-direction: column;
+  }
+
+  .faq-title {
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .styled-card-image {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .member h3 {
+    font-size: 1.2rem;
+  }
+
+  .member p,
+  .stat-item p,
+  .testimonial-text {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-content img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .faq-title {
+    font-size: 0.95rem;
+  }
+
+  .faq-answer {
+    font-size: 0.85rem;
+  }
+
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 10px 18px;
+  }
+}
 
 </style>

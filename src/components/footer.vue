@@ -66,17 +66,16 @@
   </footer>
 </template>
 
-
 <script>
-
-
-
 export default {
   name: "FooterComponent",
 };
 </script>
 
 <style scoped>
+.footer-top, .footer-middle, .newsletter, .social-icons, .footer-links, .contact-info {
+  border: 1px dashed #003366;
+}
 
 /* Footer général */
 .footer {
@@ -255,6 +254,10 @@ export default {
 }
 
 /* Responsive Design */
+
+
+
+/* 
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
@@ -290,7 +293,7 @@ export default {
     margin: 0 auto;
     padding: 0;
   }
-}
+} */
 
 
 </style>
