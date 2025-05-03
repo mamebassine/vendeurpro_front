@@ -143,7 +143,12 @@ const toggleFAQ = (index) => {
 }
 
 .hero-image {
-  border-radius: 8px;
+  max-width: 44%;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+  /* border-radius: 8px;
   margin-left: 21px;
   margin-top: 20px;
 
@@ -159,8 +164,8 @@ const toggleFAQ = (index) => {
   );
 
   border: 6px solid #e5c6a8;
-  border-radius: 0 0 150px 155px;
-}
+  border-radius: 0 0 150px 155px; */
+
 
 
 

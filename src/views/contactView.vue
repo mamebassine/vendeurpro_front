@@ -21,8 +21,6 @@
   />
 </div>
 
-
-
 <!-- BANDE DE BACGRAOUND -->
  
 <div class="container px-6 md:px-11">
@@ -114,7 +112,7 @@
             </div>
             <div>
                 <p class="mb-1 font-bold text-[#003366]">Email</p>
-                <p class="text-sm text-neutral-600">contact@vendeur-pro.com</p>
+                <p class="text-sm text-neutral-600">contactatvendeur-pro.com</p>
             </div>
         </div>
         
@@ -185,7 +183,7 @@ export default {
 <style scoped>
 
 #map {
-  margin-top: 9%; /* Ajuste la valeur selon ton besoin */
+  margin-top: 9%; 
   height: 300px;
   border-radius: 10px;
   overflow: hidden;
@@ -269,7 +267,7 @@ button:hover {
 
 /* Styles de la carte Google Maps */
 #map {
-  height: 300px;
+  height: 480px;
   border-radius: 10px;
   overflow: hidden;
 }
