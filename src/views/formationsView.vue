@@ -3,9 +3,9 @@
       <!-- 🎯 HERO SECTION -->
       <div class="hero">
         <div class="text-content">
-          <h1>Nos Formations pour Devenir un Pro de la Vente</h1>
+          <h1>Nos formations pour devenir un pro de la vente</h1>
 <strong>
-  <h3>Formez-vous aux Techniques de Vente Modernes avec
+  <h3>Formez-vous aux techniques de vente modernes avec
     <br>
   <span>VendeurPro</span></h3>
 </strong>          
@@ -18,7 +18,7 @@
     <!-- 🎯 NOS FORMATIONS -->
 
 <section class="formations">
-  <h2>Choisissez la Formation qui Vous Correspond</h2>
+  <h2>Choisissez la formation qui vous correspond</h2>
   <p>📘 Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
   
   <!-- <div class="formation-list">
@@ -51,7 +51,7 @@
               </router-link>
 
               <router-link to="/bootcamp-services" class="card">
-                <h3>Vente Digitale et E-commerce</h3>
+                <h3>Vente digitale et E-commerce</h3>
                 <p>
                   <strong>Objectifs :</strong>
                   Maîtrisez la vente en ligne et le e-commerce.
@@ -59,7 +59,7 @@
               </router-link>
 
               <router-link to="/bootcamp-produits" class="card">
-                <h3>Vente de Produits</h3>
+                <h3>Vente de produits</h3>
                 <p>
                   <strong>Objectifs :</strong>
                   Apprenez à vendre efficacement aux entreprises.
@@ -71,11 +71,11 @@
 
           <!-- Formations Certifiantes -->
           <section>
-            <h4>Formations Certifiantes</h4>
+            <h4>Formations certifiantes</h4>
             <div class="card-grid">
 
               <router-link to="/formation-vente-directe" class="card">
-                <h3>Pro Vendeur BtoC</h3>
+                <h3>Pro vendeur BtoC</h3>
                 <p>
                   <strong>Objectifs :</strong>
 
@@ -103,7 +103,7 @@
 
           <!-- Modules de 6 Cartes -->
             <section>
-                <h4>Modules à la Carte pour une Formation Continue</h4>
+                <h4>Modules à la carte pour une formation continue</h4>
 
                     <div class="flex flex-wrap gap-6">
                       <div
@@ -197,7 +197,7 @@
     </div>
   <!-- <button class="cta-button">📩 Contactez-Nous</button> -->
    
-  <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
+  <router-link to="/contact" class="cta-button">📩 Contactez-nous</router-link>
 
 </section>
 </template>
@@ -622,20 +622,13 @@ onUnmounted(() => {
     
   }
 .hero-image {
-    max-width: 49%;
+    max-width: 50%;
     border-radius: 20px;
-    /* box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.2); */
+    
+padding: 3px; 
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 
-    /* border-top-left-radius: 797px; 
-    border-top-left-radius: 460px;
 
-border-bottom-right-radius: 260px;
-    border-bottom-left-radius: 60px; */
-padding: 5px; 
-
-border-top-left-radius: 707px; 
-    /* border-bottom-right-radius: 10px;  */
-    background-color: #003366;
   }
 /* ✅ Stylisation des Titres */
 .hero h1{

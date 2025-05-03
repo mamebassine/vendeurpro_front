@@ -17,12 +17,13 @@
              <div class="bubble"></div>
            </button>
        </div>
-        <img src="../assets/images/vendeur10a.png" alt="">
+       
+        <img src="../assets/images/vendeur9.jpg" alt="">
    </section>
 
 <!-- Section Pourquoi choisir VendeurPro -->
  <section id="why-vendeurpro">
-    <h2>Pourquoi Nos Formations Font la Différence</h2>
+    <h2>Pourquoi Nos formations font la différence</h2>
 
     <div class="why-container">
       <div class="why-item">
@@ -55,7 +56,7 @@
   <!-- SECTION FORMATION -->
    <section id="formations" class="formations-section">
        <div class="formations-container">
-         <h2 class="formations-title">Découvrez Nos Formation</h2>
+         <h2 class="formations-title">Découvrez nos formations</h2>
          <!-- <p class="formations-para">Choisissez la formation qui correspond à vos besoins.</p> -->
          <span class="nav-arrow nav-arrow-left">&#10094;</span> 
    
@@ -92,7 +93,7 @@
    
      <!-- Section FAQ -->
    <section id="faq" class="faq-section">
-  <h2>Questions Fréquentes</h2>
+  <h2>Questions fréquentes</h2>
   <div class="faq-container">
       <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
         <h3 @click="toggle(index)" class="faq-title">
@@ -105,12 +106,12 @@
       </div>
     </div>
     
-    <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
+    <router-link to="/contact" class="cta-button">📩 Contactez-nous</router-link>
   </section>
    
   <!-- Section Témoignages -->
    <section id="testimonials" class="testimonials-section">
-  <h2 class="title">Ils Ont Transformé Leurs Ventes avec VendeurPro</h2>
+  <h2 class="title">Ils ont transformé leurs ventes avec VendeurPro</h2>
   <div class="testimonials-wrapper">
   <button @click="prevTestimonial" class="nav-btn">❮</button>
   <div class="testimonials-container">
@@ -139,7 +140,7 @@
       ></span>
     </div>
 
-   <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
+   <router-link to="/contact" class="cta-button">📩 Contactez-nous</router-link>
 
   </section>
   <!-- Section Nos Partenaires -->
@@ -157,7 +158,7 @@
 
   <!-- SECTION CONTACTER -->
    <section id="contact" class="contact-section">
-   <h2>Prêt à Booster Vos Ventes ?</h2>
+   <h2>Prêt à booster vos ventes ?</h2>
    <div class="contact-container">
       <!-- Formulaire de contact -->
       <div class="contact-form">
@@ -170,7 +171,7 @@
           <input type="email" v-model="form.email" placeholder="Votre email" required />
           <input type="tel" v-model="form.telephone" placeholder="Votre téléphone" required />
           <textarea v-model="form.message" placeholder="Votre message..." required></textarea>
-          <button type="submit" class="cta-button">Inscrivez-vous Maintenant</button>
+          <button type="submit" class="cta-button">Inscrivez-vous maintenant</button>
         </form>
       
     </div>
@@ -323,7 +324,7 @@ console.log("Formulaire soumis :", form.value);
      padding: 0;
      overflow-x: hidden; /* Empêche le débordement horizontal global */
      }
-   #hero::before,
+   /* #hero::before,
    #hero::after {
      content: "welcome";
      color: #000;
@@ -333,12 +334,12 @@ console.log("Formulaire soumis :", form.value);
      border-radius: 50%;
      background-color: #ff7f00;
      animation: glognote 1s infinite alternate;
-     display: flex; /* Permet de centrer le contenu */
-     align-items: center; /* Centre verticalement le texte */
-     justify-content: center; /* Centre horizontalement le texte */
-     font-size: 0.8em; /* Ajustez la taille du texte si nécessaire */
-   }
-   /* Positionnement des bulles principales */
+     display: flex; 
+     align-items: center; 
+     justify-content: center; 
+     font-size: 0.8em; 
+   } */
+   /* Positionnement des bulles principales
    #hero::before {
      top: 21%;
      left: 54%;
@@ -346,9 +347,9 @@ console.log("Formulaire soumis :", form.value);
    #hero::after {
      bottom: 20%;
      right: 10%;
-   }
+   } */
    /* Animation des bulles principales */
-   @keyframes glognote {
+   /* @keyframes glognote {
      0% {
        opacity: 0.6;
        transform: scale(1);
@@ -356,7 +357,7 @@ console.log("Formulaire soumis :", form.value);
      100% {
        opacity: 1;
        transform: scale(1.2);
-     }}
+     }} */
    /* Styles pour les petites bulles */
    .bubble {
      position: absolute;
@@ -426,17 +427,14 @@ margin-top: 5px;
    }
    
    #hero img {
+
      margin-top: 11%;
-     /* margin-left: 10%;  Marge à gauche */
-     max-width: 76%;   /* Limiter la largeur de l'image */
-     height: auto;      /* Conserver les proportions de l'image */
+     margin-left: 8%; 
+     margin-right: 6%; 
+
+     max-width: 34%;   /* Limiter la largeur de l'image */
      object-fit: cover; /* Couvrir l'espace sans déformer l'image */
-    
-     
-     border-bottom-left-radius: 190px;   /*  Arrondir le coin supérieur gauche */
-     /* border-bottom-right-radius: 190px;  */
-     margin-right: 5%; /* Marge à droite */
-     background: linear-gradient(120deg, #e5c6a8, #fff);
+    border-radius: 20px;   /*  Arrondir le coin supérieur gauche */
 
    }
    button {

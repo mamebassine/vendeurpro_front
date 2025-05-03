@@ -37,7 +37,6 @@
             <h3>{{ webinaire.title }}</h3>
             <p><strong>🕒 Date :</strong> {{ webinaire.date }}</p>
             <p><strong>⏳ Durée :</strong> {{ webinaire.duration }}</p>
-            <!-- <button class="cta-button">📝 S'inscrire</button> -->
 
             <router-link to="/contact" class="cta-button">📝 S'inscrire</router-link>
 
@@ -100,9 +99,9 @@
   
   // 🔹 Prochains webinaires
   const webinaires = ref([
-    { title: "Les 5 Techniques pour Booster Vos Ventes", date: "10 Avril 2024, 18h", duration: "1h" },
-    { title: "Comment Vendre en Ligne comme un Pro", date: "15 Avril 2024, 19h", duration: "1h" },
-    { title: "Les Secrets de la Vente B2B", date: "20 Avril 2024, 20h", duration: "1h" }
+    { title: "Les 5 Techniques pour Booster Vos Ventes", date: "09 Juin 2025, 21h", duration: "1h" },
+    { title: "Comment Vendre en Ligne comme un Pro", date: "11 Juillet 2024, 21h", duration: "1h" },
+    { title: "Les Secrets de la Vente B2B", date: "29 Aout 2024, 21h", duration: "1h" }
   ]);
   
   // 🔹 Témoignages avec slider automatique
