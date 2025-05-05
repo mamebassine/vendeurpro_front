@@ -227,7 +227,7 @@ font-size: 2em;
 }
 
 .hero .cta-button:hover {
-  background: #ffd600;
+  background: #003366;
 }
 
 .cta-button{
