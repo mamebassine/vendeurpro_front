@@ -214,8 +214,8 @@ font-size: 2em;
 }
 
 .hero .cta-button {
-  background: #ffeb3b;
-  color: #003366;
+  background: #ff7f00;
+  color: #fff;
   padding: 12px 25px;
   font-size: 1.2rem;
   font-weight: bold;
