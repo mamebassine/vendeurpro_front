@@ -6,7 +6,7 @@
     <!-- <div id="map" class="relative h-[700px] mt-18 overflow-hidden bg-cover bg-[70%] bg-recovert"> -->
 
     <div class="bg-cover bg-center rounded-2xl shadow-lg overflow-hidden bg-cover bg-[70%] mx-auto mt-16" 
-      style="min-height: 390px; background-image: url('/images/photo26.png');"
+      style="min-height: 590px; background-image: url('/images/photo26.png');"
       title="Woman holding a mug">
     </div>
 
