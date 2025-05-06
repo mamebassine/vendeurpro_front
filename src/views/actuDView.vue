@@ -1,7 +1,7 @@
     <template>
       <div class="container">
         <img
-          src="../assets/images/maphotoz.png"
+          src="../assets/images/former6.png"
           alt="Formation intensive en vente"
           class="header-image"
         />

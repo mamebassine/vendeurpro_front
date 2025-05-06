@@ -22,11 +22,11 @@
   </template>
   
   <script setup>
-  import image1 from '@/assets/images/baniere7.jpg';
-  import image2 from '@/assets/images/vendeur21.jpg';
-  import image3 from '@/assets/images/photo4.jpg';
+  import image1 from '@/assets/images/clair2.png';
+  import image2 from '@/assets/images/vendeur2.jpg';
+  import image3 from '@/assets/images/former4.jpg';
 
-  import image4 from '@/assets/images/vendeur28.jpg';
+  import image4 from '@/assets/images/former6.png';
   import image5 from '@/assets/images/photo14.jpg';
   import image6 from '@/assets/images/vendeur20.jpg';
   
@@ -40,14 +40,14 @@
     },
     {
       title: '5 erreurs classiques que tout jeune vendeur doit éviter',
-      description: `S'engager dans les métiers de la vente constitue une entreprise stimulante, bien que non exempte de défis.`,
+      description: `S'engager dans les métiers de la vente constitue une entreprise stimulante, bien que non exempte de défis. Au sein de VendeurPro, où nous accompagnons La reconnaissance de ces erreurs`,
       image: image2,
       route: '/actualites-b',
       date: 'Publié le 27 Avril 2025'
     },
     {
       title: 'Les trois compétences maîtresses que tout vendeur de qualité doit posséder',
-      description: `L'acte de vente dépasse la simple présentation d'un produit ou d'un service.`,
+      description: `L'acte de vente dépasse la simple présentation d'un produit ou d'un service. Il s'agit essentiellement de comprendre, de persuader et de guider.`,
       image: image3,
       route: '/actualites-c',
       date: 'Publié le 26 Avril 2025'

@@ -1,7 +1,7 @@
   <template>
     <div class="container">
       <img
-        src="../assets/images/ici.png"
+        src="../assets/images/vendeur2.jpg"
         alt="Erreurs à éviter en vente"
         class="header-image"
       />
