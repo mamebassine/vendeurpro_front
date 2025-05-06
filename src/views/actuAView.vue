@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <img
-    src="../assets/images/ici.png"  alt="Carrière dans la vente"
-      class="header-image"
-    />
+    src="../assets/images/clair2.png"  alt="Carrière dans la vente" class="header-image"/>
 
     <h1>Carrières dans la Vente au Sénégal : Plus qu'un Métier, une Voie Royale vers le Succès</h1>
 
@@ -61,9 +59,11 @@ export default {
 }
 </script>
 
+
+
 <style scoped>
 .container {
-  margin: 90px auto;
+  margin: 50px auto;
   padding: 34px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #2e2e2e;
@@ -71,16 +71,19 @@ export default {
 }
 
 .header-image {
-  margin-top: 6%;
-  background-color: #9fa1a3;
+  margin-top: 4%;
+  background-color: #003366;
 
+  /* background-color: #254f09; */
 
-  width: 100%;
+ width: 100%;
   height: auto;
-  max-height: 350px;
-  object-fit: cover;
-  border-radius: 8px;
+  object-fit: contain; /* Affiche l'image en entier */
+  border-radius: 800%;
   margin-bottom: 24px;
+  display: block;
+  max-height: 300px; /* Hauteur maximale fixée */
+
 }
 
 h1 {
@@ -129,3 +132,7 @@ strong {
   font-size: 16px;
 }
 </style>
+
+
+
+

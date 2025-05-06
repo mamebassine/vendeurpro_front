@@ -53,43 +53,43 @@
     <router-link to="/formations" class="cta-button">En savoir plus</router-link>
   </section>
 
-  <!-- SECTION FORMATION -->
-   <section id="formations" class="formations-section">
-       <div class="formations-container">
-         <h2 class="formations-title">Découvrez nos formations</h2>
-         <!-- <p class="formations-para">Choisissez la formation qui correspond à vos besoins.</p> -->
-         <span class="nav-arrow nav-arrow-left">&#10094;</span> 
-   
-         <div class="formations-content">
-           <div class="formation-card">
-             <img src="../assets/images/bassinef3.png" alt="Formation 1" class="formation-image"/>
-             <h3 class="formation-card-title">Bootcamps Intensifs : 
-              3 Jours pour Transformer Vos Ventes</h3>
-             <p class="formation-card-text">Public : petits commerçants, freelances, porteurs de projets.</p>
-            </div>
-         
-            <div class="formation-card">
-             <img src="../assets/images/bassinef5.png" alt="Formation 3" class="formation-image"/>
-             <h3 class="formation-card-title">Vente B2B : Techniques pour Vendre aux Entreprises</h3>
-             <p class="formation-card-text">Public : vendeurs B2B, consultants.</p>
-             </div>
+<!-- SECTION FORMATION -->
+<section id="formations" class="formations-section">
+  <div class="formations-container">
+    <h2 class="formations-title">Découvrez nos formations</h2>
+
+    <div class="formations-wrapper">
+      <span class="nav-arrow nav-arrow-left" @click="prevFormation">&#10094;</span>
+
+      <div class="formations-content">
+        <router-link
+          v-for="(formation, index) in visibleFormations"
+          :key="index"
+          :to="formation.route"
+          class="formation-card"
+        >
+          <img :src="formation.img" :alt="formation.title" class="formation-image" />
+          <h3 class="formation-card-title">{{ formation.title }}</h3>
+          <p class="formation-card-text">{{ formation.text }}</p>
+        </router-link>
+      </div>
+
+      <span class="nav-arrow nav-arrow-right" @click="nextFormation">&#10095;</span>
+    </div>
+
+    <router-link
+      to="/formations"
+      class="inline-block px-6 py-3 bg-[#ff7f00] text-white font-bold rounded hover:bg-[#002855] transition duration-400"
+    >
+      Voir les formations
+    </router-link>
+  </div>
+</section>
 
 
-             <div class="formation-card">
-             <img src="../assets/images/bassinef4.png" alt="Formation 2" class="formation-image"/>
-             <h3 class="formation-card-title">Vente Digitale et E-commerce : Vendre en Ligne comme un Pro</h3>
-             <p class="formation-card-text">Public : commerçants en ligne, entrepreneurs digitaux.</p>
-             </div>
 
-           <span class="nav-arrow nav-arrow-right">&#10095;</span>
-          </div>
-          
-          <router-link to="/formations" class="inline-block px-6 py-3 bg-[#ff7f00] text-white font-bold rounded hover:bg-[#002855] transition duration-400">
-  Voir les formations
-          </router-link>
 
-        </div>
-     </section>
+
    
      <!-- Section FAQ -->
    <section id="faq" class="faq-section">
@@ -178,7 +178,7 @@
 
     <!-- Image de contact -->
     <div class="contact-image">
-      <img src="../assets/images/vendeur9a.png" alt="">
+      <img src="../assets/images/vendeur10a.png" alt="">
 
     </div>
   </div>
@@ -187,133 +187,148 @@
    </template>
    
    
-  <script setup>
-   
-   import { ref, onMounted, onUnmounted } from 'vue';
-   
-   // Tableau des formations
-   const formations = ref([
-     { img: "../assets/images/baniere.jpeg", title: "Formation en Ecommerce", text: "Apprenez les bases du développement web et devenez un expert en front-end." },
-     { img: "../assets/images/baniere.jpeg", title: "Formation BoostezJOb", text: "Maîtrisez le développement backend avec des technologies modernes." },
-     { img: "../assets/images/baniere.jpeg", title: "Formation vente en ligne", text: "Découvrez comment créer des applications mobiles performantes." },
-   ]);
-   
-   // Index actuel de la formation visible
-   const currentFormationIndex = ref(0);
-   
-   // Fonction pour passer à la formation suivante
-   const nextFormation = () => {
-     currentFormationIndex.value = (currentFormationIndex.value + 1) % formations.value.length;
-   };
-   
-   // Fonction pour passer à la formation précédente
-   const prevFormation = () => {
-     currentFormationIndex.value = (currentFormationIndex.value - 1 + formations.value.length) % formations.value.length;
-   };
-   
-   // Défilement automatique des formations toutes les 3 secondes
-   let formationInterval = null;
-   onMounted(() => {
-     formationInterval = setInterval(nextFormation, 3000); // Changer toutes les 3 secondes
-   });
-   
-   // Nettoyage de l'intervalle lors de la destruction du composant
-   onUnmounted(() => {
-     clearInterval(formationInterval);
-   });
-   
-   // Liste des questions fréquentes
-  const faqItems = ref([
-  { question: "Qui peut participer à vos formations ?", answer: "Nos formations sont ouvertes à tous : vendeurs, entrepreneurs, commerçants, et toute personne souhaitant améliorer ses compétences en vente.", isOpen: false },
-  { question: "Quel est le format des formations (en présentiel ou en ligne) ?", answer: "Nous proposons des formations en présentiel dans nos centres et en ligne via notre plateforme e-learning.", isOpen: false },
-  { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, un accompagnement post-formation est disponible sous forme de coaching et de sessions de mise en pratique.", isOpen: false },
-  { question: "Comment puis-je m'inscrire ?", answer: "Cliquez sur le bouton 'Inscrivez-vous Maintenant' et remplissez le formulaire en ligne. Vous serez contacté par un conseiller.", isOpen: false }
- ]);
+        <script setup>
+        import { ref, computed, onMounted, onUnmounted } from 'vue';
+        
+        // 👉 Déclaration globale des intervalles (noms uniques)
+        let formationInterval = null;
+        let testimonialInterval = null;
+        
+        // =========================
+        // 🚀 Formations Carousel
+        // =========================
+            const formations = ref([
+      {
+        img: new URL('@/assets/images/bassinef3.png', import.meta.url).href,
+        title: "1Bootcamps Intensifs : 3 Jours pour Transformer Vos Ventes",
+        text: "Public : petits commerçants, freelances, porteurs de projets.",
+        route: "/bootcamp-vendeur"
+      },
+      {
+        img: new URL('@/assets/images/bassinef5.png', import.meta.url).href,
+        title: "2Vente B2B : Techniques pour Vendre aux Entreprises",
+        text: "Public : vendeurs B2B, consultants.",
+        route: "/formation-btob"
+      },
+      {
+        img: new URL('@/assets/images/bassinef4.png', import.meta.url).href,
+        title: "3Vente Digitale et E-commerce : Vendre en Ligne comme un Pro",
+        text: "Public : commerçants en ligne, entrepreneurs digitaux.",
+        route: "/formation-vente-digitale"
+      },
+      {
+        img: new URL('@/assets/images/forme12.png', import.meta.url).href,
+        title: "Formation Ecommerce : L'art de vendre",
+        text: "Apprenez à vendre efficacement sur les plateformes en ligne.",
+        route: "/bootcamp-produits"
+      },
+      {
+        img: new URL('@/assets/images/forme11.png', import.meta.url).href,
+        title: "Formation BoostezJob : Vente digitale et E-commerce",
+        text: "Techniques modernes pour booster vos candidatures.",
+        route: "/formation-vente-directe"
+      },
+      {
+        img: new URL('@/assets/images/forme12.png', import.meta.url).href,
+        title: "Formation Mobile : Vente de produits",
+        text: "Créez des applications mobiles performantes.",
+        route: "/bootcamp-services"
+      }
+    ]);
 
-// Fonction pour ouvrir/fermer les questions
-const toggle = (index) => {
-  faqItems.value = faqItems.value.map((item, i) => ({
-    ...item,
-    isOpen: i === index ? !item.isOpen : false
-  }));
-};
-   
-// Témoignages avec images, vidéos et résultats
-const testimonials = ref([
-  { 
-    img: "/images/temoin9.jpg",
-    text: "Grâce à VendeurPro, mes ventes ont augmenté de 30% en 3 mois !", 
-    author: "Fanta Bah", 
-    result: "+30% de ventes"
-  },
-  { 
-    img: "/images/vendeur23.jpg",
-    text: "J'ai appris des techniques de vente qui ont transformé mon commerce.", 
-    author: "Sophie Ly", 
-    result: "Transformation des ventes"
-
-    // video: "/images/video.mp4", 
-    // text: "Une formation ultra-pratique qui m'a permis de fidéliser mes clients.", 
-    // author: "Jean Michel Mendy", 
-    // result: "Fidélisation accrue"
-  },
-  { 
-    img: "/images/temoin11.jpg",
-    text: "J'ai appris des techniques de vente qui ont transformé mon commerce.", 
-    author: "Sophie Ly", 
-    result: "Transformation des ventes"
-  },
-  { 
-    img: "/images/image7.jpeg",
-    text: "Le coaching personnalisé a été un vrai plus pour mon entreprise.", 
-    author: "Pa Matar Niane", 
-    result: "Coaching efficace"
-  }
-]);
-
-// Défilement automatique des témoignages
-const currentIndex = ref(0);
-let interval = null;
-
-const nextTestimonial = () => {
-  currentIndex.value = (currentIndex.value + 1) % testimonials.value.length;
-};
-
-const prevTestimonial = () => {
-  currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
-};
-
-onMounted(() => {
-  interval = setInterval(nextTestimonial, 5000); // Changement toutes les 5 secondes
-});
-
-onUnmounted(() => {
-  clearInterval(interval);
-});
-   
-// Données du formulaire
-const form = ref({
-  nom: "",
-  prenom: "",
-  email: "",
-  telephone: "",
-  message: ""
-});
-
-// Fonction pour soumettre le formulaire
-const submitForm = () => {
-  if (!form.value.nom || !form.value.prenom || !form.value.email || !form.value.telephone || !form.value.message) {
-    alert("Veuillez remplir tous les champs.");
-    return;
-  }
-console.log("Formulaire soumis :", form.value);
-  alert("Votre demande a été envoyée avec succès !");
-  
-  // Réinitialiser le formulaire après soumission
-  form.value = { nom: "", prenom: "", email: "", telephone: "", message: "" };
-};
-   
-</script>
+        
+        const currentFormationIndex = ref(0);
+        
+        const visibleFormations = computed(() => {
+          const start = currentFormationIndex.value;
+          const visibleCount = 3;
+          const total = formations.value.length;
+          return Array.from({ length: visibleCount }, (_, i) => formations.value[(start + i) % total]);
+        });
+        
+        const nextFormation = () => {
+          currentFormationIndex.value = (currentFormationIndex.value + 1) % formations.value.length;
+        };
+        
+        const prevFormation = () => {
+          currentFormationIndex.value =
+            (currentFormationIndex.value - 1 + formations.value.length) % formations.value.length;
+        };
+        
+        // =========================
+        // ❓ FAQ
+        // =========================
+        const faqItems = ref([
+          { question: "Qui peut participer à vos formations ?", answer: "Nos formations sont ouvertes à tous : vendeurs, entrepreneurs, commerçants, et toute personne souhaitant améliorer ses compétences en vente.", isOpen: false },
+          { question: "Quel est le format des formations (en présentiel ou en ligne) ?", answer: "Nous proposons des formations en présentiel dans nos centres et en ligne via notre plateforme e-learning.", isOpen: false },
+          { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, un accompagnement post-formation est disponible sous forme de coaching et de sessions de mise en pratique.", isOpen: false },
+          { question: "Comment puis-je m'inscrire ?", answer: "Cliquez sur le bouton 'Inscrivez-vous Maintenant' et remplissez le formulaire en ligne. Vous serez contacté par un conseiller.", isOpen: false }
+        ]);
+        
+        const toggle = (index) => {
+          faqItems.value = faqItems.value.map((item, i) => ({
+            ...item,
+            isOpen: i === index ? !item.isOpen : false
+          }));
+        };
+        
+        // =========================
+        // 💬 Témoignages
+        // =========================
+        const testimonials = ref([
+          { img: "/images/temoin9.jpg", text: "Grâce à VendeurPro, mes ventes ont augmenté de 30% en 3 mois !", author: "Fanta Bah", result: "+30% de ventes" },
+          { img: "/images/vendeur23.jpg", text: "J'ai appris des techniques de vente qui ont transformé mon commerce.", author: "Sophie Ly", result: "Transformation des ventes" },
+          { img: "/images/temoin11.jpg", text: "J'ai appris des techniques de vente qui ont transformé mon commerce.", author: "Sophie Ly", result: "Transformation des ventes" },
+          { img: "/images/image7.jpeg", text: "Le coaching personnalisé a été un vrai plus pour mon entreprise.", author: "Pa Matar Niane", result: "Coaching efficace" }
+        ]);
+        
+        const currentIndex = ref(0);
+        
+        const nextTestimonial = () => {
+          currentIndex.value = (currentIndex.value + 1) % testimonials.value.length;
+        };
+        
+        const prevTestimonial = () => {
+          currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
+        };
+        
+        // =========================
+        // 📨 Formulaire
+        // =========================
+        const form = ref({
+          nom: "",
+          prenom: "",
+          email: "",
+          telephone: "",
+          message: ""
+        });
+        
+        const submitForm = () => {
+          if (!form.value.nom || !form.value.prenom || !form.value.email || !form.value.telephone || !form.value.message) {
+            alert("Veuillez remplir tous les champs.");
+            return;
+          }
+        
+          console.log("Formulaire soumis :", form.value);
+          alert("Votre demande a été envoyée avec succès !");
+        
+          form.value = { nom: "", prenom: "", email: "", telephone: "", message: "" };
+        };
+        
+        // =========================
+        // 🔁 Lifecycle hooks
+        // =========================
+        onMounted(() => {
+          formationInterval = setInterval(nextFormation, 3000);
+          testimonialInterval = setInterval(nextTestimonial, 5000);
+        });
+        
+        onUnmounted(() => {
+          clearInterval(formationInterval);
+          clearInterval(testimonialInterval);
+        });
+        </script>
+        
    
    
 <style scoped>
@@ -666,132 +681,134 @@ margin-top: 5px;
   transform: scale(1.05);
 }
 
-  
-   /* Section NOS FORMATIONS */
-   .formations-section {
-    background: linear-gradient(5deg, #fff, #003366, #fff);
-    color: white;
-     padding: 50px 0;
-     margin-top: 5%;
+ /* DEBUT FORMATION */
 
-     width: 100%;
-     box-sizing: border-box;
-   }
-   
-   .formations-title {
-     text-align: center;
-     font-size: 2.3em;
-     margin-bottom: 9%;
-     color: #ffffff;
-   }
+ /* Section NOS FORMATIONS */
+.formations-section {
+  background: linear-gradient(5deg, #fff, #003366, #fff);
+  color: white;
+  padding: 50px 0;
+  margin-top: 5%;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-   
-   
-   .formations-container {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
+.formations-title {
+  text-align: center;
+  font-size: 2.3em;
+  margin-bottom: 5%;
+  color: #ffffff;
+}
 
-     width: 90%;
-     margin: 0 auto;
-   }
-   
-   .formations-content {
-     display: flex;
-     justify-content: space-between;
-     gap: 70px;
-     margin-bottom: 20px;
-     transition: transform 0.5s ease;
-   }
-   
-   .formation-card {
-     flex: 1;
-     max-width: 370px;
-     background-color: #333;
-     padding: 20px;
-     border-radius: 8px;
-     text-align: center;
-     transition: transform 0.3s ease;
-   }
-   
-   .formation-card:hover {
-     transform: scale(1.05);
-   }
-   
-   .formation-image {
-     max-width: 100%;
-     height: auto;
-     border-radius: 8px;
-   }
-   
-   .formation-card-title {
-     font-size: 1.5em;
-     margin-top: 15px;
-   }
-   
-   .formation-card-text {
-     font-size: 1em;
-     margin-top: 10px;
-   }
-   
-   .nav-arrow {
-     font-size: 2.5em;
-     color: white;
-     cursor: pointer;
-     transition: transform 0.3s ease, color 0.3s ease;
-     padding: 10px;
-   }
-   
-   .nav-arrow-left {
-     margin-right: 90%;
-     margin-bottom: -170px;
-   }
-   
-   .nav-arrow-right {
-     margin-left: -60px;
-     margin-top: 90px;
-   }
-   
-   .nav-arrow:hover {
-     color: #ff7f00;
-     transform: scale(1.2);
-   }
-   
-   /* Animation pour rendre le contenu fluide lors du changement */
-   .formations-content {
-     display: flex;
-     transition: transform 0.3s ease-in-out;
-   }
+.formations-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+/* Nouvelle structure : wrapper autour du carousel */
+.formations-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
 
+/* Conteneur carousel */
+.formations-content {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
 
+.formation-card {
+  flex: 1;
+  max-width: 350px;
+  min-width: 280px;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
 
-   @media (max-width: 1024px) {
+.formation-card:hover {
+  transform: scale(1.05);
+}
+
+.formation-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.formation-card-title {
+  font-size: 1.5em;
+  margin-top: 15px;
+}
+
+.formation-card-text {
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+/* Flèches navigation */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5em;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+}
+
+.nav-arrow-left {
+  left: 10px;
+}
+
+.nav-arrow-right {
+  right: 10px;
+}
+
+.nav-arrow:hover {
+  color: #ff7f00;
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
   .formations-content {
     flex-direction: column;
-    align-items: center;
+    gap: 20px;
   }
 
-  .nav-arrow-left,
-  .nav-arrow-right {
-    display: none; /* Cacher les flèches sur petit écran */
+  .nav-arrow {
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
   .formations-title {
     font-size: 1.8em;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   .formation-card {
     width: 90%;
-    max-width: none;
-    margin-bottom: 20px;
-  }
-
-  .formations-content {
-    gap: 30px;
+    margin: 0 auto;
   }
 }
 
@@ -811,7 +828,8 @@ margin-top: 5px;
 
 
 
-   
+
+   /*ICI FINI FORMATION  */
    
 /* --- Section FAQ --- */
 .faq-section {

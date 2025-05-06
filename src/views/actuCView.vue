@@ -1,7 +1,7 @@
     <template>
       <div class="container">
         <img
-          src="../assets/images/photo10.jpg"
+          src="../assets/images/former4.jpg"
           alt="Compétences en vente"
           class="header-image"
         />
