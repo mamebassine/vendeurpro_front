@@ -10,7 +10,7 @@
         <router-link to="/contact" class="cta-button">Réserver une Séance</router-link>
 
       </div>
-      <img src="../assets/images/photo1.jpg" alt="Coaching Vente" class="hero-image" />
+      <img src="../assets/images/photobi2.png" alt="Coaching Vente" class="hero-image" />
     </div>
 
     <!-- 🎯 PROGRAMMES DE COACHING -->
@@ -143,8 +143,8 @@ const toggleFAQ = (index) => {
 }
 
 .hero-image {
-  max-width: 44%;
-  border-radius: 20px;
+  max-width: 48%;
+  border-radius: 45px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
