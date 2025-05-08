@@ -11,7 +11,7 @@
 </strong>          
 <p>Bootcamps intensifs, formation certifiante et modules à la carte pour booster <br> vos compétences en vente.</p>
         </div>
-        <img src="../assets/images/baniereformation.png" alt="Formation en vente" class="hero-image" />
+        <img src="../assets/images/photobi1.png" alt="Formation en vente" class="hero-image" />
       </div>
       </section>
 
@@ -622,9 +622,9 @@ onUnmounted(() => {
     
   }
 .hero-image {
-    max-width: 50%;
-    border-radius: 10px;
-padding: 1px; 
+
+  max-width: 47%;
+  border-radius: 40px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 
 
