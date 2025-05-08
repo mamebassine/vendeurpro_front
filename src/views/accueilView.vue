@@ -18,7 +18,7 @@
            </button>
        </div>
        
-        <img src="../assets/images/vendeur9.jpg" alt="">
+        <img src="../assets/images/vendeur10a.png" alt="">
    </section>
 
 <!-- Section Pourquoi choisir VendeurPro -->
@@ -178,7 +178,7 @@
 
     <!-- Image de contact -->
     <div class="contact-image">
-      <img src="../assets/images/vendeur10a.png" alt="">
+      <img src="../assets/images/vendeur9a.png" alt="">
 
     </div>
   </div>
@@ -447,9 +447,10 @@ margin-top: 5px;
      margin-left: 8%; 
      margin-right: 6%; 
 
-     max-width: 34%;   /* Limiter la largeur de l'image */
+     max-width: 80%;   /* Limiter la largeur de l'image */
      object-fit: cover; /* Couvrir l'espace sans déformer l'image */
     border-radius: 20px;   /*  Arrondir le coin supérieur gauche */
+    background: linear-gradient(120deg, #003366, #fff);
 
    }
    button {
