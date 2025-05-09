@@ -79,10 +79,10 @@ export default {
  width: 100%;
   height: auto;
   object-fit: contain; /* Affiche l'image en entier */
-  border-radius: 800%;
+  border-radius: 1%;
   margin-bottom: 24px;
   display: block;
-  max-height: 300px; /* Hauteur maximale fixée */
+  max-height: 350px; /* Hauteur maximale fixée */
 
 }
 
