@@ -77,7 +77,7 @@
             </div>
             <div>
                 <p class="mb-1 font-bold text-[#003366]">Téléphone</p>
-                <p class="text-sm text-neutral-600">33 8 68 54 14 // 75 6311686</p>
+                <p class="text-sm text-neutral-600">33 8 68 54 14 // 75 6 31 16 86</p>
             </div>
         </div>
         
@@ -99,7 +99,7 @@
             </div>
             <div>
                 <p class="mb-1 font-bold text-[#003366]">Email</p>
-                <p class="text-sm text-neutral-600">contactatvendeur-pro.com</p>
+                <p class="text-sm text-neutral-600">contact-at-vendeur-pro.com</p>
             </div>
         </div>
         

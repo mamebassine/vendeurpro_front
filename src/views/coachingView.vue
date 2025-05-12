@@ -7,7 +7,7 @@
         <p> Atteignez vos objectifs de vente avec un accompagnement sur mesure.</p>
         <!-- <button class="cta-button">📅 Réserver une Séance</button> -->
 
-        <router-link to="/contact" class="cta-button">Réserver une Séance</router-link>
+        <router-link to="/CandidatForm" class="cta-button">Réserver une Séance</router-link>
 
       </div>
       <img src="../assets/images/photobi2.png" alt="Coaching Vente" class="hero-image" />
@@ -24,11 +24,11 @@
             <li v-for="(obj, i) in coaching.objectives" :key="i">✔️ {{ obj }}</li>
           </ul>
           <p><strong>Durée :</strong> {{ coaching.duration }}</p>
-          <p><strong>Tarif :</strong> {{ coaching.price }}</p>
+          <!-- <p><strong>Tarif :</strong> {{ coaching.price }}</p> -->
 
           <!-- <button class="cta-button">📞 Réserver une Séance</button> -->
 
-          <router-link to="/contact" class="cta-button">📞 Réserver une Séance</router-link>
+          <router-link to="/CandidatForm" class="cta-button">📞 Réserver une Séance</router-link>
 
         </div>
       </div>
@@ -62,25 +62,25 @@ import { ref } from "vue";
 // 🔹 Coaching Options
 const coachingOptions = ref([
   {
-    title: "📈Coaching pour Commerçants & Prestataires",
+    title: "Coaching pour Commerçants & Prestataires",
     public: "Commerçants (boutiques, marchés) & Prestataires (coiffeurs, consultants...)",
     objectives: ["Améliorer les techniques de vente", "Augmenter le chiffre d'affaires", "Fidéliser la clientèle"],
     duration: "3 à 6 sessions",
-    price: "150 000 FCFA - 300 000 FCFA"
+    // price: "150 000 FCFA - 300 000 FCFA"
   },
   {
-    title: "🚀 Coaching pour Porteurs de Projets",
+    title: "Coaching pour Porteurs de Projets",
     public: "Entrepreneurs, startups, freelances",
     objectives: ["Structurer son idée de business", "Définir une stratégie commerciale", "Préparer le lancement"],
     duration: "4 à 8 sessions",
-    price: "200 000 FCFA - 400 000 FCFA"
+    // price: "200 000 FCFA - 400 000 FCFA"
   },
   {
-    title: "🎓 Coaching pour Étudiants & Reconversion",
+    title: "Coaching pour Étudiants & Reconversion",
     public: "Étudiants, chômeurs, personnes en reconversion",
     objectives: ["Acquérir les bases de la vente", "Se préparer à l'emploi", "Développer une expertise"],
     duration: "3 à 6 sessions",
-    price: "100 000 FCFA - 200 000 FCFA"
+    // price: "100 000 FCFA - 200 000 FCFA"
   }
 ]);
 

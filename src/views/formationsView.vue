@@ -10,16 +10,19 @@
   <span>VendeurPro</span></h3>
 </strong>          
 <p>Bootcamps intensifs, formation certifiante et modules à la carte pour booster <br> vos compétences en vente.</p>
+<router-link to="/CandidatForm" class="cta-button">Inscrivez-vous</router-link>
+
         </div>
         <img src="../assets/images/photobi1.png" alt="Formation en vente" class="hero-image" />
       </div>
+      
       </section>
 
     <!-- 🎯 NOS FORMATIONS -->
 
 <section class="formations">
   <h2>Choisissez la formation qui vous correspond</h2>
-  <p>📘 Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
+  <p>Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
   
   <!-- <div class="formation-list">
     <div v-for="(formation, index) in formations" :key="index" class="formation-card">
@@ -772,7 +775,7 @@ section {
 h4{
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: #222;
+  color: #ff7f00;
   text-align: left
 }
 

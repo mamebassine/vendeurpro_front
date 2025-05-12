@@ -35,7 +35,9 @@
       <p class="session-info">Prochaine session : [Date à définir]</p>
 
       <div class="button-container">
-        <button class="cta-button">🚀 Rejoignez la prochaine cohorte maintenant !</button>
+        <!-- <button class="cta-button">🚀 Rejoignez la prochaine cohorte maintenant !</button> -->
+        <router-link to="/CandidatForm" class="cta-button">🚀 Rejoignez la prochaine cohorte maintenant !</router-link>
+
       </div>
     </section>
   </div>

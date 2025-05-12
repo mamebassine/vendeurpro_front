@@ -33,7 +33,9 @@
       </div>
 
       <div class="button-container">
-        <button class="cta-button">🚀 Rejoignez la prochaine promo !</button>
+        <!-- <button class="cta-button">🚀 Rejoignez la prochaine promo !</button> -->
+        <router-link to="/CandidatForm" class="cta-button">🚀 Rejoignez la prochaine promo !</router-link>
+
       </div>
     </section>
   </div>

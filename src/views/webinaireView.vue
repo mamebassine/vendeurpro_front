@@ -7,7 +7,7 @@
           <p>Découvrez des techniques éprouvées pour booster vos ventes et transformez votre business.</p>
           <!-- <button class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</button> -->
 
-          <router-link to="/contact" class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</router-link>
+          <router-link to="/CandidatForm" class="cta-button">Inscrivez-vous au Prochain Webinaire</router-link>
 
         </div>
         <img src="../assets/images/photo8.jpg" alt="Webinaire en action" class="hero-image" />
@@ -25,7 +25,7 @@
         </div>
         <!-- <button class="cta-button">📢 Inscrivez-vous Maintenant</button> -->
 
-        <router-link to="/contact" class="cta-button">Inscrivez-vous Maintenant</router-link>
+        <router-link to="/CandidatForm" class="cta-button">Inscrivez-vous Maintenant</router-link>
 
       </div>
   
@@ -38,7 +38,7 @@
             <p><strong>🕒 Date :</strong> {{ webinaire.date }}</p>
             <p><strong>⏳ Durée :</strong> {{ webinaire.duration }}</p>
 
-            <router-link to="/contact" class="cta-button">📝 S'inscrire</router-link>
+            <router-link to="/CandidatForm" class="cta-button">📝 S'inscrire</router-link>
 
           </div>
         </div>
@@ -99,10 +99,11 @@
   
   // 🔹 Prochains webinaires
   const webinaires = ref([
-    { title: "Les 5 Techniques pour Booster Vos Ventes", date: "09 Juin 2025, 21h", duration: "1h" },
-    { title: "Comment Vendre en Ligne comme un Pro", date: "11 Juillet 2024, 21h", duration: "1h" },
-    { title: "Les Secrets de la Vente B2B", date: "29 Aout 2024, 21h", duration: "1h" }
-  ]);
+  { title: "Les 5 Techniques pour Booster Vos Ventes", date: "09 Juin 2025, 21h JMT", duration: "1h" },
+  { title: "Comment Vendre en Ligne comme un Pro", date: "11 Juillet 2025, 21h JMT", duration: "1h" },
+  { title: "Les Secrets de la Vente B2B", date: "29 Août 2024, 21h JMT", duration: "1h" }
+])
+
   
   // 🔹 Témoignages avec slider automatique
   const testimonials = ref([

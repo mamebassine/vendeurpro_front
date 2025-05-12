@@ -33,7 +33,9 @@
       </div>
 
       <div class="button-container">
-        <button class="cta-button">🚀 Devenez un vendeur digital moderne !</button>
+        <!-- <button class="cta-button">🚀 Devenez un vendeur digital moderne !</button> -->
+        <router-link to="/CandidatForm" class="cta-button">🚀 Devenez un vendeur digital moderne !</router-link>
+
       </div>
     </section>
   </div>
