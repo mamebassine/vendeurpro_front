@@ -76,18 +76,18 @@
                 <i class="fas fa-phone-alt"></i>
             </div>
             <div>
-                <p class="mb-1 font-bold text-[#003366]">Téléphone</p>
+                <p class="mb-1 font-bold text-[#ooo]">Téléphone</p>
                 <p class="text-sm text-neutral-600">33 8 68 54 14 // 75 6 31 16 86</p>
             </div>
         </div>
         
         <!-- Adresse -->
         <div class="mb-6 w-full md:w-6/12 lg:w-5/12 flex items-start gap-4">
-            <div class="text-[#003366] text-2xl">
+            <div class="text-[#ff7f00] text-2xl">
                 <i class="fas fa-map-marker-alt"></i>
             </div>
             <div>
-                <p class="mb-1 font-bold text-[#ff7f00]">Adresse</p>
+                <p class="mb-1 font-bold text-[#ooo]">Adresse</p>
                 <p class="text-sm text-neutral-600">4 cité Cpi, VDN Dakar</p>
             </div>
         </div>
@@ -98,18 +98,18 @@
                 <i class="fas fa-envelope"></i>
             </div>
             <div>
-                <p class="mb-1 font-bold text-[#003366]">Email</p>
+                <p class="mb-1 font-bold text-[#ooo]">Email</p>
                 <p class="text-sm text-neutral-600">contact-at-vendeur-pro.com</p>
             </div>
         </div>
         
         <!-- Horaires -->
         <div class="mb-6 w-full md:w-6/12 lg:w-5/12 flex items-start gap-4">
-            <div class="text-[#003366] text-2xl">
+            <div class="text-[#ff7f00] text-2xl">
                 <i class="fas fa-clock"></i>
             </div>
             <div>
-                <p class="mb-1 font-bold text-[#ff7f00]">Horaires</p>
+                <p class="mb-1 font-bold text-[#ooo]">Horaires</p>
                 <p class="text-sm text-neutral-600">Lun - Ven, 9h - 18h</p>
             </div>
         </div>
