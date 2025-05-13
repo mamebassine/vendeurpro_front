@@ -3,7 +3,7 @@
     <!-- Image locale à la place de la carte Google Maps -->
     <div id="map">
       <img
-        src="@/assets/images/projet.png"
+        src="@/assets/images/lougre1.png"
         alt="Emplacement VendeurPro"
       />
     </div>
