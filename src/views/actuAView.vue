@@ -1,9 +1,10 @@
 <template>
   <div class="container">
+    <h1>Carrières dans la Vente au Sénégal : Plus qu'un Métier, une Voie Royale vers le Succès</h1>
+
     <img
     src="../assets/images/clair2.png"  alt="Carrière dans la vente" class="header-image"/>
 
-    <h1>Carrières dans la Vente au Sénégal : Plus qu'un Métier, une Voie Royale vers le Succès</h1>
 
     <p>
       Au Sénégal, le secteur de la vente se distingue par ses opportunités d'insertion professionnelle rapide, bien qu'il soit parfois sous-estimé.
