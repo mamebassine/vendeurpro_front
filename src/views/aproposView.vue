@@ -6,7 +6,7 @@
     <!-- <div id="map" class="relative h-[700px] mt-18 overflow-hidden bg-cover bg-[70%] bg-recovert"> -->
 
     <div class="bg-cover bg-center rounded-2xl shadow-lg overflow-hidden bg-cover bg-[70%] mx-auto mt-16" 
-      style="min-height: 590px; background-image: url('/images/photo26.png');"
+      style="min-height: 500px; background-image: url('/images/photo26.png');"
       title="Woman holding a mug">
     </div>
 
@@ -263,7 +263,7 @@ onMounted(() => {
 <style scoped>
 
 .lamission{
-  margin-top: 5%;
+  margin-top: 2%;
 background-color: #b6aeae52;
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
@@ -333,24 +333,35 @@ background-color: #b6aeae52;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 105px;
   margin-top: 30px;
 }
-.member {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 250px;
-  text-align: center;
-}
+
 
 .styled-card-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  width: 120px;
+  height: 140px;
+  border-radius: 50%;   /* Forme parfaitement ronde */
+  margin: 0 auto 5px auto;  /* Centre l'image et ajoute une marge en bas */
+  display: block;
+  object-fit: cover;         /* Remplit sans déformer */
+  border: 3px solid #ff7f00; /* Optionnel : une bordure propre */
 }
+
+.member {
+  background: white;
+  padding: 18px;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 250px;              /* Taille fixe des cartes */
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.member:hover {
+  transform: translateY(-5px); /* Légère élévation au survol */
+}
+
 
 .team-values {
   margin-top: 30px;

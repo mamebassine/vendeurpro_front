@@ -158,6 +158,8 @@
     form.value = { fullName: "", email: "", phone: "", message: "" };
   };
   </script>
+
+  
   
  <style scoped>
   
@@ -218,7 +220,7 @@ font-size: 2em;
   background: #ff7f00;
   color: #fff;
   padding: 12px 25px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   border-radius: 8px;
   border: none;
@@ -340,11 +342,6 @@ font-size: 2em;
   }
 }
 
-
-
-
-
-
 /* 🔹 POURQUOI PARTICIPER */
 .why-list {
   display: flex;   /* Utilisation de Grid pour un agencement flexible */
@@ -392,24 +389,25 @@ font-size: 2em;
 
 /* 🔹 PROCHAINS WEBINAIRES - Conteneur des cartes */
 .webinaire-list {
-  display: grid; /* Utilisation de Grid pour un alignement uniforme */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cartes flexibles */
-  gap: 40px; /* Espacement plus grand entre les cartes */
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centre les cartes horizontalement */
+  gap: 225px;
   margin-top: 40px;
-  padding: 20px; /* Ajout d'un peu d'espace autour */
+  padding: 35px;
 }
+
 
 /* 🔹 Style des cartes */
 .webinaire-card {
   background: white;
-  padding: 30px; /* Plus d’espace à l’intérieur */
+  padding: 25px; /* Plus d’espace à l’intérieur */
   border-radius: 20px; /* Coins arrondis pour un effet moderne */
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   min-width: 100px;
-  max-width: 310px; /* Taille limite pour un rendu uniforme */
+  max-width: 280px; /* Taille limite pour un rendu uniforme */
   border: 2px solid transparent; /* Bordure discrète */
 }
 
@@ -428,9 +426,7 @@ font-size: 2em;
   text-align: center;
 
   font-weight: bold; /* Gras pour le titre */
-
 }
-
 .webinaire-card p {
   font-size: 1rem;
   color: #000;

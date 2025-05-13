@@ -34,7 +34,7 @@
           <ul>
             <li><a href="#">Formations en vente</a></li>
             <li><a href="#">Coaching vente</a></li>
-            <li><a href="#">Conseil pratiques</a></li>
+            <li><a href="#">Conseils pratiques</a></li>
           </ul>
         </div>
 
