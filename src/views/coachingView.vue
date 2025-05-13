@@ -303,6 +303,9 @@ const toggleFAQ = (index) => {
   margin-bottom: 15px;
 }
 
+.coaching-card p:last-of-type {
+  margin-bottom: 20px; /* ou 1rem selon ton goût */
+}
 
 .coaching-card p {
   flex-grow: 1;

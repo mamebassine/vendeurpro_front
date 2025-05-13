@@ -35,10 +35,10 @@
         <div class="webinaire-list">
           <div v-for="(webinaire, index) in webinaires" :key="index" class="webinaire-card">
             <h3>{{ webinaire.title }}</h3>
-            <p><strong>🕒 Date :</strong> {{ webinaire.date }}</p>
-            <p><strong>⏳ Durée :</strong> {{ webinaire.duration }}</p>
+            <p><strong>Date :</strong> {{ webinaire.date }}</p>
+            <p><strong>Durée :</strong> {{ webinaire.duration }}</p>
 
-            <router-link to="/CandidatForm" class="cta-button">📝 S'inscrire</router-link>
+            <router-link to="/CandidatForm" class="cta-button">S'inscrire</router-link>
 
           </div>
         </div>
@@ -388,70 +388,75 @@ font-size: 2em;
 
 
 /* 🔹 PROCHAINS WEBINAIRES - Conteneur des cartes */
+/* 🔹 Conteneur des cartes */
 .webinaire-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centre les cartes horizontalement */
-  gap: 225px;
+  justify-content: center;
+  gap: 120px; /* Réduit l'espace entre les cartes */
   margin-top: 40px;
-  padding: 35px;
+  padding: 20px;
 }
-
 
 /* 🔹 Style des cartes */
 .webinaire-card {
   background: white;
-  padding: 25px; /* Plus d’espace à l’intérieur */
-  border-radius: 20px; /* Coins arrondis pour un effet moderne */
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  min-width: 100px;
-  max-width: 280px; /* Taille limite pour un rendu uniforme */
-  border: 2px solid transparent; /* Bordure discrète */
+  width: 250px; /* Fixe la largeur pour uniformiser */
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* 🔹 Bordure légère au clic */
+.webinaire-card:active {
+  border-color: #ff7f00; /* Couleur vive pour le clic */
+  box-shadow: 0px 6px 16px rgba(255, 127, 0, 0.4); /* Un peu plus de lumière */
 }
 
-/* 🔹 Effet de survol interactif */
-.webinaire-card:hover {
-  transform: translateY(-5px) scale(1.03); /* Légère élévation et agrandissement */
-  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
-  border-color: #ff7f00; /* Mise en valeur avec une bordure colorée */
-}
 
-/* 🔹 Style du texte */
+/* 🔹 Titre */
 .webinaire-card h3 {
   font-size: 1.2rem;
   color: #000;
   margin-bottom: 10px;
-  text-align: center;
-
-  font-weight: bold; /* Gras pour le titre */
+  text-align: center; /* Corrigé ici */
+  font-weight: bold;
+  width: 100%; /* S'assure que le titre occupe toute la largeur */
 }
+
+/* 🔹 Texte */
 .webinaire-card p {
   font-size: 1rem;
   color: #000;
-  margin: 5px 0;
+  margin: 10px 0;
+  text-align: left;
+  width: 100%;
 }
 
-/* 🔹 Bouton d'inscription */
+/* 🔹 Bouton */
 .cta-button {
   display: inline-block;
   background: #ff7f00;
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
-  font-size: 0.6rem;
-  margin-top: 15px;
+  font-size: 0.8rem;
+  margin-top: 10px;
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s, transform 0.2s;
 }
 
-/* 🔹 Effet au survol du bouton */
 .cta-button:hover {
-  background: #e06b00;
+  background: #003366;
   transform: scale(1.05);
 }
+
 
 
 /* 🔹 TÉMOIGNAGES - Conteneur principal */
@@ -545,7 +550,7 @@ margin-left: 42%;
 
 /* 🔹 Effet au survol du bouton */
 .cta-button:hover {
-  background: #e06b00;
+  background: #003366;
   transform: scale(1.05);
 }
 /* RESPONSIVES POUR LES DEUX */
