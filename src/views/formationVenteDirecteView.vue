@@ -33,7 +33,9 @@
       </div>
 
       <div class="button-container">
-        <button class="cta-button">🚀 Prenez en main votre avenir commercial !</button>
+        <!-- <button class="cta-button">🚀 Prenez en main votre avenir commercial !</button> -->
+        <router-link to="/CandidatForm" class="cta-button">🚀 Prenez en main votre avenir commercial !</router-link>
+
       </div>
     </section>
   </div>

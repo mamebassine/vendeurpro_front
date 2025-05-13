@@ -27,7 +27,7 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import logo from '@/assets/images/logo1.jpg';
+import logo from '@/assets/images/logo2.png';
 
 const activeSection = ref("/");
 const route = useRoute();
@@ -68,7 +68,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
   padding: 0 1rem;
 }

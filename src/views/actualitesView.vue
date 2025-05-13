@@ -162,7 +162,7 @@
   
   .card-title-link {
     text-decoration: none;
-    color: #a5cdf6;
+    color: #003366;
   }
   
   .card-title-link:hover .card-title {

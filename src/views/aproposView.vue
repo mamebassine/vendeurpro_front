@@ -44,29 +44,29 @@
   <div class="team-members">
     <div class="member">
       <img src="/images/vendeur7.jpg" alt="Jean Dupont" class="styled-card-image" />
-      <h3>Jean Dupont</h3>
+      <h3>Laetitia Moro</h3>
       <p>Expert en vente B2B avec 15 ans d'expérience dans la négociation commerciale.</p>
-      <a href="#">Profil LinkedIn</a>
+      <a href="https://www.linkedin.com/in/laetitia-moro-36434b292/">Profil LinkedIn</a>
     </div>
     
     <div class="member">
       <img src="/images/vendeur7.jpg" alt="Sophie Martin" class="styled-card-image" />
-      <h3>Sophie Martin</h3>
+      <h3>Arona Diarra</h3>
       <p>Coach en vente et en développement personnel, spécialiste en retail.</p>
-      <a href="#">Profil LinkedIn</a>
+      <a href="https://www.linkedin.com/in/aronadiarra/">Profil LinkedIn</a>
     </div>
     
     <div class="member">
       <img src="/images/vendeur7.jpg" alt="David Leroy" class="styled-card-image" />
-      <h3>David Leroy</h3>
+      <h3>Keba Diarra</h3>
       <p>Consultant en stratégie de vente digitale, expert en e-commerce.</p>
-      <a href="#">Profil LinkedIn</a>
+      <a href="https://www.linkedin.com/in/keba-diarra-405b3123/">Profil LinkedIn</a>
     </div>
         <div class="member">
       <img src="/images/vendeur7.jpg" alt="Fatou Ndiaye" class="styled-card-image" />
-      <h3>Fatou Ndiaye</h3>
+      <h3>Andrien Ndiaye</h3>
       <p>Formatrice en techniques de persuasion et fidélisation client.</p>
-      <a href="#">Profil LinkedIn</a>
+      <a href="https://www.linkedin.com/company/effective-leadership/posts/?feedView=all">Profil LinkedIn</a>
     </div>
   </div>
   <p class="team-values">
@@ -164,21 +164,21 @@
         <img src="/images/image4.jpeg" alt="Témoignage" class="styled-card-image" />
         <p class="testimonial-text">"+30% de ventes en 3 mois grâce à VendeurPro !"</p>
       </div>
-      <span class="testimonial-name">- Jean Dupont</span>
+      <span class="testimonial-name">- Khadijatou Barry</span>
     </div>
     <div class="testimonial">
       <div class="testimonial-content">
         <img src="/images/aproposa.jpeg" alt="Témoignage" class="styled-card-image" />
         <p class="testimonial-text">"Grâce à cette formation, j'ai trouvé un nouvel emploi dans la vente !"</p>
       </div>
-      <span class="testimonial-name">- Marie Leclerc</span>
+      <span class="testimonial-name">-Ahmed Sy</span>
     </div>
     <div class="testimonial">
       <div class="testimonial-content">
         <img src="/images/image5.jpeg" alt="Témoignage" class="styled-card-image" />
         <p class="testimonial-text">"Fidélisation accrue de mes clients et augmentation de mes revenus !"</p>
       </div>
-      <span class="testimonial-name">- Ahmed Sy</span>
+      <span class="testimonial-name">- Marie Emmanuelle N'diaye</span>
     </div>
   </div>
   <button class="cta-button">Rejoignez-les</button>
@@ -253,9 +253,9 @@ function animateCounter(refVar, target, duration = 1000) {
 }
 
 onMounted(() => {
-  animateCounter(participants, 50)
+  animateCounter(participants, 100)
   animateCounter(satisfaction, 90)
-  animateCounter(entreprises, 25) // par exemple
+  animateCounter(entreprises, 75) // par exemple
 })
 // SECTION TÉMOIGNAGES 
 </script>

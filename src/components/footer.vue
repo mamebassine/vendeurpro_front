@@ -32,9 +32,9 @@
         <div class="footer-links">
           <h3>Nos solutions</h3>
           <ul>
-            <li><a href="#">Se former</a></li>
-            <li><a href="#">Coaching</a></li>
-            <li><a href="#">Le lab</a></li>
+            <li><a href="#">Formations en vente</a></li>
+            <li><a href="#">Coaching vente</a></li>
+            <li><a href="#">Conseil pratiques</a></li>
           </ul>
         </div>
 
@@ -43,8 +43,8 @@
           <h3>Contact</h3>
           <ul>
             <li><i class="fas fa-map-marker-alt"></i> 4 cité Cpi, VDN Dakar</li>
-            <li><i class="fas fa-envelope"></i> contactatvendeur-pro.com</li>
-            <li><i class="fas fa-phone"></i> 33 8 68 54 14 // 75 6311686</li>
+            <li><i class="fas fa-envelope"></i> contact-at-vendeur-pro.com</li>
+            <li><i class="fas fa-phone"></i> 33 8 68 54 14 // 75 6 31 16 86</li>
             <li><i class="fas fa-clock"></i> Lun - Ven, 9h - 18h</li>
           </ul>
         </div>
