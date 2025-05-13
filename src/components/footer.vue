@@ -44,7 +44,7 @@
           <ul>
             <li><i class="fas fa-map-marker-alt"></i> 4 cité Cpi, VDN Dakar</li>
             <li><i class="fas fa-envelope"></i> contact-at-vendeur-pro.com</li>
-            <li><i class="fas fa-phone"></i> 33 8 68 54 14 // 75 6 31 16 86</li>
+            <li><i class="fas fa-phone"></i> 33 868 54 14 // 75 631 16 86</li>
             <li><i class="fas fa-clock"></i> Lun - Ven, 9h - 18h</li>
           </ul>
         </div>
