@@ -258,72 +258,84 @@ const toggleFAQ = (index) => {
   }
 }
 
-
-
+/* Les cartes */
 /* 🔹 COACHING CARDS */
 .coaching-container {
-  display: flex;
-  justify-content: center;
-  gap: 12%;  /* Réduction de l'espacement */
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Crée une grille réactive */
+  gap: 10%;  /* Espacement entre les cartes */
   margin-top: 3%;
-  align-items: stretch; /* Aligne les cartes pour qu'elles aient la même hauteur */
+  justify-items: center; /* Centre les cartes dans leur cellule */
 }
+
+/* Style des cartes */
 .coaching-card {
   background: white;
-  padding: 15px; /* Augmentation du padding pour équilibrer l'espace intérieur */
+  padding: 35px; /* Espacement intérieur */
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 280px; /* Légère réduction de la largeur */
-  width: 100%; /* Permet d'uniformiser la taille */
-  min-height: 350px; /* Fixe une hauteur minimale pour uniformiser */
+  text-align: center; /* Centrer le texte par défaut pour tout */
+  width: 100%; /* Utilise la largeur de la cellule */
+  min-height: 350px; /* Hauteur minimale pour uniformiser */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Répartit le contenu */
+  justify-content: space-between;
+  transition: transform 0.3s ease; /* Ajout d'une transition fluide */
 }
-/* Ajuster les éléments intérieurs */
+
 .coaching-card h3 {
   font-size: 1.3rem;
-  margin-bottom: 10px;
-  text-align: left;
-  font-weight: bold; /* Gras pour le titre */
+  margin-bottom: 20px;
+  text-align: center; /* Centrer le titre */
+  font-weight: bold;
 }
+
+.coaching-card ul {
+  text-align: left;       /* Aligne le texte des <li> à droite */
+  list-style-position: inside; /* Positionne les puces à l’intérieur pour meilleur contrôle */
+  padding-left: 0;         /* Supprime l'espace à gauche */
+  margin-left: 0;   
+  margin-bottom: 15px;
+  /* Supprime la marge à gauche */
+}
+
+.coaching-card li {
+  margin-bottom: 15px;
+}
+
+
 .coaching-card p {
-  flex-grow: 1; /* Permet au paragraphe de prendre de la place et d'uniformiser les cartes */
+  flex-grow: 1;
   font-size: 18px;
+  text-align: left; /* Aligner le texte du paragraphe à droite */
 }
+
 .coaching-card button {
-  margin-top: auto; /* Positionne le bouton en bas */
+  margin-top: auto; /* Positionne le bouton en bas de la carte */
+  text-align: right; /* Aligner le bouton à droite */
+  padding: 10px 15px;
+
 }
+
 .coaching-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Effet de survol */
 }
-/* responsive */
+
+/* --- Responsive --- */
 
 @media (max-width: 1024px) {
   .coaching-container {
-    gap: 5%;
-    justify-content: center;
-  }
-
-  .coaching-card {
-    max-width: 45%;
-    margin-bottom: 20px;
+    gap: 5%; /* Réduction de l'espacement pour les écrans plus petits */
   }
 }
 
 @media (max-width: 768px) {
   .coaching-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .coaching-card {
-    max-width: 90%;
+    grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
+    gap: 10px; /* Moins d'espace entre les cartes */
   }
 }
+
 
 
 
