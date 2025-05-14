@@ -388,7 +388,6 @@ font-size: 2em;
 
 
 /* 🔹 PROCHAINS WEBINAIRES - Conteneur des cartes */
-/* 🔹 Conteneur des cartes */
 .webinaire-list {
   display: flex;
   flex-wrap: wrap;
@@ -406,7 +405,7 @@ font-size: 2em;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  width: 250px; /* Fixe la largeur pour uniformiser */
+  width: 300px; /* Fixe la largeur pour uniformiser */
   border: 2px solid transparent;
   display: flex;
   flex-direction: column;
@@ -423,7 +422,7 @@ font-size: 2em;
 .webinaire-card h3 {
   font-size: 1.2rem;
   color: #000;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   text-align: center; /* Corrigé ici */
   font-weight: bold;
   width: 100%; /* S'assure que le titre occupe toute la largeur */
@@ -436,6 +435,8 @@ font-size: 2em;
   margin: 10px 0;
   text-align: left;
   width: 100%;
+    margin-bottom: 3px;
+
 }
 
 /* 🔹 Bouton */
