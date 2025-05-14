@@ -101,7 +101,7 @@
   const webinaires = ref([
   { title: "Les 5 Techniques pour Booster Vos Ventes", date: "09 Juin 2025, 21h GMT", duration: "1h" },
   { title: "Comment Vendre en Ligne comme un Pro", date: "11 Juillet 2025, 21h GMT", duration: "1h" },
-  { title: "Les Secrets de la Vente B2B", date: "29 Août 2024, 21h GMT", duration: "1h" }
+  { title: "Les Secrets de la Vente B2B", date: "29 Août 2025, 21h GMT", duration: "1h" }
 ])
 
   
