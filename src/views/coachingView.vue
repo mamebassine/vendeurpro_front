@@ -23,13 +23,14 @@
           <ul>
             <li v-for="(obj, i) in coaching.objectives" :key="i">✔️ {{ obj }}</li>
           </ul>
-          <p><strong>Durée :</strong> {{ coaching.duration }}</p>
-          <!-- <p><strong>Tarif :</strong> {{ coaching.price }}</p> -->
 
-          <!-- <button class="cta-button">📞 Réserver une Séance</button> -->
+          <div class="card-footer">
+            <p><strong>Durée :</strong> {{ coaching.duration }}</p>
+            <!-- <p><strong>Tarif :</strong> {{ coaching.price }}</p> -->
 
-          <router-link to="/CandidatForm" class="cta-button">📞 Réserver une Séance</router-link>
-
+            <router-link to="/CandidatForm" class="cta-button">📞 Réserver une Séance</router-link>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -263,15 +264,14 @@ const toggleFAQ = (index) => {
 .coaching-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Crée une grille réactive */
-  gap: 10%;  /* Espacement entre les cartes */
+  gap: 5%;  /* Espacement entre les cartes */
   margin-top: 3%;
   justify-items: center; /* Centre les cartes dans leur cellule */
 }
-
 /* Style des cartes */
 .coaching-card {
   background: white;
-  padding: 35px; /* Espacement intérieur */
+  padding: 30px; /* Espacement intérieur */
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center; /* Centrer le texte par défaut pour tout */
@@ -282,14 +282,12 @@ const toggleFAQ = (index) => {
   justify-content: space-between;
   transition: transform 0.3s ease; /* Ajout d'une transition fluide */
 }
-
 .coaching-card h3 {
   font-size: 1.3rem;
   margin-bottom: 20px;
   text-align: center; /* Centrer le titre */
   font-weight: bold;
 }
-
 .coaching-card ul {
   text-align: left;       /* Aligne le texte des <li> à droite */
   list-style-position: inside; /* Positionne les puces à l’intérieur pour meilleur contrôle */
@@ -298,15 +296,12 @@ const toggleFAQ = (index) => {
   margin-bottom: 15px;
   /* Supprime la marge à gauche */
 }
-
 .coaching-card li {
   margin-bottom: 15px;
 }
-
 .coaching-card p:last-of-type {
   margin-bottom: 20px; /* ou 1rem selon ton goût */
 }
-
 .coaching-card p {
   flex-grow: 1;
   font-size: 18px;
