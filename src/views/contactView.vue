@@ -77,7 +77,7 @@
             </div>
             <div>
                 <p class="mb-1 font-bold text-[#ooo]">Téléphone</p>
-                <p class="text-sm text-neutral-600">33 8 68 54 14 // 75 6 31 16 86</p>
+                <p class="text-sm text-neutral-600">33 868 54 14 // 75 631 16 86</p>
             </div>
         </div>
         
