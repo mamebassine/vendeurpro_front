@@ -36,21 +36,21 @@
       description: `Au Sénégal, le secteur de la vente se distingue par ses opportunités d'insertion professionnelle rapide, bien qu'il soit parfois sous-estimé.`,
       image: image1,
       route: '/actualites-a',
-      date: 'Publié le 28 Avril 2025'
+      date: 'Publié le 28 Avril 2025- 09:00'
     },
     {
       title: '5 erreurs classiques que tout jeune vendeur doit éviter',
       description: `S'engager dans les métiers de la vente constitue une entreprise stimulante, bien que non exempte de défis. Au sein de VendeurPro, où nous accompagnons La reconnaissance de ces erreurs`,
       image: image2,
       route: '/actualites-b',
-      date: 'Publié le 27 Avril 2025'
+      date: 'Publié le 27 Avril 2025- 09:00'
     },
     {
       title: 'Les trois compétences maîtresses que tout vendeur de qualité doit posséder',
       description: `L'acte de vente dépasse la simple présentation d'un produit ou d'un service. Il s'agit essentiellement de comprendre, de persuader et de guider.`,
       image: image3,
       route: '/actualites-c',
-      date: 'Publié le 26 Avril 2025'
+      date: 'Publié le 26 Avril 2025- 09:00'
     },
 
 
@@ -62,21 +62,21 @@
       description: `Une formation intensive se distingue d'une formation conventionnelle.`,
       image: image4,
       route: '/actualites-d',
-      date: 'Publié le 28 Avril 2025'
+      date: 'Publié le 28 Avril 2025- 09:00'
     },
     {
       title: 'Achanger apres 5 erreurs classiques que tout jeune vendeur doit éviter',
       description: `S'engager dans les métiers de la vente constitue une entreprise stimulante, bien que non exempte de défis.`,
       image: image5,
       route: '/actualites-e',
-      date: 'Publié le 27 Avril 2025'
+      date: 'Publié le 27 Avril 2025- 09:00'
     },
     {
       title: 'Achanger apres Les trois compétences maîtresses que tout vendeur de qualité doit posséder',
       description: `L'acte de vente dépasse la simple présentation d'un produit ou d'un service. `,
       image: image6,
       route: '/actualites-f',
-      date: 'Publié le 26 Avril 2025'
+      date: 'Publié le 26 Avril 2025- 09:00'
     },
 
 ];
