@@ -188,7 +188,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 8%;
+  padding: 60px 10%;
   background: linear-gradient(120deg, #003366, #fff);
   color: white;
   border-radius: 0 0 30px 30px;

@@ -44,27 +44,27 @@
   <div class="team-members">
 
     <div class="member">
-      <img src="/images/vendeur7.jpg" alt="Jean Dupont" class="styled-card-image" />
+      <img src="/images/vendeura.jpg" alt="Moro Laetitia" class="styled-card-image" />
       <h3> Moro Laetitia</h3>
       <p>Expert en vente B2B avec 15 ans d'expérience dans la négociation commerciale.</p>
       <a href="https://www.linkedin.com/in/laetitia-moro-36434b292/">Profil LinkedIn</a>
     </div>
     
     <div class="member">
-      <img src="/images/vendeur7.jpg" alt="Sophie Martin" class="styled-card-image" />
+      <img src="/images/vendeurb.png" alt="Diarra Arona" class="styled-card-image" />
       <h3> Diarra Arona</h3>
       <p>Coach en vente et en développement personnel, spécialiste en retail.</p>
       <a href="https://www.linkedin.com/in/aronadiarra/">Profil LinkedIn</a>
     </div>
     <div class="member">
-      <img src="/images/vendeur7.jpg" alt="Fatou Ndiaye" class="styled-card-image" />
+      <img src="/images/Ndiaye Andrien.png" alt="Ndiaye Andrien" class="styled-card-image" />
       <h3> Ndiaye Andrien</h3>
       <p>Formatrice en techniques de persuasion et fidélisation client.</p>
       <a href="https://www.linkedin.com/company/effective-leadership/posts/?feedView=all">Profil LinkedIn</a>
     </div>
 
     <div class="member">
-      <img src="/images/vendeur7.jpg" alt="David Leroy" class="styled-card-image" />
+      <img src="/images/vendeurd.png" alt="Diarra Keba" class="styled-card-image" />
       <h3> Diarra Keba</h3>
       <p>Consultant en stratégie de vente digitale, expert en e-commerce.</p>
       <a href="https://www.linkedin.com/in/keba-diarra-405b3123/">Profil LinkedIn</a>

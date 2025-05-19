@@ -618,10 +618,10 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
     background: linear-gradient(120deg, #003366, #fff);
     color: white;
-    padding: 27px 4%;
+  padding: 60px 10%;
+  
     
   }
 .hero-image {

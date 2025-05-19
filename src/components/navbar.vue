@@ -74,7 +74,7 @@ body {
 }
 
 .logo img {
-  height: 110px;
+  height: 125px;
 }
 
 .menu {
