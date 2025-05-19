@@ -146,7 +146,7 @@ const router = createRouter({
       path: '/dashboard', component: DashboardLayout,
       children: [
         {
-          path: '', name: 'dashboard', component: DashboardView,
+          path: '', name: 'ashboardd', component: DashboardView,
         },
       ],
     },

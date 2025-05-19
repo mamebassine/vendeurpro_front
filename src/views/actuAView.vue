@@ -208,12 +208,8 @@ export default {
 }
 
 .share-button:hover {
-  background-color: #005599;
+  background-color: #ff7f00;
 }
-
-
-
-
 /*  */
 
 .header-image {

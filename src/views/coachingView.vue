@@ -70,8 +70,8 @@ const coachingOptions = ref([
     // price: "150 000 FCFA - 300 000 FCFA"
   },
   {
-    title: "Coaching pour Porteurs de Projets",
-    public: "Entrepreneurs, startups, freelances",
+    title: "Coaching pour Porteurs de Projets ",
+     public: "Entrepreneurs, startups, freelances, innovateurs, créateurs",
     objectives: ["Structurer son idée de business", "Définir une stratégie commerciale", "Préparer le lancement"],
     duration: "4 à 8 sessions",
     // price: "200 000 FCFA - 400 000 FCFA"
@@ -114,7 +114,7 @@ const toggleFAQ = (index) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 8%;
+  padding: 60px 10%;
   background: linear-gradient(120deg, #003366, #fff);
   color: white;
   border-radius: 0 0 30px 30px;
@@ -283,11 +283,25 @@ const toggleFAQ = (index) => {
   transition: transform 0.3s ease; /* Ajout d'une transition fluide */
 }
 .coaching-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-  text-align: center; /* Centrer le titre */
-  font-weight: bold;
+  font-size: 1.3rem;            /* Taille du texte */
+  font-weight: bold;            /* Texte en gras */
+  text-align: center;           /* Centrer le texte */
+  
+  margin-top: 0;                /* Pas de marge au-dessus */
+  margin-bottom: 30px;          /* Plus d'espace en dessous */
+  
+  max-width: 90%;               /* Largeur max relative */
+  margin-left: auto;
+  margin-right: auto;           /* Centrage horizontal avec marge automatique */
+  
+  /* Limiter à 2 lignes max avec "..." si trop long */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;             /* Cacher le dépassement */
+  text-overflow: ellipsis;      /* Ajouter les "..." */
+  white-space: normal;          /* Permet la coupure sur plusieurs lignes */
 }
+
 .coaching-card ul {
   text-align: left;       /* Aligne le texte des <li> à droite */
   list-style-position: inside; /* Positionne les puces à l’intérieur pour meilleur contrôle */

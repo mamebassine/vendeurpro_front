@@ -183,11 +183,11 @@ export default {
 
 #map img {
   width: 100%;
-  height: 120%;
+  height: 100%;
   /* object-fit: fill; */
   margin-top: 3%;
 object-fit: fill;
-  object-position: center; /* centre l’image */
+  object-position: center;
   border-radius: 8px;
 }
 

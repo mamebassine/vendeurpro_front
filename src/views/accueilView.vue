@@ -69,7 +69,7 @@
           class="formation-card"
         >
           <img :src="formation.img" :alt="formation.title" class="formation-image" />
-          <h3 class="formation-card-title">{{ formation.title }}</h3>
+          <h3 class="formation-card-title"><strong>{{ formation.title }}</strong></h3>
           <p class="formation-card-text">{{ formation.text }}</p>
         </router-link>
       </div>
@@ -675,12 +675,13 @@ margin-top: 5px;
   text-align: center; /* Centre le texte */
 
 }
-
 .cta-button:hover {
   background-color: #003366;
   color: white;
   transform: scale(1.05);
 }
+
+
 
  /* DEBUT FORMATION */
 
@@ -693,14 +694,12 @@ margin-top: 5px;
   width: 100%;
   box-sizing: border-box;
 }
-
 .formations-title {
   text-align: center;
   font-size: 2.3em;
   margin-bottom: 5%;
   color: #ffffff;
 }
-
 .formations-container {
   width: 90%;
   margin: 0 auto;
@@ -708,7 +707,6 @@ margin-top: 5px;
   flex-direction: column;
   align-items: center;
 }
-
 /* Nouvelle structure : wrapper autour du carousel */
 .formations-wrapper {
   position: relative;
@@ -720,7 +718,6 @@ margin-top: 5px;
   justify-content: center;
   margin-bottom: 40px;
 }
-
 /* Conteneur carousel */
 .formations-content {
   display: flex;
@@ -729,36 +726,68 @@ margin-top: 5px;
   justify-content: center;
   flex-wrap: nowrap;
 }
-
 .formation-card {
-  flex: 1;
-  max-width: 350px;
-  min-width: 280px;
+flex: 1;
+  max-width: 300px;
+  min-width: 250px;
+  padding: 15px;
   background-color: #333;
-  padding: 20px;
   border-radius: 8px;
   text-align: center;
   transition: transform 0.3s ease;
-}
+  margin: 36px;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  /* flex: 1;
+  background-color: #333;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  max-width: 300px; 
+  min-width: 250px;
+  padding: 15px; */
+
+
+
+}
 .formation-card:hover {
   transform: scale(1.05);
 }
-
 .formation-image {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 300px; /* fixe la hauteur de l’image */
+  object-fit: cover; /* ou "contain" si tu veux voir l’image entière sans crop */
   border-radius: 8px;
+  background-color: #222; /* utile si image transparente ou contient du vide */
 }
-
 .formation-card-title {
-  font-size: 1.5em;
+  font-family: 'Arial Black', Impact, sans-serif; /* police très visible */
+  font-size: 1em;
   margin-top: 15px;
+  max-height: 2.5em; /* 2 lignes max */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+line-clamp: 2; /* Ajoute cette ligne */
+  -webkit-line-clamp: 2;  
+  -webkit-box-orient: vertical;
 }
 
 .formation-card-text {
   font-size: 1em;
   margin-top: 10px;
+  max-height: 4.5em; /* 3 lignes max */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+line-clamp: 3; /* Ajoute cette ligne */
+  -webkit-line-clamp: 3;  
+  -webkit-box-orient: vertical;
 }
 
 /* Flèches navigation */
@@ -775,32 +804,26 @@ margin-top: 5px;
   border: none;
   padding: 0 10px;
 }
-
 .nav-arrow-left {
   left: 10px;
 }
-
 .nav-arrow-right {
   right: 10px;
 }
-
 .nav-arrow:hover {
   color: #ff7f00;
   transform: scale(1.2);
 }
-
 /* Responsive */
 @media (max-width: 1024px) {
   .formations-content {
     flex-direction: column;
     gap: 20px;
   }
-
-  .nav-arrow {
+.nav-arrow {
     display: none;
   }
 }
-
 @media (max-width: 768px) {
   .formations-title {
     font-size: 1.8em;
@@ -826,11 +849,11 @@ margin-top: 5px;
     font-size: 0.95em;
   }
 }
+/*ICI FINI FORMATION  */
 
 
 
 
-   /*ICI FINI FORMATION  */
    
 /* --- Section FAQ --- */
 .faq-section {
