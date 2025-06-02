@@ -20,7 +20,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="/dashboard/formations" class="nav-link">
+          <a href="dashboard/Ajouter-formations" class="nav-link">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -30,7 +30,7 @@
           </a>
         </li>
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="/dashboard/webinaires" class="nav-link">
             <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -48,13 +48,47 @@
             </svg>
             <span>Coaching</span>
           </a>
+        </li> -->
+
+        <!-- Candidats -->
+        <li class="nav-item">
+          <a href="/dashboard/listeCandidat" class="nav-link">
+            <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 00-3-3.87M4 21v-2a4 4 0 013-3.87M12 12a4 4 0 100-8 4 4 0 000 8z" />
+            </svg>
+            <span>Candidats</span>
+          </a>
+        </li>
+
+        <!-- Candidatures -->
+        <li class="nav-item">
+          <a href="/dashboard/ListeCandidature" class="nav-link">
+            <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7h18M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l9 6 9-6" />
+            </svg>
+            <span>Candidatures</span>
+          </a>
+        </li>
+
+        <!-- Catégories -->
+        <li class="nav-item">
+          <a href="/dashboard/ListeCategorie" class="nav-link">
+            <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 12H4" />
+              <path d="M14 6l-6 6 6 6" />
+            </svg>
+            <span>Catégories</span>
+          </a>
         </li>
       </ul>
     </div>
 
     <!-- Déconnexion en bas -->
     <div class="logout-section">
-      <button class="logout-button">
+      <button class="logout-button" @click="logout">
         <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
           viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
           <path d="M17 16l4-4m0 0l-4-4m4 4H7" />
@@ -68,9 +102,18 @@
 
 <script setup>
 import logo from '@/assets/images/logo1.jpg'
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+function logout() {
+  router.push('/login')
+}
 </script>
 
 <style>
+/* Style général sidebar */
 .sidebar {
   width: 16rem;
   height: 100vh;
@@ -101,7 +144,7 @@ import logo from '@/assets/images/logo1.jpg'
 }
 
 .nav-item {
-  margin-bottom: 2rem; /* Espace entre chaque lien */
+  margin-bottom: 2rem;
 }
 
 .nav-link {
@@ -117,11 +160,22 @@ import logo from '@/assets/images/logo1.jpg'
   color: #ff7f00;
 }
 
-.icon {
+/* Uniformiser la taille des icônes partout dans la sidebar */
+.sidebar svg.icon {
   width: 1.25rem;
   height: 1.25rem;
 }
 
+/* Pour l’élément actif */
+.nav-link.router-link-active,
+.nav-link.active {
+  font-weight: bold;
+  background-color: #f0f4f8;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* Déconnexion */
 .logout-section {
   padding: 0 1rem 1.5rem 1rem;
 }
@@ -142,5 +196,56 @@ import logo from '@/assets/images/logo1.jpg'
 
 .logout-button:hover {
   color: #991b1b;
+}
+
+/* Animation légère au survol */
+.nav-link:hover .icon {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Responsive : sidebar en bas sur mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  .logo-container {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .nav-item {
+    margin-bottom: 0;
+  }
+
+  .logout-section {
+    display: none;
+  }
+
+  .nav-link span {
+    display: none;
+  }
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 </style>

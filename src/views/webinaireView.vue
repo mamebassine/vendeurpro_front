@@ -7,7 +7,7 @@
           <p>Découvrez des techniques éprouvées pour booster vos ventes et transformez votre business.</p>
           <!-- <button class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</button> -->
 
-          <router-link to="/CandidatForm" class="cta-button">Inscrivez-vous au Prochain Webinaire</router-link>
+          <router-link to="/AjoutCandidat" class="cta-button">Inscrivez-vous au Prochain Webinaire</router-link>
 
         </div>
         <img src="../assets/images/photo8.jpg" alt="Webinaire en action" class="hero-image" />
@@ -25,7 +25,7 @@
         </div>
         <!-- <button class="cta-button">📢 Inscrivez-vous Maintenant</button> -->
 
-        <router-link to="/CandidatForm" class="cta-button">Inscrivez-vous Maintenant</router-link>
+        <router-link to="/AjoutCandidat" class="cta-button">Inscrivez-vous Maintenant</router-link>
 
       </div>
   
@@ -38,7 +38,7 @@
             <p><strong>Date :</strong> {{ webinaire.date }}</p>
             <p><strong>Durée :</strong> {{ webinaire.duration }}</p>
 
-            <router-link to="/CandidatForm" class="cta-button">S'inscrire</router-link>
+            <router-link to="/AjoutCandidat" class="cta-button">S'inscrire</router-link>
 
           </div>
         </div>

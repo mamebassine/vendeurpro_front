@@ -7,7 +7,7 @@
         <p> Atteignez vos objectifs de vente avec un accompagnement sur mesure.</p>
         <!-- <button class="cta-button">📅 Réserver une Séance</button> -->
 
-        <router-link to="/CandidatForm" class="cta-button">Réserver une Séance</router-link>
+        <router-link to="/AjoutCandidat" class="cta-button">Réserver une Séance</router-link>
 
       </div>
       <img src="../assets/images/photobi2.png" alt="Coaching Vente" class="hero-image" />
@@ -28,7 +28,7 @@
             <p><strong>Durée :</strong> {{ coaching.duration }}</p>
             <!-- <p><strong>Tarif :</strong> {{ coaching.price }}</p> -->
 
-            <router-link to="/CandidatForm" class="cta-button">📞 Réserver une Séance</router-link>
+            <router-link to="/AjoutCandidat" class="cta-button">📞 Réserver une Séance</router-link>
           </div>
           
         </div>

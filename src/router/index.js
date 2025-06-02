@@ -73,6 +73,14 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
 
+//AUTHENTIFICATION
+
+import Register from '@/views/auth/Register.vue'
+import Login from '@/views/auth/Login.vue'
+import Profile from '@/views/auth/Profile.vue'
+
+import Logout from '@/views/auth/Logout.vue'
+
 // Layouts
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import DashboardLayout from '@/layouts/DashboardLayout.vue'
@@ -101,8 +109,28 @@ import ActuEView from '@/views/actuEView.vue'
 import ActuFView from '@/views/actuFView.vue'
 
 // Dashboard
-import DashboardView from '@/views/Dashboard.vue'
 
+import DashboardView from '@/views/Admin/Dashboard.vue'
+import AjouterFormationsView from '@/views/Admin/Ajouter-formations.vue'
+import VoirdetailformationsView from '@/views/Admin/Voirdetail-formations.vue'
+
+
+import AjoutCandidat from '@/views/Candidat/AjoutCandidat.vue';
+import ListeCandidat from '@/views/Candidat/ListeCandidat.vue'
+import VoirDetailCandidat from '@/views/Candidat/VoirDetailCandidat.vue'
+
+
+import AjouterCandidature from '@/views/Candidature/AjouterCandidature.vue'
+import VoirDetailCandidature from '@/views/Candidature/VoirDetailCandidature.vue'
+import ListeCandidature from '@/views/Candidature/ListeCandidature.vue'
+
+// import AjouterCandidature from '@/views/Candidature/AjouterCandidature.vue'
+// import VoirDetailCandidature from '@/views/Candidature/VoirDetailCandidature.vue'
+// import ListeCandidature from '@/views/Candidature/ListeCandidatures.vue'
+
+// import AjoutCategorieView from '@/views/AjoutCategorieView.vue';
+// import VoirDetailCategorieView from '@/views/VoirDetailCategorieView.vue';
+// import ListeCategorieView from '@/views/ListeCategorieView.vue';
 
 import CandidatForm from '@/views/CandidatForm.vue'
 import CandidatList from '@/views/CandidatList.vue'
@@ -141,20 +169,70 @@ const router = createRouter({
       ],
     },
 
-    // Routes Dashboard avec layout personnalisé
+    // Routes Dashboard avec layout personnalisé    
     {
-      path: '/dashboard', component: DashboardLayout,
-      children: [
-        {
-          path: '', name: 'ashboardd', component: DashboardView,
-        },
-      ],
-    },
+  path: '/dashboard',
+  component: DashboardLayout,
+  children: [
+    // Dashboard ET Formations
+    { path: '', name: 'dashboard', component: DashboardView },
+    { path: 'ajouter-formations', name: 'Ajouter-formations', component: AjouterFormationsView },
+    { path: 'voirdetail-formations/:id', name: 'Voirdetail-formations', component: VoirdetailformationsView },
+  
 
-    { path: '/CandidatForm',name: 'Formulaire', component: CandidatForm },
-    { path: '/candidatsList', name: 'ListeCandidats', component: CandidatList },
-    
+// Candidats
+{ path: '/ajoutCandidat',name: 'AjoutCandidat', component: AjoutCandidat },
+{ path: '/dashboard/listeCandidat', name: 'ListeCandidat', component: ListeCandidat },
+{ path: '/dashboard/Voirdetail/candidat/:id', name: 'VoirDetailCandidat', component: VoirDetailCandidat },
+
+
+
+// // Candidature
+
+ { path: '/dashboard/ajouterCandidature', name: 'AjoutCandidature', component: AjouterCandidature },
+  { path: '/dashboard/listecandidature', name: 'ListeCandidature', component: ListeCandidature },
+  { path: '/dashboard/Voirdetail/candidature/:id', name: 'VoirDetailCandidature', component: VoirDetailCandidature },
+
+// // categories
+// { path: '/ajoutcategories', name: 'AjoutCategories', component: AjoutCategoriesView },
+// { path: '/Voirdetail/categories/:id', name: 'VoirDetailCategories', component: VoirDetailCategoriesView },
+// { path: '/listecategories', name: 'ListeCategories', component: ListeCategoriesView },
+
+//  {
+//   path: '/ajoutcategories',
+//   name: 'AjoutCategories',
+//   component: AjoutCategoriesView
+// },
+// {
+//   path: '/Voirdetail/categorie/:id',
+//   name: 'VoirDetailCategorie',
+//   component: VoirDetailCategorieView
+// },
+// {
+//   path: '/dashboard/listecategorie',
+//   name: 'ListeCategorie',
+//   component: ListeCategorieView
+// }
+
+
+]
+},
+
+
+{ path: '/CandidatForm',name: 'Formulaire', component: CandidatForm },
+{ path: '/candidatsList', name: 'ListeCandidats', component: CandidatList },
+
+    // 👉 Routes Auth
+  { path: '/register', name: 'register', component: Register },
+  { path: '/login', name: 'login', component: Login },
+  { path: '/profile', name: 'profile', component: Profile },
+  { path: '/logout', name: 'logout', component: Logout },
+
+
+  
+
   ],
 })
+console.log("Router loaded correctly");
 
 export default router

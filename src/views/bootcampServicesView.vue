@@ -34,7 +34,7 @@
 
       <div class="button-container">
         <!-- <button class="cta-button">🚀 Inscrivez-vous maintenant</button> -->
-        <router-link to="/CandidatForm" class="cta-button">🚀 Inscrivez-vous maintenant</router-link>
+        <router-link to="/AjoutCandidat" class="cta-button">🚀 Inscrivez-vous maintenant</router-link>
 
       </div>
     </section>
