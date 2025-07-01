@@ -114,7 +114,7 @@ import DashboardView from '@/views/Admin/Dashboard.vue'
 import AjouterFormationsView from '@/views/Admin/Ajouter-formations.vue'
 import VoirdetailformationsView from '@/views/Admin/Voirdetail-formations.vue'
 
-
+//
 import AjoutCandidat from '@/views/Candidat/AjoutCandidat.vue';
 import ListeCandidat from '@/views/Candidat/ListeCandidat.vue'
 import VoirDetailCandidat from '@/views/Candidat/VoirDetailCandidat.vue'
@@ -123,14 +123,20 @@ import VoirDetailCandidat from '@/views/Candidat/VoirDetailCandidat.vue'
 import AjouterCandidature from '@/views/Candidature/AjouterCandidature.vue'
 import VoirDetailCandidature from '@/views/Candidature/VoirDetailCandidature.vue'
 import ListeCandidature from '@/views/Candidature/ListeCandidature.vue'
+import ModifierCandidature from '@/views/Candidature/ModifierCandidature.vue'
+
+
 
 // import AjouterCandidature from '@/views/Candidature/AjouterCandidature.vue'
 // import VoirDetailCandidature from '@/views/Candidature/VoirDetailCandidature.vue'
 // import ListeCandidature from '@/views/Candidature/ListeCandidatures.vue'
 
-// import AjoutCategorieView from '@/views/AjoutCategorieView.vue';
-// import VoirDetailCategorieView from '@/views/VoirDetailCategorieView.vue';
-// import ListeCategorieView from '@/views/ListeCategorieView.vue';
+// import AjoutCategorie from '@/views/Categorie/AjoutCategorie.vue';
+// import VoirDetailCategorie from '@/views/Categorie/VoirDetailCategorie.vue';
+import ListeCategorie from '@/views/Categorie/ListeCategorie.vue';
+
+
+
 
 import CandidatForm from '@/views/CandidatForm.vue'
 import CandidatList from '@/views/CandidatList.vue'
@@ -140,6 +146,9 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+        // ... autres pages publiques ici
+
+
       path: '/',
       component: DefaultLayout,
       children: [
@@ -166,8 +175,19 @@ const router = createRouter({
         { path: 'actualites-d', name: 'actu-d', component: ActuDView },
         { path: 'actualites-e', name: 'actu-e', component: ActuEView },
         { path: 'actualites-f', name: 'actu-f', component: ActuFView },
+
+        // { path: '/ajoutCandidat',name: 'AjoutCandidat', component: AjoutCandidat },
+
+        { path: '/voirdetail-candidat/:id', name: 'VoirDetailCandidat', component: VoirDetailCandidat },
+
+       { path: 'voirdetail-formations/:id', name: 'Voirdetail-formations', component: VoirdetailformationsView },
+
       ],
+
+
     },
+
+            // ... pages admin ici
 
     // Routes Dashboard avec layout personnalisé    
     {
@@ -177,11 +197,18 @@ const router = createRouter({
     // Dashboard ET Formations
     { path: '', name: 'dashboard', component: DashboardView },
     { path: 'ajouter-formations', name: 'Ajouter-formations', component: AjouterFormationsView },
-    { path: 'voirdetail-formations/:id', name: 'Voirdetail-formations', component: VoirdetailformationsView },
+    // { path: 'voirdetail-formations/:id', name: 'Voirdetail-formations', component: VoirdetailformationsView },
   
 
 // Candidats
-{ path: '/ajoutCandidat',name: 'AjoutCandidat', component: AjoutCandidat },
+
+// {
+//   path: '/ajoutCandidat/:id',
+//   name: 'AjoutCandidat',
+//   component: AjoutCandidat
+// }
+
+// { path: '/ajoutCandidat',name: 'AjoutCandidat', component: AjoutCandidat },
 { path: '/dashboard/listeCandidat', name: 'ListeCandidat', component: ListeCandidat },
 { path: '/dashboard/Voirdetail/candidat/:id', name: 'VoirDetailCandidat', component: VoirDetailCandidat },
 
@@ -192,11 +219,11 @@ const router = createRouter({
  { path: '/dashboard/ajouterCandidature', name: 'AjoutCandidature', component: AjouterCandidature },
   { path: '/dashboard/listecandidature', name: 'ListeCandidature', component: ListeCandidature },
   { path: '/dashboard/Voirdetail/candidature/:id', name: 'VoirDetailCandidature', component: VoirDetailCandidature },
+   { path: '/dashboard/modifierCandidature/:id', name: 'modifierCandidature', component: ModifierCandidature },
 
 // // categories
-// { path: '/ajoutcategories', name: 'AjoutCategories', component: AjoutCategoriesView },
-// { path: '/Voirdetail/categories/:id', name: 'VoirDetailCategories', component: VoirDetailCategoriesView },
-// { path: '/listecategories', name: 'ListeCategories', component: ListeCategoriesView },
+// { path: '/dashboard/ajoutcategorie', name: 'AjoutCategorie', component: AjoutCategorie },
+{ path: '/dashboard/listecategorie', name: 'ListeCategorie', component: ListeCategorie },
 
 //  {
 //   path: '/ajoutcategories',
@@ -228,10 +255,13 @@ const router = createRouter({
   { path: '/profile', name: 'profile', component: Profile },
   { path: '/logout', name: 'logout', component: Logout },
 
-
-  
-
-  ],
+// PAGE ajoutCandidat SANS header/footer
+    {
+      path: '/ajoutCandidat',
+      name: 'AjoutCandidat',
+      component: AjoutCandidat
+    }
+  ]
 })
 console.log("Router loaded correctly");
 

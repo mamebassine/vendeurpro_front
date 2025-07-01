@@ -105,7 +105,7 @@ const fermerMessage = () => {
 </script>
 
 <style scoped>
-.form {
+/* .form {
   max-width: 500px;
   margin: auto;
   padding: 2rem;
@@ -113,7 +113,21 @@ const fermerMessage = () => {
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
+.form {
+  margin-top: 150px;
+  margin-bottom: 100px; /* ✅ Ajout de marge en bas */
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+
 
 h2 {
   text-align: center;

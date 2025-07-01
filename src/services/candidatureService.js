@@ -25,17 +25,17 @@ export default {
     return api.get('/candidatures')
   },
 
-  getById(id) {
-    return api.get(`/candidatures/${id}`)
-  },
+ getById(id) {
+  return api.get(`/candidatures/${id}`)
+},
 
   create(data) {
     return api.post('/candidatures', data)
   },
 
-  update(id, data) {
-    return api.put(`/candidatures/${id}`, data)
-  },
+ update(id, data) {
+  return api.put(`/candidatures/${id}`, data)
+},
 
   delete(id) {
     return api.delete(`/candidatures/${id}`)

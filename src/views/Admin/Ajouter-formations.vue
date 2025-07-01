@@ -87,38 +87,27 @@
     <table class="table" v-if="formations.length">
       <thead>
         <tr>
-          <th>Titre</th>
-          <th>Description</th>
-          <th>Début Candidature</th>
-          <th>Limite Dépôt</th>
-          <th>Début formation</th>
-          <th>Fin formation</th>
-          <th>Heure</th>
-          <th>Durée</th>
-          <th>Prix</th>
-          <th>Type</th>
-          <th>Lieu</th>
-          <th>Catégorie</th>
-          <th>Utilisateur</th>
-
-          <th>Actions</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Durée</th>
+            <th>Prix</th>
+            <th>Type</th>
+            <th>Lieu</th>
+            <th>Catégorie</th>
+            <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="f in formations" :key="f.id">
           <td><strong>{{ f.titre }}</strong></td>
           <td>{{ f.description }}</td>
-          <td>{{ formatDate(f.date_debut_candidature) }}</td>
-          <td>{{ formatDate(f.date_limite_depot) }}</td>
-          <td>{{ formatDate(f.date_debut) }}</td>
-          <td>{{ formatDate(f.date_fin) }}</td>
-          <td>{{ formatHeure(f.heure) }}</td>
+          
           <td>{{ f.duree }}</td>
           <td>{{ Number(f.prix).toLocaleString('fr-FR') }} FCFA</td>
           <td>{{ f.type }}</td>
           <td>{{ f.lieu }}</td>
           <td>{{ f.categorie?.nom || 'N/A' }}</td>
-          <td>{{ f.user?.name || 'N/A' }} {{ f.user?.prenom || 'N/A' }}</td>
+          <!-- <td>{{ f.user?.name || 'N/A' }} {{ f.user?.prenom || 'N/A' }}</td> -->
 
           <td>
             <button @click="editFormation(f)" title="Modifier"><i class="fas fa-pen"></i></button>
