@@ -6,12 +6,32 @@
       <div v-if="formation">
         <p><strong>Titre :</strong> {{ formation.titre }}</p>
         <p><strong>Description :</strong> {{ formation.description }}</p>
+
+        <!-- 🎯 POUR QUI ? -->
+        <h3 class="section-title">🎯 Pour qui ?</h3>
+        <p>{{ formation.public_vise }}</p>
+
+        <!-- 📚 OBJECTIFS -->
+        <!-- <h3 class="section-title">📚 Objectifs :</h3>
+<p v-html="formation.objectifs.replace(/\n/g, '<br>')"></p> -->
+<!-- 📚 OBJECTIFS -->
+<h3 class="section-title">📚 Objectifs :</h3>
+<p v-html="formatObjectifs(formation.objectifs)"></p>
+
+
+
+
+        <!-- 📆 DURÉE, CERTIFICATION & FORMAT -->
+        <h3 class="section-title">📆 Durée, Certification & Format</h3>
+        <p><strong>Certification :</strong> {{ formation.certifiante ? 'Oui' : 'Non' }}</p>
+        <p><strong>Format :</strong> {{ formation.format }}</p>
+        <p><strong>Durée :</strong> {{ formation.duree }} jours</p>
+
         <p><strong>Début des candidatures :</strong> {{ formatDate(formation.date_debut_candidature) }}</p>
         <p><strong>Date limite de dépôt :</strong> {{ formatDate(formation.date_limite_depot) }}</p>
         <p><strong>Début de la formation :</strong> {{ formatDate(formation.date_debut) }}</p>
         <p><strong>Fin de la formation :</strong> {{ formatDate(formation.date_fin) }}</p>
         <p><strong>Heure :</strong> {{ formatHeure(formation.heure) }}</p>
-        <p><strong>Durée :</strong> {{ formation.duree }} jours</p>
         <p><strong>Prix :</strong> {{ Number(formation.prix).toLocaleString('fr-FR') }} FCFA</p>
         <p><strong>Type :</strong> {{ formation.type }}</p>
         <p><strong>Lieu :</strong> {{ formation.lieu }}</p>
@@ -22,12 +42,13 @@
         </div>
       </div>
 
-      <div v-else>
-        <p>Chargement des détails...</p>
-      </div>
+      
+
+      
     </section>
   </div>
 </template>
+
 
 <script setup>
 import { ref, onMounted } from 'vue';
@@ -68,6 +89,24 @@ const postuler = (idFormation) => {
 onMounted(() => {
   fetchFormation();
 });
+
+
+const formatObjectifs = (text) => {
+  if (!text) return '';
+
+  return (
+    text
+      .replace(/([•\-●▪︎]|[.])\s*/g, '||') // transforme les puces/points en séparateurs
+      .split('||') // on découpe selon ces séparateurs
+      .map(line => line.trim()) // on nettoie les espaces
+      .filter(line => line.length > 2) // on ignore les lignes vides ou trop courtes
+      .filter((item, index, arr) => arr.indexOf(item) === index) // supprime les doublons
+      .map(line => `• ${line}`) // ajoute proprement la puce
+      .join('<br>') // joint avec <br>
+  );
+};
+
+
 </script>
 
 <style scoped>
@@ -126,5 +165,15 @@ p {
 
 .cta-button:hover {
   background-color: #003366;
+}
+
+
+
+
+.section-title {
+  margin-top: 24px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
 }
 </style>

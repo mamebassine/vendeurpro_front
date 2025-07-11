@@ -61,7 +61,13 @@ body {
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  padding: 0.5rem 0;
+  /* padding: 0.5rem 0; */
+
+/* ICI LE REGLER LE MENU */
+  height: 115px; /* ou une valeur plus grande selon ton besoin */
+  padding: 1.9rem 0; /* augmente le haut/bas (1.5rem = ~24px) */
+
+  
 }
 
 .container {
@@ -73,9 +79,21 @@ body {
   padding: 0 1rem;
 }
 
-.logo img {
+/* .logo img {
   height: 125px;
+} */
+.logo {
+  display: flex;
+  align-items: center; /* Aligne le logo verticalement */
 }
+
+.logo img {
+  height: 100px; /* Ajuste à une hauteur raisonnable, par exemple 60px */
+  object-fit: contain; /* Garde les proportions */
+  margin: 0; /* Supprime tout décalage éventuel */
+}
+
+
 
 .menu {
   display: flex;

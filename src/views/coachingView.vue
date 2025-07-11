@@ -13,27 +13,36 @@
       <img src="../assets/images/photobi2.png" alt="Coaching Vente" class="hero-image" />
     </div>
 
-    <!-- 🎯 PROGRAMMES DE COACHING -->
-    <div class="section coaching-list">
-      <h2 class="titrecoaaching">Choisissez Votre Coaching</h2>
-      <div class="coaching-container">
-        <div v-for="(coaching, index) in coachingOptions" :key="index" class="coaching-card">
-          <h3>{{ coaching.title }}</h3>
-          <p><strong>Public :</strong> {{ coaching.public }}</p>
-          <ul>
-            <li v-for="(obj, i) in coaching.objectives" :key="i">✔️ {{ obj }}</li>
-          </ul>
+  <!-- 🎯 PROGRAMMES DE COACHING --> 
+   <div class="section coaching-list">
+  <h2 class="titrecoaaching">Choisissez Votre Coaching</h2>
 
-          <div class="card-footer">
-            <p><strong>Durée :</strong> {{ coaching.duration }}</p>
-            <!-- <p><strong>Tarif :</strong> {{ coaching.price }}</p> -->
+  <div class="coaching-container">
+    <div v-if="coachingOptions.length === 0">
+      <p>Aucun programme de coaching trouvé pour le moment.</p>
+    </div>
 
-            <router-link to="/AjoutCandidat" class="cta-button">📞 Réserver une Séance</router-link>
-          </div>
-          
-        </div>
+<div v-for="(coaching, index) in coachingOptions.slice(0, 3)" :key="index" class="coaching-card">
+      <h3>{{ coaching.titre }}</h3>
+<p><strong>Public :</strong> {{ coaching.public_vise }}</p>
+
+<ul>
+  <li v-for="(obj, i) in coaching.objectifs" :key="i">✔️ {{ obj }}</li>
+</ul>
+
+<div class="card-footer">
+  <p><strong>Durée :</strong> {{ coaching.duree }} sessions</p>
+
+        <router-link to="/AjoutCandidat" class="cta-button">📞 Réserver une Séance</router-link>
       </div>
     </div>
+  </div>
+</div>
+
+
+
+
+
 
     <!-- 🎯 FAQ -->
     <section id="faq" class="faq-section">
@@ -58,32 +67,75 @@
 
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from 'vue' 
+import api from '@/services/api' 
 
-// 🔹 Coaching Options
-const coachingOptions = ref([
-  {
-    title: "Coaching pour Commerçants & Prestataires",
-    public: "Commerçants (boutiques, marchés) & Prestataires (coiffeurs, consultants...)",
-    objectives: ["Améliorer les techniques de vente", "Augmenter le chiffre d'affaires", "Fidéliser la clientèle"],
-    duration: "3 à 6 sessions",
-    // price: "150 000 FCFA - 300 000 FCFA"
-  },
-  {
-    title: "Coaching pour Porteurs de Projets ",
-     public: "Entrepreneurs, startups, freelances, innovateurs, créateurs",
-    objectives: ["Structurer son idée de business", "Définir une stratégie commerciale", "Préparer le lancement"],
-    duration: "4 à 8 sessions",
-    // price: "200 000 FCFA - 400 000 FCFA"
-  },
-  {
-    title: "Coaching pour Étudiants & Reconversion",
-    public: "Étudiants, chômeurs, personnes en reconversion",
-    objectives: ["Acquérir les bases de la vente", "Se préparer à l'emploi", "Développer une expertise"],
-    duration: "3 à 6 sessions",
-    // price: "100 000 FCFA - 200 000 FCFA"
+const coachingOptions = ref([]);
+const message = ref('');
+
+const getCoachings = async () => {
+  try {
+    const res = await api.get('/coaching');
+    console.log('Coachings reçus ✅:', res.data);
+
+coachingOptions.value = res.data.map(coaching => {
+  let objectifs = coaching.objectifs;
+
+  if (typeof objectifs === 'string') {
+    try {
+      const parsed = JSON.parse(objectifs);
+      objectifs = Array.isArray(parsed) ? parsed : [objectifs];
+    } catch (e) {
+      objectifs = [objectifs]; // Texte simple non JSON
+    }
   }
-]);
+
+  return {
+    ...coaching,
+    objectifs
+  };
+});
+
+
+  } catch (e) {
+    console.error('❌ Erreur lors du chargement des coachings:', e);
+    message.value = "Erreur lors du chargement des coachings";
+  }
+};
+
+onMounted(() => {
+  message.value = 'Bienvenue dans le coaching';
+  getCoachings();
+});
+
+
+
+
+
+// // 🔹 Coaching Options
+// const coachingOptions = ref([
+//   {
+//     title: "Coaching pour Commerçants & Prestataires",
+//     public: "Commerçants (boutiques, marchés) & Prestataires (coiffeurs, consultants...)",
+//     objectives: ["Améliorer les techniques de vente", "Augmenter le chiffre d'affaires", "Fidéliser la clientèle"],
+//     duration: "3 à 6 sessions",
+//     // price: "150 000 FCFA - 300 000 FCFA"
+//   },
+//   {
+//     title: "Coaching pour Porteurs de Projets ",
+//      public: "Entrepreneurs, startups, freelances, innovateurs, créateurs",
+//     objectives: ["Structurer son idée de business", "Définir une stratégie commerciale", "Préparer le lancement"],
+//     duration: "4 à 8 sessions",
+//     // price: "200 000 FCFA - 400 000 FCFA"
+//   },
+//   {
+//     title: "Coaching pour Étudiants & Reconversion",
+//     public: "Étudiants, chômeurs, personnes en reconversion",
+//     objectives: ["Acquérir les bases de la vente", "Se préparer à l'emploi", "Développer une expertise"],
+//     duration: "3 à 6 sessions",
+//     // price: "100 000 FCFA - 200 000 FCFA"
+//   }
+// ]);
 
 // 🔹 FAQ interactive
 const faqItems = ref([
@@ -325,8 +377,9 @@ const toggleFAQ = (index) => {
 .coaching-card button {
   margin-top: auto; /* Positionne le bouton en bas de la carte */
   text-align: right; /* Aligner le bouton à droite */
-  padding: 10px 15px;
-
+padding: 8px 14px;
+  font-size: 0.85rem;
+  border-radius: 6px;
 }
 
 .coaching-card:hover {

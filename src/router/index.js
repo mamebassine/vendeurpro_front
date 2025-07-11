@@ -114,6 +114,9 @@ import DashboardView from '@/views/Admin/Dashboard.vue'
 import AjouterFormationsView from '@/views/Admin/Ajouter-formations.vue'
 import VoirdetailformationsView from '@/views/Admin/Voirdetail-formations.vue'
 
+
+import AdminformationsDetails from '@/views/Admin/Adminformationsdetail.vue'
+
 //
 import AjoutCandidat from '@/views/Candidat/AjoutCandidat.vue';
 import ListeCandidat from '@/views/Candidat/ListeCandidat.vue'
@@ -182,6 +185,8 @@ const router = createRouter({
 
        { path: 'voirdetail-formations/:id', name: 'Voirdetail-formations', component: VoirdetailformationsView },
 
+       //{ path: '/FormationDetailsAdmin/:id', name: 'FormationDetailsAdmin', component: FormationDetailsAdmin},
+
       ],
 
 
@@ -197,9 +202,20 @@ const router = createRouter({
     // Dashboard ET Formations
     { path: '', name: 'dashboard', component: DashboardView },
     { path: 'ajouter-formations', name: 'Ajouter-formations', component: AjouterFormationsView },
-    // { path: 'voirdetail-formations/:id', name: 'Voirdetail-formations', component: VoirdetailformationsView },
-  
 
+    // { path: '/admin/formations/:id', name: 'Admin', component: AdminformationsDetails },
+
+     {
+  path: '/admin/formationsdetail/:id',
+  name: 'AdminformationsDetails',
+  component: AdminformationsDetails
+},
+
+
+
+
+
+    
 // Candidats
 
 // {

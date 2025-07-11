@@ -55,11 +55,39 @@
     <strong>Objectifs :</strong> {{ f.description }}
   </p>
 
+<!-- ICI COMMENCE MODULES A LA CARTES -->
+
+
+
   <!-- ✅ Détails affichés seulement si f.expanded est vrai -->
   <div v-if="f.expanded" class="details">
-    <p><strong>Description :</strong> {{ f.description }}</p>
-    <p><strong>Durée :</strong> {{ f.duree }}</p>
-    <p><strong>Prix :</strong> {{ f.prix }} €</p>
+    <p><strong>Titre :</strong> {{ f.titre }}</p>
+  <p><strong>Description :</strong> {{ f.description }}</p>
+  <p><strong>Durée :</strong> {{ f.duree }} jours</p>
+  <p><strong>Prix :</strong> {{ Number(f.prix).toLocaleString('fr-FR') }} FCFA</p>
+
+  <!-- 🎯 POUR QUI ? -->
+  <h3 class="section-title">🎯 Pour qui ?</h3>
+  <p>{{ f.public_vise }}</p>
+
+  <!-- 📚 OBJECTIFS -->
+  <h3 class="section-title">📚 Objectifs :</h3>
+  <p v-html="formatObjectifs(f.objectifs)"></p>
+
+  <!-- 📆 DURÉE, CERTIFICATION & FORMAT -->
+  <h3 class="section-title">📆 Durée, Certification & Format</h3>
+  <p><strong>Certification :</strong> {{ f.certifiante ? 'Oui' : 'Non' }}</p>
+  <p><strong>Format :</strong> {{ f.format }}</p>
+
+  <p><strong>Début des candidatures :</strong> {{ formatDate(f.date_debut_candidature) }}</p>
+  <p><strong>Date limite de dépôt :</strong> {{ formatDate(f.date_limite_depot) }}</p>
+  <p><strong>Début de la formation :</strong> {{ formatDate(f.date_debut) }}</p>
+  <p><strong>Fin de la formation :</strong> {{ formatDate(f.date_fin) }}</p>
+  <p><strong>Heure :</strong> {{ formatHeure(f.heure) }}</p>
+  <p><strong>Type :</strong> {{ f.type }}</p>
+  <p><strong>Lieu :</strong> {{ f.lieu }}</p>
+  <p><strong>Catégorie :</strong> {{ f.categorie?.nom || 'N/A' }}</p>
+
 <button @click="postuler(f)">Postuler</button>
   </div>
 </div>
@@ -131,7 +159,7 @@ const router = useRouter();
 const formations = ref([]);
 const message = ref('');
 const success = ref(true);
-//const formationSelectionnee = ref(null);
+const formationSelectionnee = ref(null);
 
 // Récupération des formations depuis l'API
 
@@ -148,7 +176,7 @@ const success = ref(true);
 
 const getFormations = async () => {
   try {
-    const res = await api.get('/formations');
+    const res = await api.get('/formation');
     // Ajouter une propriété "expanded" à chaque formation
     formations.value = res.data.map(f => ({ ...f, expanded: false }));
   } catch (e) {
@@ -259,6 +287,25 @@ onMounted(() => {
 onUnmounted(() => {
   clearInterval(interval);
 });
+
+
+
+const formatObjectifs = (text) => {
+  return text ? text.replace(/\n/g, '<br>') : '';
+};
+
+const formatDate = (date) => {
+  if (!date) return 'Non défini';
+  const d = new Date(date);
+  return d.toLocaleDateString('fr-FR');
+};
+
+const formatHeure = (heure) => {
+  if (!heure) return 'Non défini';
+  const [h, m] = heure.split(':');
+  return `${h}h${m}`;
+};
+
 </script>
 
 

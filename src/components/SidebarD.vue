@@ -4,13 +4,23 @@
     <div>
       <!-- Logo -->
       <div class="logo-container">
-        <img src="@/assets/images/logo1.jpg" alt="Logo" class="logo" />
+        <router-link to="/">
+          <img src="@/assets/images/logo1.jpg" alt="Logo" class="logo" />
+        </router-link>
+
+        <!-- <img src="@/assets/images/logo1.jpg" alt="Logo" class="logo" /> -->
       </div>
+
+<!-- <div class="logo">
+        <router-link to="/">
+          <img :src="logo" alt="Logo">
+        </router-link>
+      </div -->
 
       <!-- Navigation -->
       <ul class="nav-list">
         <li class="nav-item">
-          <a href="/" class="nav-link">
+          <a href="/dashboard" class="nav-link">
             <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4" />
@@ -20,15 +30,16 @@
         </li>
 
         <li class="nav-item">
-          <a href="dashboard/Ajouter-formations" class="nav-link">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.84 6.262L12 20l-7-3.16a12.083 12.083 0 01.84-6.262L12 14z" />
-            </svg>
-            <span>Formations</span>
-          </a>
-        </li>
+  <router-link to="/dashboard/Ajouter-formations" class="nav-link">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 14l9-5-9-5-9 5 9 5z" />
+      <path d="M12 14l6.16-3.422a12.083 12.083 0 01.84 6.262L12 20l-7-3.16a12.083 12.083 0 01.84-6.262L12 14z" />
+    </svg>
+    <span>Formations</span>
+  </router-link>
+</li>
+
 
         <!-- <li class="nav-item">
           <a href="/dashboard/webinaires" class="nav-link">
@@ -52,37 +63,38 @@
 
         <!-- Candidats -->
         <li class="nav-item">
-          <a href="/dashboard/listeCandidat" class="nav-link">
-            <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 00-3-3.87M4 21v-2a4 4 0 013-3.87M12 12a4 4 0 100-8 4 4 0 000 8z" />
-            </svg>
-            <span>Candidats</span>
-          </a>
-        </li>
+  <router-link to="/dashboard/listeCandidat" class="nav-link">
+    <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 00-3-3.87M4 21v-2a4 4 0 013-3.87M12 12a4 4 0 100-8 4 4 0 000 8z" />
+    </svg>
+    <span>Candidats</span>
+  </router-link>
+</li>
+
 
         <!-- Candidatures -->
-        <li class="nav-item">
-          <a href="/dashboard/ListeCandidature" class="nav-link">
-            <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 7h18M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l9 6 9-6" />
-            </svg>
-            <span>Candidatures</span>
-          </a>
-        </li>
+       <li class="nav-item">
+  <router-link to="/dashboard/ListeCandidature" class="nav-link">
+    <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7h18M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l9 6 9-6" />
+    </svg>
+    <span>Candidatures</span>
+  </router-link>
+</li>
 
-        <!-- Catégories -->
-        <li class="nav-item">
-          <a href="/dashboard/listecategorie" class="nav-link">
-            <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 12H4" />
-              <path d="M14 6l-6 6 6 6" />
-            </svg>
-            <span>Catégories</span>
-          </a>
-        </li>
+<li class="nav-item">
+  <router-link to="/dashboard/listecategorie" class="nav-link">
+    <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 12H4" />
+      <path d="M14 6l-6 6 6 6" />
+    </svg>
+    <span>Catégories</span>
+  </router-link>
+</li>
+
       </ul>
     </div>
 

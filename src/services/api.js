@@ -9,6 +9,15 @@ const apiClient = axios.create({
   }
 });
 
+const getWebinaires = async () => {
+  try {
+    const res = await axios.get('/webinaire');
+    // ...
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 apiClient.interceptors.request.use(config => {
   const token = localStorage.getItem('token');
   if (token) {
