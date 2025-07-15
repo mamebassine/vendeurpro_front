@@ -6,7 +6,7 @@
     <table v-if="candidats && candidats.length">
       <thead>
         <tr>
-          <th>ID</th>
+          <!-- <th>ID</th> -->
           <th>Nom</th>
           <th>Prénom</th>
           <th>Email</th>
@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         <tr v-for="candidat in candidats" :key="candidat?.id">
-          <td>{{ candidat?.id ?? 'ID non disponible' }}</td>
+          <!-- <td>{{ candidat?.id ?? 'ID non disponible' }}</td> -->
           <td>{{ candidat?.nom ?? 'Nom inconnu' }}</td>
           <td>{{ candidat?.prenom ?? 'Prénom inconnu' }}</td>
           <td>{{ candidat?.email ?? 'Email inconnu' }}</td>

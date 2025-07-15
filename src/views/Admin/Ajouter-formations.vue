@@ -128,8 +128,8 @@
 
   <div class="form-row">
     <div class="form-field">
-      <label for="date_webinaire">Date</label>
-      <input id="date_webinaire" v-model="form.date_webinaire" type="date" />
+      <label for="date_debut">Date</label>
+      <input id="date_debut" v-model="form.date_debut" type="date" />
     </div>
     <div class="form-field">
       <label for="heure">Heure</label>
@@ -166,13 +166,12 @@
   </div>
 </div>
 
-
-            <button type="submit">{{ form.id ? 'Modifier' : 'Créer' }}</button>
-            <button type="button" @click="closeModal" class="btn-fermer">Fermer</button>
-          </form>
-        </div>
-      </div>
-    </transition>
+<button type="submit">{{ form.id ? 'Modifier' : 'Créer' }}</button>
+<button type="button" @click="closeModal" class="btn-fermer">Fermer</button>
+</form>
+</div>
+</div>
+</transition>
 
     <!-- Liste des formations -->
     <h1>Liste des Formations</h1>
@@ -180,11 +179,11 @@
       <thead>
         <tr>
           <th>Titre</th>
-          <th>Description</th>
+          <!-- <th>Description</th> -->
           <th>Durée</th>
-          <th>Prix</th>
-          <th>Type</th>
-          <th>Lieu</th>
+          <!-- <th>Prix</th> -->
+          <!-- <th>Type</th> -->
+          <!-- <th>Lieu</th> -->
           <th>Catégorie</th>
           <th>Actions</th>
         </tr>
@@ -192,11 +191,11 @@
       <tbody>
         <tr v-for="f in formations" :key="f.id">
           <td><strong>{{ f.titre }}</strong></td>
-          <td>{{ f.description }}</td>
+          <!-- <td>{{ f.description }}</td> -->
           <td>{{ f.duree }}</td>
-          <td>{{ Number(f.prix).toLocaleString('fr-FR') }} FCFA</td>
-          <td>{{ f.type }}</td>
-          <td>{{ f.lieu }}</td>
+          <!-- <td>{{ Number(f.prix).toLocaleString('fr-FR') }} FCFA</td> -->
+          <!-- <td>{{ f.type }}</td> -->
+          <!-- <td>{{ f.lieu }}</td> -->
           <td>{{ f.categorie?.nom || 'N/A' }}</td>
           <td>
             <button @click="editFormation(f)"><i class="fas fa-pen"></i></button>
@@ -269,25 +268,6 @@ const getCategories = async () => {
     showMessage("Erreur chargement catégories", false)
   }
 }
-
-// const saveFormation = async () => {
-//   try {
-//     if (form.value.id) {
-//       await api.put(`/formations/${form.value.id}`, form.value)
-//       showMessage("Formation modifiée avec succès")
-//     } else {
-//       await api.post('/formations', form.value)
-//       showMessage("Formation créée avec succès")
-//     }
-//     resetForm()
-//     getFormations()
-//     showModal.value = false
-//   } catch (error) {
-//     const errors = error.response?.data?.errors
-//     showMessage(errors ? Object.values(errors).flat().join('\n') : "Erreur d'enregistrement", false)
-//   }
-// }
-
 
 const saveFormation = async () => {
   try {
@@ -449,7 +429,7 @@ onMounted(() => {
 
 /* autres styles inchangés */
 .page-container {
-  padding: 20px;
+  padding: 10px;
   margin-top: 5%;
   max-width: 1000px;
   margin: auto;
@@ -496,11 +476,13 @@ h1 {
 button {
   background-color: #ff7f00;
   color: white;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   margin-top: 10px;
+    margin-right: 10px; /* 👈 Espace entre les boutons */
+
 }
 button:hover {
   background-color: #2a3155;
@@ -519,4 +501,38 @@ th {
   background-color: #343f69;
   color: white;
 }
+
+
+
+/* Style général pour tous les champs de formulaire */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  border: 2px solid #343F69; /* couleur bleu foncé */
+  border-radius: 6px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Effet au focus */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #5562a2; /* couleur plus claire au focus */
+  box-shadow: 0 0 0 2px rgba(52, 63, 105, 0.2);
+}
+
+/* Optionnel : ajouter un fond clair pour plus de visibilité */
+textarea {
+  min-height: 80px;
+  resize: vertical;
+  background-color: #f9f9f9;
+}
+
 </style>

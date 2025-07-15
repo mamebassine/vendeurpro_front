@@ -52,26 +52,31 @@
       <div v-if="webinaires.length === 0">
         <p>Aucun webinaire à venir pour le moment.</p>
       </div>
+<div v-for="(webinaire, index) in webinairesAFicher" :key="index" class="webinaire-card">
 
-<div v-for="(webinaire, index) in webinaires.slice(0, 3)" :key="index" class="webinaire-card">
+<!-- <div v-for="(webinaire, index) in webinaires.slice(0, 3)" :key="index" class="webinaire-card"> -->
 <h2>{{ webinaire.titre }}</h2>
 <p v-if="webinaire.date_debut && isValidDate(webinaire.date_debut)">
   <strong>Date :</strong> {{ formatDate(webinaire.date_debut) }}
 </p>
 <p v-else>Date non disponible</p>
-        <p><strong>Durée :</strong> {{ webinaire.duree }} h</p>
 
 
-        <router-link to="/AjoutCandidat" class="cta-button">S'inscrire</router-link>
+<p><strong>Durée :</strong> {{ webinaire.duree }} h</p>
+
+<router-link
+              :to="{ path: '/AjoutCandidat', query: { formation_id: webinaire.id } }"
+              class="cta-button"
+              @click="() => console.log('➡️ ID webinaire envoyé :', webinaire.id)"
+            >
+              S'inscrire
+            </router-link>
+
       </div>
     </div>
   </div>
 
-
-
-
-
-      <!-- 🎯 TÉMOIGNAGES -->
+  <!-- 🎯 TÉMOIGNAGES -->
       <div class="section temoignages">
         <h2> Ce que disent nos participants</h2>
         <div class="testimonial-container">
@@ -139,7 +144,11 @@ const webinaires = ref([]);
 import { defineProps } from 'vue';
 const props = defineProps(['webinaire']);
 
-const isValidDate = (d) => !isNaN(Date.parse(d));
+const isValidDate = (dateStr) => {
+  const date = new Date(dateStr);
+  return date instanceof Date && !isNaN(date);
+};
+
 const formatDate = (dateStr) => {
   const date = new Date(dateStr);
   const jour = date.getDate().toString().padStart(2, '0');
@@ -148,6 +157,7 @@ const formatDate = (dateStr) => {
   const heure = date.getHours().toString().padStart(2, '0');
   return `${jour} ${mois} ${annee}, ${heure}h GMT`;
 };
+
 
 
 const getWebinaires = async () => {
@@ -174,6 +184,24 @@ const getWebinaires = async () => {
 
 onMounted(() => {
   getWebinaires();
+});
+
+
+
+
+import { computed } from 'vue';
+
+const webinairesAFicher = computed(() => {
+  if (webinaires.value.length <= 3) {
+    return webinaires.value;
+  }
+
+  const firstTwo = webinaires.value.slice(0, 2);
+  const last = webinaires.value[webinaires.value.length - 1];
+
+  // Empêche les doublons si le dernier est déjà parmi les deux premiers
+  const alreadyIncluded = firstTwo.some(w => w.id === last.id);
+  return alreadyIncluded ? firstTwo : [...firstTwo, last];
 });
 
 

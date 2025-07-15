@@ -11,17 +11,12 @@
         <h3 class="section-title">🎯 Pour qui ?</h3>
         <p>{{ formation.public_vise }}</p>
 
-        <!-- 📚 OBJECTIFS -->
-        <!-- <h3 class="section-title">📚 Objectifs :</h3>
-<p v-html="formation.objectifs.replace(/\n/g, '<br>')"></p> -->
+        
 <!-- 📚 OBJECTIFS -->
 <h3 class="section-title">📚 Objectifs :</h3>
 <p v-html="formatObjectifs(formation.objectifs)"></p>
 
-
-
-
-        <!-- 📆 DURÉE, CERTIFICATION & FORMAT -->
+ <!-- 📆 DURÉE, CERTIFICATION & FORMAT -->
         <h3 class="section-title">📆 Durée, Certification & Format</h3>
         <p><strong>Certification :</strong> {{ formation.certifiante ? 'Oui' : 'Non' }}</p>
         <p><strong>Format :</strong> {{ formation.format }}</p>

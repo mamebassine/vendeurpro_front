@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script setup>
+<!-- <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import candidatureService from '@/services/candidatureService'
@@ -52,7 +52,53 @@ const mettreAJourCandidature = async () => {
 onMounted(() => {
   chargerCandidature()
 })
+</script> -->
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import candidatureService from '@/services/candidatureService'
+
+const route = useRoute()
+const router = useRouter()
+const form = ref({
+  statut: ''
+})
+const idFormation = ref(null) // 🆕 Pour stocker l'ID de la formation liée
+
+const chargerCandidature = async () => {
+  try {
+    const res = await candidatureService.getById(route.params.id)
+    console.log("📦 Données candidature :", res.data)
+
+    form.value = {
+      statut: res.data.statut
+    }
+
+    // Ajuster selon la vraie structure de la donnée
+    idFormation.value = res.data.formation?.id ?? res.data.formation_id
+  } catch (error) {
+    console.error('Erreur chargement candidature :', error)
+  }
+}
+
+
+const mettreAJourCandidature = async () => {
+  try {
+    await candidatureService.update(route.params.id, form.value)
+    alert('Candidature mise à jour avec succès.')
+    // 🧭 Redirection vers la page admin de détails de la formation
+    router.push(`/admin/formationsdetail/${idFormation.value}`)
+  } catch (error) {
+    console.error('Erreur mise à jour :', error)
+  }
+}
+
+onMounted(() => {
+  chargerCandidature()
+})
 </script>
+
+
 
 <style scoped>
 .modifier-candidature {

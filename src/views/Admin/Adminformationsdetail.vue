@@ -47,21 +47,43 @@
         </div>
       </div>
 
-      <div v-if="formation && formation.candidatures?.length" class="info-block">
-        <h3 class="section-title">📋 Candidatures</h3>
-        <ul class="candidature-list">
-          <li v-for="candidature in formation.candidatures" :key="candidature.id">
-      <p><strong>Nom du candidat :</strong> {{ candidature.candidat.nom }}</p>
-      <p><strong>Email :</strong> {{ candidature.candidat.email }}</p>
-      <p><strong>Statut :</strong> {{ candidature.statut }}</p>
-      <p><strong>Date de candidature :</strong> {{ formatDate(candidature.created_at) }}</p>
+   <div v-if="formation && formation.candidatures?.length" class="info-block">
+  <h3 class="section-title">📋 Candidatures</h3>
+  <table class="candidature-table">
+    <thead>
+      <tr>
+        <th>Nom du candidat</th>
+        <th>Email</th>
+        <th>Statut</th>
+        <th>Date de candidature</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="candidature in formation.candidatures" :key="candidature.id">
+        <td>{{ candidature.candidat.nom }}</td>
+        <td>{{ candidature.candidat.email }}</td>
+        <td>{{ candidature.statut }}</td>
+        <td>{{ formatDate(candidature.created_at) }}</td>
+        <td>
+  <div class="action-buttons">
+    <router-link :to="`/dashboard/modifierCandidature/${candidature.id}`" class="btn-modifier"> 
+      Modifier
+    </router-link>
+    <button @click="supprimerCandidature(candidature.id)" class="btn-supprimer">
+      Supprimer
+    </button>
+  </div>
+</td>
+ <!-- <button @click="modifierCandidature(candidature.id)" class="btn-modifier">Modifier</button> -->
+</tr>
+    </tbody>
+  </table>
+</div>
+<div v-else>
+  <p>Aucune candidature pour cette formation.</p>
+</div>
 
-          </li>
-        </ul>
-      </div>
-      <div v-else>
-        <p>Aucune candidature pour cette formation.</p>
-      </div>
     </section>
   </div>
 </template>
@@ -119,6 +141,29 @@ const formatObjectifs = (text) => {
 onMounted(() => {
   fetchFormation();
 });
+
+
+
+
+const modifierCandidature = (id) => {
+  // Exemple : redirection vers une page de modification
+  router.push({ name: 'ModifierCandidature', params: { id } });
+};
+
+const supprimerCandidature = async (id) => {
+  if (confirm("Voulez-vous vraiment supprimer cette candidature ?")) {
+    try {
+      await api.delete(`/candidatures/${id}`);
+      // Retirer la candidature de la liste localement sans recharger la page
+      formation.value.candidatures = formation.value.candidatures.filter(c => c.id !== id);
+      alert("Candidature supprimée avec succès.");
+    } catch (error) {
+      console.error("Erreur lors de la suppression :", error);
+      alert("Erreur lors de la suppression de la candidature.");
+    }
+  }
+};
+
 </script>
 
 <style scoped>
@@ -226,4 +271,78 @@ ul.candidature-list {
     width: 100%;
   }
 }
+
+
+
+.candidature-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.candidature-table th,
+.candidature-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.candidature-table th {
+  background-color: #ff7f00;
+  color: white;
+  font-weight: 800;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px; /* espace entre les boutons */
+}
+
+.btn-modifier,
+.btn-supprimer {
+  padding: 6px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+      margin-right: 10px; /* 👈 Espace entre les boutons */
+
+}
+
+.btn-modifier {
+  background-color: #ff7f00; /* bleu */
+  color: white;
+}
+
+.btn-modifier:hover {
+  background-color: #003366;
+}
+
+.btn-supprimer {
+  background-color: #d56f6f; /* rouge */
+  color: white;
+}
+
+.btn-supprimer:hover {
+  background-color: #b91c1c;
+}
+
+@media screen and (max-width: 600px) {
+  .candidature-table th,
+  .candidature-table td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .btn-modifier,
+  .btn-supprimer {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+    margin-right: 5px;
+  }
+}
+
 </style>

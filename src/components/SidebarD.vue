@@ -74,7 +74,7 @@
 
 
         <!-- Candidatures -->
-       <li class="nav-item">
+       <!-- <li class="nav-item">
   <router-link to="/dashboard/ListeCandidature" class="nav-link">
     <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
       viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -82,7 +82,7 @@
     </svg>
     <span>Candidatures</span>
   </router-link>
-</li>
+</li> -->
 
 <li class="nav-item">
   <router-link to="/dashboard/listecategorie" class="nav-link">
