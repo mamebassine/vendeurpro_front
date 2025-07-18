@@ -95,6 +95,19 @@
   </router-link>
 </li>
 
+
+<li class="nav-item">
+  <router-link to="/dashboard/actualites/Ajouter" class="nav-link">
+    <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z" />
+      <path d="M3 10h18M7 6v4M11 6v4M15 6v4" />
+    </svg>
+    <span>Actualités</span>
+  </router-link>
+</li>
+
+
       </ul>
     </div>
 

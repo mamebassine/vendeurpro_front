@@ -108,6 +108,16 @@ import ActuDView from '@/views/actuDView.vue'
 import ActuEView from '@/views/actuEView.vue'
 import ActuFView from '@/views/actuFView.vue'
 
+
+import AjouterActualite from '@/views/Admin/Actualite/Ajouter_actualite.vue'
+// import SupprimerActualite from '@/views/Admin/Actualite/Supprimer_actualite.vue'
+// import ListeActualite from '@/views/Admin/Actualite/Liste_actualite.vue'
+// import ModifierActualite from '@/views/Admin/Actualite/Modifier_actualite.vue'
+import VoirdetailActualite from '@/views/Admin/Actualite/Voirdetail_actualite.vue'
+
+import ActualitesVoirdetailView from '@/views/actualitesVoirdetailView.vue'
+
+
 // Dashboard
 
 import DashboardView from '@/views/Admin/Dashboard.vue'
@@ -187,6 +197,10 @@ const router = createRouter({
 
        //{ path: '/FormationDetailsAdmin/:id', name: 'FormationDetailsAdmin', component: FormationDetailsAdmin},
 
+
+
+       { path: 'actualites/:id', name: 'actualites-voir-detail', component: ActualitesVoirdetailView },
+
       ],
 
 
@@ -206,16 +220,16 @@ const router = createRouter({
     // { path: '/admin/formations/:id', name: 'Admin', component: AdminformationsDetails },
 
      {
-  path: '/admin/formationsdetail/:id',
-  name: 'AdminformationsDetails',
-  component: AdminformationsDetails
-},
+  path: '/admin/formationsdetail/:id', name: 'AdminformationsDetails', component: AdminformationsDetails},
 
+// actualites 16 juillet
 
+  {path: '/dashboard/actualites/Ajouter', name: 'AjouterActualite', component: AjouterActualite },
+  // { path: '/dashboard/actualites/:id/modifier', name: 'ModifierActualite', component: ModifierActualite },
+  // { path: '/dashboard/actualites/:id/supprimer', name: 'SupprimerActualite', component: SupprimerActualite },
+  // { path: '/dashboard/actualites/liste', name: 'ListeActualite', component: ListeActualite },
+  { path: '/dashboard/actualites/VoirDetailActualite/:id', name: 'VoirDetailActualite', component: VoirdetailActualite},
 
-
-
-    
 // Candidats
 
 // {
