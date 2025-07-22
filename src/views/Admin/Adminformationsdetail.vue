@@ -47,6 +47,13 @@
         </div>
       </div>
 
+
+    <!-- Bouton retour avec icône -->
+<button class="back-button" @click="router.go(-1)">
+  <i class="fas fa-arrow-left"></i>
+</button>
+
+
    <div v-if="formation && formation.candidatures?.length" class="info-block">
   <h3 class="section-title">📋 Candidatures</h3>
   <table class="candidature-table">
@@ -344,5 +351,36 @@ ul.candidature-list {
     margin-right: 5px;
   }
 }
+
+
+
+
+
+
+.back-button {
+  background-color: #003366;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background-color: #070d15;
+}
+
+.back-button i {
+  font-size: 12px;
+}
+
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    
+
     <!-- BOUTON RETOUR EN HAUT À DROITE -->
     <div class="retour-wrapper">
       <button @click="$router.go(-1)" class="btn-retour">← Retour</button>
@@ -16,8 +16,32 @@
         <p><span class="label">Contenu :</span> {{ actualite.contenu }}</p>
         <p><span class="label">Auteur :</span> {{ actualite.auteur }}</p>
         <p><span class="label">Fonction :</span> {{ actualite.fonction }}</p>
-        <p><span class="label">Date de publication :</span> {{ actualite.date_publication }}</p>
-        <p><span class="label">Points :</span> {{ actualite.points || 'Points manquants' }}</p>
+        <p><span class="label">Date de publication :</span> {{ formatDate(actualite.date_publication) }}</p>
+
+        <!-- ✅ Bloc pour afficher les points clés -->
+        <div v-if="actualite.points && actualite.points.length > 0">
+          <h3 class="label">📝 Points clés de l’actualité</h3>
+
+          <div
+            v-for="(point, index) in actualite.points"
+            :key="index"
+            class="point-bloc"
+            style="margin-bottom: 20px;"
+          >
+            <p><strong>{{ point.titre }}</strong></p>
+
+            <ul v-if="Array.isArray(point.explications)">
+              <li v-for="(explication, i) in point.explications" :key="i">
+                {{ explication }}
+              </li>
+            </ul>
+
+            <p v-if="point.conclusion_bloc" v-html="formatTexte(point.conclusion_bloc)"></p>
+          </div>
+        </div>
+
+        <!-- Si aucun point n'est disponible -->
+        <p v-else><span class="label">Points :</span> Aucun point disponible</p>
 
         <p><span class="label">Conclusion :</span> {{ actualite.conclusion }}</p>
       </div>
@@ -34,26 +58,55 @@ import actualitesService from '@/services/actualitesService'
 export default {
   data() {
     return {
-      actualite: null
-    }
+      actualite: {
+        points: []
+      },
+    };
   },
+
   methods: {
     getImageUrl(image) {
       if (!image) return '/default-image.jpg';
       if (image.startsWith('http')) return image;
       return `http://localhost:8000/storage/${image}`;
+    },
+
+    formatDate(datetime) {
+      if (!datetime) return '';
+      const date = new Date(datetime);
+      return date.toLocaleDateString('fr-FR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    },
+
+    formatTexte(texte) {
+      return texte ? texte.replace(/\n/g, '<br>') : '';
     }
   },
+
   async created() {
-    const id = this.$route.params.id
+    const id = this.$route.params.id;
     try {
-      const res = await actualitesService.getById(id)
-      this.actualite = res.data
+      const res = await actualitesService.getById(id);
+      this.actualite = res.data;
+
+      // Si les points sont une chaîne JSON (en cas d’erreur d'encodage côté backend)
+      if (typeof this.actualite.points === 'string') {
+        this.actualite.points = JSON.parse(this.actualite.points);
+      }
+
+      // Débogage
+      console.log("🟢 Donnée reçue :", res.data);
+      console.log("🔵 actualite.points :", this.actualite.points);
     } catch (error) {
-      console.error('Erreur lors du chargement des détails :', error)
+      console.error('❌ Erreur lors du chargement des détails :', error);
     }
   }
-}
+};
 </script>
 
 <style scoped>

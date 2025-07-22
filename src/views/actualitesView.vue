@@ -17,7 +17,10 @@
           <h3 class="card-title">{{ card.title }}</h3>
         </router-link>
 
-        <p class="card-date">{{ card.date }}</p>
+        <!-- <p class="card-date">{{ card.date }}</p> -->
+
+        <p class="card-date">{{ card.formattedDate }}</p>
+
 
         <p class="card-description">{{ truncateText(card.description, 100) }}</p>
       </div>
@@ -35,11 +38,11 @@ onMounted(async () => {
   try {
     const response = await axios.get('http://localhost:8000/api/actualites')
     cards.value = response.data.map((item) => ({
-      id: item.id, // important pour router-link
+      id: item.id,
       title: item.titre,
       description: item.contenu,
       image: getImageUrl(item.image),
-      date: `Publié le ${formatDate(item.date_publication)}`
+      formattedDate: `Publié le ${formatDate(item.date_publication)}` // ✅ plus clair
     }))
   } catch (error) {
     console.error('Erreur lors du chargement des actualités:', error)

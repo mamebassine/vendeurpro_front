@@ -37,9 +37,6 @@
         </div>
       </div>
 
-      
-
-      
     </section>
   </div>
 </template>
@@ -161,9 +158,6 @@ p {
 .cta-button:hover {
   background-color: #003366;
 }
-
-
-
 
 .section-title {
   margin-top: 24px;
