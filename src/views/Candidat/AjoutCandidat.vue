@@ -5,20 +5,29 @@
     <form v-if="formVisible" @submit.prevent="ajouterCandidat" novalidate>
       <div class="form-group" v-for="(label, key) in fields" :key="key">
         <label :for="key">{{ label }}</label>
-        <input
-          v-if="key !== 'genre'"
+
+        <!-- champ genre -->
+        <select
+          v-if="key === 'genre'"
           :id="key"
-          v-model="form[key]"
-          :placeholder="label"
-          :type="key === 'email' ? 'email' : 'text'"
-          required
-          autocomplete="off"
-        />
-        <select v-else id="genre" v-model="form.genre" required>
+          v-model="form.genre"
+          aria-label="Genre"
+        >
           <option value="" disabled>-- Choisissez un genre --</option>
           <option value="homme">Homme</option>
           <option value="femme">Femme</option>
         </select>
+
+        <!-- autres champs -->
+        <input
+          v-else
+          :id="key"
+          v-model="form[key]"
+          :placeholder="label"
+          :type="key === 'email' ? 'email' : 'text'"
+          :required="key !== 'code_parrainage'"
+          autocomplete="off"
+        />
       </div>
 
       <button type="submit" :disabled="isSubmitting">
@@ -41,73 +50,6 @@
   </div>
 </template>
 
-<!-- <script setup>
-import { ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import candidatService from '../../services/candidatService'
-
-const router = useRouter()
-const route = useRoute()
-
-const form = ref({
-  nom: '',
-  prenom: '',
-  email: '',
-  telephone: '',
-  adresse: '',
-  genre: '',
-  formation_id: route.query.formation_id || null
-})
-
-const message = ref('')
-const errors = ref([])
-const formVisible = ref(true)
-const isSubmitting = ref(false)
-
-const fields = {
-  nom: 'Nom',
-  prenom: 'Prénom',
-  email: 'Email',
-  telephone: 'Téléphone',
-  adresse: 'Adresse',
-  genre: 'Genre'
-}
-
-const ajouterCandidat = async () => {
-  errors.value = []
-  isSubmitting.value = true
-  try {
-    await candidatService.createPublic({ ...form.value })
-
-    message.value = 'Formulaire envoyé, merci !'
-    formVisible.value = false
-
-    setTimeout(() => {
-      router.push('/formations')
-    }, 2000)
-  }
-   catch (error) {
-    if (error.response?.status === 422) {
-      const apiErrors = error.response.data.errors
-      errors.value = Object.values(apiErrors).flat()
-    } else {
-      alert('Erreur lors de l’ajout du candidat.')
-      console.error(error)
-    }
-  } finally {
-    isSubmitting.value = false
-  }
-}
-
-const fermerMessage = () => {
-  message.value = ''
-  formVisible.value = true
-  errors.value = []
-}
-</script> -->
-
-
-
 <script setup>
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
@@ -123,6 +65,7 @@ const form = ref({
   telephone: '',
   adresse: '',
   genre: '',
+  code_parrainage: '',
   formation_id: route.query.formation_id || null
 })
 
@@ -137,12 +80,21 @@ const fields = {
   email: 'Email',
   telephone: 'Téléphone',
   adresse: 'Adresse',
-  genre: 'Genre'
+  genre: 'Genre',
+  code_parrainage: 'Code de parrainage (optionnel)'
 }
 
 const ajouterCandidat = async () => {
   errors.value = []
+
+  // validation frontale du code_parrainage
+  if (form.value.code_parrainage && form.value.code_parrainage.length > 12) {
+    errors.value.push('Le code de parrainage ne doit pas dépasser 12 caractères.');
+    return
+  }
+
   isSubmitting.value = true
+
   try {
     const response = await candidatService.createPublic({ ...form.value })
 
@@ -162,6 +114,7 @@ const ajouterCandidat = async () => {
       telephone: '',
       adresse: '',
       genre: '',
+      code_parrainage: '',
       formation_id: route.query.formation_id || null
     }
 
@@ -170,27 +123,16 @@ const ajouterCandidat = async () => {
       router.push('/formations')
     }, 2000)
 
-  // } catch (error) {
-  //   if (error.response?.status === 422) {
-  //     const apiErrors = error.response.data.errors
-  //     errors.value = Object.values(apiErrors).flat()
-  //   } else {
-  //     alert('❌ Une erreur est survenue. Veuillez réessayer.')
-  //     console.error(error)
-  //   }
-
   } catch (error) {
-  if (error.response?.status === 422) {
-    const apiErrors = error.response.data.errors
-    errors.value = Object.values(apiErrors).flat()
-  } else if (error.response?.status === 409) {
-    errors.value = [error.response.data.message || 'Email ou téléphone déjà utilisé.']
-  } else {
-    alert('❌ Une erreur est survenue. Veuillez réessayer.')
-    console.error(error)
-  }
-
-
+    if (error.response?.status === 422) {
+      const apiErrors = error.response.data.errors
+      errors.value = Object.values(apiErrors).flat()
+    } else if (error.response?.status === 409) {
+      errors.value = [error.response.data.message || 'Email ou téléphone déjà utilisé.']
+    } else {
+      alert('❌ Une erreur est survenue. Veuillez réessayer.')
+      console.error(error)
+    }
   } finally {
     isSubmitting.value = false
   }

@@ -7,17 +7,8 @@
         <router-link to="/">
           <img src="@/assets/images/logo1.jpg" alt="Logo" class="logo" />
         </router-link>
-
-        <!-- <img src="@/assets/images/logo1.jpg" alt="Logo" class="logo" /> -->
-      </div>
-
-<!-- <div class="logo">
-        <router-link to="/">
-          <img :src="logo" alt="Logo">
-        </router-link>
-      </div -->
-
-      <!-- Navigation -->
+    </div>
+<!-- Navigation -->
       <ul class="nav-list">
         <li class="nav-item">
           <a href="/dashboard" class="nav-link">
@@ -107,9 +98,20 @@
   </router-link>
 </li>
 
+<!-- Les parrains -->
+   <li class="nav-item">
+  <router-link to="/userregister" class="nav-link">
+    <svg class="icon" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M16 7a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+    <span>Parrains</span>
+  </router-link>
+</li>
 
-      </ul>
-    </div>
+
+</ul>
+</div>
 
     <!-- Déconnexion en bas -->
     <div class="logout-section">
@@ -150,6 +152,21 @@ function logout() {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  height: 4rem;
+  width: auto;
+} */
+
+
+/* LOGO */
 .logo-container {
   display: flex;
   justify-content: center;
@@ -162,6 +179,17 @@ function logout() {
   height: 4rem;
   width: auto;
 }
+
+/* NAVIGATION */
+.sidebar-nav {
+  flex-grow: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+
+
+
 
 .nav-list {
   padding: 3rem 5rem 0 2rem;

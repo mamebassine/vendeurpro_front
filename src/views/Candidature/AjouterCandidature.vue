@@ -11,6 +11,15 @@
         <option value="acceptée">Acceptée</option>
         <option value="refusée">Refusée</option>
       </select>
+
+
+      <!-- Champ code_parrainage facultatif -->
+      <input
+        v-model="form.code_parrainage"
+        placeholder="Code parrainage (facultatif)"
+        type="text"
+      />
+
       <button type="submit">{{ isEditMode ? 'Mettre à jour' : 'Soumettre' }}</button>
     </form>
 
@@ -34,6 +43,9 @@ const form = ref({
   id_candidat: '',
   id_formation: '',
   statut: '',
+
+  code_parrainage: '',  // <- ajouté ici
+
 })
 
 const message = ref('')
@@ -49,6 +61,9 @@ const chargerCandidature = async () => {
         id_candidat: res.data.id_candidat,
         id_formation: res.data.id_formation,
         statut: res.data.statut,
+
+        code_parrainage: res.data.code_parrainage || '', // gérer null possible
+
       }
     } catch (error) {
       message.value = 'Erreur lors du chargement de la candidature.'

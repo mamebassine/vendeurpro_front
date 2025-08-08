@@ -9,14 +9,27 @@ const apiClient = axios.create({
   }
 });
 
+// const getWebinaires = async () => {
+//   try {
+//     const res = await axios.get('/webinaire');
+//     // ...
+//   } catch (e) {
+//     console.error(e);
+//   }
+// };
+
 const getWebinaires = async () => {
   try {
-    const res = await axios.get('/webinaire');
+    const res = await apiClient.get('/webinaire');
     // ...
+    return res.data;
   } catch (e) {
     console.error(e);
   }
 };
+
+
+
 
 apiClient.interceptors.request.use(config => {
   const token = localStorage.getItem('token');

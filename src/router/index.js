@@ -1,89 +1,28 @@
 
-// import { createRouter, createWebHistory } from 'vue-router'
-
-// import AccueilView from '@/views/accueilView.vue'
-// import AproposView from '@/views/aproposView.vue'
-// import FormationsView from '@/views/formationsView.vue'
-// import CoachingView from '@/views/coachingView.vue'
-// import WebinaireView from '@/views/webinaireView.vue'
-// import ActualitesView from '@/views/actualitesView.vue'
-// import ContactView from '@/views/contactView.vue'
-
-
-
-// import BootcampVendeurView from '@/views/bootcampVendeurView.vue'
-// import BootcampProduitsView from '@/views/bootcampProduitsView.vue'
-// import BootcampServicesView from '@/views/bootcampServicesView.vue'
-// import FormationBtoBView from '@/views/formationBtoBView.vue'
-// import FormationVenteDirecteView from '@/views/formationVenteDirecteView.vue'
-// import FormationVenteDigitaleView from '@/views/formationVenteDigitaleView.vue'
-
-
-
-
-// import ActuAView from '@/views/actuAView.vue'
-// import ActuBView from '@/views/actuBView.vue'
-// import ActuCView from '@/views/actuCView.vue'
-// import ActuDView from '@/views/actuDView.vue'
-// import ActuEView from '@/views/actuEView.vue'
-// import ActuFView from '@/views/actuFView.vue'
-
-
-// import DashboardView from '@/views/Dashboard.vue'
-
-// const router = createRouter({
-  
-//   history: createWebHistory(import.meta.env.BASE_URL),
-//   routes: [
-//     { path: '/', name: 'accueil', component: AccueilView },
-//     { path: '/apropos', name: 'apropos', component: AproposView },
-//     { path: '/formations', name: 'formation', component: FormationsView },
-//     { path: '/coaching', name: 'coaching', component: CoachingView },
-//     { path: '/webinaire', name: 'webinaire', component: WebinaireView },
-//     { path: '/actualites', name: 'actualite', component: ActualitesView },
-//     { path: '/contact', name: 'contact', component: ContactView },
-  
-  
-//     { path: '/bootcamp-vendeur', name: 'bootcamp-vendeur', component: BootcampVendeurView },
-//     { path: '/bootcamp-produits', name: 'bootcamp-produits', component: BootcampProduitsView },
-//     { path: '/bootcamp-services', name: 'bootcamp-services', component: BootcampServicesView },
-//     { path: '/formation-btob', name: 'formation-btob', component: FormationBtoBView },
-//     { path: '/formation-vente-directe', name: 'formation-vente-directe', component: FormationVenteDirecteView },
-//     { path: '/formation-vente-digitale', name: 'formation-vente-digitale', component: FormationVenteDigitaleView },
-  
-
-// { path: '/actualites-a', name: 'actu-a', component: ActuAView },
-// { path: '/actualites-b', name: 'actu-b', component: ActuBView },
-// { path: '/actualites-c', name: 'actu-c', component: ActuCView },
-// { path: '/actualites-d', name: 'actu-d', component: ActuDView },
-// { path: '/actualites-e', name: 'actu-e', component: ActuEView },
-// { path: '/actualites-f', name: 'actu-f', component: ActuFView },
-
-// { path: '/dashboard', name: 'dashboard', component: DashboardView }
-
-//   ],
-// })
-
-// export default router
-
-
-
-
-
-
 import { createRouter, createWebHistory } from 'vue-router'
 
 //AUTHENTIFICATION
 
+// Auth admin
 import Register from '@/views/auth/Register.vue'
 import Login from '@/views/auth/Login.vue'
 import Profile from '@/views/auth/Profile.vue'
 
 import Logout from '@/views/auth/Logout.vue'
 
+// Auth user (connexion simple)
+import UserLogin from '@/views/auth_user/Login.vue'
+import UserDashboard from '@/views/auth_user/Dashboard.vue'
+import UserLogout from '@/views/auth_user/Logout.vue'
+
+import UserRegister from '@/views/Commission/RegisterUser.vue'
+
+
+
 // Layouts
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import DashboardLayout from '@/layouts/DashboardLayout.vue'
+import AuthUserLayout from '@/layouts/AuthUserLayout.vue' // ✅ plus clair
 
 // Pages publiques
 import AccueilView from '@/views/accueilView.vue'
@@ -110,11 +49,7 @@ import ActuFView from '@/views/actuFView.vue'
 
 
 import AjouterActualite from '@/views/Admin/Actualite/Ajouter_actualite.vue'
-// import SupprimerActualite from '@/views/Admin/Actualite/Supprimer_actualite.vue'
-// import ListeActualite from '@/views/Admin/Actualite/Liste_actualite.vue'
-// import ModifierActualite from '@/views/Admin/Actualite/Modifier_actualite.vue'
 import VoirdetailActualite from '@/views/Admin/Actualite/Voirdetail_actualite.vue'
-
 import ActualitesVoirdetailView from '@/views/actualitesVoirdetailView.vue'
 
 
@@ -126,8 +61,6 @@ import VoirdetailformationsView from '@/views/Admin/Voirdetail-formations.vue'
 
 
 import AdminformationsDetails from '@/views/Admin/Adminformationsdetail.vue'
-
-//
 import AjoutCandidat from '@/views/Candidat/AjoutCandidat.vue';
 import ListeCandidat from '@/views/Candidat/ListeCandidat.vue'
 import VoirDetailCandidat from '@/views/Candidat/VoirDetailCandidat.vue'
@@ -139,18 +72,7 @@ import ListeCandidature from '@/views/Candidature/ListeCandidature.vue'
 import ModifierCandidature from '@/views/Candidature/ModifierCandidature.vue'
 
 
-
-// import AjouterCandidature from '@/views/Candidature/AjouterCandidature.vue'
-// import VoirDetailCandidature from '@/views/Candidature/VoirDetailCandidature.vue'
-// import ListeCandidature from '@/views/Candidature/ListeCandidatures.vue'
-
-// import AjoutCategorie from '@/views/Categorie/AjoutCategorie.vue';
-// import VoirDetailCategorie from '@/views/Categorie/VoirDetailCategorie.vue';
 import ListeCategorie from '@/views/Categorie/ListeCategorie.vue';
-
-
-
-
 import CandidatForm from '@/views/CandidatForm.vue'
 import CandidatList from '@/views/CandidatList.vue'
 
@@ -159,6 +81,9 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+
+
+
         // ... autres pages publiques ici
 
 
@@ -189,26 +114,37 @@ const router = createRouter({
         { path: 'actualites-e', name: 'actu-e', component: ActuEView },
         { path: 'actualites-f', name: 'actu-f', component: ActuFView },
 
-        // { path: '/ajoutCandidat',name: 'AjoutCandidat', component: AjoutCandidat },
 
         { path: '/voirdetail-candidat/:id', name: 'VoirDetailCandidat', component: VoirDetailCandidat },
 
        { path: 'voirdetail-formations/:id', name: 'Voirdetail-formations', component: VoirdetailformationsView },
 
-       //{ path: '/FormationDetailsAdmin/:id', name: 'FormationDetailsAdmin', component: FormationDetailsAdmin},
-
-
-
-       { path: 'actualites/:id', name: 'actualites-voir-detail', component: ActualitesVoirdetailView },
+      { path: 'actualites/:id', name: 'actualites-voir-detail', component: ActualitesVoirdetailView },
 
       ],
 
 
     },
 
-            // ... pages admin ici
+// Routes publiques sans layout
+  { path: '/userlogin', name: 'UserLogin', component: UserLogin },
+  { path: '/userlogout', name: 'UserLogout', component: UserLogout },
 
-    // Routes Dashboard avec layout personnalisé    
+
+  // ICI SUR LA USER Routes protégées avec layout
+//  { path: '/userregister', name: 'RegisterUser', component: UserRegister },  
+ 
+  {
+    path: '/auth_user',
+    component: AuthUserLayout,
+    children: [
+      { path: 'userdashboard', name: 'UserDashboard', component: UserDashboard, meta: { requiresAuth: true } }
+    ]
+  },
+
+    
+ // ... pages admin ici
+// Routes Dashboard avec layout personnalisé    
     {
   path: '/dashboard',
   component: DashboardLayout,
@@ -216,33 +152,18 @@ const router = createRouter({
     // Dashboard ET Formations
     { path: '', name: 'dashboard', component: DashboardView },
     { path: 'ajouter-formations', name: 'Ajouter-formations', component: AjouterFormationsView },
-
-    // { path: '/admin/formations/:id', name: 'Admin', component: AdminformationsDetails },
-
-     {
-  path: '/admin/formationsdetail/:id', name: 'AdminformationsDetails', component: AdminformationsDetails},
+    { path: '/admin/formationsdetail/:id', name: 'AdminformationsDetails', component: AdminformationsDetails},
 
 // actualites 16 juillet
 
   {path: '/dashboard/actualites/Ajouter', name: 'AjouterActualite', component: AjouterActualite },
-  // { path: '/dashboard/actualites/:id/modifier', name: 'ModifierActualite', component: ModifierActualite },
-  // { path: '/dashboard/actualites/:id/supprimer', name: 'SupprimerActualite', component: SupprimerActualite },
-  // { path: '/dashboard/actualites/liste', name: 'ListeActualite', component: ListeActualite },
+
   { path: '/dashboard/actualites/VoirDetailActualite/:id', name: 'VoirDetailActualite', component: VoirdetailActualite},
 
 // Candidats
 
-// {
-//   path: '/ajoutCandidat/:id',
-//   name: 'AjoutCandidat',
-//   component: AjoutCandidat
-// }
-
-// { path: '/ajoutCandidat',name: 'AjoutCandidat', component: AjoutCandidat },
 { path: '/dashboard/listeCandidat', name: 'ListeCandidat', component: ListeCandidat },
 { path: '/dashboard/Voirdetail/candidat/:id', name: 'VoirDetailCandidat', component: VoirDetailCandidat },
-
-
 
 // // Candidature
 
@@ -252,24 +173,10 @@ const router = createRouter({
    { path: '/dashboard/modifierCandidature/:id', name: 'modifierCandidature', component: ModifierCandidature },
 
 // // categories
-// { path: '/dashboard/ajoutcategorie', name: 'AjoutCategorie', component: AjoutCategorie },
 { path: '/dashboard/listecategorie', name: 'ListeCategorie', component: ListeCategorie },
 
-//  {
-//   path: '/ajoutcategories',
-//   name: 'AjoutCategories',
-//   component: AjoutCategoriesView
-// },
-// {
-//   path: '/Voirdetail/categorie/:id',
-//   name: 'VoirDetailCategorie',
-//   component: VoirDetailCategorieView
-// },
-// {
-//   path: '/dashboard/listecategorie',
-//   name: 'ListeCategorie',
-//   component: ListeCategorieView
-// }
+ { path: '/userregister', name: 'RegisterUser', component: UserRegister },  
+
 
 
 ]
@@ -293,6 +200,8 @@ const router = createRouter({
     }
   ]
 })
+
+
 console.log("Router loaded correctly");
 
 export default router
