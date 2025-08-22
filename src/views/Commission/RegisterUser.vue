@@ -80,7 +80,7 @@
           <p><strong>Email :</strong> {{ selectedUser.email }}</p>
           <p><strong>Téléphone :</strong> {{ selectedUser.phone }}</p>
           <p><strong>Adresse :</strong> {{ selectedUser.address || 'Non renseignée' }}</p>
-          <p><strong>Rôle :</strong> {{ selectedUser.role || 'Non renseigné' }}</p>
+          <p><strong>Solde :</strong> {{ selectedUser.solde || 'Non renseigné' }}</p>
           <p><strong>Code parrainage :</strong> {{ selectedUser.code_parrainage || 'Aucun' }}</p>
           <p>
             <strong>Image :</strong><br />
@@ -91,6 +91,7 @@
 
        <div v-if="selectedCandidatures && selectedCandidatures.length" class="candidature-block-container">
   <h4><strong>Candidatures parrainées reçues :</strong></h4>
+  
   <div v-for="(candidature, index) in selectedCandidatures" :key="candidature.id" class="candidature-block">
     <p><strong>#{{ index + 1 }} - Statut :</strong> {{ candidature.statut }}</p>
     <p><strong>Candidat :</strong> {{ candidature.candidat.nom }} {{ candidature.candidat.prenom }}</p>
@@ -101,8 +102,14 @@
       <p><strong>Description :</strong> {{ candidature.formation.description }}</p>
       <p><strong>Durée :</strong> {{ candidature.formation.duree }} jours</p>
     </div>
-    <hr />
-  </div>
+<!-- Montant de la commission pour cette candidature -->
+  <p><strong>Montant de la commission :</strong> {{ candidature.commissions.montant_commission || 0 }} FCFA</p>
+
+<hr />
+</div>
+
+<!-- Total de toutes les commissions du parrain -->
+<!-- <p><strong>Montant total de la commission du parrain :</strong> {{ totalCommission }} FCFA</p> -->
 </div>
 
         <div v-else>
@@ -183,7 +190,7 @@ export default {
     },
     async viewUser(user) {
       this.selectedUser = user
-
+      console.log(user);
       // Si le user a des candidatures reçues comme parrain, on récupère toutes ces candidatures
       if (user.candidatures_parrain && user.candidatures_parrain.length > 0) {
         this.selectedCandidatures = user.candidatures_parrain
@@ -215,7 +222,15 @@ export default {
         }
       }
     }
+  },
+
+  computed: {
+  totalCommission() {
+    if (!this.selectedCandidatures || this.selectedCandidatures.length === 0) return 0;
+    return this.selectedCandidatures.reduce((sum, c) => sum + (c.montant_commission || 0), 0);
   }
+}
+
 }
 </script>
 

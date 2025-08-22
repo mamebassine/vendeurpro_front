@@ -1,3 +1,4 @@
+
 import apiClient from './api'
 
 export default {
@@ -11,18 +12,15 @@ export default {
     return apiClient.post('/candidats', candidat)
   },
   createPublic(data) {
-    return apiClient.post('/public-candidature', data) // << fonctionne car baseURL est déjà "http://localhost:8000/api"
+    return apiClient.post('/public-candidature', data)
   },
-  
   update(id, candidat) {
     return apiClient.put(`/candidats/${id}`, candidat)
   },
   remove(id) {
     return apiClient.delete(`/candidats/${id}`)
+  },
+  getCandidatsParraines() {
+    return apiClient.get('/candidats-parraines')
   }
-
-//   createPublic(data) {
-//   return axios.post('/api/public-candidature', data)
-// }
-
 }

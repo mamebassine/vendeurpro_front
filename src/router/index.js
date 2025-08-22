@@ -14,8 +14,10 @@ import Logout from '@/views/auth/Logout.vue'
 import UserLogin from '@/views/auth_user/Login.vue'
 import UserDashboard from '@/views/auth_user/Dashboard.vue'
 import UserLogout from '@/views/auth_user/Logout.vue'
-
+                 //ICI LES CHANGEMENTS
 import UserRegister from '@/views/Commission/RegisterUser.vue'
+import ListeCandidatsParraines from '@/views/auth_user/listeCandidatsParraines.vue'
+import Commissions from '@/views/auth_user/Commissions.vue'
 
 
 
@@ -138,7 +140,13 @@ const router = createRouter({
     path: '/auth_user',
     component: AuthUserLayout,
     children: [
-      { path: 'userdashboard', name: 'UserDashboard', component: UserDashboard, meta: { requiresAuth: true } }
+      { path: 'userdashboard', name: 'UserDashboard', component: UserDashboard, meta: { requiresAuth: true } },
+      { path: 'filleuls', name: 'Filleuls', component: ListeCandidatsParraines, meta: { requiresAuth: true } },
+
+      // Vérifie si tu as cette ligne, sinon ajoute la route commissions :
+      { path: 'commissions', name: 'Commissions', component: Commissions, meta: { requiresAuth: true } }
+    
+    
     ]
   },
 
