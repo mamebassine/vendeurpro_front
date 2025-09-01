@@ -211,9 +211,6 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 let formationInterval = null;
 let testimonialInterval = null;
 
-// =========================
-// 🚀 Formations Carousel
-// =========================
 const formations = ref([
   {
     img: new URL("@/assets/images/vendeurp4.jpg", import.meta.url).href,

@@ -28,7 +28,10 @@
       </div> -->
 
       <!-- Nom prénom -->
-      <span class="user-name">{{ fullName }}</span>
+      <!-- <span class="user-name">{{ fullName }}</span> -->
+      <h1 class="text-4xl font-bold text-gray-800 mb-6">
+  📊 Bienvenue user {{ user.prenom }} {{ user.name }}
+</h1>
 
       <!-- Image utilisateur -->
       <img :src="avatar" alt="Avatar utilisateur" class="user-avatar" />
@@ -40,8 +43,8 @@
 import { ref } from 'vue'
 
 const search = ref('')
-const fullName = ref('Jean Dupont') // à remplacer dynamiquement
-const avatar = ref('/avatar.png')   // image utilisateur (par défaut ou dynamique)
+// const fullName = ref('Jean Dupont') // à remplacer dynamiquement
+// const avatar = ref('/avatar.png')   // image utilisateur (par défaut ou dynamique)
 </script>
 
 <style scoped>

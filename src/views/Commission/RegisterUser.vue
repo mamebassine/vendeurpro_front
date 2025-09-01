@@ -79,7 +79,7 @@
           <p><strong>Email :</strong> {{ selectedUser.email }}</p>
           <p><strong>Téléphone :</strong> {{ selectedUser.phone }}</p>
           <p><strong>Adresse :</strong> {{ selectedUser.address || 'Non renseignée' }}</p>
-          <p><strong>Solde :</strong> {{ selectedUser.solde || 'Non renseigné' }}</p>
+<p><strong>Solde :</strong> {{ formatMontant(totalSolde) }}</p>
           <p><strong>Code parrainage :</strong> {{ selectedUser.code_parrainage || 'Aucun' }}</p>
           <p>
             <strong>Image :</strong><br />
@@ -203,19 +203,42 @@ export default {
       } catch (error) {
         alert('Erreur lors de la suppression')
       }
+    },
+    formatMontant(montant) {
+      if (!montant) return "0 FCFA"
+      return new Intl.NumberFormat('fr-FR', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }).format(montant) + " FCFA"
+    }
+  },
+  async getSolde() {
+    try {
+      const res = await api.get('/mes-commissions/total')
+      return res.data.montant_total || 0
+    } catch (error) {
+      console.error('Erreur lors de la récupération du solde', error)
+      return 0
     }
   },
   computed: {
-    totalSolde() {
-      if (!this.selectedCandidatures || this.selectedCandidatures.length === 0) return 0
-      return this.selectedCandidatures.reduce((sum, c) => {
-        if (!c.commissions) return sum
-        return sum + (Array.isArray(c.commissions) 
-          ? c.commissions.reduce((s, com) => s + (com.montant_commission || 0), 0) 
-          : (c.commissions.montant_commission || 0))
-      }, 0)
-    }
+  totalSolde() {
+    if (!this.selectedCandidatures || this.selectedCandidatures.length === 0) return 0
+
+    return this.selectedCandidatures.reduce((sum, c) => {
+      if (!c.commissions) return sum
+
+      // Si commissions est un tableau
+      if (Array.isArray(c.commissions)) {
+        return sum + c.commissions.reduce((s, com) => s + Number(com.montant_commission || 0), 0)
+      }
+
+      // Sinon, c.commissions est un objet
+      return sum + Number(c.commissions?.montant_commission || 0)
+    }, 0)
   }
+}
+
 }
 </script>
 
