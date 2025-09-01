@@ -2,16 +2,21 @@
   <div class="commissions-page">
     <h1><strong>Mes Commissions</strong></h1>
 
+    <!-- Loading -->
+    <div v-if="loading" class="loading">Chargement des commissions...</div>
+
+    <!-- Error -->
+    <div v-if="error" class="error">{{ error }}</div>
+
     <!-- Montant total des commissions -->
-    <div v-if="commissions.length" class="total-commission">
+    <div v-if="!loading && !error && commissions.length" class="total-commission">
       <strong>Montant total de la commission du parrain :</strong> {{ formatFCFA(totalCommissions) }}
     </div>
 
     <!-- Si commissions -->
-    <table v-if="commissions.length" class="commissions-table">
+    <table v-if="!loading && !error && commissions.length" class="commissions-table">
       <thead>
         <tr>
-          <!-- <th>ID</th> -->
           <th>Nom complet du candidat</th>
           <th>Formation</th>
           <th>Montant de la commission</th>
@@ -20,33 +25,24 @@
       </thead>
       <tbody>
         <tr v-for="commission in commissions" :key="commission.id">
-          <!-- <td>{{ commission.id }}</td> -->
           <td>{{ commission.candidature?.candidat?.prenom }} {{ commission.candidature?.candidat?.nom }}</td>
           <td>{{ commission.candidature?.formation?.titre }}</td>
           <td>{{ formatFCFA(commission.montant_commission) ?? '—' }}</td>
           <td>
-            <span 
-              v-if="normalizeStatut(commission.candidature?.statut) === 'acceptee'" 
-              class="statut accepte"
-            >
+            <span v-if="normalizeStatut(commission.candidature?.statut) === 'acceptee'" class="statut accepte">
               Acceptée
             </span>
-            <span 
-              v-else-if="normalizeStatut(commission.candidature?.statut) === 'refusee'" 
-              class="statut refuse"
-            >
+            <span v-else-if="normalizeStatut(commission.candidature?.statut) === 'refusee'" class="statut refuse">
               Refusée
             </span>
-            <span v-else class="statut attente">
-              En attente
-            </span>
+            <span v-else class="statut attente">En attente</span>
           </td>
         </tr>
       </tbody>
     </table>
 
     <!-- Si pas de commissions -->
-    <p v-else class="no-data">Aucune commission trouvée.</p>
+    <p v-if="!loading && !error && !commissions.length" class="no-data">Aucune commission trouvée.</p>
   </div>
 </template>
 
@@ -56,28 +52,39 @@ import commissionService from "@/services/commissionService";
 export default {
   data() {
     return {
-      commissions: []
+      commissions: [],
+      totalCommissions: 0,
+      loading: true,
+      error: null,
     }
   },
-  computed: {
-    // Calcul du montant total des commissions
-    totalCommissions() {
-      return this.commissions.reduce((total, commission) => {
-        return total + (commission.montant_commission || 0);
-      }, 0);
-    }
-  },
-  mounted() {
-    this.loadCommissions();
+  async mounted() {
+    await this.loadCommissions();
   },
   methods: {
     async loadCommissions() {
       try {
-        const res = await commissionService.getAll();
-        this.commissions = res.data.commissions || res.data;
-        console.log("Statuts :", this.commissions.map(c => c.candidature?.statut));
+        // Récupérer toutes les commissions
+        const res = await commissionService.getAll(); // '/mes-commissions'
+        if (res.data.success) {
+          this.commissions = res.data.commissions || [];
+
+          // Calculer le total ou récupérer via l'API
+          const totalRes = await commissionService.getTotal(); // '/mes-commissions/total'
+          if (totalRes.data.success) {
+            this.totalCommissions = totalRes.data.montant_total || 0;
+          } else {
+            // fallback : calcul côté front
+            this.totalCommissions = this.commissions.reduce((t, c) => t + (c.montant_commission || 0), 0);
+          }
+        } else {
+          this.error = "Impossible de charger les commissions.";
+        }
       } catch (e) {
-        console.error("Erreur lors du chargement :", e);
+        this.error = "Erreur lors du chargement des commissions.";
+        console.error(e);
+      } finally {
+        this.loading = false;
       }
     },
     normalizeStatut(statut) {
@@ -90,15 +97,15 @@ export default {
         .replace(/\s+/g, "_");
     },
     formatFCFA(montant) {
-  if (montant == null) return null;
-  // Conversion en nombre pour supprimer les zéros initiaux
-  const value = Number(montant);
-  return value.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " FCFA";
-}
-
+      if (montant == null) return null;
+      const value = Number(montant);
+      return value.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " FCFA";
+    }
   }
 }
 </script>
+
+
 
 
 <style scoped>

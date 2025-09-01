@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">📋 Liste des candidats parrainés</h1>
+    <h1 class="title">📋 Mes filleuls</h1>
 
     <div v-if="loading" class="loading">
       Chargement des données...
@@ -10,7 +10,7 @@
       {{ error }}
     </div>
 
-    <table v-if="!loading && users.length" class="table">
+    <table v-if="!loading && fillieuls.length" class="table">
       <thead>
         <tr>
           <th>Nom complet du Parrain</th>
@@ -21,32 +21,31 @@
         </tr>
       </thead>
       <tbody>
-        <template v-for="user in users" :key="user.id">
-          <tr v-for="candidature in user.candidatures_parrain" :key="candidature.id">
-            <td>{{ user.name }} {{ user.prenom }} {{ user.prenom }}</td>
-            <td>{{ candidature.candidat.nom }} {{ candidature.candidat.prenom }}</td>
-            <td>{{ candidature.candidat.email }} </td>
-            <td>{{ candidature.formation.titre }}</td>
-            <td>{{ candidature.statut }}</td>
-          </tr>
-        </template>
+        <tr v-for="candidature in fillieuls" :key="candidature.id">
+          <td>{{ parrain.nomComplet }}</td>
+          <td>{{ candidature.candidat.name }} {{ candidature.candidat.prenom }}</td>
+          <td>{{ candidature.candidat.email }}</td>
+          <td>{{ candidature.formation.titre }}</td>
+          <td>{{ candidature.statut || "En attente" }}</td>
+        </tr>
       </tbody>
     </table>
 
-    <div v-if="!loading && !users.length" class="empty">
-      Aucun candidat parrainé trouvé.
+    <div v-if="!loading && !fillieuls.length" class="empty">
+      Aucun filleul trouvé pour le moment précis.
     </div>
   </div>
 </template>
 
 <script>
-import candidatService from "@/services/candidatService" // adapte le chemin selon ton projet
+import candidatService from "@/services/candidatService" 
 
 export default {
   name: "ListeCandidatsParraines",
   data() {
     return {
-      users: [],
+      parrain: {},       // Infos du parrain connecté
+      fillieuls: [],     // Liste de ses filleuls
       loading: true,
       error: null,
     }
@@ -55,12 +54,14 @@ export default {
     try {
       const response = await candidatService.getCandidatsParraines()
       if (response.data.success) {
-        this.users = response.data.users
+        // Récupération des données comme renvoyées par ton API Laravel
+        this.parrain = { nomComplet: response.data.parrain }
+        this.fillieuls = response.data.fillieuls
       } else {
         this.error = "Impossible de charger les données."
       }
     } catch (err) {
-      this.error = "Erreur lors du chargement des candidats."
+      this.error = "Erreur lors du chargement des filleuls."
     } finally {
       this.loading = false
     }
@@ -69,5 +70,26 @@ export default {
 </script>
 
 <style scoped>
-/* ... tes styles existants ... */
+.container {
+  padding: 20px;
+}
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.loading,
+.error,
+.empty {
+  margin: 20px 0;
+  font-weight: bold;
+}
 </style>

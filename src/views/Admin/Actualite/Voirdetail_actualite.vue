@@ -94,6 +94,12 @@ export default {
       const res = await actualitesService.getById(id);
       this.actualite = res.data;
 
+
+// ✅ Debug image
+    console.log("Image brute de la BDD :", this.actualite.image);
+    console.log("URL générée :", this.getImageUrl(this.actualite.image));
+
+
       // Si les points sont une chaîne JSON (en cas d’erreur d'encodage côté backend)
       if (typeof this.actualite.points === 'string') {
         this.actualite.points = JSON.parse(this.actualite.points);

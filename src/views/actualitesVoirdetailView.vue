@@ -39,6 +39,8 @@
     </div>
 <!-- Image -->
     <img :src="getImageUrl(actualite.image)" alt="Image Actualité" class="header-image" />
+
+
 <!-- POINTS -->
 <h2 class="section-title">Points clés de l’actualité</h2>
 <div class="benefits-wrapper">
@@ -60,6 +62,9 @@
     <p class="conclusion">{{ actualite.conclusion }}</p>
   </div>
 </template>
+
+
+
 
 <script>
 import actualitesService from '@/services/actualitesService'

@@ -28,47 +28,46 @@
       </table>
     </div>
 
-   <!-- Modale d'inscription -->
-<div v-if="showModal" class="inscription-modal-overlay" @click.self="closeModal">
-  <div class="inscription-modal-content">
-    <h2><strong>Inscription</strong></h2>
-    <form @submit.prevent="register">
-      <div class="inscription-form-group">
-        <label>Nom</label>
-        <input v-model="form.name" type="text" required />
-      </div>
-      <div class="inscription-form-group">
-        <label>Prénom</label>
-        <input v-model="form.prenom" type="text" required />
-      </div>
-      <div class="inscription-form-group">
-        <label>Email</label>
-        <input v-model="form.email" type="email" required />
-      </div>
-      <div class="inscription-form-group">
-        <label>Mot de passe</label>
-        <input v-model="form.password" type="password" required />
-      </div>
-      <div class="inscription-form-group">
-        <label>Téléphone</label>
-        <input v-model="form.phone" type="text" required />
-      </div>
-      <div class="inscription-form-group">
-        <label>Adresse</label>
-        <input v-model="form.address" type="text" />
-      </div>
+    <!-- Modale d'inscription -->
+    <div v-if="showModal" class="inscription-modal-overlay" @click.self="closeModal">
+      <div class="inscription-modal-content">
+        <h2><strong>Inscription</strong></h2>
+        <form @submit.prevent="register">
+          <div class="inscription-form-group">
+            <label>Nom</label>
+            <input v-model="form.name" type="text" required />
+          </div>
+          <div class="inscription-form-group">
+            <label>Prénom</label>
+            <input v-model="form.prenom" type="text" required />
+          </div>
+          <div class="inscription-form-group">
+            <label>Email</label>
+            <input v-model="form.email" type="email" required />
+          </div>
+          <div class="inscription-form-group">
+            <label>Mot de passe</label>
+            <input v-model="form.password" type="password" required />
+          </div>
+          <div class="inscription-form-group">
+            <label>Téléphone</label>
+            <input v-model="form.phone" type="text" required />
+          </div>
+          <div class="inscription-form-group">
+            <label>Adresse</label>
+            <input v-model="form.address" type="text" />
+          </div>
 
-      <div class="inscription-form-buttons">
-        <button class="inscription-btn-submit" type="submit">S'inscrire</button>
-        <button class="inscription-btn-close" type="button" @click="closeModal">❌</button>
+          <div class="inscription-form-buttons">
+            <button class="inscription-btn-submit" type="submit">S'inscrire</button>
+            <button class="inscription-btn-close" type="button" @click="closeModal">❌</button>
+          </div>
+
+          <p v-if="error" class="inscription-error">{{ error }}</p>
+          <p v-if="success" class="inscription-success">{{ success }}</p>
+        </form>
       </div>
-
-      <p v-if="error" class="inscription-error">{{ error }}</p>
-      <p v-if="success" class="inscription-success">{{ success }}</p>
-    </form>
-  </div>
-</div>
-
+    </div>
 
     <!-- Modale détails utilisateur -->
     <div v-if="selectedUser" class="modal-overlay" @click.self="closeModal">
@@ -89,28 +88,30 @@
           </p>
         </div>
 
-       <div v-if="selectedCandidatures && selectedCandidatures.length" class="candidature-block-container">
-  <h4><strong>Candidatures parrainées reçues :</strong></h4>
-  
-  <div v-for="(candidature, index) in selectedCandidatures" :key="candidature.id" class="candidature-block">
-    <p><strong>#{{ index + 1 }} - Statut :</strong> {{ candidature.statut }}</p>
-    <p><strong>Candidat :</strong> {{ candidature.candidat.nom }} {{ candidature.candidat.prenom }}</p>
+        <div v-if="selectedCandidatures && selectedCandidatures.length" class="candidature-block-container">
+          <h4><strong>Candidatures parrainées reçues :</strong></h4>
+          <div v-for="(candidature, index) in selectedCandidatures" :key="candidature.id" class="candidature-block">
+            <p><strong>#{{ index + 1 }} - Statut :</strong> {{ candidature.statut }}</p>
+            <p><strong>Candidat :</strong> {{ candidature.candidat.nom }} {{ candidature.candidat.prenom }}</p>
 
-    <div v-if="candidature.formation">
-      <h5><em>Formation postulée :</em></h5>
-      <p><strong>Nom :</strong> {{ candidature.formation.titre }}</p>
-      <p><strong>Description :</strong> {{ candidature.formation.description }}</p>
-      <p><strong>Durée :</strong> {{ candidature.formation.duree }} jours</p>
-    </div>
-<!-- Montant de la commission pour cette candidature -->
-  <p><strong>Montant de la commission :</strong> {{ candidature.commissions.montant_commission || 0 }} FCFA</p>
+            <div v-if="candidature.formation">
+              <h5><em>Formation postulée :</em></h5>
+              <p><strong>Nom :</strong> {{ candidature.formation.titre }}</p>
+              <p><strong>Description :</strong> {{ candidature.formation.description }}</p>
+              <p><strong>Durée :</strong> {{ candidature.formation.duree }} jours</p>
+            </div>
 
-<hr />
-</div>
-
-<!-- Total de toutes les commissions du parrain -->
-<!-- <p><strong>Montant total de la commission du parrain :</strong> {{ totalCommission }} FCFA</p> -->
-</div>
+            <!-- Montant de la commission -->
+            <p><strong>Montant de la commission :</strong> 
+              {{
+                Array.isArray(candidature.commissions)
+                  ? candidature.commissions.reduce((sum, c) => sum + (c.montant_commission || 0), 0)
+                  : (candidature.commissions?.montant_commission || 0)
+              }} FCFA
+            </p>
+            <hr />
+          </div>
+        </div>
 
         <div v-else>
           <p>Aucune candidature reçue.</p>
@@ -143,7 +144,7 @@ export default {
       },
       users: [],
       selectedUser: null,
-      selectedCandidatures: [],  // Pluriel pour toutes les candidatures reçues
+      selectedCandidatures: [],
       showModal: false,
       success: '',
       error: ''
@@ -151,9 +152,7 @@ export default {
   },
   mounted() {
     const code = this.$route.query.parrain
-    if (code) {
-      this.form.code_parrainage = code
-    }
+    if (code) this.form.code_parrainage = code
     this.getUsers()
   },
   methods: {
@@ -162,15 +161,7 @@ export default {
         const data = await authService.register(this.form)
         this.success = data.message
         this.error = ''
-        this.form = {
-          name: '',
-          prenom: '',
-          email: '',
-          password: '',
-          phone: '',
-          address: '',
-          code_parrainage: ''
-        }
+        this.form = { name:'', prenom:'', email:'', password:'', phone:'', address:'', code_parrainage:'' }
         this.getUsers()
         this.showModal = false
       } catch (err) {
@@ -182,22 +173,14 @@ export default {
       try {
         const res = await api.get('/users')
         const allUsers = res.data.users || res.data
-        // Filtrer uniquement les utilisateurs avec le rôle 'user'
         this.users = allUsers.filter(user => user.role === 'user')
       } catch (error) {
         console.error('Erreur lors de la récupération des utilisateurs', error)
       }
     },
-    async viewUser(user) {
+    viewUser(user) {
       this.selectedUser = user
-      console.log(user);
-      // Si le user a des candidatures reçues comme parrain, on récupère toutes ces candidatures
-      if (user.candidatures_parrain && user.candidatures_parrain.length > 0) {
-        this.selectedCandidatures = user.candidatures_parrain
-      } else {
-        this.selectedCandidatures = []
-      }
-
+      this.selectedCandidatures = user.candidatures_parrain || []
       this.showModal = true
     },
     closeModal() {
@@ -212,31 +195,32 @@ export default {
       this.showModal = true
     },
     async deleteUser(userId) {
-      if (confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) {
-        try {
-          await api.delete(`/users/${userId}`)
-          this.getUsers()
-          alert('Utilisateur supprimé avec succès')
-        } catch (error) {
-          alert('Erreur lors de la suppression')
-        }
+      if (!confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) return
+      try {
+        await api.delete(`/users/${userId}`)
+        this.getUsers()
+        alert('Utilisateur supprimé avec succès')
+      } catch (error) {
+        alert('Erreur lors de la suppression')
       }
     }
   },
-
   computed: {
-  totalCommission() {
-    if (!this.selectedCandidatures || this.selectedCandidatures.length === 0) return 0;
-    return this.selectedCandidatures.reduce((sum, c) => sum + (c.montant_commission || 0), 0);
+    totalSolde() {
+      if (!this.selectedCandidatures || this.selectedCandidatures.length === 0) return 0
+      return this.selectedCandidatures.reduce((sum, c) => {
+        if (!c.commissions) return sum
+        return sum + (Array.isArray(c.commissions) 
+          ? c.commissions.reduce((s, com) => s + (com.montant_commission || 0), 0) 
+          : (c.commissions.montant_commission || 0))
+      }, 0)
+    }
   }
-}
-
 }
 </script>
 
+
 <style scoped>
-
-
 
 .register-form {
   max-width: 600px;

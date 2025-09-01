@@ -165,7 +165,7 @@
       <tbody>
         <tr v-for="item in actualites" :key="item.id">
           <td>
-            <img :src="getImageUrl(item.image)" alt="Image" class="actualite-image" />
+            <img :src="getImageUrl(item.image)" alt="Ici Image" class="actualite-image" />
           </td>
           <td><strong>{{ item.titre || 'Titre manquant' }}</strong></td>
           <td class="content-cell">{{ item.contenu || 'Contenu manquant' }}</td>
@@ -364,19 +364,30 @@ export default {
     },
 
     /* ----------- HELPERS ----------- */
-    getImageUrl(image) {
-      if (!image) return '/default-image.jpg';
-      if (image.startsWith('http')) return image;
-      if (image.startsWith('actualites/')) {
-        return `http://localhost:8000/storage/${image}`;
-      }
-      if (image.startsWith('/storage/')) {
-        return `http://localhost:8000${image}`;
-      }
-      return image.startsWith('/')
-        ? `http://localhost:8000${image}`
-        : `http://localhost:8000/${image}`;
-    },
+    // getImageUrl(image) {
+    //   if (!image) return '/default-image.jpg';
+    //   if (image.startsWith('http')) return image;
+    //   if (image.startsWith('actualites/')) {
+    //     return `http://localhost:8000/storage/${image}`;
+    //   }
+    //   if (image.startsWith('/storage/')) {
+    //     return `http://localhost:8000${image}`;
+    //   }
+    //   return image.startsWith('/')
+    //     ? `http://localhost:8000${image}`
+    //     : `http://localhost:8000/${image}`;
+    // },
+
+
+getImageUrl(image) {
+  if (!image) return '/default-image.jpg'; // image par défaut si aucune
+  // supprime les slashes en début pour éviter double slash
+  const cleanImage = image.replace(/^\/+/, '');
+  return `http://localhost:8000/storage/${cleanImage}`;
+},
+
+
+
 
     truncateText(text, maxLength = 50) {
       if (!text) return '';
@@ -399,6 +410,9 @@ export default {
 
   mounted() {
     this.fetchActualites();
+
+    // ✅ Debug rapide pour une image fixe
+  console.log(this.getImageUrl('actualites/Rv1eePsDDqavArJ9e8dYlLhqqkDmt5dMJazeCwd5.jpg'));
   }
 };
 </script>
