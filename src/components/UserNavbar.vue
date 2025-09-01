@@ -1,51 +1,70 @@
 <template>
   <nav class="navbar">
-    <!-- LOGO -->
     <div class="logo">UserDashboard</div>
 
-    <!-- ACTIONS À DROITE -->
     <div class="nav-actions">
-      <!-- Barre de recherche -->
-      <input
-        v-model="search"
-        type="text"
-        placeholder="Rechercher..."
-        class="search-input"
-      />
+      <input v-model="search" type="text" placeholder="Rechercher..." class="search-input" />
 
-      <!-- Icône notification -->
-<!-- Icône notification -->
-<div class="notification-icon" aria-label="Notifications" role="button">
-  <i class="fas fa-bell" aria-hidden="true"></i>
-  <span class="notification-badge" aria-label="3 nouvelles notifications">3</span>
-</div>
+      <div class="notification-icon" aria-label="Notifications" role="button">
+        <i class="fas fa-bell" aria-hidden="true"></i>
+        <span class="notification-badge" aria-label="3 nouvelles notifications">3</span>
+      </div>
 
+      <!-- Nom complet dynamique -->
+      <span class="user-name">{{ fullName }}</span>
 
-      <!-- <div class="notification-icon">
-        <i class="fas fa-bell"></i>
-                <span class="notification-badge">3</span>
-
-      </div> -->
-
-      <!-- Nom prénom -->
-      <!-- <span class="user-name">{{ fullName }}</span> -->
-      <h1 class="text-4xl font-bold text-gray-800 mb-6">
-  📊 Bienvenue user {{ user.prenom }} {{ user.name }}
-</h1>
-
-      <!-- Image utilisateur -->
+      <!-- Avatar dynamique -->
       <img :src="avatar" alt="Avatar utilisateur" class="user-avatar" />
     </div>
   </nav>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import axios from 'axios'
 
 const search = ref('')
-// const fullName = ref('Jean Dupont') // à remplacer dynamiquement
-// const avatar = ref('/avatar.png')   // image utilisateur (par défaut ou dynamique)
+
+// Utilisateur connecté
+const user = ref({
+  prenom: '',
+  name: '',
+  avatar: ''
+})
+
+// Nom complet dynamique
+const fullName = computed(() => `${user.value.prenom} ${user.value.name}`)
+
+// Avatar dynamique avec fallback
+const avatar = computed(() => user.value.avatar || '/avatar.png')
+
+// Créer une instance axios avec token si existant
+const api = axios.create({
+  baseURL: 'http://127.0.0.1:8000/api',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token') || ''}`
+  }
+})
+
+// Récupérer l’utilisateur connecté au montage
+onMounted(async () => {
+  try {
+    const res = await api.get('/profile')
+    console.log('Réponse API profile:', res.data)
+    if (res.data && res.data.data) {
+      user.value = {
+        prenom: res.data.data.prenom,
+        name: res.data.data.name,
+        avatar: res.data.data.image // null si pas d'image
+      }
+    }
+  } catch (err) {
+    console.error('Erreur lors de la récupération de l’utilisateur', err)
+  }
+})
 </script>
+
 
 <style scoped>
 .navbar {
@@ -95,10 +114,11 @@ const search = ref('')
   border-radius: 50%;
   object-fit: cover;
 }
+
 .notification-icon {
   position: relative;
   display: inline-block;
-  font-size: 1.25rem; /* adapte la taille de l'icône */
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
@@ -118,6 +138,6 @@ const search = ref('')
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  box-shadow: 0 0 0 2px white; /* pour contraste si sur fond sombre/claire */
+  box-shadow: 0 0 0 2px white;
 }
 </style>
