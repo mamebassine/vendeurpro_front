@@ -104,6 +104,19 @@
 <script>
 export default {
   name: 'CompetencesVenteView',
+  methods: {
+    shareArticle() {
+      // Ici tu peux définir la logique de partage, par exemple :
+      const url = window.location.href;
+      navigator.clipboard.writeText(url)
+        .then(() => {
+          alert("Lien de l'article copié dans le presse-papier !");
+        })
+        .catch(err => {
+          console.error("Erreur lors du partage :", err);
+        });
+    }
+  }
 };
 </script>
 

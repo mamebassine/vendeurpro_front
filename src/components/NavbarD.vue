@@ -1,21 +1,12 @@
 <template>
   <nav class="navbar">
-    <!-- Zone gauche : bouton Ajouter -->
-    <div class="navbar-left">
-      <button class="add-button">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none"
-             viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 4v16m8-8H4" />
-        </svg>
-        Ajouter
-      </button>
-    </div>
+    <!-- Zone gauche (vide pour le moment) -->
+    <div class="navbar-left"></div>
 
-    <!-- Zone droite : icônes + image -->
+    <!-- Zone droite -->
     <div class="navbar-right">
-      <!-- Search -->
-      <button class="icon-button">
+      <!-- Recherche -->
+      <button class="icon-button" aria-label="Recherche">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none"
              viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -24,28 +15,58 @@
       </button>
 
       <!-- Notification -->
-      <button class="icon-button notification-button">
+      <button class="icon-button notification-button" aria-label="Notifications">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none"
              viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 
+                0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0
+                .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
         </svg>
         <span class="notification-badge">3</span>
       </button>
 
-      <!-- Image Avatar -->
-      <img :src="avatar" alt="avatar" class="avatar" />
+      <!-- Nom et prénom sur la même ligne -->
+      <div class="user-fullname">
+        {{ lastName }} {{ firstName }}
+      </div>
+
+      <!-- Avatar -->
+      <img :src="avatar" alt="Avatar utilisateur" class="avatar" />
     </div>
   </nav>
 </template>
 
 <script setup>
-import avatar from '@/assets/images/forme11.png'
+import { ref, onMounted } from 'vue'
+import avatarDefault from '@/assets/images/forme11.png'
+import authService from '@/services/authService'
+
+const avatar = ref(avatarDefault)
+const lastName = ref('Nom')
+const firstName = ref('Prénom')
+
+const fetchUserData = async () => {
+  try {
+    const response = await authService.getProfile()
+    const data = response.data.data
+
+    avatar.value = data.image || avatarDefault
+    lastName.value = data.name || 'Nom'
+    firstName.value = data.prenom || 'Prénom'
+  } catch (error) {
+    console.error('Erreur lors du chargement de l’utilisateur :', error)
+  }
+}
+onMounted(() => {
+  fetchUserData()
+})
 </script>
+
 
 <style scoped>
 .navbar {
-  background-color: white;
+  background-color: #343f69;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 16px 24px;
   display: flex;
@@ -61,35 +82,23 @@ import avatar from '@/assets/images/forme11.png'
   gap: 16px;
 }
 
-.add-button {
-  display: flex;
-  align-items: center;
-  background-color: #0d9488;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.add-button:hover {
-  background-color: #0f766e;
-}
-
 .icon-button {
   background: none;
   border: none;
   cursor: pointer;
-  color: #4b5563;
+  color: #fff;
   position: relative;
   transition: color 0.2s ease;
 }
 
 .icon-button:hover {
-  color: #1f2937;
+  color: #ff7f00;
 }
+
+
+
+
+
 
 .icon {
   width: 24px;
@@ -100,11 +109,26 @@ import avatar from '@/assets/images/forme11.png'
   position: absolute;
   top: -4px;
   right: -4px;
-  background-color: #ef4444;
+  background-color: #9d0808;
   color: white;
   font-size: 10px;
   border-radius: 9999px;
   padding: 2px 6px;
+    box-shadow: 0 0 0 2px white; /* pour contraste si sur fond sombre/claire */
+
+}
+/* Agrandir uniquement l'icône de notification */
+.notification-button .icon {
+  width: 28px;
+  height: 28px;
+}
+
+
+
+.user-fullname {
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
 }
 
 .avatar {

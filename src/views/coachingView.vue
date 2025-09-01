@@ -1,106 +1,184 @@
-<template> 
+<template>  
   <section id="coaching">
     <!-- 🎯 HERO SECTION -->
     <div class="hero">
       <div class="text-content">
         <h1>Boostez Vos Compétences avec un Coaching Personnalisé</h1>
         <p> Atteignez vos objectifs de vente avec un accompagnement sur mesure.</p>
-        <!-- <button class="cta-button">📅 Réserver une Séance</button> -->
-
-        <router-link to="/CandidatForm" class="cta-button">Réserver une Séance</router-link>
-
+        <router-link to="/AjoutCandidat" class="cta-button">Réserver une Séance</router-link>
       </div>
       <img src="../assets/images/photobi2.png" alt="Coaching Vente" class="hero-image" />
     </div>
 
-    <!-- 🎯 PROGRAMMES DE COACHING -->
+    <!-- 🎯 PROGRAMMES DE COACHING --> 
     <div class="section coaching-list">
       <h2 class="titrecoaaching">Choisissez Votre Coaching</h2>
+
       <div class="coaching-container">
-        <div v-for="(coaching, index) in coachingOptions" :key="index" class="coaching-card">
-          <h3>{{ coaching.title }}</h3>
-          <p><strong>Public :</strong> {{ coaching.public }}</p>
-          <ul>
-            <li v-for="(obj, i) in coaching.objectives" :key="i">✔️ {{ obj }}</li>
-          </ul>
+        <div v-if="coachingOptions.length === 0">
+          <p>Aucun programme de coaching trouvé pour le moment.</p>
+        </div>
+
+        <!-- Affiche les 3 premiers normalement -->
+        <div
+          v-for="(coaching, index) in displayCoachings"
+          :key="'coaching-' + index"
+          class="coaching-card"
+        >
+          <h3>{{ coaching.titre }}</h3>
+          <p><strong>Public :</strong> {{ coaching.public_vise }}</p>
+
+          <div class="objectifs-list">
+            <div v-for="(obj, i) in coaching.objectifs" :key="i">
+              <template v-for="(line, j) in splitObjectif(obj)" :key="j">
+                ✔️ {{ line }}<br v-if="j !== splitObjectif(obj).length - 1" />
+              </template>
+            </div>
+          </div>
 
           <div class="card-footer">
-            <p><strong>Durée :</strong> {{ coaching.duration }}</p>
-            <!-- <p><strong>Tarif :</strong> {{ coaching.price }}</p> -->
+            <p><strong>Durée :</strong> {{ coaching.duree }} sessions</p>
 
-            <router-link to="/CandidatForm" class="cta-button">📞 Réserver une Séance</router-link>
+            <router-link
+              :to="{ path: '/AjoutCandidat', query: { formation_id: coaching.id } }"
+              class="cta-button"
+              @click="() => console.log('➡️ ID coaching envoyé :', coaching.id)"
+            >
+              📞 Réserver une Séance
+            </router-link>
           </div>
-          
         </div>
       </div>
     </div>
 
     <!-- 🎯 FAQ -->
     <section id="faq" class="faq-section">
-    <h2>Questions Fréquentes</h2>
-    <div class="faq-container">
-      <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
-        <h3 @click="toggleFAQ(index)" class="faq-title">
-          <span>{{ item.question }}</span>
-          <i :class="{'fas fa-chevron-down': !item.isOpen, 'fas fa-chevron-up': item.isOpen}"></i>
-        </h3>
-        <transition name="slide">
-          <p v-show="item.isOpen" class="faq-answer">{{ item.answer }}</p>
-        </transition>
+      <h2>Questions Fréquentes</h2>
+      <div class="faq-container">
+        <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
+          <h3 @click="toggleFAQ(index)" class="faq-title">
+            <span>{{ item.question }}</span>
+            <i :class="{'fas fa-chevron-down': !item.isOpen, 'fas fa-chevron-up': item.isOpen}"></i>
+          </h3>
+          <transition name="slide">
+            <p v-show="item.isOpen" class="faq-answer">{{ item.answer }}</p>
+          </transition>
+        </div>
+        <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
       </div>
-      <router-link to="/contact" class="cta-button">📩 Contactez-Nous</router-link>
-    </div>
-  </section>
-  
+    </section>
   </section>
 </template>
 
-
-
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, computed } from 'vue'  // <-- IMPORT DE computed
+import api from '@/services/api'
+import { useRoute } from 'vue-router'
 
-// 🔹 Coaching Options
-const coachingOptions = ref([
-  {
-    title: "Coaching pour Commerçants & Prestataires",
-    public: "Commerçants (boutiques, marchés) & Prestataires (coiffeurs, consultants...)",
-    objectives: ["Améliorer les techniques de vente", "Augmenter le chiffre d'affaires", "Fidéliser la clientèle"],
-    duration: "3 à 6 sessions",
-    // price: "150 000 FCFA - 300 000 FCFA"
-  },
-  {
-    title: "Coaching pour Porteurs de Projets ",
-     public: "Entrepreneurs, startups, freelances, innovateurs, créateurs",
-    objectives: ["Structurer son idée de business", "Définir une stratégie commerciale", "Préparer le lancement"],
-    duration: "4 à 8 sessions",
-    // price: "200 000 FCFA - 400 000 FCFA"
-  },
-  {
-    title: "Coaching pour Étudiants & Reconversion",
-    public: "Étudiants, chômeurs, personnes en reconversion",
-    objectives: ["Acquérir les bases de la vente", "Se préparer à l'emploi", "Développer une expertise"],
-    duration: "3 à 6 sessions",
-    // price: "100 000 FCFA - 200 000 FCFA"
+const route = useRoute()
+
+const coachingOptions = ref([])
+const message = ref('')
+
+const splitObjectif = (text) => {
+  return text
+    .split('.')                             // Sépare à chaque point (.)
+    .filter(part => part.trim() !== '')    // Enlève les éléments vides
+    .map(part => part.trim() + '.')        // Remet le point à la fin
+}
+
+const getCoachings = async () => {
+  try {
+    const res = await api.get('/coaching')
+    console.log('Coachings reçus ✅:', res.data)
+
+    coachingOptions.value = res.data.map(coaching => {
+      let objectifs = coaching.objectifs
+
+      if (typeof objectifs === 'string') {
+        try {
+          const parsed = JSON.parse(objectifs)
+          objectifs = Array.isArray(parsed) ? parsed : [objectifs]
+        } catch (e) {
+          objectifs = [objectifs] // Texte simple non JSON
+        }
+      }
+
+      return {
+        ...coaching,
+        objectifs
+      }
+    })
+  } catch (e) {
+    console.error('❌ Erreur lors du chargement des coachings:', e)
+    message.value = "Erreur lors du chargement des coachings"
   }
-]);
+}
+
+onMounted(() => {
+  message.value = 'Bienvenue dans le coaching'
+  getCoachings()
+})
+
+const coachingId = route.query.coaching_id
+
+onMounted(() => {
+  console.log("ID du coaching sélectionné :", coachingId)
+  console.log("📌 Coaching ID reçu par query:", coachingId)
+})
+
+
+// POUR LE DERNIER CARTE
+
+const displayCoachings = computed(() => {
+  const all = coachingOptions.value
+
+  if (all.length <= 3) {
+    return all
+  }
+
+  const last = all[all.length - 1] // dernier coaching ajouté
+  const withoutLast = all.slice(0, all.length - 1)
+
+  // On prend les 2 premiers (hors dernier)
+  const firstTwo = withoutLast.slice(0, 2)
+
+  // Si le dernier est déjà dans les 2 premiers, pas besoin de le rajouter
+  if (firstTwo.find(c => c.id === last.id)) {
+    return firstTwo
+  }
+
+  // Sinon, on retourne les 2 premiers + le dernier
+  return [...firstTwo, last]
+})
+
+
+
+
 
 // 🔹 FAQ interactive
 const faqItems = ref([
   { question: "Qui peut bénéficier du coaching ?", answer: "Tout le monde : commerçants, entrepreneurs, étudiants...", isOpen: false },
   { question: "Comment réserver une séance ?", answer: "Cliquez sur le bouton et remplissez le formulaire de contact.", isOpen: false },
   { question: "Le coaching est-il disponible en ligne ?", answer: "Oui, vous pouvez choisir entre un coaching en ligne ou en présentiel.", isOpen: false },
-]);
+])
 
 const toggleFAQ = (index) => {
   faqItems.value = faqItems.value.map((item, i) => ({
     ...item,
     isOpen: i === index ? !item.isOpen : false
-  }));
-};
+  }))
+}
 </script>
 
 <style scoped>
+
+.objectifs-list div {
+  display: block;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
 /* 🔹 GLOBAL */
 #coaching{
     margin-top: 9%;
@@ -325,8 +403,9 @@ const toggleFAQ = (index) => {
 .coaching-card button {
   margin-top: auto; /* Positionne le bouton en bas de la carte */
   text-align: right; /* Aligner le bouton à droite */
-  padding: 10px 15px;
-
+padding: 8px 14px;
+  font-size: 0.85rem;
+  border-radius: 6px;
 }
 
 .coaching-card:hover {

@@ -7,7 +7,7 @@
           <p>Découvrez des techniques éprouvées pour booster vos ventes et transformez votre business.</p>
           <!-- <button class="cta-button">🎓 Inscrivez-vous au Prochain Webinaire</button> -->
 
-          <router-link to="/CandidatForm" class="cta-button">Inscrivez-vous au Prochain Webinaire</router-link>
+          <router-link to="/AjoutCandidat" class="cta-button">Inscrivez-vous au Prochain Webinaire</router-link>
 
         </div>
         <img src="../assets/images/photo8.jpg" alt="Webinaire en action" class="hero-image" />
@@ -25,12 +25,12 @@
         </div>
         <!-- <button class="cta-button">📢 Inscrivez-vous Maintenant</button> -->
 
-        <router-link to="/CandidatForm" class="cta-button">Inscrivez-vous Maintenant</router-link>
+        <router-link to="/AjoutCandidat" class="cta-button">Inscrivez-vous Maintenant</router-link>
 
       </div>
   
       <!-- 🎯 PROCHAINS WEBINAIRES -->
-      <div class="section upcoming-webinaires">
+      <!-- <div class="section upcoming-webinaires">
         <h2>Découvrez nos prochains webinaires</h2>
         <div class="webinaire-list">
           <div v-for="(webinaire, index) in webinaires" :key="index" class="webinaire-card">
@@ -38,13 +38,45 @@
             <p><strong>Date :</strong> {{ webinaire.date }}</p>
             <p><strong>Durée :</strong> {{ webinaire.duration }}</p>
 
-            <router-link to="/CandidatForm" class="cta-button">S'inscrire</router-link>
+            <router-link to="/AjoutCandidat" class="cta-button">S'inscrire</router-link>
 
           </div>
         </div>
-      </div>
+      </div> -->
   
-      <!-- 🎯 TÉMOIGNAGES -->
+
+<div class="section upcoming-webinaires"> 
+    <h2>Découvrez nos prochains webinaires</h2>
+    
+    <div class="webinaire-list">
+      <div v-if="webinaires.length === 0">
+        <p>Aucun webinaire à venir pour le moment.</p>
+      </div>
+<div v-for="(webinaire, index) in webinairesAFicher" :key="index" class="webinaire-card">
+
+<!-- <div v-for="(webinaire, index) in webinaires.slice(0, 3)" :key="index" class="webinaire-card"> -->
+<h2>{{ webinaire.titre }}</h2>
+<p v-if="webinaire.date_debut && isValidDate(webinaire.date_debut)">
+  <strong>Date :</strong> {{ formatDate(webinaire.date_debut) }}
+</p>
+<p v-else>Date non disponible</p>
+
+
+<p><strong>Durée :</strong> {{ webinaire.duree }} h</p>
+
+<router-link
+              :to="{ path: '/AjoutCandidat', query: { formation_id: webinaire.id } }"
+              class="cta-button"
+              @click="() => console.log('➡️ ID webinaire envoyé :', webinaire.id)"
+            >
+              S'inscrire
+            </router-link>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 🎯 TÉMOIGNAGES -->
       <div class="section temoignages">
         <h2> Ce que disent nos participants</h2>
         <div class="testimonial-container">
@@ -87,7 +119,8 @@
   
   <script setup>
   import { ref, onMounted, onUnmounted } from "vue";
-  
+  import api from '@/services/api'; // Remplace par le bon chemin de ton instance axios
+
   // 🔹 Pourquoi participer ?
   const whyPoints = ref([
   { icon: "fas fa-comments", title: "Interactivité", text: "Posez vos questions en direct et obtenez des réponses personnalisées." },
@@ -98,13 +131,83 @@
   ]);
   
   // 🔹 Prochains webinaires
-  const webinaires = ref([
-  { title: "Les 5 Techniques pour Booster Vos Ventes", date: "09 Juin 2025, 21h GMT", duration: "1h" },
-  { title: "Comment Vendre en Ligne comme un Pro", date: "11 Juillet 2025, 21h GMT", duration: "1h" },
-  { title: "Les Secrets de la Vente B2B", date: "29 Août 2025, 21h GMT", duration: "1h" }
-])
+//   const webinaires = ref([
+//   { title: "Les 5 Techniques pour Booster Vos Ventes", date: "09 Juin 2025, 21h GMT", duration: "1h" },
+//   { title: "Comment Vendre en Ligne comme un Pro", date: "11 Juillet 2025, 21h GMT", duration: "1h" },
+//   { title: "Les Secrets de la Vente B2B", date: "29 Août 2025, 21h GMT", duration: "1h" }
+// ])
 
   
+const webinaires = ref([]);
+
+// Exemple simple de formatDate
+import { defineProps } from 'vue';
+const props = defineProps(['webinaire']);
+
+const isValidDate = (dateStr) => {
+  const date = new Date(dateStr);
+  return date instanceof Date && !isNaN(date);
+};
+
+const formatDate = (dateStr) => {
+  const date = new Date(dateStr);
+  const jour = date.getDate().toString().padStart(2, '0');
+  const mois = date.toLocaleDateString('fr-FR', { month: 'long' });
+  const annee = date.getFullYear();
+  const heure = date.getHours().toString().padStart(2, '0');
+  return `${jour} ${mois} ${annee}, ${heure}h GMT`;
+};
+
+
+
+const getWebinaires = async () => {
+  try {
+    const res = await api.get('/webinaire');
+
+    console.log("Tous les webinaires reçus :", res.data); // 👈 vérifie ici
+
+    const allWebinaires = res.data.map(f => {
+      console.log("Catégorie du webinaire :", f.categorie?.nom); // 👈 vérifie ici aussi
+      return { ...f, expanded: false };
+    });
+
+    // ✅ Filtrage tolérant
+    webinaires.value = allWebinaires.filter(f =>
+      f.categorie?.nom?.toLowerCase().includes('webinaire')
+    );
+
+  } catch (e) {
+    console.error("Erreur lors du chargement des webinaires :", e);
+    alert("Erreur lors du chargement des webinaires");
+  }
+};
+
+onMounted(() => {
+  getWebinaires();
+});
+
+
+
+
+import { computed } from 'vue';
+
+const webinairesAFicher = computed(() => {
+  if (webinaires.value.length <= 3) {
+    return webinaires.value;
+  }
+
+  const firstTwo = webinaires.value.slice(0, 2);
+  const last = webinaires.value[webinaires.value.length - 1];
+
+  // Empêche les doublons si le dernier est déjà parmi les deux premiers
+  const alreadyIncluded = firstTwo.some(w => w.id === last.id);
+  return alreadyIncluded ? firstTwo : [...firstTwo, last];
+});
+
+
+
+
+
   // 🔹 Témoignages avec slider automatique
   const testimonials = ref([
     { img: "/images/photo2.jpg", text: "J'ai augmenté mes ventes de 20% après ce webinaire !", author: "Sophie L." },
