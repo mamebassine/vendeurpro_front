@@ -1,6 +1,5 @@
 <template>
-    <section id="formations">
-      <!-- 🎯 HERO SECTION -->
+    <!-- <section id="formations">
       <div class="hero">
         <div class="text-content">
           <h1>Nos formations pour devenir un pro de la vente</h1>
@@ -16,7 +15,7 @@
         <img src="../assets/images/photobi1.png" alt="Formation en vente" class="hero-image" />
       </div>
       
-      </section>
+      </section> -->
 
     <!-- 🎯 NOS FORMATIONS -->
 <section class="formations">
@@ -34,7 +33,7 @@
     <h3>{{ type }}</h3>
     <div class="card-grid">
      <div
-  v-for="f in type === 'Modules à la carte' ? groupFormations.slice(0, 6) : groupFormations.slice(0, 3)"
+  v-for="f in type === 'Modules à la carte' ? groupFormations.slice(0, 6) : groupFormations.slice(0, 6)"
   :key="f.id"
   class="card"
   :style="{ cursor: type === 'Modules à la carte' ? 'default' : 'pointer', position: 'relative' }"
@@ -512,7 +511,7 @@ h4{
 .card:hover .objectifs {
   color: #ff7f00;
 }
-
+/* ICI POUR TITRE ET LES OBJECTIFS */
 .card-title {
   margin-bottom: 0.75rem;
   font-size: 1.2rem;
@@ -555,6 +554,7 @@ h4{
 
 /* POUR LES 6 DERNIERS CARTES EN BAS */
 
+/* ICI JE  POUR LES COULEURS DE CARTES */
 .card {
   background: #fff;
   border-radius: 16px;

@@ -46,7 +46,8 @@
     <div class="member">
       <img src="/images/vendeura.jpg" alt="Moro Laetitia" class="styled-card-image" />
       <h3> Moro Laetitia</h3>
-      <p>Expert en vente B2B avec 15 ans d'expérience dans la négociation commerciale.</p>
+      <p>Experte en achats, sourcing et marketing, j’accompagne depuis 25 ans des entreprises à
+         l’international.</p>
       <a href="https://www.linkedin.com/in/laetitia-moro-36434b292/">Profil LinkedIn</a>
     </div>
     
