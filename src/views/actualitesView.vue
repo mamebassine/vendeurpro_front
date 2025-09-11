@@ -42,7 +42,7 @@ onMounted(async () => {
       title: item.titre,
       description: item.contenu,
       image: getImageUrl(item.image),
-      formattedDate: `Publié le ${formatDate(item.date_publication)}` // ✅ plus clair
+      formattedDate: `Publié le ${formatDate(item.created_at)}` // ✅ plus clair
     }))
   } catch (error) {
     console.error('Erreur lors du chargement des actualités:', error)

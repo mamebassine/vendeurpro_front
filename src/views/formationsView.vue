@@ -54,26 +54,25 @@
     <strong>Objectifs :</strong> {{ f.description }}
   </p>
 
-<!-- ICI COMMENCE MODULES A LA CARTES -->
+<!-- ICI COMMENCE MODULES A LA CARTES ICI A REGLER DEMAIN-->
 
 
 
-  <!-- ✅ Détails affichés seulement si f.expanded est vrai -->
   <div v-if="f.expanded" class="details">
     <p><strong>Titre :</strong> {{ f.titre }}</p>
   <p><strong>Description :</strong> {{ f.description }}</p>
   <p><strong>Durée :</strong> {{ f.duree }} jours</p>
   <p><strong>Prix :</strong> {{ Number(f.prix).toLocaleString('fr-FR') }} FCFA</p>
 
-  <!-- 🎯 POUR QUI ? -->
+  🎯 POUR QUI ?
   <h3 class="section-title">🎯 Pour qui ?</h3>
   <p>{{ f.public_vise }}</p>
 
-  <!-- 📚 OBJECTIFS -->
+  📚 OBJECTIFS
   <h3 class="section-title">📚 Objectifs :</h3>
   <p v-html="formatObjectifs(f.objectifs)"></p>
 
-  <!-- 📆 DURÉE, CERTIFICATION & FORMAT -->
+  📆 DURÉE, CERTIFICATION & FORMAT
   <h3 class="section-title">📆 Durée, Certification & Format</h3>
   <p><strong>Certification :</strong> {{ f.certifiante ? 'Oui' : 'Non' }}</p>
   <p><strong>Format :</strong> {{ f.format }}</p>
@@ -194,20 +193,31 @@ const getFormations = async () => {
 //     router.push({ name: 'Voirdetail-formations', params: { id: formation.id } });
 //   }
 // };
+
 const viewDetails = (formation) => {
   if (formation.type === 'Modules à la carte') {
-    // Ferme les autres cartes d'abord
     formations.value.forEach(f => {
-      if (f.id !== formation.id) {
-        f.expanded = false;
-      }
+      f.expanded = (f.id === formation.id) ? !f.expanded : false;
     });
-    // Toggle l’état de la carte actuelle
-    formation.expanded = !formation.expanded;
   } else if (formation.id) {
     router.push({ name: 'Voirdetail-formations', params: { id: formation.id } });
   }
 };
+
+// const viewDetails = (formation) => {
+//   if (formation.type === 'Modules à la carte') {
+//     // Ferme les autres cartes d'abord
+//     formations.value.forEach(f => {
+//       if (f.id !== formation.id) {
+//         f.expanded = false;
+//       }
+//     });
+//     // Toggle l’état de la carte actuelle
+//     formation.expanded = !formation.expanded;
+//   } else if (formation.id) {
+//     router.push({ name: 'Voirdetail-formations', params: { id: formation.id } });
+//   }
+// };
 
 
 const showMessage = (msg, isSuccess = true) => {
@@ -316,7 +326,7 @@ const formatHeure = (heure) => {
 }
 
 .formations{
-    margin-top: 3%;
+    margin-top: 11%;
 }
 
 /* 🔹 HERO SECTION */
@@ -552,7 +562,7 @@ h4{
 }
 
 
-/* POUR LES 6 DERNIERS CARTES EN BAS */
+/* POUR LES 6 DERNIERS CARTES EN BAS ICI A REGLER DEMAIN*/
 
 /* ICI JE  POUR LES COULEURS DE CARTES */
 .card {

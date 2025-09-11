@@ -117,7 +117,7 @@ export default {
   }
 }
       // ➕ Ajout du champ de date formatée
-      this.actualite.formattedDate = `Publié le ${formatDate(res.data.date_publication)}`
+      this.actualite.formattedDate = `Publié le ${formatDate(res.data.created_at)}`
     } catch (error) {
       console.error('Erreur lors du chargement des détails :', error)
     }

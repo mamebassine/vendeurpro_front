@@ -210,7 +210,8 @@ export default {
         auteur: '',
         fonction: '',
         image: '',
-        date_publication: '',
+        user_id: 1,
+        // date_publication: '',
         points: [], // [{titre:'', explications:[''], conclusion_bloc:''}]
         conclusion: ''
       }
@@ -242,35 +243,43 @@ export default {
     },
 
     /* ----------- SUBMIT ----------- */
-    async handleSubmit() {
-      try {
-        const formData = new FormData();
+ // ...existing code...
+async handleSubmit() {
+  try {
+    const formData = new FormData();
 
-        // sérialiser points en JSON
-        for (const key in this.form) {
-          if (key === 'points') {
-            formData.append('points', JSON.stringify(this.form.points));
-          } else {
-            formData.append(key, this.form[key]);
-          }
-        }
-        if (this.imageFile) {
-          formData.append('image', this.imageFile);
-        }
-
-        if (this.isEditing) {
-          await actualitesService.update(this.editId, formData);
-        } else {
-          await actualitesService.create(formData);
-        }
-
-        this.closeModal();
-        await this.fetchActualites();
-      } catch (error) {
-        console.error('Erreur soumission:', error);
-        if (error.response) console.error('Réponse serveur:', error.response.data);
+    for (const key in this.form) {
+      if (key === 'points') {
+        this.form.points.forEach((point, idx) => {
+          formData.append(`points[${idx}][titre]`, point.titre);
+          point.explications.forEach((exp, i) => {
+            formData.append(`points[${idx}][explications][${i}]`, exp);
+          });
+          formData.append(`points[${idx}][conclusion_bloc]`, point.conclusion_bloc);
+        });
+        console.log('Points tableau:', this.form.points);
+      } else {
+        formData.append(key, this.form[key]);
       }
-    },
+    }
+    if (this.imageFile) {
+      formData.append('image', this.imageFile);
+    }
+
+    if (this.isEditing) {
+      await actualitesService.update(this.editId, formData);
+    } else {
+      await actualitesService.create(formData);
+    }
+
+    this.closeModal();
+    await this.fetchActualites();
+  } catch (error) {
+    console.error('Erreur soumission:', error);
+    if (error.response) console.error('Réponse serveur:', error.response.data);
+  }
+},
+// ...existing code...
 
     /* ----------- POINTS (BLOC) ----------- */
     addPoint() {
@@ -327,9 +336,9 @@ export default {
       this.form = {
         ...item,
         points: pointsParsed,
-        date_publication: item.date_publication
-          ? item.date_publication.substring(0, 10)
-          : ''
+        // date_publication: item.date_publication
+        //   ? item.date_publication.substring(0, 10)
+        //   : ''
       };
       this.isEditing = true;
       this.editId = item.id;
@@ -353,7 +362,7 @@ export default {
         auteur: '',
         fonction: '',
         image: '',
-        date_publication: '',
+        // date_publication: '',
         points: [],
         conclusion: ''
       };

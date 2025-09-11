@@ -16,7 +16,7 @@
         <p><span class="label">Contenu :</span> {{ actualite.contenu }}</p>
         <p><span class="label">Auteur :</span> {{ actualite.auteur }}</p>
         <p><span class="label">Fonction :</span> {{ actualite.fonction }}</p>
-        <p><span class="label">Date de publication :</span> {{ formatDate(actualite.date_publication) }}</p>
+        <p><span class="label">Date de publication :</span> {{ formatDate(actualite.created_at) }}</p>
 
         <!-- ✅ Bloc pour afficher les points clés -->
         <div v-if="actualite.points && actualite.points.length > 0">
