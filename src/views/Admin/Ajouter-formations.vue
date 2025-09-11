@@ -166,8 +166,11 @@
   </div>
 </div>
 
-<button type="submit">{{ form.id ? 'Modifier' : 'Créer' }}</button>
-<button type="button" @click="closeModal" class="btn-fermer">Fermer</button>
+<div class="btn-container">
+  <button type="submit" class="btn-creer">{{ form.id ? 'Modifier' : 'Créer' }}</button>
+  <button type="button" @click="closeModal" class="btn-fermer">Fermer</button>
+</div>
+
 </form>
 </div>
 </div>
@@ -413,7 +416,22 @@ onMounted(() => {
   background-color: #003366;
 }
 
+.btn-container {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  gap: 15px; /* espace entre les boutons */
+  margin-top: 20px;
+}
+
+.btn-creer,
 .btn-fermer {
+  width: 15%;
+  min-width: 100px; /* 👈 pour éviter que le bouton soit trop petit */
+}
+
+
+.btn-fermer {
+  width: 15%;;
   background-color: #c3b0b2;
   color: white;
   padding: 8px 12px;

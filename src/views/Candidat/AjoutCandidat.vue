@@ -1,5 +1,8 @@
 <template>
   <div class="form">
+    <!-- Flèche retour discrète -->
+    <span class="back-arrow" @click="router.back()">← Retour</span>
+
     <h2>Ajouter un Candidat</h2>
 
     <form v-if="formVisible" @submit.prevent="ajouterCandidat" novalidate>
@@ -30,9 +33,15 @@
         />
       </div>
 
-      <button type="submit" :disabled="isSubmitting">
+      <!-- <button type="submit" :disabled="isSubmitting">
         {{ isSubmitting ? 'Envoi...' : 'Ajouter' }}
-      </button>
+      </button> -->
+       <!-- bouton centré -->
+  <div class="button-container">
+    <button type="submit" :disabled="isSubmitting">
+      {{ isSubmitting ? 'Envoi...' : 'Ajouter' }}
+    </button>
+  </div>
     </form>
 
     <transition name="fade">
@@ -193,8 +202,8 @@ select:focus {
   border-color: #ff7f00;
 }
 
-button {
-  width: 100%;
+/* button {
+  width: 18%;
   padding: 0.7rem;
   font-size: 1.1rem;
   font-weight: 600;
@@ -204,7 +213,29 @@ button {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-align: center;
+} */
+.button-container {
+  text-align: center; /* centre horizontalement */
+  margin-top: 1.5rem;
 }
+
+button {
+  width: auto; /* pour que le bouton ne prenne pas toute la largeur */
+  min-width: 150px; /* taille minimale pour l’équilibre */
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #ff7f00;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+
 
 button:disabled {
   background-color: #a6c8ff;
@@ -269,4 +300,20 @@ button:hover:not(:disabled) {
 .fade-leave-to {
   opacity: 0;
 }
+
+/* Flèche retour discrète  */
+
+.back-arrow {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #6b7280; /* gris clair */
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: color 0.2s ease;
+}
+
+.back-arrow:hover {
+  color: #111827; /* plus foncé au hover */
+}
+
 </style>

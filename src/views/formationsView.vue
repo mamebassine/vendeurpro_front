@@ -1,5 +1,5 @@
 <template>
-    <!-- <section id="formations">
+  <!-- <section id="formations">
       <div class="hero">
         <div class="text-content">
           <h1>Nos formations pour devenir un pro de la vente</h1>
@@ -17,145 +17,192 @@
       
       </section> -->
 
-    <!-- 🎯 NOS FORMATIONS -->
-<section class="formations">
-  <h2>Choisissez la formation qui vous correspond</h2>
-  <p>Découvrez nos bootcamps, notre formation certifiante et nos modules à la carte.</p>
+  <!-- 🎯 NOS FORMATIONS -->
+  <section class="formations">
+    <h2>Choisissez la formation qui vous correspond</h2>
+    <p>
+      Découvrez nos bootcamps, notre formation certifiante et nos modules à la
+      carte.
+    </p>
 
-  <!-- Message d'erreur ou de succès -->
-  <div v-if="message" :class="{'success': success, 'error': !success}" class="message">
-    {{ message }}
-  </div>
-
-<!-- Liste des formations -->
-<div v-if="Object.keys(formationsGroupes).length" class="container">
-  <div v-for="(groupFormations, type) in formationsGroupes" :key="type" class="type-group">
-    <h3>{{ type }}</h3>
-    <div class="card-grid">
-     <div
-  v-for="f in type === 'Modules à la carte' ? groupFormations.slice(0, 6) : groupFormations.slice(0, 6)"
-  :key="f.id"
-  class="card"
-  :style="{ cursor: type === 'Modules à la carte' ? 'default' : 'pointer', position: 'relative' }"
-  @click="type !== 'Modules à la carte' && viewDetails(f)"
->
-  <span
-    v-if="type === 'Modules à la carte'"
-    @click.stop="viewDetails(f)"
-    class="chevron"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#FF8000" width="20" height="20" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M6.646 1.646a.5.5 0 0 1 .708 0L11.207 6.5a.5.5 0 0 1 0 .707l-3.853 3.854a.5.5 0 0 1-.708-.708L10.293 7 6.646 3.354a.5.5 0 0 1 0-.708z"/>
-    </svg>
-  </span>
-
-  <h2 class="card-title">{{ f.titre }}</h2>
-  <p class="objectifs">
-    <strong>Objectifs :</strong> {{ f.description }}
-  </p>
-
-<!-- ICI COMMENCE MODULES A LA CARTES ICI A REGLER DEMAIN-->
-
-
-
-  <div v-if="f.expanded" class="details">
-    <p><strong>Titre :</strong> {{ f.titre }}</p>
-  <p><strong>Description :</strong> {{ f.description }}</p>
-  <p><strong>Durée :</strong> {{ f.duree }} jours</p>
-  <p><strong>Prix :</strong> {{ Number(f.prix).toLocaleString('fr-FR') }} FCFA</p>
-
-  🎯 POUR QUI ?
-  <h3 class="section-title">🎯 Pour qui ?</h3>
-  <p>{{ f.public_vise }}</p>
-
-  📚 OBJECTIFS
-  <h3 class="section-title">📚 Objectifs :</h3>
-  <p v-html="formatObjectifs(f.objectifs)"></p>
-
-  📆 DURÉE, CERTIFICATION & FORMAT
-  <h3 class="section-title">📆 Durée, Certification & Format</h3>
-  <p><strong>Certification :</strong> {{ f.certifiante ? 'Oui' : 'Non' }}</p>
-  <p><strong>Format :</strong> {{ f.format }}</p>
-
-  <p><strong>Début des candidatures :</strong> {{ formatDate(f.date_debut_candidature) }}</p>
-  <p><strong>Date limite de dépôt :</strong> {{ formatDate(f.date_limite_depot) }}</p>
-  <p><strong>Début de la formation :</strong> {{ formatDate(f.date_debut) }}</p>
-  <p><strong>Fin de la formation :</strong> {{ formatDate(f.date_fin) }}</p>
-  <p><strong>Heure :</strong> {{ formatHeure(f.heure) }}</p>
-  <p><strong>Type :</strong> {{ f.type }}</p>
-  <p><strong>Lieu :</strong> {{ f.lieu }}</p>
-  <p><strong>Catégorie :</strong> {{ f.categorie?.nom || 'N/A' }}</p>
-
-<button @click="postuler(f)">Postuler</button>
-  </div>
-</div>
-
-
-
-
+    <!-- Message d'erreur ou de succès -->
+    <div
+      v-if="message"
+      :class="{ success: success, error: !success }"
+      class="message"
+    >
+      {{ message }}
     </div>
-  </div>
-</div>
-<p v-else>Aucune formation disponible.</p>
 
+    <!-- Liste des formations -->
+    <div v-if="Object.keys(formationsGroupes).length" class="container">
+      <div
+        v-for="(groupFormations, type) in formationsGroupes"
+        :key="type"
+        class="type-group"
+      >
+        <h3>{{ type }}</h3>
+        <div class="card-grid">
+          <div
+            v-for="f in type === 'Modules à la carte'
+              ? groupFormations.slice(0, 6)
+              : groupFormations.slice(0, 6)"
+            :key="f.id"
+            class="card"
+            :style="{
+              cursor: type === 'Modules à la carte' ? 'default' : 'pointer',
+              position: 'relative',
+            }"
+            @click="type !== 'Modules à la carte' && viewDetails(f)"
+          >
+            <span
+              v-if="type === 'Modules à la carte'"
+              @click.stop="viewDetails(f)"
+              class="chevron"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#FF8000"
+                width="20"
+                height="20"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6.646 1.646a.5.5 0 0 1 .708 0L11.207 6.5a.5.5 0 0 1 0 .707l-3.853 3.854a.5.5 0 0 1-.708-.708L10.293 7 6.646 3.354a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+            </span>
 
-  <!-- Détails de la formation sélectionnée -->
-  <div v-if="formationSelectionnee" class="formation-details" style="margin-top: 30px; padding: 20px; border: 1px solid #ccc;">
-    <h2>{{ formationSelectionnee.titre }}</h2>
-    <p><strong>Description :</strong> {{ formationSelectionnee.description }}</p>
-    <p><strong>Durée :</strong> {{ formationSelectionnee.duree }}</p>
-    <p><strong>Prix :</strong> {{ formationSelectionnee.prix }} €</p>
-    <button @click="formationSelectionnee = null">Fermer</button>
-  </div>
-</section>
+            <h2 class="card-title">{{ f.titre }}</h2>
+            <p class="objectifs">
+              <strong>Objectifs :</strong> {{ f.description }}
+            </p>
 
- 
-  
+            <!-- ICI COMMENCE MODULES A LA CARTES ICI A REGLER DEMAIN-->
 
-<!-- 🎤 TÉMOIGNAGES -->
-<section class="temoignages">
-  <h2> Ils ont transformé leurs ventes avec vendeurPro</h2>
-  <div class="testimonial-container">
-    <button @click="prevTestimonial" class="nav-btn">❮</button>
-    <div class="testimonial">
-      <img :src="testimonials[currentIndex].img" alt="Témoignage" />
-      <p>"{{ testimonials[currentIndex].text }}"</p>
-      <h4>- {{ testimonials[currentIndex].author }}</h4>
+            <div v-if="f.expanded" class="details">
+              <p><strong>Titre :</strong> {{ f.titre }}</p>
+              <p><strong>Description :</strong> {{ f.description }}</p>
+              <p><strong>Durée :</strong> {{ f.duree }} jours</p>
+              <p>
+                <strong>Prix :</strong>
+                {{ Number(f.prix).toLocaleString("fr-FR") }} FCFA
+              </p>
+
+              <!-- 🎯 POUR QUI ? -->
+              <h3 class="section-title">🎯 Pour qui ?</h3>
+              <p>{{ f.public_vise }}</p>
+
+              <!-- 📚 OBJECTIFS -->
+              <h3 class="section-title">📚 Objectifs :</h3>
+              <p v-html="formatObjectifs(f.objectifs)"></p>
+
+              <!-- 📆 DURÉE, CERTIFICATION & FORMAT -->
+              <h3 class="section-title">📆 Durée, Certification & Format</h3>
+              <p>
+                <strong>Certification :</strong>
+                {{ f.certifiante ? "Oui" : "Non" }}
+              </p>
+              <p><strong>Format :</strong> {{ f.format }}</p>
+
+              <p>
+                <strong>Début des candidatures :</strong>
+                {{ formatDate(f.date_debut_candidature) }}
+              </p>
+              <p>
+                <strong>Date limite de dépôt :</strong>
+                {{ formatDate(f.date_limite_depot) }}
+              </p>
+              <p>
+                <strong>Début de la formation :</strong>
+                {{ formatDate(f.date_debut) }}
+              </p>
+              <p>
+                <strong>Fin de la formation :</strong>
+                {{ formatDate(f.date_fin) }}
+              </p>
+              <p><strong>Heure :</strong> {{ formatHeure(f.heure) }}</p>
+              <p><strong>Type :</strong> {{ f.type }}</p>
+              <p><strong>Lieu :</strong> {{ f.lieu }}</p>
+              <p>
+                <strong>Catégorie :</strong> {{ f.categorie?.nom || "N/A" }}
+              </p>
+
+              <button @click="postuler(f)">Postuler</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <button @click="nextTestimonial" class="nav-btn">❯</button>
-  </div>
-  <router-link to="/contact" class="cta-button"> Rejoignez-les</router-link>
-</section>
+    <p v-else>Aucune formation disponible.</p>
 
-<!-- Section FAQ -->
-<section id="faq" class="faq-section">
-  <h2>Questions fréquentes</h2>
-  <div class="faq-container">
+    <!-- Détails de la formation sélectionnée -->
+    <div
+      v-if="formationSelectionnee"
+      class="formation-details"
+      style="margin-top: 30px; padding: 20px; border: 1px solid #ccc"
+    >
+      <h2>{{ formationSelectionnee.titre }}</h2>
+      <p>
+        <strong>Description :</strong> {{ formationSelectionnee.description }}
+      </p>
+      <p><strong>Durée :</strong> {{ formationSelectionnee.duree }}</p>
+      <p><strong>Prix :</strong> {{ formationSelectionnee.prix }} €</p>
+      <button @click="formationSelectionnee = null">Fermer</button>
+    </div>
+  </section>
+
+  <!-- 🎤 TÉMOIGNAGES -->
+  <section class="temoignages">
+    <h2>Ils ont transformé leurs ventes avec vendeurPro</h2>
+    <div class="testimonial-container">
+      <button @click="prevTestimonial" class="nav-btn">❮</button>
+      <div class="testimonial">
+        <img :src="testimonials[currentIndex].img" alt="Témoignage" />
+        <p>"{{ testimonials[currentIndex].text }}"</p>
+        <h4>- {{ testimonials[currentIndex].author }}</h4>
+      </div>
+      <button @click="nextTestimonial" class="nav-btn">❯</button>
+    </div>
+    <router-link to="/contact" class="cta-button"> Rejoignez-les</router-link>
+  </section>
+
+  <!-- Section FAQ -->
+  <section id="faq" class="faq-section">
+    <h2>Questions fréquentes</h2>
+    <div class="faq-container">
       <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
         <h3 @click="toggle(index)" class="faq-title">
           <span>{{ item.question }}</span>
-          <i :class="{'fas fa-chevron-down': !item.isOpen, 'fas fa-chevron-up': item.isOpen}"></i>
+          <i
+            :class="{
+              'fas fa-chevron-down': !item.isOpen,
+              'fas fa-chevron-up': item.isOpen,
+            }"
+          ></i>
         </h3>
         <transition name="slide">
           <p v-if="item.isOpen" class="faq-answer">{{ item.answer }}</p>
         </transition>
       </div>
     </div>
-   
-  <router-link to="/contact" class="cta-button">📩 Contactez-nous</router-link>
 
-</section>
+    <router-link to="/contact" class="cta-button"
+      >📩 Contactez-nous</router-link
+    >
+  </section>
 </template>
- 
+
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
-import { useRouter } from 'vue-router';
-import api from '@/services/api';
+import { useRouter } from "vue-router";
+import api from "@/services/api";
 
 const router = useRouter();
 const formations = ref([]);
-const message = ref('');
+const message = ref("");
 const success = ref(true);
 const formationSelectionnee = ref(null);
 
@@ -174,9 +221,9 @@ const formationSelectionnee = ref(null);
 
 const getFormations = async () => {
   try {
-    const res = await api.get('/formation');
+    const res = await api.get("/formation");
     // Ajouter une propriété "expanded" à chaque formation
-    formations.value = res.data.map(f => ({ ...f, expanded: false }));
+    formations.value = res.data.map((f) => ({ ...f, expanded: false }));
   } catch (e) {
     console.error(e);
     showMessage("Erreur lors du chargement des formations", false);
@@ -195,12 +242,15 @@ const getFormations = async () => {
 // };
 
 const viewDetails = (formation) => {
-  if (formation.type === 'Modules à la carte') {
-    formations.value.forEach(f => {
-      f.expanded = (f.id === formation.id) ? !f.expanded : false;
+  if (formation.type === "Modules à la carte") {
+    formations.value.forEach((f) => {
+      f.expanded = f.id === formation.id ? !f.expanded : false;
     });
   } else if (formation.id) {
-    router.push({ name: 'Voirdetail-formations', params: { id: formation.id } });
+    router.push({
+      name: "Voirdetail-formations",
+      params: { id: formation.id },
+    });
   }
 };
 
@@ -219,17 +269,16 @@ const viewDetails = (formation) => {
 //   }
 // };
 
-
 const showMessage = (msg, isSuccess = true) => {
   message.value = msg;
   success.value = isSuccess;
-  setTimeout(() => (message.value = ''), 3000);
+  setTimeout(() => (message.value = ""), 3000);
 };
 
 // Computed pour grouper les formations par type
 const formationsGroupes = computed(() => {
   return formations.value.reduce((group, formation) => {
-    const type = formation.type || 'Non défini';
+    const type = formation.type || "Non défini";
     if (!group[type]) {
       group[type] = [];
     }
@@ -247,29 +296,56 @@ onMounted(() => {
 // };
 
 const postuler = (formation) => {
-  router.push({ name: 'AjoutCandidat', query: { formation_id: formation.id } });
+  router.push({ name: "AjoutCandidat", query: { formation_id: formation.id } });
 };
-
 
 // 🔹 Témoignages
 const testimonials = ref([
-  { img: "/images/temoin.jpg", text: "J'ai augmenté mes ventes de 30% en 3 mois !", author: "Mamadou Diallo" },
-  { img: "/images/temoin13.jpg", text: "Une formation ultra-pratique qui a boosté mon business.", author: "Aminata Sow" },
-  { img: "/images/temoin2.jpg", text: "Enfin une formation qui enseigne des techniques concrètes.", author: "Serigne Ndiaye" },
+  {
+    img: "/images/temoin.jpg",
+    text: "J'ai augmenté mes ventes de 30% en 3 mois !",
+    author: "Mamadou Diallo",
+  },
+  {
+    img: "/images/temoin13.jpg",
+    text: "Une formation ultra-pratique qui a boosté mon business.",
+    author: "Aminata Sow",
+  },
+  {
+    img: "/images/temoin2.jpg",
+    text: "Enfin une formation qui enseigne des techniques concrètes.",
+    author: "Serigne Ndiaye",
+  },
 ]);
 
 const currentIndex = ref(0);
 
 // 🔹 FAQ
 const faqItems = ref([
-  { question: "Qui peut participer à vos formations ?", answer: "Nos formations sont ouvertes à tous.", isOpen: false },
-  { question: "Quel est le format des formations ?", answer: "Nous proposons des formations en ligne et en présentiel.", isOpen: false },
-  { question: "Y a-t-il un suivi après la formation ?", answer: "Oui, nous offrons du coaching après la formation.", isOpen: false },
-  { question: "Comment puis-je m'inscrire ?", answer: "Inscrivez-vous via notre site ou contactez-nous.", isOpen: false },
-])
+  {
+    question: "Qui peut participer à vos formations ?",
+    answer: "Nos formations sont ouvertes à tous.",
+    isOpen: false,
+  },
+  {
+    question: "Quel est le format des formations ?",
+    answer: "Nous proposons des formations en ligne et en présentiel.",
+    isOpen: false,
+  },
+  {
+    question: "Y a-t-il un suivi après la formation ?",
+    answer: "Oui, nous offrons du coaching après la formation.",
+    isOpen: false,
+  },
+  {
+    question: "Comment puis-je m'inscrire ?",
+    answer: "Inscrivez-vous via notre site ou contactez-nous.",
+    isOpen: false,
+  },
+]);
 
 function toggle(index) {
-  faqItems.value[index].isOpen = !faqItems.value[index].isOpen
+  faqItems.value[index].isOpen = !faqItems.value[index].isOpen;
 }
 // 🔹 Témoignages : navigation
 const nextTestimonial = () => {
@@ -277,7 +353,9 @@ const nextTestimonial = () => {
 };
 
 const prevTestimonial = () => {
-  currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
+  currentIndex.value =
+    (currentIndex.value - 1 + testimonials.value.length) %
+    testimonials.value.length;
 };
 
 // 🔹 FAQ : toggle
@@ -297,101 +375,91 @@ onUnmounted(() => {
   clearInterval(interval);
 });
 
-
-
 const formatObjectifs = (text) => {
-  return text ? text.replace(/\n/g, '<br>') : '';
+  return text ? text.replace(/\n/g, "<br>") : "";
 };
 
 const formatDate = (date) => {
-  if (!date) return 'Non défini';
+  if (!date) return "Non défini";
   const d = new Date(date);
-  return d.toLocaleDateString('fr-FR');
+  return d.toLocaleDateString("fr-FR");
 };
 
 const formatHeure = (heure) => {
-  if (!heure) return 'Non défini';
-  const [h, m] = heure.split(':');
+  if (!heure) return "Non défini";
+  const [h, m] = heure.split(":");
   return `${h}h${m}`;
 };
-
 </script>
 
-
-
-
 <style scoped>
-#formations{
-    margin-top: 9%;
+#formations {
+  margin-top: 9%;
 }
 
-.formations{
-    margin-top: 11%;
+.formations {
+  margin-top: 11%;
 }
 
 /* 🔹 HERO SECTION */
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(120deg, #003366, #fff);
-    color: white;
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(120deg, #003366, #fff);
+  color: white;
   padding: 60px 10%;
-  
-    
-  }
+}
 .hero-image {
-
   max-width: 47%;
   border-radius: 40px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-
-
-  }
+}
 /* ✅ Stylisation des Titres */
-.hero h1{
+.hero h1 {
   color: #fff;
   font-size: 2.4em; /* Taille du titre */
   margin: 0 0 20px 0; /* Espacement sous le titre */
-     font-weight: bold; /* Gras pour le titre */
-     margin-bottom: 5px;
+  font-weight: bold; /* Gras pour le titre */
+  margin-bottom: 5px;
 }
 
-h2{
-    font-size: 2em;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    text-align: center;
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 .hero h3 {
   font-size: 22px; /* Taille du texte du paragraphe */
-     margin: 20px 0; /* Espacement vertical entre les paragraphes */
-     font-weight: arial; /* Gras pour le titre */ }
+  margin: 20px 0; /* Espacement vertical entre les paragraphes */
+  font-weight: arial; /* Gras pour le titre */
+}
 
 .hero h3 span {
-    color: #ff7f00;
-    font-weight: bold;
+  color: #ff7f00;
+  font-weight: bold;
 }
 
 /* ✅ Stylisation du Paragraphe POUR LE PETITE TEXYT */
 .hero p {
   font-size: 15px; /* Taille du texte du paragraphe */
-     margin: 20px 0; /* Espacement vertical entre les paragraphes */
-     font-weight: arial; /* Gras pour le titre */
-     color: #fff;
-     text-align: left;
-
+  margin: 20px 0; /* Espacement vertical entre les paragraphes */
+  font-weight: arial; /* Gras pour le titre */
+  color: #fff;
+  text-align: left;
 }
 /* TITRE BI JE CROIS */
-.formation , p {
+.formation,
+p {
   text-align: center;
-} 
+}
 
 /* Responsiveness HERO + FORMATIONS */
 @media (max-width: 1024px) {
- .hero img {
+  .hero img {
     display: none !important;
   }
 }
@@ -472,9 +540,6 @@ h2{
   }
 }
 
-
-
-
 /* PARTIE F0RMATIONS */
 
 .container {
@@ -485,21 +550,22 @@ h2{
 
 section {
   margin-bottom: 3rem;
-  
 }
 
-h4{
+h4 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   color: #ff7f00;
-  text-align: left
+  text-align: left;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
+  align-items: start; /* ✅ chaque card garde sa propre hauteur */
 }
+
 
 .card {
   background-color: #fff;
@@ -508,8 +574,6 @@ h4{
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  
-  
 }
 
 .card:hover {
@@ -555,12 +619,9 @@ h4{
   font-size: 1.5rem;
 }
 
-
-
 .details-button:hover {
   background-color: #cc6600;
 }
-
 
 /* POUR LES 6 DERNIERS CARTES EN BAS ICI A REGLER DEMAIN*/
 
@@ -603,7 +664,7 @@ h4{
 }
 
 .details button {
-  background-color: #FF8000;
+  background-color: #ff8000;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -617,12 +678,12 @@ h4{
   background-color: #e67000;
 }
 
-
-
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.3s ease;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
@@ -637,12 +698,7 @@ h4{
   right: 10px;
   font-size: 25px;
   color: #ff7f00; /* ou n’importe quelle couleur qui va bien avec ton thème */
-
 }
-
-
-
-
 
 /* 🔹 TÉMOIGNAGES */
 .temoignages {
@@ -662,11 +718,10 @@ h4{
 }
 .testimonial h4 {
   color: #000;
-text-align: center;
+  text-align: center;
   font-weight: bold; /* Gras pour le titre */
   /* margin: 10px 0;  */
   /* Espacement vertical entre les paragraphes */
-
 }
 .testimonial {
   background: white;
@@ -680,8 +735,7 @@ text-align: center;
   /* max-width: 600px;
 width: 100%; */
 
-
-  max-width: 9500px; 
+  max-width: 9500px;
   min-width: 1310px;
 }
 .testimonial img {
@@ -693,9 +747,8 @@ width: 100%; */
   /* margin-left: 44%; */
 
   margin-left: auto;
-margin-right: auto;
-display: block;
-
+  margin-right: auto;
+  display: block;
 }
 .nav-btn {
   background: transparent;
@@ -769,9 +822,6 @@ display: block;
   }
 }
 
-
-
-
 /* --- Section FAQ --- */
 .faq-section {
   padding: 60px 5%;
@@ -834,11 +884,13 @@ display: block;
 }
 
 /* --- Animation Slide pour ouverture des réponses --- */
-.slide-enter-active, .slide-leave-active {
+.slide-enter-active,
+.slide-leave-active {
   transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-.slide-enter, .slide-leave-to {
+.slide-enter,
+.slide-leave-to {
   max-height: 0;
   opacity: 0;
 }
@@ -866,5 +918,4 @@ display: block;
   padding: 20px 5%; /* Uniformiser l’espacement interne */
   min-height: 300px; /* Ajuste selon ton besoin */
 }
-  </style>
-  
+</style>

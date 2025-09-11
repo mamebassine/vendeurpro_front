@@ -1,6 +1,9 @@
 <template>
   <div class="page-container">
     <section class="card">
+      <!-- Flèche retour -->
+      <span class="back-arrow" @click="router.back()">➔</span>
+
       <h1 class="card-title">Détails de la Formation</h1>
 
       <div v-if="formation">
@@ -112,7 +115,16 @@ const formatObjectifs = (text) => {
   margin-top: 9%;
 }
 
+/* .card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  width: 100%;
+} */
 .card {
+  position: relative; /* 👈 ajouté */
   background-color: white;
   padding: 40px;
   border-radius: 20px;
@@ -120,6 +132,8 @@ const formatObjectifs = (text) => {
   max-width: 800px;
   width: 100%;
 }
+
+
 
 .card-title {
   font-size: 2.5rem;
@@ -165,4 +179,21 @@ p {
   font-weight: 700;
   color: #111827;
 }
+
+/* BOUTON DE RETOUR */
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 1.2rem; /* petite taille */
+  color: #6b7280; /* gris discret */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.back-arrow:hover {
+  color: #111827; /* légèrement plus foncé au survol */
+}
+
 </style>

@@ -13,7 +13,7 @@
     <table v-if="!loading && fillieuls.length" class="table">
       <thead>
         <tr>
-          <th>Nom complet du Parrain</th>
+          <!-- <th>Nom complet du Parrain</th> -->
           <th>Nom complet du Filleul</th>
           <th>Email du Filleul</th>
           <th>Formation</th>
@@ -22,7 +22,7 @@
       </thead>
       <tbody>
         <tr v-for="candidature in fillieuls" :key="candidature.id">
-          <td>{{ parrain.nomComplet }}</td>
+          <!-- <td>{{ parrain.nomComplet }}</td> -->
           <td>{{ candidature.candidat.name }} {{ candidature.candidat.prenom }}</td>
           <td>{{ candidature.candidat.email }}</td>
           <td>{{ candidature.formation.titre }}</td>
@@ -55,7 +55,7 @@ export default {
       const response = await candidatService.getCandidatsParraines()
       if (response.data.success) {
         // Récupération des données comme renvoyées par ton API Laravel
-        this.parrain = { nomComplet: response.data.parrain }
+        // this.parrain = { nomComplet: response.data.parrain }
         this.fillieuls = response.data.fillieuls
       } else {
         this.error = "Impossible de charger les données."
