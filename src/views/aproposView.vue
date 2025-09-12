@@ -60,7 +60,7 @@
     <div class="member">
       <img src="/images/Ndiaye Andrien.png" alt="Ndiaye Andrien" class="styled-card-image" />
       <h3> Ndiaye Andrien</h3>
-      <p>Formatrice en techniques de persuasion et fidélisation client.</p>
+      <p>Formateur en techniques de persuasion et fidélisation client.</p>
       <a href="https://www.linkedin.com/company/effective-leadership/posts/?feedView=all">Profil LinkedIn</a>
     </div>
 
