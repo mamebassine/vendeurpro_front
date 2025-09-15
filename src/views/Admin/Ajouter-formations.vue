@@ -212,8 +212,6 @@
   </div>
 </template>
 
-
-
 <script setup>
 import { ref, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
@@ -225,7 +223,6 @@ const categories = ref([])
 const message = ref('')
 const success = ref(true)
 const showModal = ref(false)
-
 const selectedCategoryName = ref('')
 
 const form = ref({
@@ -249,60 +246,91 @@ const form = ref({
   lien_webinaire: ''
 })
 
+// 🔹 Watch catégorie pour debugger
 watch(() => form.value.id_categorie, (newVal) => {
+  console.log("[DEBUG] Changement catégorie, id:", newVal)
   const selected = categories.value.find(cat => cat.id === newVal)
   selectedCategoryName.value = selected ? selected.nom.toLowerCase() : ''
+  console.log("[DEBUG] Catégorie sélectionnée:", selectedCategoryName.value)
 })
 
+// 🔹 Récupération formations
 const getFormations = async () => {
   try {
+    console.log("[DEBUG] Chargement des formations...")
     const res = await api.get('/formations')
-    formations.value = res.data
-  } catch {
+
+    // ✅ Récupérer le bon tableau
+    formations.value = res.data.formations.map(f => ({ ...f, expanded: false })) || []
+    console.log("[DEBUG] Formations reçues:", formations.value)
+  } catch (err) {
+    console.error("[ERROR] Erreur chargement formations:", err)
     showMessage("Erreur chargement formations", false)
   }
 }
 
+// 🔹 Récupération catégories
 const getCategories = async () => {
   try {
+    console.log("[DEBUG] Chargement des catégories...")
     const res = await api.get('/categories')
     categories.value = res.data
-  } catch {
+    console.log("[DEBUG] Catégories reçues:", categories.value)
+  } catch (err) {
+    console.error("[ERROR] Erreur chargement catégories:", err)
     showMessage("Erreur chargement catégories", false)
   }
 }
 
+// 🔹 Création / modification formation
 const saveFormation = async () => {
   try {
-    let url = '/formations' // par défaut
-    if (selectedCategoryName.value === 'webinaire') {
-      url = '/ajouter-webinaire'
-    } else if (selectedCategoryName.value === 'coaching') {
-      url = '/ajouter-coaching'
-    }
+    console.log("[DEBUG] Envoi du formulaire:", form.value)
+    let url = '/formations'
+    if (selectedCategoryName.value === 'webinaire') url = '/ajouter-webinaire'
+    if (selectedCategoryName.value === 'coaching') url = '/ajouter-coaching'
+
+    let response
+    // if (form.value.id) {
+    //   console.log("[DEBUG] Modification de la formation id:", form.value.id)
+    //   response = await api.put(`${url}/${form.value.id}`, form.value)
+    //   showMessage("Formation modifiée avec succès")
+    // } else {
+    //   console.log("[DEBUG] Création de la formation")
+    //   response = await api.post(url, form.value)
+    //   formations.value.push(response.data)
+    //   showMessage("Formation créée avec succès")
+    // }
+
+    // resetForm()
+    // await getFormations()
+    // showModal.value = false
 
     if (form.value.id) {
-      await api.put(`${url}/${form.value.id}`, form.value)
-      showMessage("Formation modifiée avec succès")
-    } else {
-      const response = await api.post(url, form.value)
-      formations.value.push(response.data)
-      showMessage("Formation créée avec succès")
-    }
+  console.log("[DEBUG] Modification de la formation id:", form.value.id)
+  await api.put(`${url}/${form.value.id}`, form.value)
+  showMessage("Formation modifiée avec succès")
+} else {
+  console.log("[DEBUG] Création de la formation")
+  await api.post(url, form.value)
+  showMessage("Formation créée avec succès")
+}
 
-    resetForm()
-    getFormations()
-    showModal.value = false
+// Recharge la liste pour que tout s'affiche correctement
+await getFormations()
+resetForm()
+showModal.value = false
+
   } catch (error) {
+    console.error("[ERROR] Erreur enregistrement:", error)
     const errors = error.response?.data?.errors
     showMessage(errors ? Object.values(errors).flat().join('\n') : "Erreur d'enregistrement", false)
   }
 }
 
-
-
-
+// 🔹 Edition
 const editFormation = (f) => {
+  console.log("[DEBUG] Edition formation:", f)
   form.value = {
     ...f,
     heure: f.heure ? f.heure.slice(0, 5) : '',
@@ -311,23 +339,30 @@ const editFormation = (f) => {
   showModal.value = true
 }
 
+// 🔹 Suppression
 const deleteFormation = async (id) => {
   if (confirm("Supprimer cette formation ?")) {
     try {
+      console.log("[DEBUG] Suppression formation id:", id)
       await api.delete(`/formations/${id}`)
       showMessage("Formation supprimée")
-      getFormations()
-    } catch {
+      await getFormations()
+    } catch (err) {
+      console.error("[ERROR] Erreur suppression:", err)
       showMessage("Erreur suppression", false)
     }
   }
 }
 
+// 🔹 Détails
 const viewDetails = (id) => {
+  console.log("[DEBUG] Voir détails formation id:", id)
   router.push({ name: 'AdminformationsDetails', params: { id } })
 }
 
+// 🔹 Reset formulaire
 const resetForm = () => {
+  console.log("[DEBUG] Reset formulaire")
   form.value = {
     id: null,
     titre: '',
@@ -351,23 +386,28 @@ const resetForm = () => {
   selectedCategoryName.value = ''
 }
 
+// 🔹 Fermer modal
 const closeModal = () => {
+  console.log("[DEBUG] Fermeture modal")
   showModal.value = false
   resetForm()
 }
 
+// 🔹 Message utilisateur
 const showMessage = (msg, isSuccess = true) => {
+  console.log("[DEBUG] Message:", msg, "Success:", isSuccess)
   message.value = msg
   success.value = isSuccess
   setTimeout(() => (message.value = ''), 3000)
 }
 
+// 🔹 Mounted
 onMounted(() => {
+  console.log("[DEBUG] Mounted component")
   getFormations()
   getCategories()
 })
 </script>
-
 
 <style scoped>
 /* modal */

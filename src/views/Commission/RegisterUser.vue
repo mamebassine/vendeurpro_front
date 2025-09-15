@@ -79,13 +79,31 @@
           <p><strong>Email :</strong> {{ selectedUser.email }}</p>
           <p><strong>Téléphone :</strong> {{ selectedUser.phone }}</p>
           <p><strong>Adresse :</strong> {{ selectedUser.address || 'Non renseignée' }}</p>
-<p><strong>Solde :</strong> {{ formatMontant(totalSolde) }}</p>
-          <p><strong>Code parrainage :</strong> {{ selectedUser.code_parrainage || 'Aucun' }}</p>
-          <p>
+          <p><strong>Solde :</strong> {{ formatMontant(totalSolde) }}</p>
+
+<p class="code-parrainage">
+  <strong>Code parrainage :</strong> {{ selectedUser.code_parrainage || 'Aucun' }}
+</p>
+
+<!-- Lien vers le formulaire d'inscription avec le code parrainage -->
+<p v-if="selectedUser.code_parrainage" class="lien-parrainage">
+  <router-link 
+    :to="{ path: '/formations', query: { ref: selectedUser.code_parrainage } }"
+  class="parrain-link"
+  >
+    Le lien pour Postuler
+  </router-link>
+</p>
+
+
+
+
+
+          <!-- <p>
             <strong>Image :</strong><br />
             <img v-if="selectedUser.image" :src="selectedUser.image" alt="Image utilisateur" class="user-image" />
             <span v-else>Aucune image</span>
-          </p>
+          </p> -->
         </div>
 
         <div v-if="selectedCandidatures && selectedCandidatures.length" class="candidature-block-container">
@@ -156,19 +174,44 @@ export default {
     this.getUsers()
   },
   methods: {
+    // async register() {
+    //   try {
+    //     const data = await authService.register(this.form)
+    //     this.success = data.message
+    //     this.error = ''
+    //     this.form = { name:'', prenom:'', email:'', password:'', phone:'', address:'', code_parrainage:'' }
+    //     this.getUsers()
+    //     this.showModal = false
+    //   } catch (err) {
+    //     this.success = ''
+    //     this.error = err.message
+    //   }
+    // },
+    
     async register() {
-      try {
-        const data = await authService.register(this.form)
-        this.success = data.message
-        this.error = ''
-        this.form = { name:'', prenom:'', email:'', password:'', phone:'', address:'', code_parrainage:'' }
-        this.getUsers()
-        this.showModal = false
-      } catch (err) {
-        this.success = ''
-        this.error = err.message
-      }
-    },
+  try {
+    const data = await authService.register(this.form)
+
+    // Afficher le message de succès avec le lien de parrainage
+    this.success = `${data.message} - Lien de parrainage : ${data.lien_parrainage}`
+    this.error = ''
+
+    // Réinitialiser le formulaire
+    this.form = { name:'', prenom:'', email:'', password:'', phone:'', address:'', code_parrainage:'' }
+
+    // Mettre à jour la liste des utilisateurs
+    this.getUsers()
+
+    // Fermer la modale
+    this.showModal = false
+  } catch (err) {
+    this.success = ''
+    // Récupérer le message d'erreur du backend si disponible
+    this.error = err.response?.data?.message || err.message
+  }
+},
+
+    
     async getUsers() {
       try {
         const res = await api.get('/users')
@@ -579,6 +622,28 @@ hr {
   color: #27ae60;
   font-weight: 600;
   text-align: center;
+}
+
+
+
+
+
+/* Style lien parrainage */
+.lien-parrainage {
+  margin-top: 5px;
+}
+
+.parrain-link {
+  display: inline-block; /* pour être sur sa ligne */
+  color: #ff7f00;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.parrain-link:hover {
+  color: #003366;
+  transform: scale(1.05);
 }
 
 </style>

@@ -77,13 +77,50 @@ const formatHeure = (heure) => {
   });
 };
 
+// const postuler = (idFormation) => {
+//   router.push({ 
+//     name: 'AjoutCandidat', 
+//     query: { 
+//       formation_id: idFormation,
+//       ref: route.query.ref   
+//     } 
+//   });
+// };
+
+
+// const postuler = (idFormation) => {
+//   const refCode = route.query.ref || localStorage.getItem('ref'); // récupère le code
+//   router.push({ 
+//     name: 'AjoutCandidat', 
+//     query: { 
+//       formation_id: idFormation,
+//       ref: refCode
+//     } 
+//   });
+// };
 const postuler = (idFormation) => {
-  router.push({ name: 'AjoutCandidat', query: { formation_id: idFormation } });
+  router.push({ 
+    name: 'AjoutCandidat', 
+    query: { 
+      formation_id: idFormation,
+      ref: route.query.ref || localStorage.getItem('ref') || ''
+    } 
+  });
 };
+
 
 onMounted(() => {
   fetchFormation();
 });
+
+
+// const postuler = (idFormation) => {
+//   router.push({ name: 'AjoutCandidat', query: { formation_id: idFormation } });
+// };
+
+// onMounted(() => {
+//   fetchFormation();
+// });
 
 
 const formatObjectifs = (text) => {

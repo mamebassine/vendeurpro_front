@@ -60,7 +60,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import candidatService from '../../services/candidatService'
 
@@ -74,8 +74,13 @@ const form = ref({
   telephone: '',
   adresse: '',
   genre: '',
-  code_parrainage: '',
+  // code_parrainage: '',
+  // formation_id: route.query.formation_id || null
+  code_parrainage: route.query.ref || localStorage.getItem('ref') || '',
   formation_id: route.query.formation_id || null
+
+// code_parrainage: '',  
+  // formation_id: null
 })
 
 const message = ref('')
@@ -92,6 +97,33 @@ const fields = {
   genre: 'Genre',
   code_parrainage: 'Code de parrainage (optionnel)'
 }
+
+// ✅ Récupération auto du code parrainage depuis l’URL
+onMounted(() => {
+  const refCode = route.query.ref || localStorage.getItem('ref') || ''
+  form.value.code_parrainage = refCode
+
+  console.log("formation_id reçu:", route.query.formation_id);
+  console.log("code de parrainage reçu:", route.query.ref || localStorage.getItem('ref'));
+})
+
+// onMounted(() => {
+//   // Vérifie d'abord le query param dans l'URL
+//   let refCode = route.query.ref || localStorage.getItem('ref') || ''
+  
+//   // Remplir le champ
+//   form.value.code_parrainage = refCode
+//   form.value.formation_id = route.query.formation_id || null
+  
+//   console.log("Code de parrainage récupéré :", refCode)
+// })
+
+// onMounted(() => {
+//   const code = route.query.code
+//   if (code) {
+//     form.value.code_parrainage = code
+//   }
+// })
 
 const ajouterCandidat = async () => {
   errors.value = []

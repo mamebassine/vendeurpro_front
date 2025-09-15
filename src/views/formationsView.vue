@@ -197,14 +197,18 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import api from "@/services/api";
+
+const route = useRoute(); // ✅ récupérer la route
 
 const router = useRouter();
 const formations = ref([]);
 const message = ref("");
 const success = ref(true);
 const formationSelectionnee = ref(null);
+const codeParrain = ref(null); // pour stocker le code de parrainage
+
 
 // Récupération des formations depuis l'API
 
@@ -219,16 +223,45 @@ const formationSelectionnee = ref(null);
 //   }
 // };
 
+
+
+// const getFormations = async () => {
+//   try {
+//     const res = await api.get("/formation");
+//     // Ajouter une propriété "expanded" à chaque formation
+//     formations.value = res.data.formations.map(f => ({ ...f, expanded: false }));
+// console.log("Formations reçues corrigées:", formations.value);
+
+
+//   } catch (e) {
+//     console.error(e);
+//     showMessage("Erreur lors du chargement des formations", false);
+//   }
+// };
+
 const getFormations = async () => {
   try {
     const res = await api.get("/formation");
-    // Ajouter une propriété "expanded" à chaque formation
-    formations.value = res.data.map((f) => ({ ...f, expanded: false }));
+    console.log("Réponse API formations :", res.data); // 🔹 Inspecter la structure
+
+    // Vérifier que formations existe
+    if (res.data && Array.isArray(res.data.formations)) {
+      formations.value = res.data.formations.map(f => ({ ...f, expanded: false }));
+    } else if (Array.isArray(res.data)) {
+      // Si l'API renvoie directement un tableau
+      formations.value = res.data.map(f => ({ ...f, expanded: false }));
+    } else {
+      formations.value = [];
+      showMessage("Aucune formation disponible", false);
+    }
+
   } catch (e) {
     console.error(e);
     showMessage("Erreur lors du chargement des formations", false);
   }
 };
+
+
 
 // const viewDetails = (formation) => {
 //   if (formation.type === 'Modules à la carte') {
@@ -287,19 +320,79 @@ const formationsGroupes = computed(() => {
   }, {});
 });
 
+// onMounted(() => {
+// Récupérer le code de parrainage depuis l'URL
+//   codeParrain.value = route.query.ref || null;
+//   if (codeParrain.value) {
+//     console.log("Code de parrainage reçu:", codeParrain.value);
+//   }
+
+//   Charger les formations
+
+//   getFormations();
+// });
 onMounted(() => {
+  // Récupérer le code de parrainage depuis l'URL
+  codeParrain.value = route.query.ref || null;
+
+  if (codeParrain.value) {
+    console.log("Code de parrainage reçu:", codeParrain.value);
+
+    // ✅ ENREGISTRER DANS LOCALSTORAGE
+    localStorage.setItem('ref', codeParrain.value);
+  }
+
+  // Charger les formations
   getFormations();
 });
+
+
+
 
 // const postuler = (id) => {
 //   router.push({ name: 'Voirdetail-formations', params: { id } });
 // };
 
-const postuler = (formation) => {
-  router.push({ name: "AjoutCandidat", query: { formation_id: formation.id } });
+const voirDetail = (formation) => {
+  if (codeParrain.value) {
+    localStorage.setItem('ref', codeParrain.value)
+  }
+
+  router.push({ 
+    name: "Voirdetail-formations", 
+    params: { id: formation.id },
+    query: { ref: codeParrain.value || '' } // ✅ passe vide si rien
+  });
 };
 
+
+// const voirDetail = (formation) => {
+//   router.push({ 
+//     name: "Voirdetail-formations", 
+//     params: { id: formation.id },
+//     query: { ref: codeParrain.value }  // ✅ on transmet ref
+//   });
+// };
+
+
+// const postuler = (formation) => {
+//   router.push({ 
+//     name: "AjoutCandidat", 
+//     query: { 
+//       formation_id: formation.id, 
+//       ref: codeParrain.value   // ✅ tu passes le code de parrainage au formulaire
+//     } 
+//   });
+// };
+
+
+// const postuler = (formation) => {
+//   router.push({ name: "AjoutCandidat", query: { formation_id: formation.id } });
+// };
+
 // 🔹 Témoignages
+
+
 const testimonials = ref([
   {
     img: "/images/temoin.jpg",
