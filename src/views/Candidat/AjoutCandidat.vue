@@ -159,25 +159,37 @@ const ajouterCandidat = async () => {
       formation_id: route.query.formation_id || null
     }
 
-    // Redirection automatique après 2 secondes
-    setTimeout(() => {
-      router.push('/formations')
-    }, 2000)
+// Redirection automatique après 2 secondes si succès
+    if (response.status === 201) {
+      setTimeout(() => {
+        router.push('/formations')
+      }, 2000)
+    }
+
+    // setTimeout(() => {
+    //   router.push('/formations')
+    // }, 2000)
 
   } catch (error) {
+    // erreurs de validation (ex: champ obligatoire)
     if (error.response?.status === 422) {
       const apiErrors = error.response.data.errors
       errors.value = Object.values(apiErrors).flat()
-    } else if (error.response?.status === 409) {
-      errors.value = [error.response.data.message || 'Email ou téléphone déjà utilisé.']
-    } else {
-      alert('❌ Une erreur est survenue. Veuillez réessayer.')
+    } 
+    // conflit (email ou téléphone déjà utilisé)
+    else if (error.response?.status === 409) {
+      errors.value = [error.response.data.message || '⚠️ Email ou téléphone déjà utilisé.']
+    } 
+    // autres erreurs serveur
+    else {
+      errors.value = ['❌ Une erreur est survenue. Veuillez réessayer.']
       console.error(error)
     }
   } finally {
     isSubmitting.value = false
   }
 }
+
 
 const fermerMessage = () => {
   message.value = ''

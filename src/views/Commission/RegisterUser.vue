@@ -152,6 +152,7 @@ export default {
   data() {
     return {
       form: {
+        id: null, // 🔹 Ajouté pour détecter si c'est un update
         name: '',
         prenom: '',
         email: '',
@@ -174,44 +175,29 @@ export default {
     this.getUsers()
   },
   methods: {
-    // async register() {
-    //   try {
-    //     const data = await authService.register(this.form)
-    //     this.success = data.message
-    //     this.error = ''
-    //     this.form = { name:'', prenom:'', email:'', password:'', phone:'', address:'', code_parrainage:'' }
-    //     this.getUsers()
-    //     this.showModal = false
-    //   } catch (err) {
-    //     this.success = ''
-    //     this.error = err.message
-    //   }
-    // },
-    
+    // 🔹 Inscription OU Mise à jour
     async register() {
-  try {
-    const data = await authService.register(this.form)
+      try {
+        if (this.form.id) {
+          // Mise à jour
+          const res = await api.put(`/users/${this.form.id}`, this.form)
+          this.success = res.data.message || "Utilisateur mis à jour avec succès"
+        } else {
+          // Inscription
+          const data = await authService.register(this.form)
+          this.success = `${data.message} - Lien de parrainage : ${data.lien_parrainage}`
+        }
 
-    // Afficher le message de succès avec le lien de parrainage
-    this.success = `${data.message} - Lien de parrainage : ${data.lien_parrainage}`
-    this.error = ''
+        this.error = ""
+        this.form = { id:null, name:'', prenom:'', email:'', password:'', phone:'', address:'', code_parrainage:'' }
+        this.getUsers()
+        this.showModal = false
+      } catch (err) {
+        this.success = ''
+        this.error = err.response?.data?.message || err.message
+      }
+    },
 
-    // Réinitialiser le formulaire
-    this.form = { name:'', prenom:'', email:'', password:'', phone:'', address:'', code_parrainage:'' }
-
-    // Mettre à jour la liste des utilisateurs
-    this.getUsers()
-
-    // Fermer la modale
-    this.showModal = false
-  } catch (err) {
-    this.success = ''
-    // Récupérer le message d'erreur du backend si disponible
-    this.error = err.response?.data?.message || err.message
-  }
-},
-
-    
     async getUsers() {
       try {
         const res = await api.get('/users')
@@ -221,22 +207,27 @@ export default {
         console.error('Erreur lors de la récupération des utilisateurs', error)
       }
     },
+
     viewUser(user) {
       this.selectedUser = user
       this.selectedCandidatures = user.candidatures_parrain || []
       this.showModal = true
     },
+
     closeModal() {
       this.showModal = false
       this.selectedUser = null
       this.selectedCandidatures = []
+      this.form = { id:null, name:'', prenom:'', email:'', password:'', phone:'', address:'', code_parrainage:'' }
     },
+
     editUser(user) {
-      this.form = { ...user, password: '' }
+      this.form = { ...user, password: '', id: user.id } // 🔹 on garde l'id pour update
       this.success = ''
       this.error = ''
       this.showModal = true
     },
+
     async deleteUser(userId) {
       if (!confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) return
       try {
@@ -247,6 +238,7 @@ export default {
         alert('Erreur lors de la suppression')
       }
     },
+
     formatMontant(montant) {
       if (!montant) return "0 FCFA"
       return new Intl.NumberFormat('fr-FR', {
@@ -255,6 +247,7 @@ export default {
       }).format(montant) + " FCFA"
     }
   },
+
   async getSolde() {
     try {
       const res = await api.get('/mes-commissions/total')
@@ -264,24 +257,22 @@ export default {
       return 0
     }
   },
+
   computed: {
-  totalSolde() {
-    if (!this.selectedCandidatures || this.selectedCandidatures.length === 0) return 0
+    totalSolde() {
+      if (!this.selectedCandidatures || this.selectedCandidatures.length === 0) return 0
 
-    return this.selectedCandidatures.reduce((sum, c) => {
-      if (!c.commissions) return sum
+      return this.selectedCandidatures.reduce((sum, c) => {
+        if (!c.commissions) return sum
 
-      // Si commissions est un tableau
-      if (Array.isArray(c.commissions)) {
-        return sum + c.commissions.reduce((s, com) => s + Number(com.montant_commission || 0), 0)
-      }
+        if (Array.isArray(c.commissions)) {
+          return sum + c.commissions.reduce((s, com) => s + Number(com.montant_commission || 0), 0)
+        }
 
-      // Sinon, c.commissions est un objet
-      return sum + Number(c.commissions?.montant_commission || 0)
-    }, 0)
+        return sum + Number(c.commissions?.montant_commission || 0)
+      }, 0)
+    }
   }
-}
-
 }
 </script>
 

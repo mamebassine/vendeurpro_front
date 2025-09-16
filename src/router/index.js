@@ -178,7 +178,15 @@ const router = createRouter({
       name: 'AjoutCandidat',
       component: AjoutCandidat
     }
-  ]
+  ],
+// 👉 Ici le scrollBehavior
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition // bouton retour du navigateur
+    } else {
+      return { top: 0 } // toujours en haut
+    }
+  }
 })
 
 
