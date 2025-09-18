@@ -331,18 +331,9 @@ background-color: #b6aeae52;
   animation: fadeIn 1s ease-in-out;
   
 }
-.team-members {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 105px;
-  margin-top: 30px;
-}
-
-
 .styled-card-image {
   width: 120px;
-  height: 140px;
+  height: 125px;
   border-radius: 50%;   /* Forme parfaitement ronde */
   margin: 0 auto 5px auto;  /* Centre l'image et ajoute une marge en bas */
   display: block;
@@ -350,19 +341,31 @@ background-color: #b6aeae52;
   border: 3px solid #ff7f00; /* Optionnel : une bordure propre */
 }
 
-.member {
-  background: white;
-  padding: 18px;
-  border-radius: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 250px;              /* Taille fixe des cartes */
-  text-align: center;
-  transition: transform 0.3s ease;
-}
 
 .member:hover {
   transform: translateY(-5px); /* Légère élévation au survol */
 }
+
+.team-members {
+  display: flex;
+  justify-content: space-between; /* espace égal entre les cartes */
+  flex-wrap: nowrap;              /* 🔹 les 4 restent sur la même ligne */
+  gap: 30px;                      /* 🔹 réduit le grand espace */
+  margin-top: 30px;
+  overflow-x: auto;               /* permet de scroller si l’écran est trop petit */
+}
+
+.member {
+  background: white;
+  padding: 15px;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(25% - 30px); /* 🔹 chaque carte prend 25% de largeur moins l’espace */
+  max-width: 260px;            /* limite pour éviter qu’elles gonflent trop */
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
 
 
 .team-values {

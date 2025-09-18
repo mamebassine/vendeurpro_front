@@ -445,49 +445,80 @@ font-size: 2em;
   }
 }
 
-/* 🔹 POURQUOI PARTICIPER */
-.why-list {
-  display: flex;   /* Utilisation de Grid pour un agencement flexible */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajustement automatique des colonnes */
+/* 🔹 Pourquoi nos webinaires font la différence ? */
 
-  justify-content: center;  /* Centrer les cartes horizontalement */
-  /* flex-wrap: wrap; */
-  margin-top: 70px;  /* Espacement au-dessus de la section */
-
-  gap: 60px;/* Espacement entre les cartes */
+/* 🔹 Conteneur des cartes Pourquoi participer */
+/* 🔹 Conteneur des cartes Pourquoi participer */
+.why-list { 
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 20px; 
+  margin-top: 30px;
+  padding: 0 10px; 
+  box-sizing: border-box;
 }
 
+/* 🔹 Style des cartes */
 .why-card {
   background: white;
-  padding: 35px; /* Ajout d'espace intérieur pour l'aération */
-  border-radius: 20px; /* Coins arrondis pour un design plus doux */
+  padding: 15px 15px 15px; /* padding uniforme */
+  border-radius: 20px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
-  min-width: 300px; /* Empêche les cartes de devenir trop petites */
+  flex: 0 1 240px;
+  max-width: 300px;
+  box-sizing: border-box;
   transition: transform 0.3s ease-in-out;
-}
-.why-card:hover {
-  transform: translateY(-5px); /* Légère élévation de la carte pour un effet dynamique */
-}
-.why-card i {
-  font-size: 3.6rem; /* Icône plus grande pour attirer l'attention */
-  color: #ff7f00;
-  margin-bottom: 16px; /* Espacement sous l'icône */
-}
-/* 🔹 Titre de la carte */
-.why-card h3 {
-  font-size: 1.7rem;
-  color: #003366;
-  margin-bottom: 15px;
-  font-weight: bold;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-/* 🔹 Texte de la carte */
-.why-card p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
+/* 🔹 Icône */
+.why-card i {
+  font-size: 3rem;
+  color: #ff7f00;
+  margin-bottom: 12px; /* espace icône → titre */
 }
+
+/* 🔹 Titre */
+.why-card h3 {
+  font-size: 1.1rem;
+  color: #003366;
+  margin-bottom: 10px; /* espace titre → texte */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 🔹 Texte */
+.why-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0; /* pas de marge en bas */
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+  .why-card {
+    flex: 1 1 90%;
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .why-card i {
+    margin-bottom: 10px;
+  }
+
+  .why-card h3 {
+    margin-bottom: 8px;
+  }
+}
+
 
 
 /* 🔹 PROCHAINS WEBINAIRES - Conteneur des cartes */
@@ -495,51 +526,50 @@ font-size: 2em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 120px; /* Réduit l'espace entre les cartes */
+  gap: 30px; /* réduit le gap pour éviter débordement */
   margin-top: 40px;
-  padding: 20px;
+  padding: 0 10px; /* padding horizontal pour éviter le débordement */
+  box-sizing: border-box;
 }
 
 /* 🔹 Style des cartes */
 .webinaire-card {
   background: white;
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  width: 300px; /* Fixe la largeur pour uniformiser */
-  border: 2px solid transparent;
+  width: 100%;
+  max-width: 300px; /* limite la largeur */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 /* 🔹 Bordure légère au clic */
 .webinaire-card:active {
-  border-color: #ff7f00; /* Couleur vive pour le clic */
-  box-shadow: 0px 6px 16px rgba(255, 127, 0, 0.4); /* Un peu plus de lumière */
+  border-color: #ff7f00;
+  box-shadow: 0px 6px 16px rgba(255, 127, 0, 0.4);
 }
 
-
 /* 🔹 Titre */
-.webinaire-card h3 {
-  font-size: 1.2rem;
+.webinaire-card h2 {
+  font-size: 1rem;
   color: #000;
-  margin-bottom: 7px;
-  text-align: center; /* Corrigé ici */
+  margin-bottom: 8px;
   font-weight: bold;
-  width: 100%; /* S'assure que le titre occupe toute la largeur */
+  word-wrap: break-word; /* permet au texte long de revenir à la ligne */
 }
 
 /* 🔹 Texte */
 .webinaire-card p {
-  font-size: 1rem;
+  font-size: 0.85rem; /* corrigé O -> 0 */
   color: #000;
-  margin: 10px 0;
+  margin: 5px 0;
   text-align: left;
-  width: 100%;
-    margin-bottom: 3px;
-
+  word-wrap: break-word; /* texte long ne déborde plus */
 }
 
 /* 🔹 Bouton */
@@ -547,13 +577,14 @@ font-size: 2em;
   display: inline-block;
   background: #ff7f00;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-radius: 10px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-top: 10px;
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s, transform 0.2s;
+  word-wrap: break-word;
 }
 
 .cta-button:hover {
@@ -561,68 +592,92 @@ font-size: 2em;
   transform: scale(1.05);
 }
 
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+  .webinaire-card {
+    max-width: 90%; /* prend 90% de la largeur sur mobile */
+    padding: 15px;
+  }
+  .webinaire-list {
+    gap: 20px;
+    padding: 0 5%;
+  }
+}
+
 
 
 /* 🔹 TÉMOIGNAGES - Conteneur principal */
+
+
+
+
+
+/* 🔹 CONTENEUR TÉMOIGNAGES */
 .testimonial-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px; /* Espacement équilibré */
+  gap: 30px;
   margin-top: 40px;
+  flex-wrap: wrap; /* pour responsive */
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
-/* 🔹 Carte de témoignage */
+/* 🔹 CARTE DE TÉMOIGNAGE */
 .testimonial-card {
   background: white;
-  padding: 10px;
-  border-radius: 15px;
+  padding: 15px 60px; /* ➕ plus d’espace intérieur */
+  border-radius: 20px;
   text-align: center;
   box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.1);
-  max-width: 9500px; /* ✅ Largeur maximale définie */
-  min-width: 1310px; /* ✅ Évite que la carte soit trop petite */
-  width: 100%; /* ✅ S’adapte aux écrans plus petits */
+  width: 100%;
+   max-width: 1016px; /* 🔹 encore plus large (avant 700px) */
+  min-width: 350px; /* garde un minimum correct sur petit écran */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
-  align-items: center; /* ✅ Centre tous les éléments horizontalement */
-  flex-direction: column; /* ✅ Assure un alignement vertical */
-
 }
 
-/* 🔹 Effet au survol */
 .testimonial-card:hover {
-  transform: translateY(-5px) scale(1.03);
+  transform: translateY(-5px) scale(1.02);
   box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* 🔹 Image du témoignage */
+/* 🔹 IMAGE DU TÉMOIGNAGE */
 .testimonial-img {
   width: 160px;
   height: 160px;
-  border-radius: 50%; /* Cercle parfait */
-  margin-bottom: 15px;
-  border: 2px solid #ff7f00; /* Bordure colorée pour l’effet visuel */
+  border-radius: 50%;
   object-fit: cover;
-  display: block; /* ✅ Assure que l’image reste un bloc centré */
-margin-left: 42%;
+  margin: 0 auto 20px auto; /* centré avec marge en bas */
+  border: 2px solid #ff7f00;
+  display: block;
 }
 
-/* 🔹 Texte du témoignage */
+/* 🔹 TEXTE DU TÉMOIGNAGE */
 .testimonial-card p {
   font-size: 1.2rem;
   color: #555;
   font-style: italic;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 600px; /* 🔹 garde un texte lisible au centre */
 }
 
-/* 🔹 Auteur du témoignage */
+/* 🔹 AUTEUR DU TÉMOIGNAGE */
 .testimonial-card h4 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #333;
   font-weight: bold;
+  margin-top: 0;
 }
 
-/* 🔹 Boutons de navigation */
+/* 🔹 BOUTONS NAVIGATION */
 .nav-btn {
   background: transparent;
   border: none;
@@ -632,13 +687,12 @@ margin-left: 42%;
   transition: color 0.3s, transform 0.2s;
 }
 
-/* 🔹 Effet au survol des boutons */
 .nav-btn:hover {
   color: #e06b00;
   transform: scale(1.2);
 }
 
-/* 🔹 Bouton d'inscription */
+/* 🔹 BOUTON CTA */
 .cta-button {
   display: inline-block;
   background: #ff7f00;
@@ -652,55 +706,34 @@ margin-left: 42%;
   transition: background 0.3s, transform 0.2s;
 }
 
-/* 🔹 Effet au survol du bouton */
 .cta-button:hover {
   background: #003366;
   transform: scale(1.05);
 }
-/* RESPONSIVES POUR LES DEUX */
+
+/* 🔹 RESPONSIVE */
 @media (max-width: 1024px) {
   .testimonial-container {
     flex-direction: column;
-    gap: 30px;
-    padding: 0 20px;
+    gap: 25px;
   }
 
   .testimonial-card {
-    min-width: 90%;
+    max-width: 600px;
+    min-width: 300px;
+    padding: 25px 40px;
     margin: 0 auto;
   }
 
   .testimonial-img {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .why-list {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .webinaire-list {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    padding: 10px;
-    gap: 30px;
+    width: 140px;
+    height: 140px;
   }
 }
 
 @media (max-width: 768px) {
-  .why-list,
-  .testimonial-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 5%;
-  }
-
-  .why-card,
-  .webinaire-card,
   .testimonial-card {
     width: 100%;
-    min-width: auto;
     max-width: 100%;
     padding: 20px;
   }
@@ -708,54 +741,32 @@ margin-left: 42%;
   .testimonial-img {
     width: 120px;
     height: 120px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .why-card h3,
-  .webinaire-card h3,
-  .testimonial-card h4 {
-    font-size: 1.3rem;
-  }
-
-  .webinaire-card {
-    max-width: 100%;
   }
 
   .cta-button {
-    font-size: 0.95rem;
-    padding: 10px 18px;
+    font-size: 1rem;
+    padding: 12px 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .why-list,
-  .testimonial-container {
-    gap: 20px;
-  }
-
-  .why-card i {
-    font-size: 2.5rem;
-  }
-
-  .why-card h3,
-  .webinaire-card h3,
-  .testimonial-card h4 {
-    font-size: 1.1rem;
-  }
-
-  .why-card p,
-  .webinaire-card p,
   .testimonial-card p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+  }
+
+  .testimonial-card h4 {
+    font-size: 1rem;
+  }
+
+  .nav-btn {
+    font-size: 1.6rem;
   }
 
   .cta-button {
-    font-size: 0.85rem;
-    padding: 8px 16px;
+    font-size: 0.9rem;
+    padding: 10px 16px;
   }
 }
-
 
 
 

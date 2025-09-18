@@ -346,12 +346,24 @@ onMounted(() => {
   getFormations();
 });
 
-
-
-
 // const postuler = (id) => {
 //   router.push({ name: 'Voirdetail-formations', params: { id } });
 // };
+
+
+// Fonction pour postuler
+const postuler = (formation) => {
+  // redirige vers le formulaire avec l'ID de la formation et le code parrain
+  router.push({
+    name: "AjoutCandidat",
+    query: {
+      formation_id: formation.id,
+      ref: codeParrain.value || ""
+    }
+  });
+};
+
+
 
 const voirDetail = (formation) => {
   if (codeParrain.value) {
@@ -687,12 +699,22 @@ h4 {
   text-align: left;
 }
 
-.objectifs {
+/* .objectifs {
   color: #555;
   font-size: 15px;
   line-height: 1.2;
   text-align: justify;
+} */
+
+.objectifs {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Webkit */
+  line-clamp: 2;          /* Standard */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 .details-button {
   margin-top: 1rem;
@@ -723,7 +745,7 @@ h4 {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
+  padding: 12px;
   transition: transform 0.2s ease;
   position: relative;
   overflow: hidden;
@@ -816,21 +838,29 @@ h4 {
   /* margin: 10px 0;  */
   /* Espacement vertical entre les paragraphes */
 }
+
 .testimonial {
+  max-width: 100%;
+  min-width: 0;
+  width: 90%; /* ou 95% pour mobiles */
+  padding: 40px;
+  margin: 0 auto; /* centre le bloc */
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* .testimonial {
   background: white;
   color: black;
-  /* Pour diminuer la grandeur */
   padding: 60px;
   border-radius: 10px;
   max-width: 40%;
   text-align: center;
 
-  /* max-width: 600px;
-width: 100%; */
 
   max-width: 9500px;
   min-width: 1310px;
-}
+} */
 .testimonial img {
   width: 180px;
   height: 170px;
@@ -930,10 +960,17 @@ width: 100%; */
 }
 
 /* --- Conteneur des questions --- */
+
 .faq-container {
-  max-width: 280%; /*Augmenter le input  */
+  max-width: 1200px; /* largeur raisonnable */
+  width: 90%;
   margin: auto;
 }
+
+/* .faq-container {
+  max-width: 280%; 
+  margin: auto;
+} */
 
 /* --- Question en accordéon --- */
 .faq-item {

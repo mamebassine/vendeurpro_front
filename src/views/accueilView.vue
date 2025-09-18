@@ -776,15 +776,18 @@ button:hover::before {
   margin-bottom: 40px;
 }
 /* Conteneur carousel */
+/* Conteneur carousel */
 .formations-content {
   display: flex;
-  gap: 30px;
+  gap: 30px; /* ✅ gère l'espacement entre les cartes */
   transition: transform 0.5s ease;
   justify-content: center;
   flex-wrap: nowrap;
+  overflow: hidden; /* ✅ empêche le débordement horizontal */
 }
+
 .formation-card {
-  flex: 1;
+  flex: 0 0 280px; /* ✅ largeur fixe */
   max-width: 300px;
   min-width: 250px;
   padding: 15px;
@@ -792,55 +795,14 @@ button:hover::before {
   border-radius: 8px;
   text-align: center;
   transition: transform 0.3s ease;
-  margin: 36px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  /* flex: 1;
-  background-color: #333;
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s ease;
-
-  max-width: 300px; 
-  min-width: 250px;
-  padding: 15px; */
+  margin: 0; /* ✅ supprime le débordement */
 }
+
 .formation-card:hover {
   transform: scale(1.05);
-}
-.formation-image {
-  width: 100%;
-  height: 300px; /* fixe la hauteur de l’image */
-  object-fit: cover; /* ou "contain" si tu veux voir l’image entière sans crop */
-  border-radius: 8px;
-  background-color: #222; /* utile si image transparente ou contient du vide */
-}
-.formation-card-title {
-  font-family: "Arial Black", Impact, sans-serif; /* police très visible */
-  font-size: 1em;
-  margin-top: 15px;
-  max-height: 2.5em; /* 2 lignes max */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  line-clamp: 2; /* Ajoute cette ligne */
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-.formation-card-text {
-  font-size: 1em;
-  margin-top: 10px;
-  max-height: 4.5em; /* 3 lignes max */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  line-clamp: 3; /* Ajoute cette ligne */
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
 }
 
 /* Flèches navigation */
@@ -855,14 +817,16 @@ button:hover::before {
   z-index: 2;
   background: transparent;
   border: none;
-  padding: 0 10px;
+  padding: 0 5px; /* ✅ réduit pour éviter de pousser le contenu */
 }
+
 .nav-arrow-left {
-  left: 10px;
+  left: 0; /* ✅ collé au bord */
 }
 .nav-arrow-right {
-  right: 10px;
+  right: 0; /* ✅ collé au bord */
 }
+
 .nav-arrow:hover {
   color: #ff7f00;
   transform: scale(1.2);
