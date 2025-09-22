@@ -1,13 +1,27 @@
-// src/services/api.js
+
+//C'EST POUR LOCAL
+// import axios from 'axios';
+
+// const apiClient = axios.create({
+//   baseURL: 'http://127.0.0.1:8000/api',
+//   withCredentials: false,
+//   headers: {
+//     'Content-Type': 'application/json',
+//   }
+// });
+
+//C'EST POUR LE DEPLOIEMENT
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api',
+  baseURL: 'http://api.vendeur-pro.com/api', 
   withCredentials: false,
   headers: {
     'Content-Type': 'application/json',
   }
 });
+
+
 
 // const getWebinaires = async () => {
 //   try {
