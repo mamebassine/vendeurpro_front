@@ -165,7 +165,18 @@
       <tbody>
         <tr v-for="item in actualites" :key="item.id">
           <td>
-            <img :src="getImageUrl(item.image)" alt="Ici Image" class="actualite-image" />
+            <!-- <img :src="getImageUrl(item.image)" alt="Ici Image" class="actualite-image" /> -->
+<img 
+  :src="getImageUrl(item.image)" 
+  @error="e => {
+    console.error('❌ Erreur chargement image:', e.target.src);
+    e.target.src='/default-image.jpg';
+  }" 
+  alt="Ici Image" 
+  class="actualite-image"
+/>
+
+
           </td>
           <td><strong>{{ item.titre || 'Titre manquant' }}</strong></td>
           <td class="content-cell">{{ item.contenu || 'Contenu manquant' }}</td>
@@ -372,31 +383,34 @@ async handleSubmit() {
       this.previewImage = null;
     },
 
-    /* ----------- HELPERS ----------- */
-    // getImageUrl(image) {
-    //   if (!image) return '/default-image.jpg';
-    //   if (image.startsWith('http')) return image;
-    //   if (image.startsWith('actualites/')) {
-    //     return `http://localhost:8000/storage/${image}`;
-    //   }
-    //   if (image.startsWith('/storage/')) {
-    //     return `http://localhost:8000${image}`;
-    //   }
-    //   return image.startsWith('/')
-    //     ? `http://localhost:8000${image}`
-    //     : `http://localhost:8000/${image}`;
-    // },
+    
+// IMAGE BIIIIIIIIIIII
+// getImageUrl(image) {
+//   if (!image) return '/default-image.jpg'; 
+//   const cleanImage = image.replace(/^\/+/, '');
+//   return `http://localhost:8000/storage/${cleanImage}`;
+// },
 
 
-getImageUrl(image) {
-  if (!image) return '/default-image.jpg'; // image par défaut si aucune
-  // supprime les slashes en début pour éviter double slash
-  const cleanImage = image.replace(/^\/+/, '');
-  return `http://localhost:8000/storage/${cleanImage}`;
-},
+ getImageUrl(image) {
+    console.log('📌 image brute depuis BDD:', image);
+
+    if (!image) {
+      console.warn('⚠️ Pas d’image fournie, fallback vers default-image.jpg');
+      return '/default-image.jpg';
+    }
+
+    const cleanImage = image.replace(/^\/+/, '');
+    const url = `${window.location.origin}/storage/${cleanImage}`;
+
+    console.log('🔹 URL générée pour image:', url);
+    return url;
+  },
 
 
 
+
+  
 
     truncateText(text, maxLength = 50) {
       if (!text) return '';
