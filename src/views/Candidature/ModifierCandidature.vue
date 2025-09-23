@@ -1,5 +1,9 @@
 <template>
   <div class="modifier-candidature">
+    <button @click="retourPage" class="btn-retour">
+  ← Retour
+</button>
+
     <h2>Modifier la Candidature</h2>
 
     <form @submit.prevent="mettreAJourCandidature">
@@ -88,6 +92,7 @@ const mettreAJourCandidature = async () => {
       router.push(`/admin/formationsdetail/${idFormation.value}`)
     }, 1500)
 
+    
   } catch (error) {
     console.error('Erreur mise à jour :', error)
     showToast("Une erreur est survenue lors de la mise à jour.", "error")
@@ -97,6 +102,12 @@ const mettreAJourCandidature = async () => {
 onMounted(() => {
   chargerCandidature()
 })
+
+const retourPage = () => {
+  // Retour à la page précédente
+  router.back()
+}
+
 </script>
 
 <style scoped>
@@ -163,4 +174,23 @@ select {
 .toast-error {
   background-color: #dc3545;
 }
+
+
+.btn-retour {
+  display: inline-block;
+  margin-bottom: 1rem;
+  background-color: #f0f0f0;
+  color: #343F69;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-retour:hover {
+  background-color: #e0e0e0;
+}
+
 </style>
