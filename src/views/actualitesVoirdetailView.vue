@@ -4,9 +4,8 @@
       <button @click="$router.go(-1)" class="btn-retour">← Retour</button>
     </div>
 
-    <!-- TITRE PRINCIPAL -->
-    <div class="header-top">
-      <h1 class="main-title">{{ actualite?.titre }}</h1>
+    <div class="header-top" v-if="actualite">
+      <h1 class="main-title">{{ actualite.titre }}</h1>
     </div>
 
     <!-- DATE + intro -->
@@ -23,7 +22,7 @@
     </div>
 
     <!-- AUTEUR + PARTAGE -->
-    <div class="author-share-block">
+    <div class="author-share-block" v-if="actualite">
       <div class="author-info">
         <img :src="getImageUrl(actualite.image)" alt="Auteur" class="author-img" />
         <div class="author-text">
@@ -37,51 +36,47 @@
         <span class="share-text">Partager</span>
       </div>
     </div>
-<!-- Image -->
-    <img :src="getImageUrl(actualite.image)" alt="Image Actualité" class="header-image" />
 
+    <!-- IMAGE -->
+    <img v-if="actualite" :src="getImageUrl(actualite.image)" alt="Image Actualité" class="header-image" />
 
-<!-- POINTS -->
-<h2 class="section-title">Points clés de l’actualité</h2>
-<div class="benefits-wrapper">
-  <div 
-    class="benefit-item" 
-    v-for="(point, index) in actualite.points" 
-    :key="index"
-  >
-    <h3>{{ point.titre }}</h3>
-    <ul>
-      <li v-for="(exp, i) in point.explications" :key="i">
-        {{ exp }}
-      </li>
-    </ul>
-    <p><em>{{ point.conclusion_bloc }}</em></p>
-  </div>
-</div>
-<!-- CONCLUSION -->
-    <p class="conclusion">{{ actualite.conclusion }}</p>
+    <!-- POINTS -->
+    <h2 class="section-title" v-if="actualite.points?.length">Points clés de l’actualité</h2>
+    <div class="benefits-wrapper">
+      <div 
+        class="benefit-item" 
+        v-for="(point, index) in actualite.points" 
+        :key="index"
+      >
+        <h3>{{ point.titre }}</h3>
+        <ul>
+          <li v-for="(exp, i) in point.explications" :key="i">
+            {{ exp }}
+          </li>
+        </ul>
+        <p><em>{{ point.conclusion_bloc }}</em></p>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <p class="conclusion" v-if="actualite.conclusion">{{ actualite.conclusion }}</p>
   </div>
 </template>
 
-
-
-
 <script>
 import actualitesService from '@/services/actualitesService'
+import urlImage from '@/services/imageURL';
 
-// ➕ Fonction pour formater la date
 function formatDate(dateString) {
+  if (!dateString) return ''
   const date = new Date(dateString)
-
-  const options = {
+  return date.toLocaleString('fr-FR', {
     day: '2-digit',
     month: 'long',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
-  }
-
-  return date.toLocaleString('fr-FR', options)
+  })
 }
 
 export default {
@@ -91,14 +86,12 @@ export default {
     }
   },
   methods: {
-    getImageUrl(image) {
-      if (!image) return '/default-image.jpg'
-      if (image.startsWith('http')) return image
-      return `http://localhost:8000/storage/${image}`
-    },
+   getImageUrl(image) {
+  if (!image) return '/default-image.jpg';
+  return image.startsWith('http') ? image : `${urlImage}${image.replace(/^\/+/, '')}`;
+},
     shareArticle() {
-      const url = window.location.href
-      navigator.clipboard.writeText(url)
+      navigator.clipboard.writeText(window.location.href)
       alert('Lien copié dans le presse-papier !')
     }
   },
@@ -107,17 +100,20 @@ export default {
     try {
       const res = await actualitesService.getById(id)
       this.actualite = res.data
-      console.log('Actualité chargée:', this.actualite.points);
+
+      // 🔹 Parser les points si nécessaire
       if (typeof this.actualite.points === 'string') {
-  try {
-    this.actualite.points = JSON.parse(this.actualite.points)
-  } catch (e) {
-    console.error('Erreur de parsing JSON des points:', e)
-    this.actualite.points = []
-  }
-}
-      // ➕ Ajout du champ de date formatée
-      this.actualite.formattedDate = `Publié le ${formatDate(res.data.created_at)}`
+        try {
+          this.actualite.points = JSON.parse(this.actualite.points)
+        } catch (e) {
+          console.error('Erreur de parsing JSON des points:', e)
+          this.actualite.points = []
+        }
+      }
+
+      // 🔹 Ajouter le champ de date formatée
+      this.actualite.formattedDate = `Publié le ${formatDate(this.actualite.created_at)}`
+
     } catch (error) {
       console.error('Erreur lors du chargement des détails :', error)
     }

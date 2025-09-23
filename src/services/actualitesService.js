@@ -1,4 +1,3 @@
-// src/services/actualitesService.js
 
 import apiClient from './api'
 

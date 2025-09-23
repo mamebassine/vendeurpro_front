@@ -54,6 +54,7 @@
 
 <script>
 import actualitesService from '@/services/actualitesService'
+import urlImage from '@/services/imageURL';
 
 export default {
   data() {
@@ -65,10 +66,10 @@ export default {
   },
 
   methods: {
-    getImageUrl(image) {
-      if (!image) return '/default-image.jpg';
-      if (image.startsWith('http')) return image;
-      return `http://localhost:8000/storage/${image}`;
+     getImageUrl(image) {
+      if (!image) return '/default-image.jpg';       // image par défaut si vide
+      if (image.startsWith('http')) return image;    // si c’est déjà une URL complète
+      return `${urlImage}${image.replace(/^\/+/, '')}`; // utilisation de urlImage
     },
 
     formatDate(datetime) {

@@ -29,20 +29,21 @@
 </template>
 
 <script setup>
+import actualitesService from '@/services/actualitesService'
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import urlImage from '@/services/imageURL';
 
 const cards = ref([])
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:8000/api/actualites')
+    const response = await actualitesService.getAll()
     cards.value = response.data.map((item) => ({
       id: item.id,
       title: item.titre,
       description: item.contenu,
       image: getImageUrl(item.image),
-      formattedDate: `Publié le ${formatDate(item.created_at)}` // ✅ plus clair
+      formattedDate: `Publié le ${formatDate(item.created_at)}`
     }))
   } catch (error) {
     console.error('Erreur lors du chargement des actualités:', error)
@@ -68,10 +69,8 @@ function formatDate(dateStr) {
 }
 
 function getImageUrl(image) {
-  if (!image) return '/default.jpg'
-  return image.startsWith('http')
-    ? image
-    : `http://localhost:8000/storage/${image}`
+  if (!image) return '/default.jpg';
+  return image.startsWith('http') ? image : `${urlImage}${image.replace(/^\/+/, '')}`;
 }
 </script>
 

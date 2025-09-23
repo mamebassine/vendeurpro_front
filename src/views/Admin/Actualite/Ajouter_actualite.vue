@@ -166,15 +166,8 @@
         <tr v-for="item in actualites" :key="item.id">
           <td>
             <!-- <img :src="getImageUrl(item.image)" alt="Ici Image" class="actualite-image" /> -->
-<img 
-  :src="getImageUrl(item.image)" 
-  @error="e => {
-    console.error('❌ Erreur chargement image:', e.target.src);
-    e.target.src='/default-image.jpg';
-  }" 
-  alt="Ici Image" 
-  class="actualite-image"
-/>
+            <img :src="getImageUrl(item.image)" alt="Image" class="actualite-image" />
+
 
 
           </td>
@@ -205,6 +198,7 @@
 
 <script>
 import actualitesService from '@/services/actualitesService';
+import urlImage from '@/services/imageURL';
 
 export default {
   data() {
@@ -392,27 +386,14 @@ async handleSubmit() {
 // },
 
 
- getImageUrl(image) {
-    console.log('📌 image brute depuis BDD:', image);
+// IMAGE BIIIIIIIIIIII
+getImageUrl(image) {
+  if (!image) return '/default-image.jpg';
+  if (image.startsWith('http')) return image; // si image déjà URL complète
+  return `${urlImage}${image.replace(/^\/+/, '')}`;
+},
 
-    if (!image) {
-      console.warn('⚠️ Pas d’image fournie, fallback vers default-image.jpg');
-      return '/default-image.jpg';
-    }
-
-    const cleanImage = image.replace(/^\/+/, '');
-    const url = `${window.location.origin}/storage/${cleanImage}`;
-
-    console.log('🔹 URL générée pour image:', url);
-    return url;
-  },
-
-
-
-
-  
-
-    truncateText(text, maxLength = 50) {
+truncateText(text, maxLength = 50) {
       if (!text) return '';
       return text.length <= maxLength ? text : text.substring(0, maxLength) + '...';
     },
