@@ -239,41 +239,19 @@ export default {
     },
 
 deleteUser(id) {
+  if (!confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) return;
+
   api.delete(`/users/${id}`)
     .then(() => {
-      this.success = "Utilisateur supprimé avec succès"
-      this.fetchUsers() // recharge la liste
+      this.success = "Utilisateur supprimé avec succès";
+      // Supprimer l'utilisateur localement pour ne pas recharger toute la liste
+      this.users = this.users.filter(user => user.id !== id);
     })
     .catch(error => {
-      this.error = "Erreur lors de la suppression"
-      console.error(error)
-    })
-}
-
-//     async deleteUser(userId) {
-//   if (!confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) return;
-
-//   try {
-//     // On récupère le token depuis le localStorage (ou autre stockage où tu l'as sauvegardé)
-//     const token = localStorage.getItem('jwt_token'); 
-
-//     // Requête DELETE vers ton API
-//     await api.delete(`/users/${userId}`, {
-//       headers: {
-//         Authorization: `Bearer ${token}`
-//       }
-//     });
-
-//     // Actualiser la liste après suppression
-//     await this.getUsers();
-//     alert('Utilisateur supprimé avec succès');
-//   } catch (error) {
-//     console.error('Erreur lors de la suppression :', error.response || error);
-//     alert(error.response?.data?.message || 'Erreur lors de la suppression');
-//   }
-// }
-
-
+      this.error = "Erreur lors de la suppression";
+      console.error(error);
+    });
+  },
 
   },
 
