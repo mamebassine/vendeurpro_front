@@ -14,7 +14,9 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://api.vendeur-pro.com/api', 
+  // baseURL: 'http://api.vendeur-pro.com/api', 
+    baseURL: 'https://api.vendeur-pro.com/api', // HTTPS sécurisé
+
   withCredentials: false,
   headers: {
     'Content-Type': 'application/json',
