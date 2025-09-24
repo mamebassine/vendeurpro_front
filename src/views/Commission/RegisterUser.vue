@@ -21,7 +21,9 @@
             <td class="action-col">
               <button class="btn btn-view" @click="viewUser(user)">👁</button>
               <button class="btn btn-edit" @click="editUser(user)">✏️</button>
+              <!-- <button class="btn btn-delete" @click="deleteUser(user.id)">🗑</button> -->
               <button class="btn btn-delete" @click="deleteUser(user.id)">🗑</button>
+
             </td>
           </tr>
         </tbody>
@@ -228,24 +230,51 @@ export default {
       this.showModal = true
     },
 
-    async deleteUser(userId) {
-      if (!confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) return
-      try {
-        await api.delete(`/users/${userId}`)
-        this.getUsers()
-        alert('Utilisateur supprimé avec succès')
-      } catch (error) {
-        alert('Erreur lors de la suppression')
-      }
-    },
-
     formatMontant(montant) {
       if (!montant) return "0 FCFA"
       return new Intl.NumberFormat('fr-FR', {
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
       }).format(montant) + " FCFA"
-    }
+    },
+
+deleteUser(id) {
+  api.delete(`/users/${id}`)
+    .then(() => {
+      this.success = "Utilisateur supprimé avec succès"
+      this.fetchUsers() // recharge la liste
+    })
+    .catch(error => {
+      this.error = "Erreur lors de la suppression"
+      console.error(error)
+    })
+}
+
+//     async deleteUser(userId) {
+//   if (!confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) return;
+
+//   try {
+//     // On récupère le token depuis le localStorage (ou autre stockage où tu l'as sauvegardé)
+//     const token = localStorage.getItem('jwt_token'); 
+
+//     // Requête DELETE vers ton API
+//     await api.delete(`/users/${userId}`, {
+//       headers: {
+//         Authorization: `Bearer ${token}`
+//       }
+//     });
+
+//     // Actualiser la liste après suppression
+//     await this.getUsers();
+//     alert('Utilisateur supprimé avec succès');
+//   } catch (error) {
+//     console.error('Erreur lors de la suppression :', error.response || error);
+//     alert(error.response?.data?.message || 'Erreur lors de la suppression');
+//   }
+// }
+
+
+
   },
 
   async getSolde() {
@@ -272,7 +301,11 @@ export default {
         return sum + Number(c.commissions?.montant_commission || 0)
       }, 0)
     }
-  }
+  },
+
+
+  
+
 }
 </script>
 

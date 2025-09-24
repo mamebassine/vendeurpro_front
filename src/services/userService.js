@@ -1,23 +1,12 @@
+// userservice.js
+import apiClient from './api'  // ton api.js centralisé avec baseURL et interceptors
 
-import axios from 'axios'
-
-const api = axios.create({
-  baseURL: 'http://localhost:8000/api', // adapte selon ton backend
-  headers: {
-    'Accept': 'application/json',
-  },
-})
-
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
-})
-
+/**
+ * Connexion d'un utilisateur
+ * @param {Object} credentials - { email, password }
+ */
 export async function loginUser(credentials) {
-  const response = await api.post('/login', credentials)
+  const response = await apiClient.post('/login', credentials)
   const token = response.data.token
   if (token) {
     localStorage.setItem('token', token)
@@ -25,16 +14,40 @@ export async function loginUser(credentials) {
   return response.data // contient user et token
 }
 
+/**
+ * Récupérer le profil de l'utilisateur connecté
+ */
 export async function fetchUserProfile() {
-  const response = await api.get('/profile')
+  const response = await apiClient.get('/profile')
   return response.data.data
 }
 
+/**
+ * Déconnexion
+ */
 export async function logoutUser() {
   try {
-    await api.post('/logout')
+    await apiClient.post('/logout')
   } catch (err) {
     console.warn('Erreur logout', err)
   }
   localStorage.removeItem('token')
+}
+
+/**
+ * 🔓 Supprimer un utilisateur/parrain (admin)
+ * @param {number} userId
+ */
+export async function deleteUser(userId) {
+  if (!confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) return;
+
+  try {
+    const response = await apiClient.delete(`/users/${userId}`)
+    alert('Utilisateur supprimé avec succès')
+    return response.data
+  } catch (error) {
+    console.error('Erreur lors de la suppression :', error.response || error)
+    alert(error.response?.data?.message || 'Erreur lors de la suppression')
+    throw error
+  }
 }
