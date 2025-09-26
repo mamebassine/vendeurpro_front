@@ -216,37 +216,37 @@ const formations = ref([
     img: new URL("@/assets/images/vendeurp4.jpg", import.meta.url).href,
     title: "Vente de produits",
     text: "Apprenez à vendre efficacement aux entreprises.",
-    route: "/bootcamp-produits",
+    route: "/formations",
   },
   {
     img: new URL("@/assets/images/vendeur5.jpg", import.meta.url).href,
     title: "Closer BtoB",
     text: "Devenez un expert en vente aux entreprises et prospection commerciale.",
-    route: "/formation-btob",
+    route: "/formations",
   },
   {
     img: new URL("@/assets/images/vendeura1.jpg", import.meta.url).href,
     title: "Social Selling Master",
     text: "Maîtrisez la vente via TikTok, WhatsApp et autres canaux digitaux.",
-    route: "/formation-vente-digitale",
+    route: "/formations",
   },
   {
     img: new URL("@/assets/images/vendeur3.jpg", import.meta.url).href,
     title: "L'Art de vendre",
     text: "Acquérir les techniques de vente essentielles pour booster vos ventes.",
-    route: "/bootcamp-vendeur",
+    route: "/formations",
   },
   {
     img: new URL("@/assets/images/photo7.png", import.meta.url).href,
     title: "Pro vendeur BtoC",
     text: "Maîtrisez la vente en boutique, sur les réseaux sociaux et WhatsApp.",
-    route: "/formation-vente-directe",
+    route: "/formations",
   },
   {
     img: new URL("@/assets/images/vendeur5.jpg", import.meta.url).href,
     title: "Vente digitale et E-commerce",
     text: "Créez des applications mobiles performantes.",
-    route: "/bootcamp-services",
+    route: "/formations",
   },
 ]);
 
@@ -271,10 +271,7 @@ const prevFormation = () => {
   currentFormationIndex.value =
     (currentFormationIndex.value - 1 + formations.value.length) % formations.value.length;
 };
-
-// =========================
 // ❓ FAQ
-// =========================
 const faqItems = ref([
   {
     question: "Qui peut participer à vos formations ?",
