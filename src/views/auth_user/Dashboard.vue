@@ -57,14 +57,20 @@ import { ref, onMounted } from "vue";
 import { getParrainDashboard } from "@/services/dashboardparrainService.js";
 
 const loading = ref(true);
-const selectedUser = ref({}); // 🔹 Utilisation de selectedUser
+const selectedUser = ref({});
 const stats = ref({});
 const candidatures = ref([]);
+
+// Détection de l'environnement
+const baseUrl =
+  import.meta.env.MODE === "production"
+    ? "https://vendeur-pro.com"
+    : "http://localhost:5173";
 
 onMounted(async () => {
   try {
     const data = await getParrainDashboard();
-    selectedUser.value = data.parrain; // 🔹 On remplit selectedUser
+    selectedUser.value = data.parrain;
     stats.value = data.stats;
     candidatures.value = data.candidatures;
   } catch (error) {
@@ -76,13 +82,12 @@ onMounted(async () => {
 
 // Copier le lien dans le presse-papier
 const copierLienParrainage = () => {
-  // 🔹 Lien fixe pour localhost avec le code parrainage dynamique
-  const url = `http://localhost:5173/formations?code=${selectedUser.value.code_parrainage}`;
+  const url = `${baseUrl}/formations?code=${selectedUser.value.code_parrainage}`;
   navigator.clipboard.writeText(url);
   alert("Lien de parrainage copié dans le presse-papier ! 🚀");
 };
-
 </script>
+
 
 <style scoped>
 .dashboard {
